@@ -1,0 +1,15 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'visualization.blg'
+[92] biber:340> INFO - === lun may 20, 2024, 20:11:15
+[109] Biber.pm:419> INFO - Reading 'visualization.bcf'
+[198] Biber.pm:979> INFO - Found 4 citekeys in bib section 0
+[214] Biber.pm:4419> INFO - Processing section 0
+[227] Biber.pm:4610> INFO - Looking for bibtex file 'references.bib' for section 0
+[229] bibtex.pm:1713> INFO - LaTeX decoding ...
+[238] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
+[301] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[301] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[301] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'es-ES'
+[312] bbl.pm:660> INFO - Writing 'visualization.bbl' with encoding 'ascii'
+[312] bbl.pm:661> INFO - Converting UTF-8 to TeX macros on output to .bbl
+[319] bbl.pm:763> INFO - Output to visualization.bbl

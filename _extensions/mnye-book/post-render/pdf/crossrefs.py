@@ -38,14 +38,15 @@ def crossref_dict():
     return crossref 
 
 def prettify_line_refs(line, dict = crossref_dict()):
-   for label_prefix in dict:
-       prefix = dict[label_prefix]["prefix"]
-       fragment = prefix + "~\\ref" 
-       if fragment in line:
-           csname = dict[label_prefix]["csname"]
-           new_fragment = "\\" + csname
-           line = new_fragment.join(line.split(fragment))
-   return line
+    for label_prefix in dict:
+        if "prefix" in dict[label_prefix]:
+            prefix = dict[label_prefix]["prefix"]
+            fragment = prefix + "~\\ref" 
+            if fragment in line:
+                csname = dict[label_prefix]["csname"]
+                new_fragment = "\\" + csname
+                line = new_fragment.join(line.split(fragment))
+    return line
 
 def prettify_refs(tex_file):
     lines = []

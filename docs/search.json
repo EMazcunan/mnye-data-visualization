@@ -10,39 +10,64 @@
     ]
   },
   {
+    "objectID": "chapters/intro.html",
+    "href": "chapters/intro.html",
+    "title": "Introducción",
+    "section": "",
+    "text": "Los pingüinos del archipiélago Palmer\nPresentaremos las diferentes técnicas a través de ejemplos trabajando con un conjunto de datos relativos a diferentes características de tres especies de pingüinos del archipiélago Palmer en la Antártida.\nLos datos fueron originalmente publicados en Gorman, Williams, y Fraser (2014). Este conjunto de datos se hizo popular a partir de la creación del paquete palmerpenguins de R. Hoy en día los datos de los pingüinos del archipiélago Palmer se usan de forma extendida para ilustrar las técnicas de exploración y visualización de datos no solo en R, sino en muchos otros lenguajes de programación para estadística y ciencia de datos, como Python. Nosotros accederemos a los datos a través de este enlace, que proporciona los datos en formato CSV (comma separated values).",
+    "crumbs": [
+      "Introducción"
+    ]
+  },
+  {
     "objectID": "chapters/intro.html#los-pingüinos-del-archipiélago-palmer",
     "href": "chapters/intro.html#los-pingüinos-del-archipiélago-palmer",
     "title": "Introducción",
-    "section": "Los pingüinos del archipiélago Palmer",
-    "text": "Los pingüinos del archipiélago Palmer\nPresentaremos las diferentes técnicas a través de ejemplos trabajando con un conjunto de datos relativos a diferentes características de tres especies de pingüinos del archipiélago Palmer en la Antártida.\n\n\n\nIlustración de las tres especies de pingüinos del archipiélago Palmer (Artista @allison_horst)\n\n\nLos datos fueron originalmente publicados en Gorman, Williams, y Fraser (2014). Este conjunto de datos se hizo popular a partir de la creación del paquete palmerpenguins de R. Hoy en día los datos de los pingüinos del archipiélago Palmer se usan de forma extendida para ilustrar las técnicas de exploración y visualización de datos no solo en R, sino en muchos otros lenguajes de programación para estadística y ciencia de datos, como Python. Nosotros accederemos a los datos a través de este enlace, que proporciona los datos en formato CSV (comma separated values)."
+    "section": "",
+    "text": "Ilustración de las tres especies de pingüinos del archipiélago Palmer (Artista @allison_horst)",
+    "crumbs": [
+      "Introducción"
+    ]
   },
   {
     "objectID": "chapters/intro.html#objetivos",
     "href": "chapters/intro.html#objetivos",
     "title": "Introducción",
     "section": "Objetivos",
-    "text": "Objetivos\nAprenderás en concreto a calcular las medidas descriptivas más representativas de las características de interés y a crear diferentes tipos de gráficos o visualizaciones.\n\n\n\n\nGorman, KB, TD Williams, y WR Fraser. 2014. «Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus Pygoscelis)». PLoS ONE 9 (3). https://doi.org/10.1371/journal.pone.0090081.\n\n\nMcKinney, Wes. 2010. «Data Structures for Statistical Computing in Python». En Proceedings of the 9th Python in Science Conference, editado por Stéfan van der Walt y Jarrod Millman, 56-61. https://doi.org/ 10.25080/Majora-92bf1922-00a .\n\n\nThe pandas development team. 2020. «pandas-dev/pandas: Pandas». Zenodo. https://doi.org/10.5281/zenodo.3509134.\n\n\nWaskom, Michael L. 2021. «seaborn: statistical data visualization». Journal of Open Source Software 6 (60): 3021. https://doi.org/10.21105/joss.03021."
+    "text": "Objetivos\nAprenderás en concreto a calcular las medidas descriptivas más representativas de las características de interés y a crear diferentes tipos de gráficos o visualizaciones.\n\n\n\n\nGorman, KB, TD Williams, y WR Fraser. 2014. «Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus Pygoscelis)». PLoS ONE 9 (3). https://doi.org/10.1371/journal.pone.0090081.\n\n\nMcKinney, Wes. 2010. «Data Structures for Statistical Computing in Python». En Proceedings of the 9th Python in Science Conference, editado por Stéfan van der Walt y Jarrod Millman, 56-61. https://doi.org/ 10.25080/Majora-92bf1922-00a .\n\n\nThe pandas development team. 2020. «pandas-dev/pandas: Pandas». Zenodo. https://doi.org/10.5281/zenodo.3509134.\n\n\nWaskom, Michael L. 2021. «seaborn: statistical data visualization». Journal of Open Source Software 6 (60): 3021. https://doi.org/10.21105/joss.03021.",
+    "crumbs": [
+      "Introducción"
+    ]
   },
   {
-    "objectID": "chapters/libraries.html#pandas",
-    "href": "chapters/libraries.html#pandas",
+    "objectID": "chapters/libraries.html",
+    "href": "chapters/libraries.html",
     "title": "1  Librerías",
-    "section": "1.1 pandas",
-    "text": "1.1 pandas\n\n\n\n\n\npandas es una librería que permite leer datos almacenados en estructuras similares a una tabla, como las hojas de cálculo o los archivos CSV, y proporciona métodos para explorar y describir esos datos.\nUsando esta librería podremos calcular por ejemplo el peso medio de los pingüinos de cada especie. Obtendremos esta tabla:\n\n\nspecies\nAdelie       3700.662252\nChinstrap    3733.088235\nGentoo       5076.016260\nName: body_mass_g, dtype: float64\n\n\nPuedes consultar la documentación oficial de pandas aquí."
+    "section": "",
+    "text": "1.1 pandas\npandas es una librería que permite leer datos almacenados en estructuras similares a una tabla, como las hojas de cálculo o los archivos CSV, y proporciona métodos para explorar y describir esos datos.\nUsando esta librería podremos calcular por ejemplo el peso medio de los pingüinos de cada especie. Obtendremos esta tabla:\nspecies\nAdelie       3700.662252\nChinstrap    3733.088235\nGentoo       5076.016260\nName: body_mass_g, dtype: float64\nPuedes consultar la documentación oficial de pandas aquí.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Librerías</span>"
+    ]
   },
   {
     "objectID": "chapters/libraries.html#seaborn",
     "href": "chapters/libraries.html#seaborn",
     "title": "1  Librerías",
     "section": "1.2 seaborn",
-    "text": "1.2 seaborn\n\n\n\n\n\nseaborn es una librería para visualización de datos. Permite crear gráficos estadísticos muy informativos y visualmente atractivos con pocas líneas de código. Y está diseñado para trabajar con las estructuras de datos creadas con pandas.\nUsaremos seaborn para realizar diferentes tipos de gráficos como diagramas de barras, histogramas, diagramas de caja y bigotes etc.\nAprenderemos por ejemplo a crear el siguiente gráfico, con los diagramas de caja y bigotes para el peso de los pingüinos de cada especie.\n\n\n\n\n\nPuedes consultar la documentación oficial de seaborn aquí. \n\n\n\n\nMcKinney, Wes. 2010. «Data Structures for Statistical Computing in Python». En Proceedings of the 9th Python in Science Conference, editado por Stéfan van der Walt y Jarrod Millman, 56-61. https://doi.org/ 10.25080/Majora-92bf1922-00a .\n\n\nThe pandas development team. 2020. «pandas-dev/pandas: Pandas». Zenodo. https://doi.org/10.5281/zenodo.3509134.\n\n\nWaskom, Michael L. 2021. «seaborn: statistical data visualization». Journal of Open Source Software 6 (60): 3021. https://doi.org/10.21105/joss.03021."
+    "text": "1.2 seaborn\n\n\n\n\n\nseaborn es una librería para visualización de datos. Permite crear gráficos estadísticos muy informativos y visualmente atractivos con pocas líneas de código. Y está diseñado para trabajar con las estructuras de datos creadas con pandas.\nUsaremos seaborn para realizar diferentes tipos de gráficos como diagramas de barras, histogramas, diagramas de caja y bigotes etc.\nAprenderemos por ejemplo a crear el siguiente gráfico, con los diagramas de caja y bigotes para el peso de los pingüinos de cada especie.\n\n\n\n\n\n\n\n\n\nPuedes consultar la documentación oficial de seaborn aquí. \n\n\n\n\nMcKinney, Wes. 2010. «Data Structures for Statistical Computing in Python». En Proceedings of the 9th Python in Science Conference, editado por Stéfan van der Walt y Jarrod Millman, 56-61. https://doi.org/ 10.25080/Majora-92bf1922-00a .\n\n\nThe pandas development team. 2020. «pandas-dev/pandas: Pandas». Zenodo. https://doi.org/10.5281/zenodo.3509134.\n\n\nWaskom, Michael L. 2021. «seaborn: statistical data visualization». Journal of Open Source Software 6 (60): 3021. https://doi.org/10.21105/joss.03021.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Librerías</span>"
+    ]
   },
   {
-    "objectID": "chapters/data.html#importar-los-datos",
-    "href": "chapters/data.html#importar-los-datos",
+    "objectID": "chapters/data.html",
+    "href": "chapters/data.html",
     "title": "2  Datos",
-    "section": "2.1 Importar los datos",
-    "text": "2.1 Importar los datos\nComo se indicó en la introducción, los datos con los que vamos a trabajar están disponibles en la web en un fichero de formato CSV.\nEjecuta las instrucciones a continuación para importar el archivo usando la función read_csv() y guardar el resultado en una variable de nombre penguins:\n\nurl = \"https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv\"\npenguins = pd.read_csv(url)\n\nEl objeto penguins que acabas de crear es una hoja de datos, representada en pandas con la clase DataFrame.\n\ntype(penguins)\n\npandas.core.frame.DataFrame\n\n\nEn los siguientes apartados aprenderás a realizar una exploración inicial de la hoja de datos penguins que acabas de crear para conocer su estructura y la información que contiene."
+    "section": "",
+    "text": "2.1 Importar los datos\nComo se indicó en la introducción, los datos con los que vamos a trabajar están disponibles en la web en un fichero de formato CSV.\nEjecuta las instrucciones a continuación para importar el archivo usando la función read_csv() y guardar el resultado en una variable de nombre penguins:\nurl = \"https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv\"\npenguins = pd.read_csv(url)\nEl objeto penguins que acabas de crear es una hoja de datos, representada en pandas con la clase DataFrame.\ntype(penguins)\n\npandas.core.frame.DataFrame\nEn los siguientes apartados aprenderás a realizar una exploración inicial de la hoja de datos penguins que acabas de crear para conocer su estructura y la información que contiene.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Datos</span>"
+    ]
   },
   {
     "objectID": "chapters/data.html#dimensiones",
@@ -95,6 +120,16 @@
     ]
   },
   {
+    "objectID": "chapters/subset-variables.html",
+    "href": "chapters/subset-variables.html",
+    "title": "3  Seleccionar variables",
+    "section": "",
+    "text": "3.1 Seleccionar una variable\nUtiliza la siguiente instrucción para seleccionar la variable body_mass_g:\nmass = penguins[\"body_mass_g\"]\nAhora podemos aplicar la función max() para obtener el peso máximo:\nmass.max()\n\n6300.0\nVemos que el pingüino más pesado del estudio pesa \\(6\\) kilos y \\(300\\) gramos.\nPodemos realizar las dos operaciones anteriores, seleccionar la variable body_mass_g, y calcular su máximo con una sola instrucción:\npenguins[\"body_mass_g\"].max()\n\n6300.0\nObtenemos el mismo resultado de antes.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Seleccionar variables</span>"
+    ]
+  },
+  {
     "objectID": "chapters/subset-variables.html#sec-subset-one-variable",
     "href": "chapters/subset-variables.html#sec-subset-one-variable",
     "title": "3  Seleccionar variables",
@@ -109,9 +144,19 @@
     "href": "chapters/subset-variables.html#sec-subset-several-variables",
     "title": "3  Seleccionar variables",
     "section": "3.2 Seleccionar una lista de variables",
-    "text": "3.2 Seleccionar una lista de variables\nPara seleccionar las dos variables relativas a las dimensiones del pico, bill_length_mm y bill_depth_mm, ejecuta la siguiente instrucción:\n\nbill = penguins[[\"bill_length_mm\", \"bill_depth_mm\"]]\n\n\n\n\n\n\n\nPara seleccionar una lista de variables, usa corchetes [] adicionales para crear la lista con los nombres de las columnas de interés (los corchetes exteriores indican que se van a seleccionar datos y los interiores crean la lista).\n\n\n\nAhora podemos calcular la media para ambas variables con\n\nbill.mean()\n\nbill_length_mm    43.92193\nbill_depth_mm     17.15117\ndtype: float64\n\n\nVemos que los picos de los pingüinos tiene una longitud media de \\(43.92\\) milímetros y una anchura media de \\(17.15\\) milímetros.\n\nEjercicio 3.3 Calcula el número de observaciones no nulas (función count()) para las variables species y body_mass_g con una sola línea de código.\n\n\n\n\n\n\nMcKinney, Wes. 2010. «Data Structures for Statistical Computing in Python». En Proceedings of the 9th Python in Science Conference, editado por Stéfan van der Walt y Jarrod Millman, 56-61. https://doi.org/ 10.25080/Majora-92bf1922-00a .\n\n\nThe pandas development team. 2020. «pandas-dev/pandas: Pandas». Zenodo. https://doi.org/10.5281/zenodo.3509134.\n\n\nWaskom, Michael L. 2021. «seaborn: statistical data visualization». Journal of Open Source Software 6 (60): 3021. https://doi.org/10.21105/joss.03021.",
+    "text": "3.2 Seleccionar una lista de variables\nPara seleccionar las dos variables relativas a las dimensiones del pico, bill_length_mm y bill_depth_mm, ejecuta la siguiente instrucción:\n\nbill = penguins[[\"bill_length_mm\", \"bill_depth_mm\"]]\n\n\n\n\n\n\n\nPara seleccionar una lista de variables, usa corchetes [] adicionales para crear la lista con los nombres de las columnas de interés (los corchetes exteriores indican que se van a seleccionar datos y los interiores crean la lista).\n\n\n\nAhora podemos calcular la media para ambas variables con\n\nbill.mean()\n\nbill_length_mm    43.92193\nbill_depth_mm     17.15117\ndtype: float64\n\n\nVemos que los picos de los pingüinos tienen una longitud media de \\(43.92\\) milímetros y una anchura media de \\(17.15\\) milímetros.\n\nEjercicio 3.3 Calcula el número de observaciones no nulas (función count()) para las variables species y body_mass_g con una sola línea de código.\n\n\n\n\n\n\nMcKinney, Wes. 2010. «Data Structures for Statistical Computing in Python». En Proceedings of the 9th Python in Science Conference, editado por Stéfan van der Walt y Jarrod Millman, 56-61. https://doi.org/ 10.25080/Majora-92bf1922-00a .\n\n\nThe pandas development team. 2020. «pandas-dev/pandas: Pandas». Zenodo. https://doi.org/10.5281/zenodo.3509134.\n\n\nWaskom, Michael L. 2021. «seaborn: statistical data visualization». Journal of Open Source Software 6 (60): 3021. https://doi.org/10.21105/joss.03021.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Seleccionar variables</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/1categorical.html",
+    "href": "chapters/1categorical.html",
+    "title": "4  Una variable categórica",
+    "section": "",
+    "text": "4.1 El método describe()\nPara obtener la información más relevante sobre la distribución de las especies de pingüinos aplicamos a species el método describe():\nspecies.describe()\n\ncount        344\nunique         3\ntop       Adelie\nfreq         152\nName: species, dtype: object\nDe la salida anterior obtenemos la siguiente información sobre la variable species:",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Una variable categórica</span>"
     ]
   },
   {
@@ -119,7 +164,7 @@
     "href": "chapters/1categorical.html#sec-1categorical-describe",
     "title": "4  Una variable categórica",
     "section": "",
-    "text": "Fragmento de la salida\nSignificado\n\n\n\n\ncount   344\nHay \\(344\\) valores no nulos, así que se conoce la especie de todos los pingüinos del estudio.\n\n\nunique    3\nLa variable toma tres valores diferentes, es decir, hay tres categorías (las tres especies Adelie, Chinstrap y Gentto).\n\n\ntop  Adelie\nLa categoría top o más frecuente, es decir, la especie más numerosa es la especie Adelie.\n\n\nfreq    152\nEl número de pingüinos de la especie Adelie (la categoría top) es \\(152\\).\n\n\n\n\nEjercicio 4.1 Utiliza el método describe() para obtener información sobre la distribución de los pingüinos por islas.",
+    "text": "Fragmento de la salida\nSignificado\n\n\n\n\ncount   344\nHay \\(344\\) valores no nulos, así que se conoce la especie de todos los pingüinos del estudio.\n\n\nunique    3\nLa variable toma tres valores diferentes, es decir, hay tres categorías (las tres especies Adelie, Chinstrap y Gentooo).\n\n\ntop  Adelie\nLa categoría top o más frecuente, es decir, la especie más numerosa es la especie Adelie.\n\n\nfreq    152\nEl número de pingüinos de la especie Adelie (la categoría top) es \\(152\\).\n\n\n\n\nEjercicio 4.1 Utiliza el método describe() para obtener información sobre la distribución de los pingüinos por islas.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Una variable categórica</span>"
     ]
@@ -139,7 +184,7 @@
     "href": "chapters/1categorical.html#diagrama-de-recuentos",
     "title": "4  Una variable categórica",
     "section": "4.3 Diagrama de recuentos",
-    "text": "4.3 Diagrama de recuentos\nUn diagrama de recuentos asocia a cada categoría una barra de longitud igual al número de observaciones en esa categoría.\nPara realizar un diagrama del recuento de pingüinos por especie usamos la función countplot() del paquete seaborn\n\nsns.countplot(data=penguins, x=\"species\");\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSi quitas el punto y coma ; al final de la instrucción anterior aparecerá el mensaje\n&lt;AxesSubplot:xlabel='count', ylabel='species'&gt;\nen la salida antes del gráfico.\nAl terminar una instrucción con punto y coma ; se inhibe la impresión de la salida.\n\n\n\nNota que las alturas de las barras en el gráfico anterior coindicen con los recuentos que hemos calculado en el apartado anterior con value_counts().\nA veces es preferible usar barras horizontales, porque se tiene más especio para las etiquetas de las categorías.\n\nsns.countplot(data=penguins, y=\"species\");\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPara realizar un diagrama de recuentos de las categorías de una variable categórica, usa la función countplot() deseaborn. E indica:\n\nEl nombre de la hoja de datos como valor del argumento data.\nEl nombre de la variable categórica como valor del argumento x si quieres barras verticales, o como valor del argumento y si quieres barras horizontales.\n\n\n\n\n\nEjercicio 4.3 Crea un diagrama de recuentos para el número de hembras y machos, con barras verticales.\n\n\nEjercicio 4.4 Crea un diagrama de recuentos para el número de pingüinos en cada isla, con barras horizontales.",
+    "text": "4.3 Diagrama de recuentos\nUn diagrama de recuentos asocia a cada categoría una barra de longitud igual al número de observaciones en esa categoría.\nPara realizar un diagrama del recuento de pingüinos por especie usamos la función countplot() del paquete seaborn\n\nsns.countplot(data=penguins, x=\"species\");\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSi quitas el punto y coma ; al final de la instrucción anterior aparecerá el mensaje\n&lt;AxesSubplot:xlabel='count', ylabel='species'&gt;\nen la salida antes del gráfico.\nAl terminar una instrucción con punto y coma ; se inhibe la impresión de la salida.\n\n\n\nNota que las alturas de las barras en el gráfico anterior coindicen con los recuentos que hemos calculado en el apartado anterior con value_counts().\nA veces es preferible usar barras horizontales, porque se tiene más espacio para las etiquetas de las categorías.\n\nsns.countplot(data=penguins, y=\"species\");\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPara realizar un diagrama de recuentos de las categorías de una variable categórica, usa la función countplot() deseaborn. E indica:\n\nEl nombre de la hoja de datos como valor del argumento data.\nEl nombre de la variable categórica como valor del argumento x si quieres barras verticales, o como valor del argumento y si quieres barras horizontales.\n\n\n\n\n\nEjercicio 4.3 Crea un diagrama de recuentos para el número de hembras y machos, con barras verticales.\n\n\nEjercicio 4.4 Crea un diagrama de recuentos para el número de pingüinos en cada isla, con barras horizontales.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Una variable categórica</span>"
     ]
@@ -152,6 +197,16 @@
     "text": "4.4 Personalización de los gráficos (opcional)\nLos gráficos de la librería seaborn admiten muchas opciones para personalizar su aspecto cambiando por ejemplo los colores, los rótulos de los ejes, etc.\nLa personalización de los gráficos no carece de importancia, siendo especialmente relevante dar títulos descriptivos a los ejes. Pero en esta práctica nos centraremos en los procedimientos para realizar los gráficos y en la mayoría de ocasiones omitiremos los detalles de personalización de los mismos, que pueden consultarse en la documentación de seaborn.\nEn este apartado se da una muestra de las opciones para personalizar los diagramas de recuentos que se han presentado en el apartado anterior. Se trata de un apartado opcional y puedes por ahora omitir su lectura y volver a él al final de la práctica.\n\n4.4.1 Colores\nSi quieres cambiar el color de las barras usa el argumento color:\n\nsns.countplot(data=penguins, x=\"species\", color=\"coral\");\n\n\n\n\n\n\n\n\nPuedes ver los colores disponibles aquí.\nPara utilizar un color diferente para la barra de cada categoría usa el argumento hue:\n\nsns.countplot(data=penguins, x=\"species\", hue=\"species\");\n\n\n\n\n\n\n\n\nTambién se puede indicar una secuencia de colores personalizada usando el argumento palette:\n\nsns.countplot(data=penguins, x=\"species\", hue=\"species\", palette=[\"steelblue\", \"coral\", \"gold\"]);\n\n\n\n\n\n\n\n\nComo valor para palette se puede indicar una lista de colores, como en el ejemplo anterior, o el nombre de una de las paletes predefinidas (deep, muted, pastel, bright, dark y colorblind), como en el siguiente ejemplo:\n\nsns.countplot(data=penguins, x=\"species\", hue=\"species\", palette=\"colorblind\");\n\n\n\n4.4.2 Rótulos\nCon el siguiente código personalizamos los títulos de los ejes y damos un título global al gráfico\n\nax = sns.countplot(data=penguins, x=\"species\")\nax.set(\n    title=\"Número de pingüinos de cada especie\",\n    xlabel=\"Especie\", \n    ylabel=\"Número de pingüinos\"\n);\n\n\n\n\n\n\n\n\n\n\n4.4.3 Orden de los niveles\nSi te fijas en los gráficos que has hecho hasta ahora, apreciarás que las categorías aparecen en los gráficos en el mismo orden en el que aparecen en las filas de la hoja de datos.\nSi quieres un orden personalizado para las categorías puedes usar el argumento order, como en el siguiente ejemplo:\n\nsns.countplot(data=penguins, x=\"species\", order = ['Chinstrap', 'Adelie', 'Gentoo']);\n\n\n\n\n\n\n\n\nCon el siguiente código ordenamos las categorías de mayor a menor frecuencia.\n\nsns.countplot(data=penguins, x=\"species\", order = species.value_counts().index);\n\n\n\n\n\n\n\n\n\n\n\n\nMcKinney, Wes. 2010. «Data Structures for Statistical Computing in Python». En Proceedings of the 9th Python in Science Conference, editado por Stéfan van der Walt y Jarrod Millman, 56-61. https://doi.org/ 10.25080/Majora-92bf1922-00a .\n\n\nThe pandas development team. 2020. «pandas-dev/pandas: Pandas». Zenodo. https://doi.org/10.5281/zenodo.3509134.\n\n\nWaskom, Michael L. 2021. «seaborn: statistical data visualization». Journal of Open Source Software 6 (60): 3021. https://doi.org/10.21105/joss.03021.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Una variable categórica</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/1numerical.html",
+    "href": "chapters/1numerical.html",
+    "title": "5  Una variable numérica",
+    "section": "",
+    "text": "5.1 El método describe()\nEl método describe() que usamos en la sección anterior para una variable categórica, también puede aplicarse a variables numéricas.\nSi lo aplicamos a mass obtenemos el siguiente resultado:\nmass.describe()\n\ncount     342.000000\nmean     4201.754386\nstd       801.954536\nmin      2700.000000\n25%      3550.000000\n50%      4050.000000\n75%      4750.000000\nmax      6300.000000\nName: body_mass_g, dtype: float64\nLa información que obtenemos de la salida anterior sobre la distribución del peso de los pingüinos es la siguiente:",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Una variable numérica</span>"
     ]
   },
   {
@@ -185,6 +240,16 @@
     ]
   },
   {
+    "objectID": "chapters/groupby.html",
+    "href": "chapters/groupby.html",
+    "title": "6  Agrupar por categorías",
+    "section": "",
+    "text": "Ejemplo 1: Primeras filas de cada especie\nPara ver los datos de los tres primeros pingüinos de cada especie, ejecuta la instrucción siguiente:\npenguins.groupby(\"species\").head(3)\n\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nMALE\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nFEMALE\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nFEMALE\n\n\n152\nChinstrap\nDream\n46.5\n17.9\n192.0\n3500.0\nFEMALE\n\n\n153\nChinstrap\nDream\n50.0\n19.5\n196.0\n3900.0\nMALE\n\n\n154\nChinstrap\nDream\n51.3\n19.2\n193.0\n3650.0\nMALE\n\n\n220\nGentoo\nBiscoe\n46.1\n13.2\n211.0\n4500.0\nFEMALE\n\n\n221\nGentoo\nBiscoe\n50.0\n16.3\n230.0\n5700.0\nMALE\n\n\n222\nGentoo\nBiscoe\n48.7\n14.1\n210.0\n4450.0\nFEMALE\nObserva que en la salida anterior se muestran:\nAnalicemos, paso por paso, lo que ocurre al ejecutar la instrucción penguins.groupby(\"species\").head(3):",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Agrupar por categorías</span>"
+    ]
+  },
+  {
     "objectID": "chapters/groupby.html#ejemplo-1-primeras-filas-de-cada-especie",
     "href": "chapters/groupby.html#ejemplo-1-primeras-filas-de-cada-especie",
     "title": "6  Agrupar por categorías",
@@ -212,6 +277,16 @@
     "text": "Ejemplo 3: Recuento del número de pingüinos de cada especie\nEl método value_counts() que usamos en la Sección 4.2 para obtener una tabla de recuentos del número de pingüinos de cada especie es en el fondo la combinación de una operación de agrupación y la aplicación del método count(). De hecho es equivalente a\n\npenguins.groupby(\"species\")[\"species\"].count()\n\nspecies\nAdelie       152\nChinstrap     68\nGentoo       124\nName: species, dtype: int64\n\n\n\nEjercicio 6.1 Combina los métodos groupby() y mean() para calcular el peso medio de los pingüinos que viven en cada isla.\n\n\nEjercicio 6.2 Combina los métodos groupby() y median() para calcular la mediana de la longitud del pico de las hembras y de los machos.\n\n\nEjercicio 6.3 Combina los métodos groupby() y value_counts() para calcular cuántos pingüinos de cada especie viven en cada isla.\nAnaliza el resultado para responder a las siguientes preguntas:\n\n¿cuál es la única especie de pingüinos presente en las tres islas?\n¿en qué islas viven los pingüinos de la especie Chinstrap?\n¿qué especies de pingüinos hay en la isla Biscoe?\n\n\n\n\n\n\nMcKinney, Wes. 2010. «Data Structures for Statistical Computing in Python». En Proceedings of the 9th Python in Science Conference, editado por Stéfan van der Walt y Jarrod Millman, 56-61. https://doi.org/ 10.25080/Majora-92bf1922-00a .\n\n\nThe pandas development team. 2020. «pandas-dev/pandas: Pandas». Zenodo. https://doi.org/10.5281/zenodo.3509134.\n\n\nWaskom, Michael L. 2021. «seaborn: statistical data visualization». Journal of Open Source Software 6 (60): 3021. https://doi.org/10.21105/joss.03021.",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Agrupar por categorías</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/numerical_by_categorical.html",
+    "href": "chapters/numerical_by_categorical.html",
+    "title": "7  Una variable numérica por categorías",
+    "section": "",
+    "text": "7.1 El método describe()\nEl método describe() que usamos en la Sección 5.1 para obtener un resumen de la distribución del peso de todos los pingüinos, también puede aplicarse al peso agrupado por especies:\npenguins.groupby(\"species\")[\"body_mass_g\"].describe()\n\n\n\n\n\n\n\n\n\ncount\nmean\nstd\nmin\n25%\n50%\n75%\nmax\n\n\nspecies\n\n\n\n\n\n\n\n\n\n\n\n\nAdelie\n151.0\n3700.662252\n458.566126\n2850.0\n3350.0\n3700.0\n4000.0\n4775.0\n\n\nChinstrap\n68.0\n3733.088235\n384.335081\n2700.0\n3487.5\n3700.0\n3950.0\n4800.0\n\n\nGentoo\n123.0\n5076.016260\n504.116237\n3950.0\n4700.0\n5000.0\n5500.0\n6300.0\nVemos que obtenemos una tabla con el resultado combinado de aplicar el método describe() en el grupo de datos correspondiente a cada una de las tres especies.\nInterpretamos los resultados en las columnas de rótulo count, mean, 50% y max:",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Una variable numérica por categorías</span>"
     ]
   },
   {
@@ -252,66 +327,6 @@
     "text": "Gorman, KB, TD Williams, and WR Fraser. 2014. “Ecological Sexual\nDimorphism and Environmental Variability Within a Community of Antarctic\nPenguins (Genus Pygoscelis).” PLoS ONE 9 (3). https://doi.org/10.1371/journal.pone.0090081.\n\n\nMcKinney, Wes. 2010. “Data Structures\nfor Statistical Computing in\nPython.” In Proceedings of the 9th\nPython in Science\nConference, edited by Stéfan van der Walt and Jarrod\nMillman, 56–61. https://doi.org/\n10.25080/Majora-92bf1922-00a .\n\n\nThe pandas development team. 2020. “Pandas-Dev/Pandas:\nPandas.” Zenodo. https://doi.org/10.5281/zenodo.3509134.\n\n\nWaskom, Michael L. 2021. “Seaborn: Statistical Data\nVisualization.” Journal of Open Source Software 6 (60):\n3021. https://doi.org/10.21105/joss.03021.",
     "crumbs": [
       "Referencias"
-    ]
-  },
-  {
-    "objectID": "chapters/1categorical.html",
-    "href": "chapters/1categorical.html",
-    "title": "4  Una variable categórica",
-    "section": "",
-    "text": "4.1 El método describe()\nPara obtener la información más relevante sobre la distribución de las especies de pingüinos aplicamos a species el método describe():\nspecies.describe()\n\ncount        344\nunique         3\ntop       Adelie\nfreq         152\nName: species, dtype: object\nDe la salida anterior obtenemos la siguiente información sobre la variable species:",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Una variable categórica</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/data.html",
-    "href": "chapters/data.html",
-    "title": "2  Datos",
-    "section": "",
-    "text": "2.1 Importar los datos\nComo se indicó en la introducción, los datos con los que vamos a trabajar están disponibles en la web en un fichero de formato CSV.\nEjecuta las instrucciones a continuación para importar el archivo usando la función read_csv() y guardar el resultado en una variable de nombre penguins:\nurl = \"https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv\"\npenguins = pd.read_csv(url)\nEl objeto penguins que acabas de crear es una hoja de datos, representada en pandas con la clase DataFrame.\ntype(penguins)\n\npandas.core.frame.DataFrame\nEn los siguientes apartados aprenderás a realizar una exploración inicial de la hoja de datos penguins que acabas de crear para conocer su estructura y la información que contiene.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Datos</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/1numerical.html",
-    "href": "chapters/1numerical.html",
-    "title": "5  Una variable numérica",
-    "section": "",
-    "text": "5.1 El método describe()\nEl método describe() que usamos en la sección anterior para una variable categórica, también puede aplicarse a variables numéricas.\nSi lo aplicamos a mass obtenemos el siguiente resultado:\nmass.describe()\n\ncount     342.000000\nmean     4201.754386\nstd       801.954536\nmin      2700.000000\n25%      3550.000000\n50%      4050.000000\n75%      4750.000000\nmax      6300.000000\nName: body_mass_g, dtype: float64\nLa información que obtenemos de la salida anterior sobre la distribución del peso de los pingüinos es la siguiente:",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Una variable numérica</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/groupby.html",
-    "href": "chapters/groupby.html",
-    "title": "6  Agrupar por categorías",
-    "section": "",
-    "text": "Ejemplo 1: Primeras filas de cada especie\nPara ver los datos de los tres primeros pingüinos de cada especie, ejecuta la instrucción siguiente:\npenguins.groupby(\"species\").head(3)\n\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nMALE\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nFEMALE\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nFEMALE\n\n\n152\nChinstrap\nDream\n46.5\n17.9\n192.0\n3500.0\nFEMALE\n\n\n153\nChinstrap\nDream\n50.0\n19.5\n196.0\n3900.0\nMALE\n\n\n154\nChinstrap\nDream\n51.3\n19.2\n193.0\n3650.0\nMALE\n\n\n220\nGentoo\nBiscoe\n46.1\n13.2\n211.0\n4500.0\nFEMALE\n\n\n221\nGentoo\nBiscoe\n50.0\n16.3\n230.0\n5700.0\nMALE\n\n\n222\nGentoo\nBiscoe\n48.7\n14.1\n210.0\n4450.0\nFEMALE\nObserva que en la salida anterior se muestran:\nAnalicemos, paso por paso, lo que ocurre al ejecutar la instrucción penguins.groupby(\"species\").head(3):",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Agrupar por categorías</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/subset-variables.html",
-    "href": "chapters/subset-variables.html",
-    "title": "3  Seleccionar variables",
-    "section": "",
-    "text": "3.1 Seleccionar una variable\nUtiliza la siguiente instrucción para seleccionar la variable body_mass_g:\nmass = penguins[\"body_mass_g\"]\nAhora podemos aplicar la función max() para obtener el peso máximo:\nmass.max()\n\n6300.0\nVemos que el pingüino más pesado del estudio pesa \\(6\\) kilos y \\(300\\) gramos.\nPodemos realizar las dos operaciones anteriores, seleccionar la variable body_mass_g, y calcular su máximo con una sola instrucción:\npenguins[\"body_mass_g\"].max()\n\n6300.0\nObtenemos el mismo resultado de antes.",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Seleccionar variables</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/numerical_by_categorical.html",
-    "href": "chapters/numerical_by_categorical.html",
-    "title": "7  Una variable numérica por categorías",
-    "section": "",
-    "text": "7.1 El método describe()\nEl método describe() que usamos en la Sección 5.1 para obtener un resumen de la distribución del peso de todos los pingüinos, también puede aplicarse al peso agrupado por especies:\npenguins.groupby(\"species\")[\"body_mass_g\"].describe()\n\n\n\n\n\n\n\n\n\ncount\nmean\nstd\nmin\n25%\n50%\n75%\nmax\n\n\nspecies\n\n\n\n\n\n\n\n\n\n\n\n\nAdelie\n151.0\n3700.662252\n458.566126\n2850.0\n3350.0\n3700.0\n4000.0\n4775.0\n\n\nChinstrap\n68.0\n3733.088235\n384.335081\n2700.0\n3487.5\n3700.0\n3950.0\n4800.0\n\n\nGentoo\n123.0\n5076.016260\n504.116237\n3950.0\n4700.0\n5000.0\n5500.0\n6300.0\nVemos que obtenemos una tabla con el resultado combinado de aplicar el método describe() en el grupo de datos correspondiente a cada una de las tres especies.\nInterpretamos los resultados en las columnas de rótulo count, mean, 50% y max:",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Una variable numérica por categorías</span>"
     ]
   }
 ]

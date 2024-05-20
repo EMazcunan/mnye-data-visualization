@@ -386,9 +386,9 @@ backToTopButton.addEventListener("click", function () {
 <section id="ejemplo-1-primeras-filas-de-cada-especie" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="ejemplo-1-primeras-filas-de-cada-especie">Ejemplo 1: Primeras filas de cada especie</h2>
 <p>Para ver los datos de los tres primeros pingüinos de cada especie, ejecuta la instrucción siguiente:</p>
-<div id="cbdc2288" class="cell" data-execution_count="2">
+<div id="72a3e406" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>penguins.groupby(<span class="st">"species"</span>).head(<span class="dv">3</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 <div>
 
@@ -513,9 +513,9 @@ backToTopButton.addEventListener("click", function () {
 <p>Analicemos, paso por paso, lo que ocurre al ejecutar la instrucción <code>penguins.groupby("species").head(3)</code>:</p>
 <ol type="1">
 <li><p><code>penguins.groupby("species")</code> parte la hoja de datos <code>penguins</code> en tres grupos correspondientes a las tres especies. Esta operación devuelve un objeto de un nuevo tipo llamado <code>DataFrameGroupBy</code>:</p>
-<div id="0b9ccf78" class="cell" data-execution_count="3">
+<div id="3b14a3d7" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(penguins.groupby(<span class="st">"species"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>pandas.core.groupby.generic.DataFrameGroupBy</code></pre>
 </div>
 </div>
@@ -532,9 +532,9 @@ backToTopButton.addEventListener("click", function () {
 <section id="ejemplo-2-peso-máximo-de-cada-especie" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="ejemplo-2-peso-máximo-de-cada-especie">Ejemplo 2: Peso máximo de cada especie</h2>
 <p>Para obtener el peso máximo de cada especie ejecuta</p>
-<div id="8d36addd" class="cell" data-execution_count="4">
+<div id="80e019db" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>penguins[[<span class="st">"species"</span>, <span class="st">"body_mass_g"</span>]].groupby(<span class="st">"species"</span>).<span class="bu">max</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 <div>
 
@@ -585,9 +585,9 @@ backToTopButton.addEventListener("click", function () {
 </ol>
 <hr>
 <p>En las hojas de datos agrupadas por categorías (objetos de tipo <code>DataFrameGroupBy</code>) también funcionan los mecanismos de selección de variables usando corchetes <code>[]</code>. Así, una forma equivalente de calcular el peso máximo de cada especie sería:</p>
-<div id="14384354" class="cell" data-execution_count="5">
+<div id="e768f3c7" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>penguins.groupby(<span class="st">"species"</span>)[<span class="st">"body_mass_g"</span>].<span class="bu">max</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>species
 Adelie       4775.0
 Chinstrap    4800.0
@@ -605,9 +605,9 @@ Name: body_mass_g, dtype: float64</code></pre>
 <section id="ejemplo-3-recuento-del-número-de-pingüinos-de-cada-especie" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="ejemplo-3-recuento-del-número-de-pingüinos-de-cada-especie">Ejemplo 3: Recuento del número de pingüinos de cada especie</h2>
 <p>El método <code>value_counts()</code> que usamos en la <a href="1categorical.html#sec-value-counts" class="quarto-xref"><span>Sección 4.2</span></a> para obtener una tabla de recuentos del número de pingüinos de cada especie es en el fondo la combinación de una operación de agrupación y la aplicación del método <code>count()</code>. De hecho es equivalente a</p>
-<div id="0712c75c" class="cell" data-execution_count="6">
+<div id="dbe0d482" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>penguins.groupby(<span class="st">"species"</span>)[<span class="st">"species"</span>].count()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>species
 Adelie       152
 Chinstrap     68

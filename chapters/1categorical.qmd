@@ -37,7 +37,7 @@ De la salida anterior obtenemos la siguiente información sobre la variable `spe
 Fragmento de la salida | Significado
 ----- | -------
 `count   344`  | Hay $344$ valores no nulos, así que se conoce la especie de todos los pingüinos del estudio.
-`unique    3`  | La variable toma tres valores diferentes, es decir, hay tres categorías (las tres especies Adelie, Chinstrap y Gentto).
+`unique    3`  | La variable toma tres valores diferentes, es decir, hay tres categorías (las tres especies Adelie, Chinstrap y Gentooo).
 `top  Adelie` | La categoría `top` o más frecuente, es decir, la especie más numerosa es la especie Adelie.
 `freq    152` | El número de pingüinos de la especie Adelie (la categoría `top`) es $152$.
 
@@ -87,7 +87,7 @@ Al terminar una instrucción con punto y coma `;` se inhibe la impresión de la 
 
 Nota que las alturas de las barras en el gráfico anterior coindicen con los recuentos que hemos calculado en el apartado anterior con `value_counts()`.
 
-A veces es preferible usar barras horizontales, porque se tiene más especio para las etiquetas de las categorías. 
+A veces es preferible usar barras horizontales, porque se tiene más espacio para las etiquetas de las categorías. 
 ```{python}
 sns.countplot(data=penguins, y="species");
 ```

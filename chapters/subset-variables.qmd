@@ -88,7 +88,7 @@ Ahora podemos calcular la media para ambas variables con
 bill.mean()
 ```
 
-Vemos que los picos de los pingüinos tiene una longitud media de  $43.92$ milímetros y una anchura media de $17.15$ milímetros.
+Vemos que los picos de los pingüinos tienen una longitud media de  $43.92$ milímetros y una anchura media de $17.15$ milímetros.
 
 ::: {#exr-subset-variables-3}
 Calcula el número de observaciones no nulas (función `count()`) para las variables `species` y `body_mass_g` con una sola línea de código.

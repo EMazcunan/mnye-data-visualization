@@ -366,14 +366,14 @@ backToTopButton.addEventListener("click", function () {
 <p>Igual que en el apartado anterior estudiamos una variable categórica, en este apartado se describen los métodos básicos para explorar y analizar una variable numérica.</p>
 <p>Analizaremos en concreto la variable <code>body_mass_g</code> de nuestra hoja de datos, para conocer la distribución de los pesos de los pingüinos.</p>
 <p>Empezamos seleccionando la variable de interés y almacenando el resultado en un nuevo objeto de nombre <code>mass</code>.</p>
-<div class="cell" data-execution_count="2">
+<div id="921f8c1c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> penguins[<span class="st">"body_mass_g"</span>]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="sec-1numerical-describe" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="sec-1numerical-describe"><span class="header-section-number">5.1</span> El método <code>describe()</code></h2>
 <p>El método <code>describe()</code> que usamos en la sección anterior para una variable categórica, también puede aplicarse a variables numéricas.</p>
 <p>Si lo aplicamos a <code>mass</code> obtenemos el siguiente resultado:</p>
-<div class="cell" data-execution_count="3">
+<div id="a95739a7" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mass.describe()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>count     342.000000
@@ -453,7 +453,7 @@ mass_sorted[255:265]
 <!-- - [ ] En `pandas` están `Dataframe.plot.hist()` y `Dataframe.hist()` -->
 <p>Los <strong>histogramas</strong> son uno de los gráficos más comunes e informativos para describir la distribución de una variable continua. Para crear un histograma se representa en el eje x el rango de valores de la variable, se divide ese rango en intervalos de la misma longitud, y se dibuja para cada intervalo una barra de altura igual al número de valores que caen en ese intervalo.</p>
 <p>El siguiente código crea un histograma para el peso de los pingüinos:</p>
-<div class="cell" data-execution_count="4">
+<div id="ffbafe46" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -486,7 +486,7 @@ mass_sorted[255:265]
 <!-- - [ ] En `pandas` están `Dataframe.plot.box()` y `Dataframe.boxplot()` -->
 <p>Otro tipo de gráficos para variables numéricas son los llamados <strong>diagramas de caja</strong> o <strong>de caja y bigotes</strong>.</p>
 <p>Ejecuta el siguiente código para crear un diagrama de caja y bigotes para el peso de los pingüinos.</p>
-<div class="cell" data-execution_count="5">
+<div id="11133ac7" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>penguins, y<span class="op">=</span><span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
