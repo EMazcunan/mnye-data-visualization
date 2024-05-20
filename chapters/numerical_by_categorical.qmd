@@ -1,0 +1,268 @@
+---
+editor:
+    render-on-save: true
+---
+
+# Una variable numérica por categorías
+
+```{python}
+#| include: false
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+import pandas as pd
+import seaborn as sns
+# import matplotlib.pyplot as plt
+
+url = "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv"
+penguins = pd.read_csv(url)
+```
+
+En la @sec-1numerical estudiamos la distribución del peso de todos los pingüinos del estudio. Ahora estudiaremos si hay diferencias en la distribución del peso dependiendo de la especie.
+
+## El método `describe()` 
+
+
+El método `describe()` que usamos en la @sec-1numerical-describe para obtener un resumen de la distribución del peso de todos los pingüinos, también puede aplicarse al peso agrupado por especies:
+
+
+```{python}
+penguins.groupby("species")["body_mass_g"].describe()
+```
+
+Vemos que obtenemos una tabla con el resultado combinado de aplicar el método `describe()` en el grupo de datos correspondiente a cada una de las tres especies.
+
+Interpretamos los resultados en las columnas de rótulo `count`, `mean`, `50%` y `max`:
+
+
+Fragmento de la salida | Significado
+----- | ------
+`count` | De la @sec-1categorical-describe sabíamos que hay $152$ pingüinos de la especie Adelie, $124$ de la especie Gentoo, y $68$ de la especie Chinstrap. Y de la @sec-1numerical-describe sabíamos que se desconoce el peso de dos pingüinos. Ahora sabemos que esos dos pingüinos son uno de la especie Adelie y otro de la especie Gentoo, y que se conoce el peso de todos los pingüinos de la especie Chinstrap.
+`mean` | El peso medio de los pingüinos de la especie Gentoo es de $5$ kilogramos y $76$ gramos, superior a la media global de $4$ kilos y $201$ gramos (que conocíamos de la @sec-1numerical-describe). Y los pesos medios de las especies Adelie y  Chinstrap son inferiores a la media global y muy similares: $3$ kilos $700$ gramos, y $3$ kilos y $733$ gramos respectivamente.
+`50%` | La mediana del peso es la misma para las especies Adelie y Chinstrap, $3$ kilos y $700$ gramos, y sustancialmente más grande, $5$ kilos para la especie Gentoo.
+`max` | El pingüino de mayor peso del estudio, con $6$ kilos y $300$ gramos, es de la especie Gentoo. Mientras que el peso máximo para las especies Adelie y Chinstrap no supera los $5$ kilos ($4$ kilos y $775$ gramos y $4$ kilos y $800$ gramos respectivamente).
+
+::: {#exr-numerical_by_categorical-describe}
+Usa los métodos `groupby()` y `describe()` para responder a las siguientes preguntas:
+
+a.  Indica el peso medio de hembras y machos y compáralos con el peso medio global.
+a.  ¿Cuál es el peso máximo de las hembras?
+a.  ¿Cuál es la mediana del peso de los machos?
+a.  El pingüino de mayor peso ¿es macho o hembra?
+:::
+
+
+## Histogramas 
+
+En este apartado aprenderemos a construir diferentes histogramas para comparar la distribución del peso de las tres especies de pingüinos.
+
+### Histograma de barras apiladas
+
+Para crear un histograma del peso distinguiendo la especie mediante barras apiladas ejecuta la siguiente instrucción:
+
+```{python}
+sns.histplot(
+    data=penguins, 
+    x="body_mass_g", 
+    hue="species",
+    multiple="stack"
+);
+```
+
+Observa que la forma del diagrama es la misma que la del histograma que se realizó en la @sec-1numerical-histogram. La novedad es que cada una de las barras que representa el número de pingüinos en cada uno de los intervalos de peso se ha fragmentado en tres barras indicando la contribución de cada especie. Aprecia que conforme va aumentando el peso, va disminuyendo la contribución de las especies Adelie (azul) y Chinstrap (naranja), y aumentando la contribución de la especie Gentoo (verde).
+
+Con el argumento `hue="species"` conseguimos que los datos se dividan según las categorías de la variable `species` y se asigne un color diferente a cada categoría, que se indica en la leyenda de la esquina superior derecha del gráfico.  
+
+Y con el argumento `multiple="stack"` indicamos que las barras de cada especie se dibujen apiladas en cada intervalo.
+
+::: {.callout-note}
+Para crear un histograma de barras apiladas de una variable numérica por categorías, usa la función `histplot()` del paquete `seaborn` conforme aprendiste en la sección @sec-1numerical-histogram y además:
+
+- indica el nombre de la variable que determina las categorías como valor del parámetro `hue`.
+- usa `multiple="stack"` para que las barras de las diferentes categorías se muestren apiladas.
+::: 
+
+
+::: {#exr-histogram-stack}
+Crea un histograma de barras apiladas para el peso de los pingüinos por sexo.
+:::
+
+### Histograma de barras separadas
+
+Para crear un histograma del peso con barras separadas para cada especie ejecuta la siguiente instrucción:
+
+```{python}
+sns.histplot(
+    data=penguins,  
+    x="body_mass_g", 
+    hue="species",
+    multiple="dodge"
+);
+```
+
+En este tipo de histograma fijándonos en las barras de un solo color vemos el histograma de la especie correspondiente. 
+
+::: {.callout-note}
+Para crear un histograma de barras separadas procede de la misma forma que para crear un histograma de barras apiladas pero cambia el valor del parámetro `multiple` a `"dodge"`.
+::: 
+
+::: {#exr-histogram-stack}
+Crea un histograma de barras separadas para la longitud del pico de los pingüinos por sexo.
+:::
+
+<!-- ```{python}
+sns.histplot(data=penguins,  x="body_mass_g", hue="species",
+    # stat="count",
+    multiple="layer"
+);
+``` -->
+
+<!-- ```{python}
+sns.histplot(data=penguins, x="body_mass_g", hue="species",
+    # stat="count",
+    multiple="fill"
+);
+``` -->
+
+
+### Mosaico de histogramas
+
+En los dos apartados anteriores aprendiste a crear dos tipos de histogramas para visualizar la distribución de una variable numérica distinguiendo varias categorías con colores diferentes en un mismo gráfico. Pero a veces puede resultar más útil realizar histogramas independientes para cada categoría. En este apartado aprenderás a crear, de forma simultánea, tres histogramas con la distribución del peso de los pingüinos de cada especie.  
+
+
+Con este fin el paquete `seaborn` proporciona la clase `FacetGrid`, que permite crear un mosaico o una malla en la que ubicar los diferentes gráficos para los datos de cada categoría. 
+
+
+Para entender cómo se usa la clase `FacetGrid` empieza ejecutando la siguiente instrucción:
+
+```{python}
+sns.FacetGrid(data=penguins, col="species")
+```
+Observa el resultado y aprecia que se han creado tres ejes de coordenadas, uno para cada especie. El efecto del argumento `col="species"` es que se ha creado una columna (`col`=_column_) para cada categoría de la variable `species`. 
+
+De momento hemos inicializado el mosaico pero aún no hemos dibujado nada en cada una de las celdas del mosaico. Para hacerlo tenemos que aplicar al mosaico el método `map()`, como en el siguiente ejemplo:
+
+
+```{python}
+grid = sns.FacetGrid(data = penguins, col="species")
+grid.map(sns.histplot, "body_mass_g");
+```
+
+::: {.callout-important}
+Para que puedas visualizar el gráfico anterior en tu cuaderno de _Colab_ tienes que escribir las dos instrucciones anteriores en la misma celda. 
+:::
+
+Fíjate en las dos etapas que se han seguido en el ejemplo anterior para la construcción de los tres histogramas:
+
+1. La primera instrucción 
+
+   `grid = sns.FacetGrid(data = penguins, col="species")`{.python}
+
+   crea el mosaico con las tres columnas para las tres especies, y lo almacena en un nuevo objeto de nombre `grid` (puedes usar cualquier otro nombre). 
+
+   ::: {.callout-note}
+   Para inicializar un mosaico de gráficos con una columna para cada valor de una variable    categórica, inicializa la clase `FacetGrid` indicando:
+   
+   - La hoja de datos como valor del parámetro `data`
+   - El nombre de la variable categórica para crear los grupos como valor del parámetro `col`
+   :::
+
+   En este punto tenemos preparadas tres celdas para crear en cada celda un gráfico de los datos de la especie correspondiente a esa celda. La creación efectiva de los gráficos se realiza en el siguiente paso. 
+
+2. La segunda instrucción 
+
+   `grid.map(sns.histplot, "body_mass_g")`{.python}  
+
+   aplica el método `map()` al mosaico creado en el paso anterior, especificando qué tipo de gráfico queremos en cada celda del mosaico, y a qué variable queremos aplicar ese gráfico:
+
+   - El primer argumento `sns.histplot` indica que en cada celda queremos realizar un histograma (para el grupo de datos de la especie correspondiente a la celda).
+   - El segundo argumento `"body_mass_g"` indica la variable de la que queremos hacer los histogramas.
+
+   ::: {.callout-note}
+   Para crear sendos gráficos de los datos asociados a cada celda de un mosaico creado con `FacetGrid` usa el método `map()` con los siguientes argumentos:
+
+   - La función para construir los gráficos
+   - El nombre de la variable a la que aplicar esa función gráfica
+   :::
+
+
+
+:::: {#exr-facetgrid}
+Usa la clase `FacetGrid` para realizar sendos histogramas de la distribución del peso para hembras y machos.
+
+::: {.content-visible when-format="html"}
+
+Tienes que obtener la siguiente salida:
+
+```{python}
+#| echo: false
+#| fig-env: "center"
+grid = sns.FacetGrid(data = penguins, col="sex")
+grid.map(sns.histplot, "body_mass_g");
+```
+:::
+
+::::
+
+
+***
+
+Si al inicializar la clase `FacetGrid` se usa el parámetro `row` en lugar de `col` los diferentes gráficos aparecerán dispuestos por filas en lugar de por columnas. Por ejemplo:
+
+
+```{python}
+grid = sns.FacetGrid(data = penguins, row="species")
+grid.map(sns.histplot, "body_mass_g");
+```
+
+
+De hecho, se pueden usar los argumentos `row` y `col` al mismo tiempo para crear un mosaico bidimensional. Las siguientes instrucciones crean un mosaico de histogramas del peso de los pingüinos, distinguiendo la especie por filas y el sexo por columnas, de dimensiones $3 \times 2$:
+
+
+```{python}
+grid = sns.FacetGrid(data = penguins, row="sex", col="species")
+grid.map(sns.histplot, "body_mass_g");
+```
+
+:::: {#exr-FacetGrid-3x2}
+Usa `FacetGrid` para crear un mosaico de histogramas para la longitud de las alas de los pingüinos distingüiendo la isla en la que viven y su sexo.
+
+::: {.content-visible when-format="html"}
+El resultado debe ser el siguiente:
+
+```{python}
+#| echo: false
+#| fig-env: "center"
+grid = sns.FacetGrid(data = penguins,  row="island", col="sex")
+grid.map(sns.histplot, "flipper_length_mm");
+```
+:::
+::::
+
+
+## Diagramas de caja y bigotes
+
+Para acabar la práctica realizaremos el gráfico de la portada de este documento
+![](../img/cover/cover.png)
+en el que se representa un diagrama de caja y bigotes para el peso de los pingüinos de cada especie. 
+
+En la @sec-1numerical-boxplot hicimos un diagrama de caja y bigotes para el peso de todos los pingüinos (sin distinguir la especie) con la instrucción
+
+```{.python}
+sns.boxplot(data=penguins, y="body_mass_g");
+```
+
+Para diferenciar por especie no tenemos más que añadir el argumento `x="species"`:
+
+```{python}
+sns.boxplot(data=penguins, x="species", y="body_mass_g");
+```
+
+
+Los dos puntos que aparecen resaltados con un rombo fuera de los bigotes en el diagrama de la especie Chinstrap (en naranja) son  __outliers__. El outlier por debajo del bigote inferior representa un pingüino de la especie Chinstrap con peso excesivamente bajo, y el outlier por encima del bigote superior se corresponde con un pingüino de la especie Chinstrap con peso excesivamente alto (excesivamente bajo/alto respecto a la distribución del peso en los pingüinos de la especie Chinstrap).
+
+
+::: {#exr-boxplots}
+Realiza un gráfico que muestre los diagramas de caja y bigotes para el peso de las hembras y de los machos.
+
+¿Aparecen outliers en alguno de los dos grupos?
+:::
