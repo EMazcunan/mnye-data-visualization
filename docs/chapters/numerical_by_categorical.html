@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.4.552">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -58,6 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -76,7 +77,7 @@ div.csl-indent {
 }</style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -102,7 +103,12 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "Sin resultados",
     "search-matching-documents-text": "documentos encontrados",
@@ -111,16 +117,45 @@ div.csl-indent {
     "search-more-match-text": "resultado adicional en este documento",
     "search-more-matches-text": "resultados adicionales en este documento",
     "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar"
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../html/styles.css">
 </head>
@@ -131,22 +166,19 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/numerical_by_categorical.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Una variable numérica por categorías</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/numerical_by_categorical.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Una variable numérica por categorías</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
       <img src="../img/sidebar-logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
@@ -154,8 +186,8 @@ div.csl-indent {
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Exploración y visualización de datos con Python</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/EMazcunan/mnye2223-data-visualization" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="../visualization.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="https://github.com/EMazcunan/mnye2223-data-visualization" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
+    <a href="../visualization.pdf" title="Descargar PDF" class="quarto-navigation-tool px-1" aria-label="Descargar PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
   <div class="quarto-reader-toggle-btn">
@@ -165,11 +197,6 @@ div.csl-indent {
 </div>
     </div>
       </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Buscar"></div>
-        </div>
-        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -239,7 +266,7 @@ div.csl-indent {
 <p>Eva María Mazcuñán Navarro</p>
 <p>Hecho con <a href="https://quarto.org">Quarto</a></p>
 </div></div></nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -255,7 +282,7 @@ div.csl-indent {
   </ul></li>
   <li><a href="#diagramas-de-caja-y-bigotes" id="toc-diagramas-de-caja-y-bigotes" class="nav-link" data-scroll-target="#diagramas-de-caja-y-bigotes"><span class="header-section-number">7.3</span> Diagramas de caja y bigotes</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/EMazcunan/mnye2223-data-visualization/blob/master/chapters/numerical_by_categorical.qmd" class="toc-action">Ver el código</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/EMazcunan/mnye2223-data-visualization/blob/master/chapters/numerical_by_categorical.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -343,13 +370,15 @@ backToTopButton.addEventListener("click", function () {
 
 </header>
 
-<p>En la <a href="1numerical.html"><span>Sección&nbsp;5</span></a> estudiamos la distribución del peso de todos los pingüinos del estudio. Ahora estudiaremos si hay diferencias en la distribución del peso dependiendo de la especie.</p>
+
+<p>En la <a href="1numerical.html" class="quarto-xref"><span>Sección 5</span></a> estudiamos la distribución del peso de todos los pingüinos del estudio. Ahora estudiaremos si hay diferencias en la distribución del peso dependiendo de la especie.</p>
 <section id="el-método-describe" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="el-método-describe"><span class="header-section-number">7.1</span> El método <code>describe()</code></h2>
-<p>El método <code>describe()</code> que usamos en la <a href="1numerical.html#sec-1numerical-describe"><span>Sección&nbsp;5.1</span></a> para obtener un resumen de la distribución del peso de todos los pingüinos, también puede aplicarse al peso agrupado por especies:</p>
-<div class="cell" data-execution_count="2">
+<p>El método <code>describe()</code> que usamos en la <a href="1numerical.html#sec-1numerical-describe" class="quarto-xref"><span>Sección 5.1</span></a> para obtener un resumen de la distribución del peso de todos los pingüinos, también puede aplicarse al peso agrupado por especies:</p>
+<div id="d02d8519" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>penguins.groupby(<span class="st">"species"</span>)[<span class="st">"body_mass_g"</span>].describe()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
+<div>
 <div>
 
 
@@ -418,6 +447,7 @@ backToTopButton.addEventListener("click", function () {
 </div>
 </div>
 </div>
+</div>
 <p>Vemos que obtenemos una tabla con el resultado combinado de aplicar el método <code>describe()</code> en el grupo de datos correspondiente a cada una de las tres especies.</p>
 <p>Interpretamos los resultados en las columnas de rótulo <code>count</code>, <code>mean</code>, <code>50%</code> y <code>max</code>:</p>
 <table class="table">
@@ -434,15 +464,15 @@ backToTopButton.addEventListener("click", function () {
 <tbody>
 <tr class="odd">
 <td><code>count</code></td>
-<td>De la <a href="1categorical.html#sec-1categorical-describe"><span>Sección&nbsp;4.1</span></a> sabíamos que hay <span class="math inline">\(152\)</span> pingüinos de la especie Adelie, <span class="math inline">\(124\)</span> de la especie Gentoo, y <span class="math inline">\(68\)</span> de la especie Chinstrap. Y de la <a href="1numerical.html#sec-1numerical-describe"><span>Sección&nbsp;5.1</span></a> sabíamos que se desconoce el peso de dos pingüinos. Ahora sabemos que esos dos pingüinos son uno de la especie Adelie y otro de la especie Gentoo, y que se conoce el peso de todos los pingüinos de la especie Chinstrap.</td>
+<td>De la <a href="1categorical.html#sec-1categorical-describe" class="quarto-xref"><span>Sección 4.1</span></a> sabíamos que hay <span class="math inline">\(152\)</span> pingüinos de la especie Adelie, <span class="math inline">\(124\)</span> de la especie Gentoo, y <span class="math inline">\(68\)</span> de la especie Chinstrap. Y de la <a href="1numerical.html#sec-1numerical-describe" class="quarto-xref"><span>Sección 5.1</span></a> sabíamos que se desconoce el peso de dos pingüinos. Ahora sabemos que esos dos pingüinos son uno de la especie Adelie y otro de la especie Gentoo, y que se conoce el peso de todos los pingüinos de la especie Chinstrap.</td>
 </tr>
 <tr class="even">
 <td><code>mean</code></td>
-<td>El peso medio de los pingüinos de la especie Gentoo es de <span class="math inline">\(5\)</span> kilogramos y <span class="math inline">\(76\)</span> gramos, superior a la media global de <span class="math inline">\(4\)</span> kilos y <span class="math inline">\(201\)</span> gramos (que conocíamos de la <a href="1numerical.html#sec-1numerical-describe"><span>Sección&nbsp;5.1</span></a>). Y los pesos medios de las especies Adelie y Chinstrap son inferiores a la media global y muy similares: <span class="math inline">\(3\)</span> kilos <span class="math inline">\(700\)</span> gramos, y <span class="math inline">\(3\)</span> kilos y <span class="math inline">\(733\)</span> gramos respectivamente.</td>
+<td>El peso medio de los pingüinos de la especie Gentoo es de <span class="math inline">\(5\)</span> kilogramos y <span class="math inline">\(76\)</span> gramos, superior a la media global de <span class="math inline">\(4\)</span> kilos y <span class="math inline">\(201\)</span> gramos (que conocíamos de la <a href="1numerical.html#sec-1numerical-describe" class="quarto-xref"><span>Sección 5.1</span></a>). Y los pesos medios de las especies Adelie y Chinstrap son inferiores a la media global y muy similares: <span class="math inline">\(3\)</span> kilos <span class="math inline">\(700\)</span> gramos, y <span class="math inline">\(3\)</span> kilos y <span class="math inline">\(733\)</span> gramos respectivamente.</td>
 </tr>
 <tr class="odd">
 <td><code>50%</code></td>
-<td>La mediana del peso es la misma para las especies Adelie y Chinstrap, <span class="math inline">\(3\)</span> kilos y <span class="math inline">\(700\)</span> gramos, y sustancialmente más grande, <span class="math inline">\(5\)</span> kilos para la especie Gentoo.</td>
+<td>La mediana del peso es la misma para las especies Adelie y Chinstrap, <span class="math inline">\(3\)</span> kilos y <span class="math inline">\(700\)</span> gramos, y sustancialmente más grande, <span class="math inline">\(5\)</span> kilos, para la especie Gentoo.</td>
 </tr>
 <tr class="even">
 <td><code>max</code></td>
@@ -451,7 +481,7 @@ backToTopButton.addEventListener("click", function () {
 </tbody>
 </table>
 <div id="exr-numerical_by_categorical-describe" class="theorem exercise">
-<p><span class="theorem-title"><strong>Ejercicio 7.1 </strong></span>Usa los métodos <code>groupby()</code> y <code>describe()</code> para responder a las siguientes preguntas:</p>
+<p><span class="theorem-title"><strong>Ejercicio 7.1</strong></span> Usa los métodos <code>groupby()</code> y <code>describe()</code> para responder a las siguientes preguntas:</p>
 <ol type="a">
 <li>Indica el peso medio de hembras y machos y compáralos con el peso medio global.</li>
 <li>¿Cuál es el peso máximo de las hembras?</li>
@@ -466,7 +496,7 @@ backToTopButton.addEventListener("click", function () {
 <section id="histograma-de-barras-apiladas" class="level3" data-number="7.2.1">
 <h3 data-number="7.2.1" class="anchored" data-anchor-id="histograma-de-barras-apiladas"><span class="header-section-number">7.2.1</span> Histograma de barras apiladas</h3>
 <p>Para crear un histograma del peso distinguiendo la especie mediante barras apiladas ejecuta la siguiente instrucción:</p>
-<div class="cell" data-execution_count="3">
+<div id="a810bfba" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>penguins, </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"body_mass_g"</span>, </span>
@@ -474,10 +504,14 @@ backToTopButton.addEventListener("click", function () {
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    multiple<span class="op">=</span><span class="st">"stack"</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="numerical_by_categorical_files/figure-html/cell-4-output-1.png" width="585" height="429"></p>
+<div>
+<figure class="figure">
+<p><img src="numerical_by_categorical_files/figure-html/cell-4-output-1.png" width="585" height="429" class="figure-img"></p>
+</figure>
 </div>
 </div>
-<p>Observa que la forma del diagrama es la misma que la del histograma que se realizó en la <a href="1numerical.html#sec-1numerical-histogram"><span>Sección&nbsp;5.2</span></a>. La novedad es que cada una de las barras que representa el número de pingüinos en cada uno de los intervalos de peso se ha fragmentado en tres barras indicando la contribución de cada especie. Aprecia que conforme va aumentando el peso, va disminuyendo la contribución de las especies Adelie (azul) y Chinstrap (naranja), y aumentando la contribución de la especie Gentoo (verde).</p>
+</div>
+<p>Observa que la forma del diagrama es la misma que la del histograma que se realizó en la <a href="1numerical.html#sec-1numerical-histogram" class="quarto-xref"><span>Sección 5.2</span></a>. La novedad es que cada una de las barras que representa el número de pingüinos en cada uno de los intervalos de peso se ha fragmentado en tres barras indicando la contribución de cada especie. Aprecia que conforme va aumentando el peso, va disminuyendo la contribución de las especies Adelie (azul) y Chinstrap (naranja), y aumentando la contribución de la especie Gentoo (verde).</p>
 <p>Con el argumento <code>hue="species"</code> conseguimos que los datos se dividan según las categorías de la variable <code>species</code> y se asigne un color diferente a cada categoría, que se indica en la leyenda de la esquina superior derecha del gráfico.</p>
 <p>Y con el argumento <code>multiple="stack"</code> indicamos que las barras de cada especie se dibujen apiladas en cada intervalo.</p>
 <div class="callout callout-style-simple callout-note">
@@ -486,7 +520,7 @@ backToTopButton.addEventListener("click", function () {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Para crear un histograma de barras apiladas de una variable numérica por categorías, usa la función <code>histplot()</code> del paquete <code>seaborn</code> conforme aprendiste en la sección <a href="1numerical.html#sec-1numerical-histogram"><span>Sección&nbsp;5.2</span></a> y además:</p>
+<p>Para crear un histograma de barras apiladas de una variable numérica por categorías, usa la función <code>histplot()</code> del paquete <code>seaborn</code> conforme aprendiste en la sección <a href="1numerical.html#sec-1numerical-histogram" class="quarto-xref"><span>Sección 5.2</span></a> y además:</p>
 <ul>
 <li>indica el nombre de la variable que determina las categorías como valor del parámetro <code>hue</code>.</li>
 <li>usa <code>multiple="stack"</code> para que las barras de las diferentes categorías se muestren apiladas.</li>
@@ -495,13 +529,13 @@ backToTopButton.addEventListener("click", function () {
 </div>
 </div>
 <div id="exr-histogram-stack" class="theorem exercise">
-<p><span class="theorem-title"><strong>Ejercicio 7.2 </strong></span>Crea un histograma de barras apiladas para el peso de los pingüinos por sexo.</p>
+<p><span class="theorem-title"><strong>Ejercicio 7.2</strong></span> Crea un histograma de barras apiladas para el peso de los pingüinos por sexo.</p>
 </div>
 </section>
 <section id="histograma-de-barras-separadas" class="level3" data-number="7.2.2">
 <h3 data-number="7.2.2" class="anchored" data-anchor-id="histograma-de-barras-separadas"><span class="header-section-number">7.2.2</span> Histograma de barras separadas</h3>
 <p>Para crear un histograma del peso con barras separadas para cada especie ejecuta la siguiente instrucción:</p>
-<div class="cell" data-execution_count="4">
+<div id="ee7c4070" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>penguins,  </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"body_mass_g"</span>, </span>
@@ -509,7 +543,11 @@ backToTopButton.addEventListener("click", function () {
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    multiple<span class="op">=</span><span class="st">"dodge"</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="numerical_by_categorical_files/figure-html/cell-5-output-1.png" width="585" height="429"></p>
+<div>
+<figure class="figure">
+<p><img src="numerical_by_categorical_files/figure-html/cell-5-output-1.png" width="585" height="429" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>En este tipo de histograma fijándonos en las barras de un solo color vemos el histograma de la especie correspondiente.</p>
@@ -524,7 +562,7 @@ backToTopButton.addEventListener("click", function () {
 </div>
 </div>
 <div id="exr-histogram-stack" class="theorem exercise">
-<p><span class="theorem-title"><strong>Ejercicio 7.3 </strong></span>Crea un histograma de barras separadas para la longitud del pico de los pingüinos por sexo.</p>
+<p><span class="theorem-title"><strong>Ejercicio 7.3</strong></span> Crea un histograma de barras separadas para la longitud del pico de los pingüinos por sexo.</p>
 </div>
 <!-- ```{python}
 sns.histplot(data=penguins,  x="body_mass_g", hue="species",
@@ -544,19 +582,27 @@ sns.histplot(data=penguins, x="body_mass_g", hue="species",
 <p>En los dos apartados anteriores aprendiste a crear dos tipos de histogramas para visualizar la distribución de una variable numérica distinguiendo varias categorías con colores diferentes en un mismo gráfico. Pero a veces puede resultar más útil realizar histogramas independientes para cada categoría. En este apartado aprenderás a crear, de forma simultánea, tres histogramas con la distribución del peso de los pingüinos de cada especie.</p>
 <p>Con este fin el paquete <code>seaborn</code> proporciona la clase <code>FacetGrid</code>, que permite crear un mosaico o una malla en la que ubicar los diferentes gráficos para los datos de cada categoría.</p>
 <p>Para entender cómo se usa la clase <code>FacetGrid</code> empieza ejecutando la siguiente instrucción:</p>
-<div class="cell" data-execution_count="5">
+<div id="662926b5" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sns.FacetGrid(data<span class="op">=</span>penguins, col<span class="op">=</span><span class="st">"species"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="numerical_by_categorical_files/figure-html/cell-6-output-1.png" width="850" height="276"></p>
+<div>
+<figure class="figure">
+<p><img src="numerical_by_categorical_files/figure-html/cell-6-output-1.png" width="850" height="278" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Observa el resultado y aprecia que se han creado tres ejes de coordenadas, uno para cada especie. El efecto del argumento <code>col="species"</code> es que se ha creado una columna (<code>col</code>=<em>column</em>) para cada categoría de la variable <code>species</code>.</p>
 <p>De momento hemos inicializado el mosaico pero aún no hemos dibujado nada en cada una de las celdas del mosaico. Para hacerlo tenemos que aplicar al mosaico el método <code>map()</code>, como en el siguiente ejemplo:</p>
-<div class="cell" data-execution_count="6">
+<div id="1e7acbe1" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> sns.FacetGrid(data <span class="op">=</span> penguins, col<span class="op">=</span><span class="st">"species"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>grid.<span class="bu">map</span>(sns.histplot, <span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="numerical_by_categorical_files/figure-html/cell-7-output-1.png" width="853" height="275"></p>
+<div>
+<figure class="figure">
+<p><img src="numerical_by_categorical_files/figure-html/cell-7-output-1.png" width="854" height="278" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <div class="callout callout-style-simple callout-important">
@@ -612,13 +658,13 @@ sns.histplot(data=penguins, x="body_mass_g", hue="species",
 </div></li>
 </ol>
 <div id="exr-facetgrid" class="theorem exercise">
-<p><span class="theorem-title"><strong>Ejercicio 7.4 </strong></span>Usa la clase <code>FacetGrid</code> para realizar sendos histogramas de la distribución del peso para hembras y machos.</p>
+<p><span class="theorem-title"><strong>Ejercicio 7.4</strong></span> Usa la clase <code>FacetGrid</code> para realizar sendos histogramas de la distribución del peso para hembras y machos.</p>
 <p>Tienes que obtener la siguiente salida:</p>
-<div class="cell" data-execution_count="7">
+<div id="f7f219b5" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<div>
 <figure class="figure">
-<p><img src="numerical_by_categorical_files/figure-html/cell-8-output-1.png" width="565" height="275" class="figure-img"></p>
+<p><img src="numerical_by_categorical_files/figure-html/cell-8-output-1.png" data-fig-env="center" width="566" height="278" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -626,29 +672,37 @@ sns.histplot(data=penguins, x="body_mass_g", hue="species",
 </div>
 <hr>
 <p>Si al inicializar la clase <code>FacetGrid</code> se usa el parámetro <code>row</code> en lugar de <code>col</code> los diferentes gráficos aparecerán dispuestos por filas en lugar de por columnas. Por ejemplo:</p>
-<div class="cell" data-execution_count="8">
+<div id="f114787e" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> sns.FacetGrid(data <span class="op">=</span> penguins, row<span class="op">=</span><span class="st">"species"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>grid.<span class="bu">map</span>(sns.histplot, <span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="numerical_by_categorical_files/figure-html/cell-9-output-1.png" width="277" height="851"></p>
+<div>
+<figure class="figure">
+<p><img src="numerical_by_categorical_files/figure-html/cell-9-output-1.png" width="278" height="854" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>De hecho, se pueden usar los argumentos <code>row</code> y <code>col</code> al mismo tiempo para crear un mosaico bidimensional. Las siguientes instrucciones crean un mosaico de histogramas del peso de los pingüinos, distinguiendo la especie por filas y el sexo por columnas, de dimensiones <span class="math inline">\(3 \times 2\)</span>:</p>
-<div class="cell" data-execution_count="9">
+<div id="129106b9" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> sns.FacetGrid(data <span class="op">=</span> penguins, row<span class="op">=</span><span class="st">"sex"</span>, col<span class="op">=</span><span class="st">"species"</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>grid.<span class="bu">map</span>(sns.histplot, <span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="numerical_by_categorical_files/figure-html/cell-10-output-1.png" width="853" height="563"></p>
+<div>
+<figure class="figure">
+<p><img src="numerical_by_categorical_files/figure-html/cell-10-output-1.png" width="854" height="566" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <div id="exr-FacetGrid-3x2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Ejercicio 7.5 </strong></span>Usa <code>FacetGrid</code> para crear un mosaico de histogramas para la longitud de las alas de los pingüinos distingüiendo la isla en la que viven y su sexo.</p>
+<p><span class="theorem-title"><strong>Ejercicio 7.5</strong></span> Usa <code>FacetGrid</code> para crear un mosaico de histogramas para la longitud de las alas de los pingüinos distingüiendo la isla en la que viven y su sexo.</p>
 <p>El resultado debe ser el siguiente:</p>
-<div class="cell" data-execution_count="10">
+<div id="55263e58" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<div>
 <figure class="figure">
-<p><img src="numerical_by_categorical_files/figure-html/cell-11-output-1.png" width="565" height="851" class="figure-img"></p>
+<p><img src="numerical_by_categorical_files/figure-html/cell-11-output-1.png" data-fig-env="center" width="566" height="854" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -658,24 +712,40 @@ sns.histplot(data=penguins, x="body_mass_g", hue="species",
 </section>
 <section id="diagramas-de-caja-y-bigotes" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="diagramas-de-caja-y-bigotes"><span class="header-section-number">7.3</span> Diagramas de caja y bigotes</h2>
-<p>Para acabar la práctica realizaremos el gráfico de la portada de este documento <img src="../img/cover/cover.png" class="img-fluid"> en el que se representa un diagrama de caja y bigotes para el peso de los pingüinos de cada especie.</p>
-<p>En la <a href="1numerical.html#sec-1numerical-boxplot"><span>Sección&nbsp;5.3</span></a> hicimos un diagrama de caja y bigotes para el peso de todos los pingüinos (sin distinguir la especie) con la instrucción</p>
+<p>Para acabar la práctica realizaremos el gráfico de la portada de este documento <img src="../img/cover/cover.png" class="img-fluid"></p>
+<p>en el que se representa un diagrama de caja y bigotes para el peso de los pingüinos de cada especie.</p>
+<p>En la <a href="1numerical.html#sec-1numerical-boxplot" class="quarto-xref"><span>Sección 5.3</span></a> hicimos un diagrama de caja y bigotes para el peso de todos los pingüinos (sin distinguir la especie) con la instrucción</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>penguins, y<span class="op">=</span><span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Para diferenciar por especie no tenemos más que añadir el argumento <code>x="species"</code>:</p>
-<div class="cell" data-execution_count="11">
+<div id="3a461e5f" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">"species"</span>, y<span class="op">=</span><span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="numerical_by_categorical_files/figure-html/cell-12-output-1.png" width="602" height="429"></p>
+<div>
+<figure class="figure">
+<p><img src="numerical_by_categorical_files/figure-html/cell-12-output-1.png" width="602" height="429" class="figure-img"></p>
+</figure>
 </div>
 </div>
-<p>Los dos puntos que aparecen resaltados con un rombo fuera de los bigotes en el diagrama de la especie Chinstrap (en naranja) son <strong>outliers</strong>. El outlier por debajo del bigote inferior representa un pingüino de la especie Chinstrap con peso excesivamente bajo, y el outlier por encima del bigote superior se corresponde con un pingüino de la especie Chinstrap con peso excesivamente alto (excesivamente bajo/alto respecto a la distribución del peso en los pingüinos de la especie Chinstrap).</p>
+</div>
+<p>Para asignar un color diferente a cada especie añadimos <code>hue="species"</code>:</p>
+<div id="2edbff0a" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">"species"</span>, y<span class="op">=</span><span class="st">"body_mass_g"</span>, hue<span class="op">=</span><span class="st">"species"</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="numerical_by_categorical_files/figure-html/cell-13-output-1.png" width="602" height="429" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Los dos puntos que aparecen resaltados con un círculo fuera de los bigotes en el diagrama de la especie Chinstrap (en naranja) son <strong>outliers</strong>. El outlier por debajo del bigote inferior representa un pingüino de la especie Chinstrap con peso excesivamente bajo, y el outlier por encima del bigote superior se corresponde con un pingüino de la especie Chinstrap con peso excesivamente alto (excesivamente bajo/alto respecto a la distribución del peso en los pingüinos de la especie Chinstrap).</p>
 <div id="exr-boxplots" class="theorem exercise">
-<p><span class="theorem-title"><strong>Ejercicio 7.6 </strong></span>Realiza un gráfico que muestre los diagramas de caja y bigotes para el peso de las hembras y de los machos.</p>
+<p><span class="theorem-title"><strong>Ejercicio 7.6</strong></span> Realiza un gráfico que muestre los diagramas de caja y bigotes para el peso de las hembras y de los machos.</p>
 <p>¿Aparecen outliers en alguno de los dos grupos?</p>
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-mckinney-proc-scipy-2010" class="csl-entry" role="listitem">
 McKinney, Wes. 2010. <span>«<span>D</span>ata <span>S</span>tructures for <span>S</span>tatistical <span>C</span>omputing in <span>P</span>ython»</span>. En <em><span>P</span>roceedings of the 9th <span>P</span>ython in <span>S</span>cience <span>C</span>onference</em>, editado por Stéfan van der Walt y Jarrod Millman, 56-61. <a href="https://doi.org/ 10.25080/Majora-92bf1922-00a ">https://doi.org/ 10.25080/Majora-92bf1922-00a </a>.
 </div>
@@ -730,6 +800,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -798,13 +895,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -883,10 +982,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -896,8 +1017,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -909,7 +1039,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -953,6 +1206,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -978,6 +1232,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1035,30 +1315,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-      }
-    }
 });
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/groupby.html" class="pagination-link">
+      <a href="../chapters/groupby.html" class="pagination-link" aria-label="Agrupar por categorías">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Agrupar por categorías</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/references.html" class="pagination-link">
+      <a href="../chapters/references.html" class="pagination-link" aria-label="Referencias">
         <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1067,4 +1333,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EMazcunan/mnye2223-data-visualization/blob/master/chapters/numerical_by_categorical.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li></ul></div></div></div></footer></body></html>

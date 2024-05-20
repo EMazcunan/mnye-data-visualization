@@ -46,7 +46,7 @@ Observa que en la salida anterior se muestran:
 
 - las filas de índices $0$, $1$ y $2$ correspondientes a los tres primeros pingüinos de la especie Adelie
 - las filas de índices $152$, $153$ y $154$ correspondientes a los tres primeros pingüinos de la especie Chinstrap
-- y las filasde índices $220$, $221$ y $222$ correspondientes a los tres primeros pingüinos de la especie Gentoo.
+- y las filas de índices $220$, $221$ y $222$ correspondientes a los tres primeros pingüinos de la especie Gentoo.
 
 Analicemos, paso por paso, lo que ocurre al ejecutar la instrucción `penguins.groupby("species").head(3)`:
 
@@ -77,7 +77,7 @@ Vemos que:
 
 - el peso máximo entre los pingüinos de la especie Adelie es de $4$ kg y $775$ gramos.
 - el peso máximo entre los pingüinos de la especie Chinstrap es de $4$ kg y $800$ gramos.
-- el peso máximo entre los pingüinos de la especie Gentto (y entre todos los pingüinos) es de $6$ kg y $300$ gramos.
+- el peso máximo entre los pingüinos de la especie Gentoo (y entre todos los pingüinos) es de $6$ kg y $300$ gramos.
 
 
 Analicemos la instrucción anterior paso por paso:

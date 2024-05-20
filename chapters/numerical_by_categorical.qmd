@@ -38,7 +38,7 @@ Fragmento de la salida | Significado
 ----- | ------
 `count` | De la @sec-1categorical-describe sabíamos que hay $152$ pingüinos de la especie Adelie, $124$ de la especie Gentoo, y $68$ de la especie Chinstrap. Y de la @sec-1numerical-describe sabíamos que se desconoce el peso de dos pingüinos. Ahora sabemos que esos dos pingüinos son uno de la especie Adelie y otro de la especie Gentoo, y que se conoce el peso de todos los pingüinos de la especie Chinstrap.
 `mean` | El peso medio de los pingüinos de la especie Gentoo es de $5$ kilogramos y $76$ gramos, superior a la media global de $4$ kilos y $201$ gramos (que conocíamos de la @sec-1numerical-describe). Y los pesos medios de las especies Adelie y  Chinstrap son inferiores a la media global y muy similares: $3$ kilos $700$ gramos, y $3$ kilos y $733$ gramos respectivamente.
-`50%` | La mediana del peso es la misma para las especies Adelie y Chinstrap, $3$ kilos y $700$ gramos, y sustancialmente más grande, $5$ kilos para la especie Gentoo.
+`50%` | La mediana del peso es la misma para las especies Adelie y Chinstrap, $3$ kilos y $700$ gramos, y sustancialmente más grande, $5$ kilos, para la especie Gentoo.
 `max` | El pingüino de mayor peso del estudio, con $6$ kilos y $300$ gramos, es de la especie Gentoo. Mientras que el peso máximo para las especies Adelie y Chinstrap no supera los $5$ kilos ($4$ kilos y $775$ gramos y $4$ kilos y $800$ gramos respectivamente).
 
 ::: {#exr-numerical_by_categorical-describe}
@@ -243,6 +243,7 @@ grid.map(sns.histplot, "flipper_length_mm");
 
 Para acabar la práctica realizaremos el gráfico de la portada de este documento
 ![](../img/cover/cover.png)
+
 en el que se representa un diagrama de caja y bigotes para el peso de los pingüinos de cada especie. 
 
 En la @sec-1numerical-boxplot hicimos un diagrama de caja y bigotes para el peso de todos los pingüinos (sin distinguir la especie) con la instrucción
@@ -257,8 +258,12 @@ Para diferenciar por especie no tenemos más que añadir el argumento `x="specie
 sns.boxplot(data=penguins, x="species", y="body_mass_g");
 ```
 
+Para asignar un color diferente a cada especie añadimos `hue="species"`:
+```{python}
+sns.boxplot(data=penguins, x="species", y="body_mass_g", hue="species");
+```
 
-Los dos puntos que aparecen resaltados con un rombo fuera de los bigotes en el diagrama de la especie Chinstrap (en naranja) son  __outliers__. El outlier por debajo del bigote inferior representa un pingüino de la especie Chinstrap con peso excesivamente bajo, y el outlier por encima del bigote superior se corresponde con un pingüino de la especie Chinstrap con peso excesivamente alto (excesivamente bajo/alto respecto a la distribución del peso en los pingüinos de la especie Chinstrap).
+Los dos puntos que aparecen resaltados con un círculo fuera de los bigotes en el diagrama de la especie Chinstrap (en naranja) son  __outliers__. El outlier por debajo del bigote inferior representa un pingüino de la especie Chinstrap con peso excesivamente bajo, y el outlier por encima del bigote superior se corresponde con un pingüino de la especie Chinstrap con peso excesivamente alto (excesivamente bajo/alto respecto a la distribución del peso en los pingüinos de la especie Chinstrap).
 
 
 ::: {#exr-boxplots}
