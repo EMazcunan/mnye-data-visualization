@@ -359,7 +359,8 @@ ciencia de datos, como Python. Nosotros accederemos a los datos a través
 de
 \href{https://github.com/mwaskom/seaborn-data/blob/master/penguins.csv}{este
 enlace}, que proporciona los datos en formato CSV (\emph{comma separated
-values}).
+values}). No tienes que descargar el archivo, más adelante se explica
+cómo importarlo directamente de la web.
 
 \subsection*{Objetivos}\label{objetivos}
 \addcontentsline{toc}{subsection}{Objetivos}
@@ -420,6 +421,16 @@ crear gráficos estadísticos muy informativos y visualmente atractivos
 con pocas líneas de código. Y está diseñado para trabajar con las
 estructuras de datos creadas con \texttt{pandas}.
 
+El nombre de la librería y el alias canónico \texttt{sns} para
+importarla hacen referencia a
+\href{https://en.wikipedia.org/wiki/Sam_Seaborn}{\emph{Samuel Norman
+Seaborn}}, personaje de la serie de televisión \emph{The West Wing}
+interpretado por Rob Lowe (lo explica el autor de la librería en la
+pregunta
+\href{https://seaborn.pydata.org/faq.html\#why-is-seaborn-imported-as-sns}{Why
+is seaborn imported as \texttt{sns}} de la sección \emph{FAQ} de la
+documentación).
+
 Usaremos \texttt{seaborn} para realizar diferentes tipos de gráficos
 como diagramas de barras, histogramas, diagramas de caja y bigotes etc.
 
@@ -439,7 +450,7 @@ En esta sección importarás los datos sobre los pingüinos del
 archipiélago Palmer presentados en la introducción y conocerás la
 información que contienen.
 
-\subsection{Importar los datos}\label{importar-los-datos}
+\subsection{Importar los datos}\label{sec-read_csv}
 
 Como se indicó en la introducción, los datos con los que vamos a
 trabajar están disponibles en la web en un fichero de formato
@@ -560,7 +571,8 @@ En nuestra hoja de datos \texttt{penguins}:
   correspondiente fila.
 \end{itemize}
 
-Por ejemplo, mirando la primera fila de la hoja de datos
+Por ejemplo, mirando la primera fila de la hoja de datos en la salida de
+la instrucción anterior \texttt{penguins.head(5)}
 
 \begin{longtable}[]{@{}llllllll@{}}
 \toprule\noalign{}
@@ -695,7 +707,8 @@ milímetros, sus alas miden \(181\) milímetros, pesa \(3\) kilos y
 
 \begin{exercise}[]% 
 \protect\hypertarget{exr-data}{}\label{exr-data}%
-Describe las características del tercer pingüino del estudio (índice 2).
+Describe las características del tercer pingüino del estudio (índice 2)
+mirando la salida de la instrucción anterior \texttt{penguins.head(5)}.
 
 \end{exercise}
 
@@ -785,13 +798,6 @@ dtypes: float64(4), object(3)
 memory usage: 18.9+ KB
 \end{verbatim}
 
-\subsection{Índice}\label{uxedndice}
-
-Igual que cada columna (variable) en una hoja de datos tiene un nombre,
-cada fila (observación) también tiene una etiqueta identificativa. En
-nuestra hoja de datos cada uno de los \(344\) pingüinos se identifica
-con un número entero de la secuencia 0, 1, \ldots, 333.
-
 \begin{longtable}[]{@{}llllllll@{}}
 \toprule\noalign{}
 & species & island & bill\_length\_mm & bill\_depth\_mm &
@@ -805,6 +811,9 @@ flipper\_length\_mm & body\_mass\_g & sex \\
 2 & Adelie & Torgersen & 40.3 & 18.0 & 195.0 & 3250.0 & FEMALE \\
 \end{longtable}
 
+``` ::: ::: ::: \{.cell execution\_count=14\} ::: \{.cell-output
+.cell-output-display execution\_count=14\} ```\{=html\}
+
 \begin{longtable}[]{@{}llllllll@{}}
 \toprule\noalign{}
 & species & island & bill\_length\_mm & bill\_depth\_mm &
@@ -817,26 +826,6 @@ flipper\_length\_mm & body\_mass\_g & sex \\
 342 & Gentoo & Biscoe & 45.2 & 14.8 & 212.0 & 5200.0 & FEMALE \\
 343 & Gentoo & Biscoe & 49.9 & 16.1 & 213.0 & 5400.0 & MALE \\
 \end{longtable}
-
-Las etiquetas identificativas de las filas de una hoja de datos forman
-su \textbf{índice}. El índice de una hoja de datos de \texttt{pandas} se
-registra en su propiedad \texttt{index}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{penguins.index}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-RangeIndex(start=0, stop=344, step=1)
-\end{verbatim}
-
-Si cada pingüino estuviera identificado por un código, podríamos haber
-indicado esa variable como índice en el momento de la importación de los
-datos. Cuando no se indica el índice de una hoja de datos de forma
-explícita, \texttt{pandas} asigna una secuencia de números enteros
-comenzando en 0, como ha ocurrido en nuestro caso.
 
 \bookmarksetup{startatroot}
 
@@ -863,7 +852,7 @@ Utiliza la siguiente instrucción para seleccionar la variable
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, toprule=.15mm, leftrule=.75mm, breakable, left=2mm, arc=.35mm, rightrule=.15mm, colback=white, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, leftrule=.75mm, left=2mm, arc=.35mm, rightrule=.15mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, breakable, toprule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-note-color}{\faInfo}
 \end{minipage}%
@@ -932,7 +921,7 @@ siguiente instrucción:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, toprule=.15mm, leftrule=.75mm, breakable, left=2mm, arc=.35mm, rightrule=.15mm, colback=white, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, leftrule=.75mm, left=2mm, arc=.35mm, rightrule=.15mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, breakable, toprule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-note-color}{\faInfo}
 \end{minipage}%
@@ -1042,7 +1031,9 @@ decir, la especie más numerosa es la especie Adelie. \\
 \begin{exercise}[]% 
 \protect\hypertarget{exr-1categorical-describe}{}\label{exr-1categorical-describe}%
 Utiliza el método \texttt{describe()} para obtener información sobre la
-distribución de los pingüinos por islas.
+distribución de los pingüinos por islas, y responde a las siguiente
+pregunta: ¿Cuál es la isla más poblada y cuántos pingüinos viven en
+ella?
 
 \end{exercise}
 
@@ -1092,7 +1083,7 @@ la función \texttt{countplot()} del paquete \texttt{seaborn}
 
 \includegraphics{chapters/1categorical_files/figure-pdf/cell-6-output-1.pdf}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, toprule=.15mm, leftrule=.75mm, breakable, left=2mm, arc=.35mm, rightrule=.15mm, colback=white, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, leftrule=.75mm, left=2mm, arc=.35mm, rightrule=.15mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, breakable, toprule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-note-color}{\faInfo}
 \end{minipage}%
@@ -1126,7 +1117,7 @@ espacio para las etiquetas de las categorías.
 
 \includegraphics{chapters/1categorical_files/figure-pdf/cell-7-output-1.pdf}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, toprule=.15mm, leftrule=.75mm, breakable, left=2mm, arc=.35mm, rightrule=.15mm, colback=white, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, leftrule=.75mm, left=2mm, arc=.35mm, rightrule=.15mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, breakable, toprule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-note-color}{\faInfo}
 \end{minipage}%
@@ -1353,14 +1344,16 @@ de los pinguinos es \(801\) gramos. \\
 \(2\) kilos y \(700\) gramos. \\
 \texttt{25\%\ \ \ \ \ \ 3550.000000} & El \(25\%\) de los pingüinos pesa
 menos de \(3\) kilos y \(550\) gramos (y el \(75\%\) restante más). Este
-valor se conoce como \textbf{cuantil 0.25} o \textbf{primer cuartil}. \\
+valor se conoce como \textbf{cuantil 0.25}, \textbf{percentil 25} o
+\textbf{primer cuartil}. \\
 \texttt{50\%\ \ \ \ \ \ 4050.000000} & El \(50\%\) de los pingüinos pesa
 menos de \(4\) kilos y \(50\) gramos (y el \(50\%\) restante más). Este
-valor se llama \textbf{cuantil 0.5}, \textbf{segundo cuartil} o
-\textbf{mediana}. \\
+valor se llama \textbf{cuantil 0.5}, \textbf{percentil 50},
+\textbf{segundo cuartil} o \textbf{mediana}. \\
 \texttt{75\%\ \ \ \ \ \ 4750.000000} & El \(75\%\) de los pingüinos pesa
 menos de \(4\) kilos y \(750\) gramos (y el \(25\%\) restante más). Este
-valor se llama \textbf{cuantil 0.75} o \textbf{tercer cuartil}. \\
+valor se llama \textbf{cuantil 0.75}, \textbf{percentil 75},o
+\textbf{tercer cuartil}. \\
 \texttt{max\ \ \ \ \ \ 6300.000000} & El pingüino que más pesa, pesa
 \(6\) kilos y \(300\) gramos. \\
 \end{longtable}
@@ -1368,7 +1361,16 @@ valor se llama \textbf{cuantil 0.75} o \textbf{tercer cuartil}. \\
 \begin{exercise}[]% 
 \protect\hypertarget{exr-1numerical-describe}{}\label{exr-1numerical-describe}%
 Utiliza el método \texttt{describe()} para obtener información sobre la
-distribución de la longitud de las alas de los pingüinos.
+distribución de la longitud de las alas de los pingüinos, y responde a
+las siguientes preguntas:
+
+\begin{itemize}
+\tightlist
+\item
+  ¿Para cuántos pingüinos falta el dato de la longitud de sus alas?
+\item
+  ¿Cuál es el percentil 25 de la longitud de las alas de los pingüinos?
+\end{itemize}
 
 \end{exercise}
 
@@ -1391,7 +1393,7 @@ El siguiente código crea un histograma para el peso de los pingüinos:
 
 \includegraphics{chapters/1numerical_files/figure-pdf/cell-5-output-1.pdf}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, toprule=.15mm, leftrule=.75mm, breakable, left=2mm, arc=.35mm, rightrule=.15mm, colback=white, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, leftrule=.75mm, left=2mm, arc=.35mm, rightrule=.15mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, breakable, toprule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-note-color}{\faInfo}
 \end{minipage}%
@@ -1439,7 +1441,7 @@ Y los bigotes se extienden desde los extremos de la caja hasta los
 valores mínimo y máximo, exceptuando los valores que se clasifican como
 \textbf{outliers}.
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, toprule=.15mm, leftrule=.75mm, breakable, left=2mm, arc=.35mm, rightrule=.15mm, colback=white, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, leftrule=.75mm, left=2mm, arc=.35mm, rightrule=.15mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, breakable, toprule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-note-color}{\faInfo}
 \end{minipage}%
@@ -1918,7 +1920,7 @@ esquina superior derecha del gráfico.
 Y con el argumento \texttt{multiple="stack"} indicamos que las barras de
 cada especie se dibujen apiladas en cada intervalo.
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, toprule=.15mm, leftrule=.75mm, breakable, left=2mm, arc=.35mm, rightrule=.15mm, colback=white, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, leftrule=.75mm, left=2mm, arc=.35mm, rightrule=.15mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, breakable, toprule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-note-color}{\faInfo}
 \end{minipage}%
@@ -1971,7 +1973,7 @@ ejecuta la siguiente instrucción:
 En este tipo de histograma fijándonos en las barras de un solo color
 vemos el histograma de la especie correspondiente.
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, toprule=.15mm, leftrule=.75mm, breakable, left=2mm, arc=.35mm, rightrule=.15mm, colback=white, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, leftrule=.75mm, left=2mm, arc=.35mm, rightrule=.15mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, breakable, toprule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-note-color}{\faInfo}
 \end{minipage}%
@@ -2035,7 +2037,7 @@ al mosaico el método \texttt{map()}, como en el siguiente ejemplo:
 
 \includegraphics{chapters/numerical_by_categorical_files/figure-pdf/cell-7-output-1.pdf}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-important-color-frame, toprule=.15mm, leftrule=.75mm, breakable, left=2mm, arc=.35mm, rightrule=.15mm, colback=white, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, leftrule=.75mm, left=2mm, arc=.35mm, rightrule=.15mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white, breakable, toprule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-important-color}{\faExclamation}
 \end{minipage}%
@@ -2062,7 +2064,7 @@ la construcción de los tres histogramas:
   almacena en un nuevo objeto de nombre \texttt{grid} (puedes usar
   cualquier otro nombre).
 
-  \begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, toprule=.15mm, leftrule=.75mm, breakable, left=2mm, arc=.35mm, rightrule=.15mm, colback=white, opacityback=0]
+  \begin{tcolorbox}[enhanced jigsaw, opacityback=0, leftrule=.75mm, left=2mm, arc=.35mm, rightrule=.15mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, breakable, toprule=.15mm]
   \begin{minipage}[t]{5.5mm}
   \textcolor{quarto-callout-note-color}{\faInfo}
   \end{minipage}%
@@ -2107,7 +2109,7 @@ la construcción de los tres histogramas:
     la que queremos hacer los histogramas.
   \end{itemize}
 
-  \begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, toprule=.15mm, leftrule=.75mm, breakable, left=2mm, arc=.35mm, rightrule=.15mm, colback=white, opacityback=0]
+  \begin{tcolorbox}[enhanced jigsaw, opacityback=0, leftrule=.75mm, left=2mm, arc=.35mm, rightrule=.15mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, breakable, toprule=.15mm]
   \begin{minipage}[t]{5.5mm}
   \textcolor{quarto-callout-note-color}{\faInfo}
   \end{minipage}%

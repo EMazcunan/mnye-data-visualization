@@ -368,7 +368,7 @@ backToTopButton.addEventListener("click", function () {
 <section id="sec-subset-one-variable" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="sec-subset-one-variable"><span class="header-section-number">3.1</span> Seleccionar una variable</h2>
 <p>Utiliza la siguiente instrucción para seleccionar la variable <code>body_mass_g</code>:</p>
-<div id="48ca0d80" class="cell" data-execution_count="3">
+<div id="edf6c1d1" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> penguins[<span class="st">"body_mass_g"</span>]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-simple callout-note">
@@ -382,7 +382,7 @@ backToTopButton.addEventListener("click", function () {
 </div>
 </div>
 <p>Ahora podemos aplicar la función <code>max()</code> para obtener el peso máximo:</p>
-<div id="11a7171e" class="cell" data-execution_count="4">
+<div id="2b0fc13e" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mass.<span class="bu">max</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>6300.0</code></pre>
@@ -394,7 +394,7 @@ index = mass.argmax()
 penguins.loc[index]
 ``` -->
 <p>Podemos realizar las dos operaciones anteriores, seleccionar la variable <code>body_mass_g</code>, y calcular su máximo con una sola instrucción:</p>
-<div id="9faebdba" class="cell" data-execution_count="5">
+<div id="44882ecb" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>penguins[<span class="st">"body_mass_g"</span>].<span class="bu">max</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>6300.0</code></pre>
@@ -411,7 +411,7 @@ penguins.loc[index]
 <section id="sec-subset-several-variables" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="sec-subset-several-variables"><span class="header-section-number">3.2</span> Seleccionar una lista de variables</h2>
 <p>Para seleccionar las dos variables relativas a las dimensiones del pico, <code>bill_length_mm</code> y <code>bill_depth_mm</code>, ejecuta la siguiente instrucción:</p>
-<div id="5ede4092" class="cell" data-execution_count="6">
+<div id="b6ca4db3" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>bill <span class="op">=</span> penguins[[<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>]]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-simple callout-note">
@@ -425,7 +425,7 @@ penguins.loc[index]
 </div>
 </div>
 <p>Ahora podemos calcular la media para ambas variables con</p>
-<div id="c7d83d71" class="cell" data-execution_count="7">
+<div id="bb046086" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>bill.mean()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>bill_length_mm    43.92193
@@ -442,7 +442,7 @@ dtype: float64</code></pre>
 
 Ejecutando 
 
-::: {#6e85cc71 .cell execution_count=8}
+::: {#e6f723b3 .cell execution_count=8}
 ``` {.python .cell-code}
 type(bill)
 ```
@@ -460,7 +460,7 @@ vemos que el objeto `bill` que hemos creado antes al extraer las dos variables s
 
 Pero ejecutando 
 
-::: {#7f39effe .cell execution_count=9}
+::: {#773b6dee .cell execution_count=9}
 ``` {.python .cell-code}
 type(mass)
 ```
@@ -479,7 +479,7 @@ vemos que el objeto `mass` que hemos creado antes al extraer la variable `body_m
 
 Podemos usar el método `head()` para ver los cinco primeros valores de la variable:
 
-::: {#4fe04d0a .cell execution_count=10}
+::: {#81cf48b3 .cell execution_count=10}
 ``` {.python .cell-code}
 mass.head(5)
 ```
@@ -499,7 +499,7 @@ Name: body_mass_g, dtype: float64
 
 Aprecia que `mass` tiene el mismo índice que la hoja de datos `penguins`:
 
-::: {#76c6aecd .cell execution_count=11}
+::: {#d0eec181 .cell execution_count=11}
 ``` {.python .cell-code}
 mass.index
 ```
@@ -527,7 +527,7 @@ Generalmente al aplicar un método propio de la clase `Series` a un objeto de cl
 
 Pero hay métodos propios de `Series` que no pueden aplicarse a `DataFrame`, métodos propios de `DataFrame` que no pueden aplicarse a `Series`, y métodos comunes a `Series` y `DataFrame` pero que requieren diferentes argumentos en cada caso. Por ejemplo, el método `Series.sort_values()` ordena los valores de una variable de mayor a menor. Puedes comprobarlo con
 
-::: {#3c79ff27 .cell execution_count=12}
+::: {#9f4e795e .cell execution_count=12}
 ``` {.python .cell-code}
 mass.sort_values().head(5)
 ```

@@ -43,6 +43,8 @@ Puedes consultar la documentación oficial de `pandas` [aquí](https://pandas.py
 
 `seaborn` es una librería para visualización de datos. Permite crear gráficos estadísticos muy informativos y visualmente atractivos con pocas líneas de código. Y está diseñado para trabajar con las estructuras de datos creadas con `pandas`.
 
+El nombre de la librería y el alias canónico `sns` para importarla hacen referencia a [_Samuel Norman Seaborn_](https://en.wikipedia.org/wiki/Sam_Seaborn), personaje de la serie de televisión _The West Wing_ interpretado por Rob Lowe (lo explica el autor de la librería en la pregunta [Why is seaborn imported as `sns`](https://seaborn.pydata.org/faq.html#why-is-seaborn-imported-as-sns) de la sección _FAQ_ de la documentación).
+
 Usaremos `seaborn` para realizar diferentes tipos de gráficos como diagramas de barras, histogramas, diagramas de caja y bigotes etc. 
 
 Aprenderemos por ejemplo a crear el siguiente gráfico, con los diagramas de caja y bigotes para el peso de los pingüinos de cada especie.

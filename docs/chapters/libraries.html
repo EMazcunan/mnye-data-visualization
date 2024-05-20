@@ -334,7 +334,7 @@ backToTopButton.addEventListener("click", function () {
 
 
 <p>Lo primero que necesitamos hacer es importar las librerías de Python que usaremos a lo largo de práctica, que son <code>pandas</code> y <code>seaborn</code>:</p>
-<div id="6c27d9c9" class="cell" data-execution_count="2">
+<div id="ae7ca130" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -347,7 +347,7 @@ backToTopButton.addEventListener("click", function () {
 </div>
 <p><code>pandas</code> es una librería que permite leer datos almacenados en estructuras similares a una tabla, como las hojas de cálculo o los archivos CSV, y proporciona métodos para explorar y describir esos datos.</p>
 <p>Usando esta librería podremos calcular por ejemplo el peso medio de los pingüinos de cada especie. Obtendremos esta tabla:</p>
-<div id="62adf70c" class="cell" data-execution_count="3">
+<div id="20a597c3" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>species
 Adelie       3700.662252
@@ -366,9 +366,10 @@ Name: body_mass_g, dtype: float64</code></pre>
 </figure>
 </div>
 <p><code>seaborn</code> es una librería para visualización de datos. Permite crear gráficos estadísticos muy informativos y visualmente atractivos con pocas líneas de código. Y está diseñado para trabajar con las estructuras de datos creadas con <code>pandas</code>.</p>
+<p>El nombre de la librería y el alias canónico <code>sns</code> para importarla hacen referencia a <a href="https://en.wikipedia.org/wiki/Sam_Seaborn"><em>Samuel Norman Seaborn</em></a>, personaje de la serie de televisión <em>The West Wing</em> interpretado por Rob Lowe (lo explica el autor de la librería en la pregunta <a href="https://seaborn.pydata.org/faq.html#why-is-seaborn-imported-as-sns">Why is seaborn imported as <code>sns</code></a> de la sección <em>FAQ</em> de la documentación).</p>
 <p>Usaremos <code>seaborn</code> para realizar diferentes tipos de gráficos como diagramas de barras, histogramas, diagramas de caja y bigotes etc.</p>
 <p>Aprenderemos por ejemplo a crear el siguiente gráfico, con los diagramas de caja y bigotes para el peso de los pingüinos de cada especie.</p>
-<div id="ccaf8099" class="cell" data-execution_count="4">
+<div id="c4782d0e" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">

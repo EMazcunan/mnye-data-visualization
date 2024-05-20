@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.3.19)  20 MAY 2024 20:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.3.19)  20 MAY 2024 21:32
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -2745,17 +2745,16 @@ Package pdftex.def Info: chapters/../img/penguins.png  used on input line 342.
 
 \openout3 = `visualization.mw'.
 
-LaTeX Info: Redefining \. on input line 374.
-LaTeX Info: Redefining \% on input line 374.
-LaTeX Info: Redefining \. on input line 374.
-LaTeX Info: Redefining \% on input line 374.
+
+Underfull \vbox (badness 5133) has occurred while \output is active []
+
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.374 \section{LibrerÃ­as}
-                          \label{libreruxedas}
+l.372 
+      
 \openout3 = `visualization.mw'.
 
  [1
@@ -2764,27 +2763,27 @@ l.374 \section{LibrerÃ­as}
 \openout3 = `visualization.mw'.
 
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 387.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 388.
 <chapters/../img/pandas.png, id=133, 615.7404pt x 248.6088pt>
 File: chapters/../img/pandas.png Graphic file (type png)
 <use chapters/../img/pandas.png>
-Package pdftex.def Info: chapters/../img/pandas.png  used on input line 390.
+Package pdftex.def Info: chapters/../img/pandas.png  used on input line 391.
 (pdftex.def)             Requested size: 116.39998pt x 46.99716pt.
 <chapters/../img/seaborn.png, id=135, 598.48593pt x 171.64125pt>
 File: chapters/../img/seaborn.png Graphic file (type png)
 <use chapters/../img/seaborn.png>
-Package pdftex.def Info: chapters/../img/seaborn.png  used on input line 415.
+Package pdftex.def Info: chapters/../img/seaborn.png  used on input line 416.
 (pdftex.def)             Requested size: 122.90044pt x 35.2469pt.
-LaTeX Info: Redefining \. on input line 425.
-LaTeX Info: Redefining \% on input line 425.
-LaTeX Info: Redefining \. on input line 425.
-LaTeX Info: Redefining \% on input line 425.
+LaTeX Info: Redefining \. on input line 423.
+LaTeX Info: Redefining \% on input line 423.
+LaTeX Info: Redefining \. on input line 423.
+LaTeX Info: Redefining \% on input line 423.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.425 
+l.423 
       
 \openout3 = `visualization.mw'.
 
@@ -2792,410 +2791,415 @@ l.425
 (./visualization.mw)
 \openout3 = `visualization.mw'.
 
-<chapters/libraries_files/figure-pdf/cell-5-output-1.pdf, id=146, 369.06946pt x
+<chapters/libraries_files/figure-pdf/cell-5-output-1.pdf, id=148, 369.06946pt x
  239.67918pt>
 File: chapters/libraries_files/figure-pdf/cell-5-output-1.pdf Graphic file (typ
 e pdf)
 <use chapters/libraries_files/figure-pdf/cell-5-output-1.pdf>
 Package pdftex.def Info: chapters/libraries_files/figure-pdf/cell-5-output-1.pd
-f  used on input line 429.
+f  used on input line 440.
 (pdftex.def)             Requested size: 369.07417pt x 239.68224pt.
 
-Overfull \hbox (95.66339pt too wide) in paragraph at lines 454--454
+Underfull \vbox (badness 1990) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 459.
+LaTeX Info: Redefining \% on input line 459.
+LaTeX Info: Redefining \. on input line 459.
+LaTeX Info: Redefining \% on input line 459.
+\openout3 = `visualization.mw'.
+
+ [3 <./chapters/libraries_files/figure-pdf/cell-5-output-1.pdf>] (./visualizati
+on.mw)
+\openout3 = `visualization.mw'.
+
+
+Overfull \hbox (95.66339pt too wide) in paragraph at lines 465--465
 []\T1/lmtt/m/n/12 "https://raw.githubusercontent.com/mwaskom/seaborn-data/maste
 r/penguins.csv"[]|  
  []
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 454.
-LaTeX Info: Redefining \. on input line 461.
-LaTeX Info: Redefining \% on input line 461.
-LaTeX Info: Redefining \. on input line 461.
-LaTeX Info: Redefining \% on input line 461.
-\openout3 = `visualization.mw'.
+(Font)              <5> on input line 465.
 
-[3{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/lo
-cal/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc} <./chapters/libra
-ries_files/figure-pdf/cell-5-output-1.pdf>] (./visualization.mw)
-\openout3 = `visualization.mw'.
-
-
-Overfull \hbox (171.9335pt too wide) in alignment at lines 508--513
+Overfull \hbox (171.9335pt too wide) in alignment at lines 519--524
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (171.9335pt too wide) in alignment at lines 513--515
+Overfull \hbox (171.9335pt too wide) in alignment at lines 524--526
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (171.9335pt too wide) in alignment at lines 515--521
+Overfull \hbox (171.9335pt too wide) in alignment at lines 526--532
  [] [] [] [] [] [] [] [] 
  []
 
-LaTeX Info: Redefining \. on input line 527.
-LaTeX Info: Redefining \% on input line 527.
-LaTeX Info: Redefining \. on input line 527.
-LaTeX Info: Redefining \% on input line 527.
+LaTeX Info: Redefining \. on input line 532.
+LaTeX Info: Redefining \% on input line 532.
+LaTeX Info: Redefining \. on input line 532.
+LaTeX Info: Redefining \% on input line 532.
 \openout3 = `visualization.mw'.
 
-[4] (./visualization.mw)
+[4{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/lo
+cal/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
+(./visualization.mw)
 \openout3 = `visualization.mw'.
 
 
-Overfull \hbox (168.78098pt too wide) in alignment at lines 529--534
+Overfull \hbox (168.78098pt too wide) in alignment at lines 540--545
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (168.78098pt too wide) in alignment at lines 534--536
+Overfull \hbox (168.78098pt too wide) in alignment at lines 545--547
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (168.78098pt too wide) in alignment at lines 536--542
+Overfull \hbox (168.78098pt too wide) in alignment at lines 547--553
  [] [] [] [] [] [] [] [] 
  []
 
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 5
-50.
+61.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Overfull \hbox (156.271pt too wide) in alignment at lines 565--570
+Overfull \hbox (156.271pt too wide) in alignment at lines 577--582
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (156.271pt too wide) in alignment at lines 570--572
+Overfull \hbox (156.271pt too wide) in alignment at lines 582--584
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (156.271pt too wide) in alignment at lines 572--574
+Overfull \hbox (156.271pt too wide) in alignment at lines 584--586
  [] [] [] [] [] [] [] [] 
  []
 
-LaTeX Info: Redefining \. on input line 595.
-LaTeX Info: Redefining \% on input line 595.
-LaTeX Info: Redefining \. on input line 595.
-LaTeX Info: Redefining \% on input line 595.
+LaTeX Info: Redefining \. on input line 586.
+LaTeX Info: Redefining \% on input line 586.
+LaTeX Info: Redefining \. on input line 586.
+LaTeX Info: Redefining \% on input line 586.
 \openout3 = `visualization.mw'.
 
 [5{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local
 /texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}] (./visualization.mw)
 \openout3 = `visualization.mw'.
 
-
-Overfull \hbox (8.39084pt too wide) in paragraph at lines 659--659
-[]|\T1/lmtt/m/n/12 flipper_length_mm|  
- []
-
-LaTeX Info: Redefining \. on input line 662.
-LaTeX Info: Redefining \% on input line 662.
-LaTeX Info: Redefining \. on input line 662.
-LaTeX Info: Redefining \% on input line 662.
+LaTeX Info: Redefining \. on input line 644.
+LaTeX Info: Redefining \% on input line 644.
+LaTeX Info: Redefining \. on input line 644.
+LaTeX Info: Redefining \% on input line 644.
 \openout3 = `visualization.mw'.
+
 
 [6] (./visualization.mw)
 \openout3 = `visualization.mw'.
 
-<chapters/../img/culmen_depth.png, id=220, 2926.18219pt x 1883.53688pt>
+
+Overfull \hbox (8.39084pt too wide) in paragraph at lines 671--671
+[]|\T1/lmtt/m/n/12 flipper_length_mm|  
+ []
+
+<chapters/../img/culmen_depth.png, id=219, 2926.18219pt x 1883.53688pt>
 File: chapters/../img/culmen_depth.png Graphic file (type png)
 <use chapters/../img/culmen_depth.png>
 Package pdftex.def Info: chapters/../img/culmen_depth.png  used on input line 6
-68.
+80.
 (pdftex.def)             Requested size: 301.11884pt x 193.8254pt.
 
-Overfull \hbox (156.271pt too wide) in alignment at lines 680--685
+Overfull \hbox (156.271pt too wide) in alignment at lines 692--697
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (156.271pt too wide) in alignment at lines 685--687
+Overfull \hbox (156.271pt too wide) in alignment at lines 697--699
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (156.271pt too wide) in alignment at lines 687--689
+Overfull \hbox (156.271pt too wide) in alignment at lines 699--701
  [] [] [] [] [] [] [] [] 
  []
 
-LaTeX Info: Redefining \. on input line 700.
-LaTeX Info: Redefining \% on input line 700.
-LaTeX Info: Redefining \. on input line 700.
-LaTeX Info: Redefining \% on input line 700.
+LaTeX Info: Redefining \. on input line 701.
+LaTeX Info: Redefining \% on input line 701.
+LaTeX Info: Redefining \. on input line 701.
+LaTeX Info: Redefining \% on input line 701.
 \openout3 = `visualization.mw'.
 
 [7 <./chapters/../img/culmen_depth.png>] (./visualization.mw)
 \openout3 = `visualization.mw'.
 
 
-Overfull \hbox (144.85097pt too wide) in alignment at lines 732--737
+Overfull \hbox (144.85097pt too wide) in alignment at lines 745--750
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (144.85097pt too wide) in alignment at lines 737--739
+Overfull \hbox (144.85097pt too wide) in alignment at lines 750--752
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (144.85097pt too wide) in alignment at lines 739--741
+Overfull \hbox (144.85097pt too wide) in alignment at lines 752--754
  [] [] [] [] [] [] [] [] 
  []
 
-LaTeX Info: Redefining \. on input line 755.
-LaTeX Info: Redefining \% on input line 755.
-LaTeX Info: Redefining \. on input line 755.
-LaTeX Info: Redefining \% on input line 755.
+LaTeX Info: Redefining \. on input line 754.
+LaTeX Info: Redefining \% on input line 754.
+LaTeX Info: Redefining \. on input line 754.
+LaTeX Info: Redefining \% on input line 754.
 \openout3 = `visualization.mw'.
 
 [8] (./visualization.mw)
 \openout3 = `visualization.mw'.
 
 
-Overfull \hbox (19.4548pt too wide) in paragraph at lines 760--765
+Overfull \hbox (19.4548pt too wide) in paragraph at lines 773--778
 []\T1/lmr/m/n/12 (-20) Las cua-tro res-tan-tes, \T1/lmtt/m/n/12 bill_length_mm\
 T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 bill_depth_mm\T1/lmr/m/n/12 (-20) , \T1/l
 mtt/m/n/12 flipper_length_mm
  []
 
 
-Overfull \hbox (171.9335pt too wide) in alignment at lines 795--800
+Overfull \hbox (171.9335pt too wide) in alignment at lines 801--806
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (171.9335pt too wide) in alignment at lines 800--802
+Overfull \hbox (171.9335pt too wide) in alignment at lines 806--808
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (171.9335pt too wide) in alignment at lines 802--806
+Overfull \hbox (171.9335pt too wide) in alignment at lines 808--812
  [] [] [] [] [] [] [] [] 
  []
 
-LaTeX Info: Redefining \. on input line 806.
-LaTeX Info: Redefining \% on input line 806.
-LaTeX Info: Redefining \. on input line 806.
-LaTeX Info: Redefining \% on input line 806.
+LaTeX Info: Redefining \. on input line 812.
+LaTeX Info: Redefining \% on input line 812.
+LaTeX Info: Redefining \. on input line 812.
+LaTeX Info: Redefining \% on input line 812.
 \openout3 = `visualization.mw'.
 
 [9] (./visualization.mw)
 \openout3 = `visualization.mw'.
 
 
-Overfull \hbox (168.78098pt too wide) in alignment at lines 808--813
+Overfull \hbox (168.78098pt too wide) in alignment at lines 817--822
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (168.78098pt too wide) in alignment at lines 813--815
+Overfull \hbox (168.78098pt too wide) in alignment at lines 822--824
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (168.78098pt too wide) in alignment at lines 815--819
+Overfull \hbox (168.78098pt too wide) in alignment at lines 824--828
  [] [] [] [] [] [] [] [] 
  []
-
-LaTeX Info: Redefining \. on input line 860.
-LaTeX Info: Redefining \% on input line 860.
-LaTeX Info: Redefining \. on input line 860.
-LaTeX Info: Redefining \% on input line 860.
-\openout3 = `visualization.mw'.
-
-[10] (./visualization.mw)
-\openout3 = `visualization.mw'.
 
 LaTeX Font Info:    Trying to load font information for U+fontawesomefree1 on i
-nput line 868.
+nput line 857.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/fontawesome5/ufontawesomefree1.fd
 )
-LaTeX Info: Redefining \. on input line 947.
-LaTeX Info: Redefining \% on input line 947.
-LaTeX Info: Redefining \. on input line 947.
-LaTeX Info: Redefining \% on input line 947.
+LaTeX Info: Redefining \. on input line 870.
+LaTeX Info: Redefining \% on input line 870.
+LaTeX Info: Redefining \. on input line 870.
+LaTeX Info: Redefining \% on input line 870.
 \openout3 = `visualization.mw'.
 
- [11{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free1.e
+ [10{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free1.e
 nc}] (./visualization.mw)
 \openout3 = `visualization.mw'.
 
-LaTeX Info: Redefining \. on input line 1008.
-LaTeX Info: Redefining \% on input line 1008.
-LaTeX Info: Redefining \. on input line 1008.
-LaTeX Info: Redefining \% on input line 1008.
+LaTeX Info: Redefining \. on input line 949.
+LaTeX Info: Redefining \% on input line 949.
+LaTeX Info: Redefining \. on input line 949.
+LaTeX Info: Redefining \% on input line 949.
+\openout3 = `visualization.mw'.
+
+ [11] (./visualization.mw)
+\openout3 = `visualization.mw'.
+
+LaTeX Info: Redefining \. on input line 1029.
+LaTeX Info: Redefining \% on input line 1029.
+LaTeX Info: Redefining \. on input line 1029.
+LaTeX Info: Redefining \% on input line 1029.
 \openout3 = `visualization.mw'.
 
  [12] (./visualization.mw)
 \openout3 = `visualization.mw'.
 
-LaTeX Info: Redefining \. on input line 1067.
-LaTeX Info: Redefining \% on input line 1067.
-LaTeX Info: Redefining \. on input line 1067.
-LaTeX Info: Redefining \% on input line 1067.
+
+Underfull \vbox (badness 1748) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 1068.
+LaTeX Info: Redefining \% on input line 1068.
+LaTeX Info: Redefining \. on input line 1068.
+LaTeX Info: Redefining \% on input line 1068.
 \openout3 = `visualization.mw'.
 
- [13] (./visualization.mw)
+ [13]
+(./visualization.mw)
 \openout3 = `visualization.mw'.
 
-<docs/chapters/1categorical_files/figure-pdf/cell-6-output-1.pdf, id=291, 362.4
+<docs/chapters/1categorical_files/figure-pdf/cell-6-output-1.pdf, id=293, 362.4
 0393pt x 239.67918pt>
 File: docs/chapters/1categorical_files/figure-pdf/cell-6-output-1.pdf Graphic f
 ile (type pdf)
 <use docs/chapters/1categorical_files/figure-pdf/cell-6-output-1.pdf>
 Package pdftex.def Info: docs/chapters/1categorical_files/figure-pdf/cell-6-out
-put-1.pdf  used on input line 1093.
+put-1.pdf  used on input line 1084.
 (pdftex.def)             Requested size: 362.40857pt x 239.68224pt.
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-1104.
+1095.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 1112.
-LaTeX Info: Redefining \% on input line 1112.
-LaTeX Info: Redefining \. on input line 1112.
-LaTeX Info: Redefining \% on input line 1112.
+LaTeX Info: Redefining \. on input line 1111.
+LaTeX Info: Redefining \% on input line 1111.
+LaTeX Info: Redefining \. on input line 1111.
+LaTeX Info: Redefining \% on input line 1111.
 \openout3 = `visualization.mw'.
 
- [14 <./docs/chapters/1categorical_files/figure-pdf/cell-6-output-1.pdf>]
-(./visualization.mw)
+ [14 <./docs/chapters/1categorical_files/figure-pdf/cell-6-output-1.pdf>] (./vi
+sualization.mw)
 \openout3 = `visualization.mw'.
 
-<docs/chapters/1categorical_files/figure-pdf/cell-7-output-1.pdf, id=329, 391.6
+<docs/chapters/1categorical_files/figure-pdf/cell-7-output-1.pdf, id=331, 391.6
 0678pt x 239.67918pt>
 File: docs/chapters/1categorical_files/figure-pdf/cell-7-output-1.pdf Graphic f
 ile (type pdf)
 <use docs/chapters/1categorical_files/figure-pdf/cell-7-output-1.pdf>
 Package pdftex.def Info: docs/chapters/1categorical_files/figure-pdf/cell-7-out
-put-1.pdf  used on input line 1127.
+put-1.pdf  used on input line 1118.
 (pdftex.def)             Requested size: 391.61179pt x 239.68224pt.
 
-Underfull \vbox (badness 1281) has occurred while \output is active []
+Underfull \vbox (badness 4060) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 1157.
-LaTeX Info: Redefining \% on input line 1157.
-LaTeX Info: Redefining \. on input line 1157.
-LaTeX Info: Redefining \% on input line 1157.
+LaTeX Info: Redefining \. on input line 1164.
+LaTeX Info: Redefining \% on input line 1164.
+LaTeX Info: Redefining \. on input line 1164.
+LaTeX Info: Redefining \% on input line 1164.
 \openout3 = `visualization.mw'.
 
  [15 <./docs/chapters/1categorical_files/figure-pdf/cell-7-output-1.pdf>]
 (./visualization.mw)
 \openout3 = `visualization.mw'.
 
-<docs/chapters/1categorical_files/figure-pdf/cell-8-output-1.pdf, id=366, 362.4
+<docs/chapters/1categorical_files/figure-pdf/cell-8-output-1.pdf, id=370, 362.4
 0393pt x 239.67918pt>
 File: docs/chapters/1categorical_files/figure-pdf/cell-8-output-1.pdf Graphic f
 ile (type pdf)
 <use docs/chapters/1categorical_files/figure-pdf/cell-8-output-1.pdf>
 Package pdftex.def Info: docs/chapters/1categorical_files/figure-pdf/cell-8-out
-put-1.pdf  used on input line 1196.
+put-1.pdf  used on input line 1187.
 (pdftex.def)             Requested size: 362.40857pt x 239.68224pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 1198.
-LaTeX Info: Redefining \% on input line 1198.
-LaTeX Info: Redefining \. on input line 1198.
-LaTeX Info: Redefining \% on input line 1198.
+LaTeX Info: Redefining \. on input line 1195.
+LaTeX Info: Redefining \% on input line 1195.
+LaTeX Info: Redefining \. on input line 1195.
+LaTeX Info: Redefining \% on input line 1195.
 \openout3 = `visualization.mw'.
 
- [16]
-(./visualization.mw)
+ [16 <./docs/chapters/1categorical_files/figure-pdf/cell-8-output-1.pdf>] (./vi
+sualization.mw)
 \openout3 = `visualization.mw'.
 
-<docs/chapters/1categorical_files/figure-pdf/cell-9-output-1.pdf, id=379, 362.4
+<docs/chapters/1categorical_files/figure-pdf/cell-9-output-1.pdf, id=408, 362.4
 0393pt x 239.67918pt>
 File: docs/chapters/1categorical_files/figure-pdf/cell-9-output-1.pdf Graphic f
 ile (type pdf)
 <use docs/chapters/1categorical_files/figure-pdf/cell-9-output-1.pdf>
 Package pdftex.def Info: docs/chapters/1categorical_files/figure-pdf/cell-9-out
-put-1.pdf  used on input line 1210.
+put-1.pdf  used on input line 1201.
 (pdftex.def)             Requested size: 362.40857pt x 239.68224pt.
-
-Underfull \vbox (badness 2237) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 1214.
-LaTeX Info: Redefining \% on input line 1214.
-LaTeX Info: Redefining \. on input line 1214.
-LaTeX Info: Redefining \% on input line 1214.
-\openout3 = `visualization.mw'.
-
- [17 <./docs/chapters/1categorical_files/figure-pdf/cell-8-output-1.pdf> <./doc
-s/chapters/1categorical_files/figure-pdf/cell-9-output-1.pdf>] (./visualization
-.mw)
-\openout3 = `visualization.mw'.
-
-<docs/chapters/1categorical_files/figure-pdf/cell-10-output-1.pdf, id=441, 362.
+<docs/chapters/1categorical_files/figure-pdf/cell-10-output-1.pdf, id=409, 362.
 40393pt x 239.67918pt>
 File: docs/chapters/1categorical_files/figure-pdf/cell-10-output-1.pdf Graphic 
 file (type pdf)
 <use docs/chapters/1categorical_files/figure-pdf/cell-10-output-1.pdf>
 Package pdftex.def Info: docs/chapters/1categorical_files/figure-pdf/cell-10-ou
-tput-1.pdf  used on input line 1221.
+tput-1.pdf  used on input line 1212.
 (pdftex.def)             Requested size: 362.40857pt x 239.68224pt.
-<docs/chapters/1categorical_files/figure-pdf/cell-12-output-1.pdf, id=442, 362.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 1214.
+LaTeX Info: Redefining \% on input line 1214.
+LaTeX Info: Redefining \. on input line 1214.
+LaTeX Info: Redefining \% on input line 1214.
+\openout3 = `visualization.mw'.
+
+ [17 <./docs/chapters/1categorical_files/figure-pdf/cell-9-output-1.pdf>]
+(./visualization.mw)
+\openout3 = `visualization.mw'.
+
+<docs/chapters/1categorical_files/figure-pdf/cell-12-output-1.pdf, id=443, 362.
 81169pt x 255.33142pt>
 File: docs/chapters/1categorical_files/figure-pdf/cell-12-output-1.pdf Graphic 
 file (type pdf)
 <use docs/chapters/1categorical_files/figure-pdf/cell-12-output-1.pdf>
 Package pdftex.def Info: docs/chapters/1categorical_files/figure-pdf/cell-12-ou
-tput-1.pdf  used on input line 1252.
+tput-1.pdf  used on input line 1243.
 (pdftex.def)             Requested size: 362.8108pt x 255.33078pt.
-LaTeX Info: Redefining \. on input line 1253.
-LaTeX Info: Redefining \% on input line 1253.
-LaTeX Info: Redefining \. on input line 1253.
-LaTeX Info: Redefining \% on input line 1253.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 1244.
+LaTeX Info: Redefining \% on input line 1244.
+LaTeX Info: Redefining \. on input line 1244.
+LaTeX Info: Redefining \% on input line 1244.
 \openout3 = `visualization.mw'.
 
-
-[18 <./docs/chapters/1categorical_files/figure-pdf/cell-10-output-1.pdf>]
+ [18 <./docs/chapters/1categorical_files/figure-pdf/cell-10-output-1.pdf>]
 (./visualization.mw)
 \openout3 = `visualization.mw'.
 
-<docs/chapters/1categorical_files/figure-pdf/cell-13-output-1.pdf, id=478, 362.
+<docs/chapters/1categorical_files/figure-pdf/cell-13-output-1.pdf, id=479, 362.
 40393pt x 239.67918pt>
 File: docs/chapters/1categorical_files/figure-pdf/cell-13-output-1.pdf Graphic 
 file (type pdf)
 <use docs/chapters/1categorical_files/figure-pdf/cell-13-output-1.pdf>
 Package pdftex.def Info: docs/chapters/1categorical_files/figure-pdf/cell-13-ou
-tput-1.pdf  used on input line 1270.
+tput-1.pdf  used on input line 1261.
 (pdftex.def)             Requested size: 362.40857pt x 239.68224pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 1272.
-LaTeX Info: Redefining \% on input line 1272.
-LaTeX Info: Redefining \. on input line 1272.
-LaTeX Info: Redefining \% on input line 1272.
+LaTeX Info: Redefining \. on input line 1263.
+LaTeX Info: Redefining \% on input line 1263.
+LaTeX Info: Redefining \. on input line 1263.
+LaTeX Info: Redefining \% on input line 1263.
 \openout3 = `visualization.mw'.
 
  [19 <./docs/chapters/1categorical_files/figure-pdf/cell-12-output-1.pdf>]
 (./visualization.mw)
 \openout3 = `visualization.mw'.
 
-<docs/chapters/1categorical_files/figure-pdf/cell-14-output-1.pdf, id=520, 362.
+<docs/chapters/1categorical_files/figure-pdf/cell-14-output-1.pdf, id=521, 362.
 40393pt x 239.67918pt>
 File: docs/chapters/1categorical_files/figure-pdf/cell-14-output-1.pdf Graphic 
 file (type pdf)
 <use docs/chapters/1categorical_files/figure-pdf/cell-14-output-1.pdf>
 Package pdftex.def Info: docs/chapters/1categorical_files/figure-pdf/cell-14-ou
-tput-1.pdf  used on input line 1281.
+tput-1.pdf  used on input line 1272.
 (pdftex.def)             Requested size: 362.40857pt x 239.68224pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 1290.
-LaTeX Info: Redefining \% on input line 1290.
-LaTeX Info: Redefining \. on input line 1290.
-LaTeX Info: Redefining \% on input line 1290.
+LaTeX Info: Redefining \. on input line 1281.
+LaTeX Info: Redefining \% on input line 1281.
+LaTeX Info: Redefining \. on input line 1281.
+LaTeX Info: Redefining \% on input line 1281.
 \openout3 = `visualization.mw'.
 
  [20 <./docs/chapters/1categorical_files/figure-pdf/cell-13-output-1.pdf> <./do
@@ -3203,92 +3207,88 @@ cs/chapters/1categorical_files/figure-pdf/cell-14-output-1.pdf>] (./visualizati
 on.mw)
 \openout3 = `visualization.mw'.
 
-LaTeX Info: Redefining \. on input line 1366.
-LaTeX Info: Redefining \% on input line 1366.
-LaTeX Info: Redefining \. on input line 1366.
-LaTeX Info: Redefining \% on input line 1366.
+LaTeX Info: Redefining \. on input line 1359.
+LaTeX Info: Redefining \% on input line 1359.
+LaTeX Info: Redefining \. on input line 1359.
+LaTeX Info: Redefining \% on input line 1359.
 \openout3 = `visualization.mw'.
 
 
 [21] (./visualization.mw)
 \openout3 = `visualization.mw'.
 
-<chapters/1numerical_files/figure-pdf/cell-5-output-1.pdf, id=591, 356.0207pt x
- 239.9615pt>
-File: chapters/1numerical_files/figure-pdf/cell-5-output-1.pdf Graphic file (ty
-pe pdf)
-<use chapters/1numerical_files/figure-pdf/cell-5-output-1.pdf>
-Package pdftex.def Info: chapters/1numerical_files/figure-pdf/cell-5-output-1.p
-df  used on input line 1392.
-(pdftex.def)             Requested size: 356.03069pt x 239.96822pt.
-LaTeX Info: Redefining \. on input line 1412.
-LaTeX Info: Redefining \% on input line 1412.
-LaTeX Info: Redefining \. on input line 1412.
-LaTeX Info: Redefining \% on input line 1412.
+LaTeX Info: Redefining \. on input line 1388.
+LaTeX Info: Redefining \% on input line 1388.
+LaTeX Info: Redefining \. on input line 1388.
+LaTeX Info: Redefining \% on input line 1388.
 \openout3 = `visualization.mw'.
 
  [22] (./visualization.mw)
 \openout3 = `visualization.mw'.
 
-<chapters/1numerical_files/figure-pdf/cell-6-output-1.pdf, id=600, 369.06946pt 
+<chapters/1numerical_files/figure-pdf/cell-5-output-1.pdf, id=600, 356.0207pt x
+ 239.9615pt>
+File: chapters/1numerical_files/figure-pdf/cell-5-output-1.pdf Graphic file (ty
+pe pdf)
+<use chapters/1numerical_files/figure-pdf/cell-5-output-1.pdf>
+Package pdftex.def Info: chapters/1numerical_files/figure-pdf/cell-5-output-1.p
+df  used on input line 1394.
+(pdftex.def)             Requested size: 356.03069pt x 239.96822pt.
+<chapters/1numerical_files/figure-pdf/cell-6-output-1.pdf, id=601, 369.06946pt 
 x 212.73477pt>
 File: chapters/1numerical_files/figure-pdf/cell-6-output-1.pdf Graphic file (ty
 pe pdf)
 <use chapters/1numerical_files/figure-pdf/cell-6-output-1.pdf>
 Package pdftex.def Info: chapters/1numerical_files/figure-pdf/cell-6-output-1.p
-df  used on input line 1434.
+df  used on input line 1436.
 (pdftex.def)             Requested size: 369.07417pt x 212.73747pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 1436.
-LaTeX Info: Redefining \% on input line 1436.
-LaTeX Info: Redefining \. on input line 1436.
-LaTeX Info: Redefining \% on input line 1436.
+LaTeX Info: Redefining \. on input line 1438.
+LaTeX Info: Redefining \% on input line 1438.
+LaTeX Info: Redefining \. on input line 1438.
+LaTeX Info: Redefining \% on input line 1438.
 \openout3 = `visualization.mw'.
 
  [23 <./chapters/1numerical_files/figure-pdf/cell-5-output-1.pdf>] (./visualiza
 tion.mw)
 \openout3 = `visualization.mw'.
 
-LaTeX Info: Redefining \. on input line 1485.
-LaTeX Info: Redefining \% on input line 1485.
-LaTeX Info: Redefining \. on input line 1485.
-LaTeX Info: Redefining \% on input line 1485.
+LaTeX Info: Redefining \. on input line 1487.
+LaTeX Info: Redefining \% on input line 1487.
+LaTeX Info: Redefining \. on input line 1487.
+LaTeX Info: Redefining \% on input line 1487.
 \openout3 = `visualization.mw'.
 
-
-[24 <./chapters/1numerical_files/figure-pdf/cell-6-output-1.pdf>]
-(./visualization.mw)
+ [24 <./chapters/1numerical_files/figure-pdf/cell-6-output-1.pdf>] (./visualiza
+tion.mw)
 \openout3 = `visualization.mw'.
 
-<index_files/mediabag/chapters/../img/06_groupby.pdf, id=664, 1322.89545pt x 47
+<index_files/mediabag/chapters/../img/06_groupby.pdf, id=665, 1322.89545pt x 47
 0.01608pt>
 File: index_files/mediabag/chapters/../img/06_groupby.pdf Graphic file (type pd
 f)
 <use index_files/mediabag/chapters/../img/06_groupby.pdf>
 Package pdftex.def Info: index_files/mediabag/chapters/../img/06_groupby.pdf  u
-sed on input line 1515.
+sed on input line 1517.
 (pdftex.def)             Requested size: 398.32507pt x 141.52228pt.
 
-Overfull \hbox (199.61206pt too wide) in alignment at lines 1539--1544
+Overfull \hbox (199.61206pt too wide) in alignment at lines 1541--1546
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (199.61206pt too wide) in alignment at lines 1544--1546
+Overfull \hbox (199.61206pt too wide) in alignment at lines 1546--1548
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (199.61206pt too wide) in alignment at lines 1546--1556
+Overfull \hbox (199.61206pt too wide) in alignment at lines 1548--1558
  [] [] [] [] [] [] [] [] 
  []
 
-LaTeX Info: Redefining \. on input line 1556.
-LaTeX Info: Redefining \% on input line 1556.
-LaTeX Info: Redefining \. on input line 1556.
-LaTeX Info: Redefining \% on input line 1556.
+LaTeX Info: Redefining \. on input line 1558.
+LaTeX Info: Redefining \% on input line 1558.
+LaTeX Info: Redefining \. on input line 1558.
+LaTeX Info: Redefining \% on input line 1558.
 \openout3 = `visualization.mw'.
 
 [25 <./index_files/mediabag/chapters/../img/06_groupby.pdf>]
@@ -3296,30 +3296,30 @@ LaTeX Info: Redefining \% on input line 1556.
 \openout3 = `visualization.mw'.
 
 
-Underfull \hbox (badness 1735) in paragraph at lines 1573--1575
+Underfull \hbox (badness 1735) in paragraph at lines 1575--1577
 []\T1/lmr/m/n/12 (+20) Analicemos, pa-so por pa-so, lo que ocu-rre al eje-cu-ta
 r la ins-truc-ción
  []
 
-LaTeX Info: Redefining \. on input line 1617.
-LaTeX Info: Redefining \% on input line 1617.
-LaTeX Info: Redefining \. on input line 1617.
-LaTeX Info: Redefining \% on input line 1617.
+LaTeX Info: Redefining \. on input line 1619.
+LaTeX Info: Redefining \% on input line 1619.
+LaTeX Info: Redefining \. on input line 1619.
+LaTeX Info: Redefining \% on input line 1619.
 \openout3 = `visualization.mw'.
 
 [26] (./visualization.mw)
 \openout3 = `visualization.mw'.
 
 
-Underfull \hbox (badness 3646) in paragraph at lines 1684--1688
+Underfull \hbox (badness 3646) in paragraph at lines 1686--1690
 []\T1/lmr/m/n/12 (+20) En las ho-jas de da-tos agru-pa-das por ca-te-go-rías (o
 b-je-tos de ti-po
  []
 
-LaTeX Info: Redefining \. on input line 1688.
-LaTeX Info: Redefining \% on input line 1688.
-LaTeX Info: Redefining \. on input line 1688.
-LaTeX Info: Redefining \% on input line 1688.
+LaTeX Info: Redefining \. on input line 1690.
+LaTeX Info: Redefining \% on input line 1690.
+LaTeX Info: Redefining \. on input line 1690.
+LaTeX Info: Redefining \% on input line 1690.
 \openout3 = `visualization.mw'.
 
 [27] (./visualization.mw)
@@ -3328,10 +3328,10 @@ LaTeX Info: Redefining \% on input line 1688.
 
 Underfull \vbox (badness 3029) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 1748.
-LaTeX Info: Redefining \% on input line 1748.
-LaTeX Info: Redefining \. on input line 1748.
-LaTeX Info: Redefining \% on input line 1748.
+LaTeX Info: Redefining \. on input line 1750.
+LaTeX Info: Redefining \% on input line 1750.
+LaTeX Info: Redefining \. on input line 1750.
+LaTeX Info: Redefining \% on input line 1750.
 \openout3 = `visualization.mw'.
 
  [28]
@@ -3339,99 +3339,99 @@ LaTeX Info: Redefining \% on input line 1748.
 \openout3 = `visualization.mw'.
 
 
-Overfull \hbox (58.38869pt too wide) in alignment at lines 1799--1804
+Overfull \hbox (58.38869pt too wide) in alignment at lines 1801--1806
  [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (58.38869pt too wide) in alignment at lines 1804--1806
+Overfull \hbox (58.38869pt too wide) in alignment at lines 1806--1808
  [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (58.38869pt too wide) in alignment at lines 1806--1813
+Overfull \hbox (58.38869pt too wide) in alignment at lines 1808--1815
  [] [] [] [] [] [] [] [] [] 
  []
 
-LaTeX Info: Redefining \. on input line 1813.
-LaTeX Info: Redefining \% on input line 1813.
-LaTeX Info: Redefining \. on input line 1813.
-LaTeX Info: Redefining \% on input line 1813.
+LaTeX Info: Redefining \. on input line 1815.
+LaTeX Info: Redefining \% on input line 1815.
+LaTeX Info: Redefining \. on input line 1815.
+LaTeX Info: Redefining \% on input line 1815.
 \openout3 = `visualization.mw'.
 
 [29] (./visualization.mw)
 \openout3 = `visualization.mw'.
 
-LaTeX Info: Redefining \. on input line 1857.
-LaTeX Info: Redefining \% on input line 1857.
-LaTeX Info: Redefining \. on input line 1857.
-LaTeX Info: Redefining \% on input line 1857.
+LaTeX Info: Redefining \. on input line 1859.
+LaTeX Info: Redefining \% on input line 1859.
+LaTeX Info: Redefining \. on input line 1859.
+LaTeX Info: Redefining \% on input line 1859.
 \openout3 = `visualization.mw'.
 
  [30] (./visualization.mw)
 \openout3 = `visualization.mw'.
 
-<chapters/numerical_by_categorical_files/figure-pdf/cell-4-output-1.pdf, id=726
+<chapters/numerical_by_categorical_files/figure-pdf/cell-4-output-1.pdf, id=727
 , 356.0207pt x 239.9615pt>
 File: chapters/numerical_by_categorical_files/figure-pdf/cell-4-output-1.pdf Gr
 aphic file (type pdf)
 <use chapters/numerical_by_categorical_files/figure-pdf/cell-4-output-1.pdf>
 Package pdftex.def Info: chapters/numerical_by_categorical_files/figure-pdf/cel
-l-4-output-1.pdf  used on input line 1902.
+l-4-output-1.pdf  used on input line 1904.
 (pdftex.def)             Requested size: 356.03069pt x 239.96822pt.
 
 Underfull \vbox (badness 1490) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 1904.
-LaTeX Info: Redefining \% on input line 1904.
-LaTeX Info: Redefining \. on input line 1904.
-LaTeX Info: Redefining \% on input line 1904.
+LaTeX Info: Redefining \. on input line 1906.
+LaTeX Info: Redefining \% on input line 1906.
+LaTeX Info: Redefining \. on input line 1906.
+LaTeX Info: Redefining \% on input line 1906.
 \openout3 = `visualization.mw'.
 
  [31]
 (./visualization.mw)
 \openout3 = `visualization.mw'.
 
-LaTeX Info: Redefining \. on input line 1950.
-LaTeX Info: Redefining \% on input line 1950.
-LaTeX Info: Redefining \. on input line 1950.
-LaTeX Info: Redefining \% on input line 1950.
+LaTeX Info: Redefining \. on input line 1952.
+LaTeX Info: Redefining \% on input line 1952.
+LaTeX Info: Redefining \. on input line 1952.
+LaTeX Info: Redefining \% on input line 1952.
 \openout3 = `visualization.mw'.
 
  [32 <./chapters/numerical_by_categorical_files/figure-pdf/cell-4-output-1.pdf>
 ] (./visualization.mw)
 \openout3 = `visualization.mw'.
 
-<chapters/numerical_by_categorical_files/figure-pdf/cell-5-output-1.pdf, id=784
+<chapters/numerical_by_categorical_files/figure-pdf/cell-5-output-1.pdf, id=785
 , 356.0207pt x 239.9615pt>
 File: chapters/numerical_by_categorical_files/figure-pdf/cell-5-output-1.pdf Gr
 aphic file (type pdf)
 <use chapters/numerical_by_categorical_files/figure-pdf/cell-5-output-1.pdf>
 Package pdftex.def Info: chapters/numerical_by_categorical_files/figure-pdf/cel
-l-5-output-1.pdf  used on input line 1969.
+l-5-output-1.pdf  used on input line 1971.
 (pdftex.def)             Requested size: 356.03069pt x 239.96822pt.
-LaTeX Info: Redefining \. on input line 1992.
-LaTeX Info: Redefining \% on input line 1992.
-LaTeX Info: Redefining \. on input line 1992.
-LaTeX Info: Redefining \% on input line 1992.
+LaTeX Info: Redefining \. on input line 1994.
+LaTeX Info: Redefining \% on input line 1994.
+LaTeX Info: Redefining \. on input line 1994.
+LaTeX Info: Redefining \% on input line 1994.
 \openout3 = `visualization.mw'.
 
  [33 <./chapters/numerical_by_categorical_files/figure-pdf/cell-5-output-1.pdf>
 ] (./visualization.mw)
 \openout3 = `visualization.mw'.
 
-<chapters/numerical_by_categorical_files/figure-pdf/cell-6-output-1.pdf, id=828
+<chapters/numerical_by_categorical_files/figure-pdf/cell-6-output-1.pdf, id=829
 , 639.99036pt x 208.84587pt>
 File: chapters/numerical_by_categorical_files/figure-pdf/cell-6-output-1.pdf Gr
 aphic file (type pdf)
 <use chapters/numerical_by_categorical_files/figure-pdf/cell-6-output-1.pdf>
 Package pdftex.def Info: chapters/numerical_by_categorical_files/figure-pdf/cel
-l-6-output-1.pdf  used on input line 2017.
+l-6-output-1.pdf  used on input line 2019.
 (pdftex.def)             Requested size: 398.34264pt x 129.98978pt.
-LaTeX Info: Redefining \. on input line 2034.
-LaTeX Info: Redefining \% on input line 2034.
-LaTeX Info: Redefining \. on input line 2034.
-LaTeX Info: Redefining \% on input line 2034.
+LaTeX Info: Redefining \. on input line 2036.
+LaTeX Info: Redefining \% on input line 2036.
+LaTeX Info: Redefining \. on input line 2036.
+LaTeX Info: Redefining \% on input line 2036.
 \openout3 = `visualization.mw'.
 
  [34
@@ -3440,54 +3440,54 @@ pdfTeX warning (ext4): destination with the same identifier (name{exr-histogram
 
 \__morewrites_shipout_ii: ...rewrites_shipout_box 
                                                   \__morewrites_after_shipout: 
-l.2034 \end{Shaded}
+l.2036 \end{Shaded}
                     <./chapters/numerical_by_categorical_files/figure-pdf/cell-
 6-output-1.pdf>] (./visualization.mw)
 \openout3 = `visualization.mw'.
 
-<chapters/numerical_by_categorical_files/figure-pdf/cell-7-output-1.pdf, id=867
+<chapters/numerical_by_categorical_files/figure-pdf/cell-7-output-1.pdf, id=868
 , 642.79208pt x 208.47762pt>
 File: chapters/numerical_by_categorical_files/figure-pdf/cell-7-output-1.pdf Gr
 aphic file (type pdf)
 <use chapters/numerical_by_categorical_files/figure-pdf/cell-7-output-1.pdf>
 Package pdftex.def Info: chapters/numerical_by_categorical_files/figure-pdf/cel
-l-7-output-1.pdf  used on input line 2036.
+l-7-output-1.pdf  used on input line 2038.
 (pdftex.def)             Requested size: 398.34062pt x 129.19432pt.
-LaTeX Info: Redefining \. on input line 2106.
-LaTeX Info: Redefining \% on input line 2106.
-LaTeX Info: Redefining \. on input line 2106.
-LaTeX Info: Redefining \% on input line 2106.
+LaTeX Info: Redefining \. on input line 2108.
+LaTeX Info: Redefining \% on input line 2108.
+LaTeX Info: Redefining \. on input line 2108.
+LaTeX Info: Redefining \% on input line 2108.
 \openout3 = `visualization.mw'.
 
  [35 <./chapters/numerical_by_categorical_files/figure-pdf/cell-7-output-1.pdf>
 ] (./visualization.mw)
 \openout3 = `visualization.mw'.
 
-<chapters/numerical_by_categorical_files/figure-pdf/cell-9-output-1.pdf, id=911
+<chapters/numerical_by_categorical_files/figure-pdf/cell-9-output-1.pdf, id=912
 , 209.17209pt x 642.0976pt>
 File: chapters/numerical_by_categorical_files/figure-pdf/cell-9-output-1.pdf Gr
 aphic file (type pdf)
 <use chapters/numerical_by_categorical_files/figure-pdf/cell-9-output-1.pdf>
 Package pdftex.def Info: chapters/numerical_by_categorical_files/figure-pdf/cel
-l-9-output-1.pdf  used on input line 2152.
+l-9-output-1.pdf  used on input line 2154.
 (pdftex.def)             Requested size: 192.70874pt x 591.55995pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 2154.
-LaTeX Info: Redefining \% on input line 2154.
-LaTeX Info: Redefining \. on input line 2154.
-LaTeX Info: Redefining \% on input line 2154.
+LaTeX Info: Redefining \. on input line 2156.
+LaTeX Info: Redefining \% on input line 2156.
+LaTeX Info: Redefining \. on input line 2156.
+LaTeX Info: Redefining \% on input line 2156.
 \openout3 = `visualization.mw'.
 
  [36]
 (./visualization.mw)
 \openout3 = `visualization.mw'.
 
-LaTeX Info: Redefining \. on input line 2154.
-LaTeX Info: Redefining \% on input line 2154.
-LaTeX Info: Redefining \. on input line 2154.
-LaTeX Info: Redefining \% on input line 2154.
+LaTeX Info: Redefining \. on input line 2156.
+LaTeX Info: Redefining \% on input line 2156.
+LaTeX Info: Redefining \. on input line 2156.
+LaTeX Info: Redefining \% on input line 2156.
 \openout3 = `visualization.mw'.
 
  [37 <./chapters/numerical_by_categorical_files/figure-pdf/cell-9-output-1.pdf>
@@ -3495,26 +3495,26 @@ LaTeX Info: Redefining \% on input line 2154.
 \openout3 = `visualization.mw'.
 
 <chapters/numerical_by_categorical_files/figure-pdf/cell-10-output-1.pdf, id=96
-0, 642.79901pt x 425.33469pt>
+1, 642.79901pt x 425.33469pt>
 File: chapters/numerical_by_categorical_files/figure-pdf/cell-10-output-1.pdf G
 raphic file (type pdf)
 <use chapters/numerical_by_categorical_files/figure-pdf/cell-10-output-1.pdf>
 Package pdftex.def Info: chapters/numerical_by_categorical_files/figure-pdf/cel
-l-10-output-1.pdf  used on input line 2167.
+l-10-output-1.pdf  used on input line 2169.
 (pdftex.def)             Requested size: 398.34491pt x 263.58147pt.
-<chapters/../img/cover/cover.png, id=961, 505.89pt x 361.35pt>
+<chapters/../img/cover/cover.png, id=962, 505.89pt x 361.35pt>
 File: chapters/../img/cover/cover.png Graphic file (type png)
 <use chapters/../img/cover/cover.png>
 Package pdftex.def Info: chapters/../img/cover/cover.png  used on input line 21
-81.
+83.
 (pdftex.def)             Requested size: 398.34415pt x 284.53156pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 2183.
-LaTeX Info: Redefining \% on input line 2183.
-LaTeX Info: Redefining \. on input line 2183.
-LaTeX Info: Redefining \% on input line 2183.
+LaTeX Info: Redefining \. on input line 2185.
+LaTeX Info: Redefining \% on input line 2185.
+LaTeX Info: Redefining \. on input line 2185.
+LaTeX Info: Redefining \% on input line 2185.
 \openout3 = `visualization.mw'.
 
  [38 <./chapters/numerical_by_categorical_files/figure-pdf/cell-10-output-1.pdf
@@ -3523,37 +3523,37 @@ LaTeX Info: Redefining \% on input line 2183.
 \openout3 = `visualization.mw'.
 
 <chapters/numerical_by_categorical_files/figure-pdf/cell-12-output-1.pdf, id=10
-14, 369.06946pt x 239.67918pt>
+15, 369.06946pt x 239.67918pt>
 File: chapters/numerical_by_categorical_files/figure-pdf/cell-12-output-1.pdf G
 raphic file (type pdf)
 <use chapters/numerical_by_categorical_files/figure-pdf/cell-12-output-1.pdf>
 Package pdftex.def Info: chapters/numerical_by_categorical_files/figure-pdf/cel
-l-12-output-1.pdf  used on input line 2205.
+l-12-output-1.pdf  used on input line 2207.
 (pdftex.def)             Requested size: 369.07417pt x 239.68224pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 2207.
-LaTeX Info: Redefining \% on input line 2207.
-LaTeX Info: Redefining \. on input line 2207.
-LaTeX Info: Redefining \% on input line 2207.
+LaTeX Info: Redefining \. on input line 2209.
+LaTeX Info: Redefining \% on input line 2209.
+LaTeX Info: Redefining \. on input line 2209.
+LaTeX Info: Redefining \% on input line 2209.
 \openout3 = `visualization.mw'.
 
  [39 <./chapters/../img/cover/cover.png>] (./visualization.mw)
 \openout3 = `visualization.mw'.
 
 <chapters/numerical_by_categorical_files/figure-pdf/cell-13-output-1.pdf, id=10
-23, 369.06946pt x 239.67918pt>
+24, 369.06946pt x 239.67918pt>
 File: chapters/numerical_by_categorical_files/figure-pdf/cell-13-output-1.pdf G
 raphic file (type pdf)
 <use chapters/numerical_by_categorical_files/figure-pdf/cell-13-output-1.pdf>
 Package pdftex.def Info: chapters/numerical_by_categorical_files/figure-pdf/cel
-l-13-output-1.pdf  used on input line 2216.
+l-13-output-1.pdf  used on input line 2218.
 (pdftex.def)             Requested size: 369.07417pt x 239.68224pt.
-LaTeX Info: Redefining \. on input line 2226.
-LaTeX Info: Redefining \% on input line 2226.
-LaTeX Info: Redefining \. on input line 2226.
-LaTeX Info: Redefining \% on input line 2226.
+LaTeX Info: Redefining \. on input line 2228.
+LaTeX Info: Redefining \% on input line 2228.
+LaTeX Info: Redefining \. on input line 2228.
+LaTeX Info: Redefining \% on input line 2228.
 \openout3 = `visualization.mw'.
 
  [40 <./chapters/numerical_by_categorical_files/figure-pdf/cell-12-output-1.pdf
@@ -3561,20 +3561,20 @@ LaTeX Info: Redefining \% on input line 2226.
 (./visualization.mw)
 \openout3 = `visualization.mw'.
 
-LaTeX Info: Redefining \. on input line 2240.
-LaTeX Info: Redefining \% on input line 2240.
-LaTeX Info: Redefining \. on input line 2240.
-LaTeX Info: Redefining \% on input line 2240.
+LaTeX Info: Redefining \. on input line 2242.
+LaTeX Info: Redefining \% on input line 2242.
+LaTeX Info: Redefining \. on input line 2242.
+LaTeX Info: Redefining \% on input line 2242.
 \openout3 = `visualization.mw'.
 
 
 [41] (./visualization.mw)
 \openout3 = `visualization.mw'.
 
-LaTeX Info: Redefining \. on input line 2240.
-LaTeX Info: Redefining \% on input line 2240.
-LaTeX Info: Redefining \. on input line 2240.
-LaTeX Info: Redefining \% on input line 2240.
+LaTeX Info: Redefining \. on input line 2242.
+LaTeX Info: Redefining \% on input line 2242.
+LaTeX Info: Redefining \. on input line 2242.
+LaTeX Info: Redefining \% on input line 2242.
 \openout3 = `visualization.mw'.
 
  [42
@@ -3602,19 +3602,10 @@ Package microtype Info: Character `029' is missing
 ] (./visualization.mw)
 \openout3 = `visualization.mw'.
 
-
-
-LaTeX Warning: Hook 'shipout/lastpage' executed on wrong page (46 not 48).
-               Rerun to correct this.
-
-(./visualization.aux
+ (./visualization.aux
 LaTeX Info: Redefining \sptext on input line 22.
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
-\openout3 = `visualization.mw'.
-
-\openout3 = `visualization.mw'.
-
 \openout3 = `visualization.mw'.
 
 \openout3 = `visualization.mw'.
@@ -3798,13 +3789,7 @@ L3 programming layer <2024-03-14>
  ***********
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
-
-
-Package biblatex Warning: Please rerun LaTeX.
 
 \openout3 = `visualization.mw'.
 
@@ -3837,13 +3822,13 @@ Package logreq Info: Writing requests to 'visualization.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 77288 strings out of 474104
- 1814881 string characters out of 5743473
- 3143739 words of memory out of 5000000
- 97555 multiletter control sequences out of 15000+600000
- 646991 words of font info for 186 fonts, out of 8000000 for 9000
+ 77279 strings out of 474104
+ 1814767 string characters out of 5743473
+ 3143839 words of memory out of 5000000
+ 97553 multiletter control sequences out of 15000+600000
+ 646936 words of font info for 185 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 165i,14n,183p,1593b,2321s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 165i,14n,183p,1593b,2329s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/fontawesome5/FontAweso
 me5Free-Solid.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmb
 x12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><
@@ -3859,10 +3844,10 @@ exlive/2024/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2024
 /texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2024/texmf-dis
 t/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/ty
 pe1/public/lm/lmtt12.pfb>
-Output written on visualization.pdf (48 pages, 1886981 bytes).
+Output written on visualization.pdf (48 pages, 1888138 bytes).
 PDF statistics:
- 1360 PDF objects out of 1440 (max. 8388607)
- 741 compressed objects within 8 object streams
- 201 named destinations out of 1000 (max. 500000)
- 51633 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 1357 PDF objects out of 1440 (max. 8388607)
+ 738 compressed objects within 8 object streams
+ 199 named destinations out of 1000 (max. 500000)
+ 51625 words of extra memory for PDF output out of 61914 (max. 10000000)
 

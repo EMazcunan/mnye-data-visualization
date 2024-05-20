@@ -14,7 +14,7 @@ import seaborn as sns
 
 En esta sección importarás los datos sobre los pingüinos del archipiélago Palmer presentados en la introducción y conocerás la información que contienen.
 
-## Importar los datos
+## Importar los datos {#sec-read_csv}
 
 Como se indicó en la introducción, los datos con los que vamos a trabajar están disponibles en la web en un fichero de formato `CSV`. 
 
@@ -70,7 +70,7 @@ En nuestra hoja de datos `penguins`:
 - Cada celda contiene el valor de la característica del pingüino en la correspondiente fila. 
 
 
-Por ejemplo, mirando la primera fila de la hoja de datos
+Por ejemplo, mirando la primera fila de la hoja de datos en la salida de la instrucción anterior `penguins.head(5)`
 ```{python}
 #| echo: false
 penguins.head(1)
@@ -124,7 +124,7 @@ penguins.head(1)
 ahora sabes que el primer pingüino es de la especie Adelie, vive en la isla Torgensen, las dimensiones de su pico son $39.1 \times 18.7$ milímetros, sus alas miden $181$ milímetros, pesa $3$ kilos y $750$ gramos, y es un macho. 
 
 :::: {#exr-data}
-Describe las características del tercer pingüino del estudio (índice 2).
+Describe las características del tercer pingüino del estudio (índice 2) mirando la salida de la instrucción anterior `penguins.head(5)`.
 
 <!-- :::{.solution}
 Solución del ejercicio dentro
@@ -176,7 +176,7 @@ Para variables categóricas podremos calcular el recuento de observaciones en ca
  -->
 
 
-## Índice 
+<!-- ## Índice 
 
 
 Igual que cada columna (variable) en una hoja de datos tiene un nombre, cada fila (observación) también tiene una etiqueta identificativa. En nuestra hoja de datos cada uno de los $344$ pingüinos se identifica con un número entero de la secuencia 0, 1, ..., 333.
@@ -196,6 +196,6 @@ Las etiquetas identificativas de las filas de una hoja de datos forman su __índ
 penguins.index
 ```
 
-Si cada pingüino estuviera identificado por un código, podríamos haber indicado esa variable como índice en el momento de la importación de los datos. Cuando no se indica el índice de una hoja de datos de forma explícita, `pandas` asigna una secuencia de números enteros comenzando en 0, como ha ocurrido en nuestro caso.
+Si cada pingüino estuviera identificado por un código, podríamos haber indicado esa variable como índice en el momento de la importación de los datos. Cuando no se indica el índice de una hoja de datos de forma explícita, `pandas` asigna una secuencia de números enteros comenzando en 0, como ha ocurrido en nuestro caso. -->
 
 

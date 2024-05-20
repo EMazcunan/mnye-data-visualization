@@ -45,14 +45,17 @@ Fragmento de la salida | Significado
 `mean     4201.754386` | El peso medio de los pingüinos es $4$ kilogramos y $201$ gramos.
 `std       801.954536` | La desviación estandar del peso de los pinguinos es $801$ gramos.
 `min      2700.000000` | El pingüino que menos pesa, pesa $2$ kilos y $700$ gramos.
-`25%      3550.000000` | El $25\%$ de los pingüinos pesa menos de $3$ kilos y $550$ gramos (y el $75\%$ restante más). Este valor se conoce como __cuantil 0.25__ o __primer cuartil__.
-`50%      4050.000000` | El $50\%$ de los pingüinos pesa menos de $4$ kilos y $50$ gramos (y el $50\%$ restante más).  Este valor se llama  __cuantil 0.5__, __segundo cuartil__ o __mediana__.
-`75%      4750.000000` | El $75\%$ de los pingüinos pesa menos de $4$ kilos y $750$ gramos (y el $25\%$ restante más).  Este valor se llama __cuantil 0.75__ o __tercer cuartil__.
+`25%      3550.000000` | El $25\%$ de los pingüinos pesa menos de $3$ kilos y $550$ gramos (y el $75\%$ restante más). Este valor se conoce como __cuantil 0.25__, __percentil 25__ o __primer cuartil__.
+`50%      4050.000000` | El $50\%$ de los pingüinos pesa menos de $4$ kilos y $50$ gramos (y el $50\%$ restante más).  Este valor se llama __cuantil 0.5__, __percentil 50__,  __segundo cuartil__ o __mediana__.
+`75%      4750.000000` | El $75\%$ de los pingüinos pesa menos de $4$ kilos y $750$ gramos (y el $25\%$ restante más).  Este valor se llama __cuantil 0.75__, __percentil 75__,o __tercer cuartil__.
 `max      6300.000000` | El pingüino que más pesa, pesa $6$ kilos y $300$ gramos. 
 
 
 :::{#exr-1numerical-describe}
-Utiliza el método `describe()` para obtener información sobre la distribución de la longitud de las alas de los pingüinos.
+Utiliza el método `describe()` para obtener información sobre la distribución de la longitud de las alas de los pingüinos, y responde a las siguientes preguntas:
+
+- ¿Para cuántos pingüinos falta el dato de la longitud de sus alas?
+- ¿Cuál es el percentil 25 de la longitud de las alas de los pingüinos?
 :::
 
 

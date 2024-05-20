@@ -43,7 +43,8 @@ Fragmento de la salida | Significado
 
 
 :::{#exr-1categorical-describe}
-Utiliza el método `describe()` para obtener información sobre la distribución de los pingüinos por islas.
+Utiliza el método `describe()` para obtener información sobre la distribución de los pingüinos por islas, y responde a las siguiente pregunta: ¿Cuál es la isla más poblada y cuántos pingüinos viven en ella?
+
 :::
 
 ## Tabla de recuentos {#sec-value-counts}

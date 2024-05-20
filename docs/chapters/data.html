@@ -273,7 +273,7 @@ window.Quarto = {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#importar-los-datos" id="toc-importar-los-datos" class="nav-link active" data-scroll-target="#importar-los-datos"><span class="header-section-number">2.1</span> Importar los datos</a></li>
+  <li><a href="#sec-read_csv" id="toc-sec-read_csv" class="nav-link active" data-scroll-target="#sec-read_csv"><span class="header-section-number">2.1</span> Importar los datos</a></li>
   <li><a href="#dimensiones" id="toc-dimensiones" class="nav-link" data-scroll-target="#dimensiones"><span class="header-section-number">2.2</span> Dimensiones</a></li>
   <li><a href="#sec-head-tail" id="toc-sec-head-tail" class="nav-link" data-scroll-target="#sec-head-tail"><span class="header-section-number">2.3</span> Primeras y últimas filas</a></li>
   <li><a href="#estructura" id="toc-estructura" class="nav-link" data-scroll-target="#estructura"><span class="header-section-number">2.4</span> Estructura</a></li>
@@ -283,7 +283,6 @@ window.Quarto = {
   <li><a href="#valores-nulos" id="toc-valores-nulos" class="nav-link" data-scroll-target="#valores-nulos"><span class="header-section-number">2.5.2</span> Valores nulos</a></li>
   <li><a href="#tipos-de-variables" id="toc-tipos-de-variables" class="nav-link" data-scroll-target="#tipos-de-variables"><span class="header-section-number">2.5.3</span> Tipos de variables</a></li>
   </ul></li>
-  <li><a href="#índice" id="toc-índice" class="nav-link" data-scroll-target="#índice"><span class="header-section-number">2.6</span> Índice</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/EMazcunan/mnye2223-data-visualization/blob/master/chapters/data.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li></ul></div></nav>
     </div>
@@ -375,16 +374,16 @@ backToTopButton.addEventListener("click", function () {
 
 
 <p>En esta sección importarás los datos sobre los pingüinos del archipiélago Palmer presentados en la introducción y conocerás la información que contienen.</p>
-<section id="importar-los-datos" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="importar-los-datos"><span class="header-section-number">2.1</span> Importar los datos</h2>
+<section id="sec-read_csv" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="sec-read_csv"><span class="header-section-number">2.1</span> Importar los datos</h2>
 <p>Como se indicó en la introducción, los datos con los que vamos a trabajar están disponibles en la web en un fichero de formato <code>CSV</code>.</p>
 <p>Ejecuta las instrucciones a continuación para importar el archivo usando la función <code>read_csv()</code> y guardar el resultado en una variable de nombre <code>penguins</code>:</p>
-<div id="f07ccc5c" class="cell" data-execution_count="2">
+<div id="5244712d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> pd.read_csv(url)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>El objeto <code>penguins</code> que acabas de crear es una <strong>hoja de datos</strong>, representada en <code>pandas</code> con la clase <code>DataFrame</code>.</p>
-<div id="e0d633bd" class="cell" data-execution_count="3">
+<div id="dc689fe1" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(penguins)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>pandas.core.frame.DataFrame</code></pre>
@@ -396,7 +395,7 @@ backToTopButton.addEventListener("click", function () {
 <h2 data-number="2.2" class="anchored" data-anchor-id="dimensiones"><span class="header-section-number">2.2</span> Dimensiones</h2>
 <p>Una hoja de datos es una estructura matricial o tabular que contiene datos organizados por filas y columnas.</p>
 <p>Para saber las dimensiones de nuestra hoja de datos <code>penguins</code> consulta su propiedad <code>shape</code>:</p>
-<div id="f724694c" class="cell" data-execution_count="4">
+<div id="6cce97c6" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>penguins.shape</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>(344, 7)</code></pre>
@@ -407,7 +406,7 @@ backToTopButton.addEventListener("click", function () {
 <section id="sec-head-tail" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="sec-head-tail"><span class="header-section-number">2.3</span> Primeras y últimas filas</h2>
 <p>Con las siguientes instrucciones puedes visualizar las cinco primeras y últimas filas de la hoja de datos <code>penguins</code> que acabas de crear.</p>
-<div id="ce2bb40e" class="cell" data-execution_count="5">
+<div id="6159c1c8" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>penguins.head(<span class="dv">5</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
@@ -485,7 +484,7 @@ backToTopButton.addEventListener("click", function () {
 </div>
 </div>
 </div>
-<div id="2c1188b9" class="cell" data-execution_count="6">
+<div id="c3db95bc" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>penguins.tail(<span class="dv">5</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
@@ -572,8 +571,8 @@ backToTopButton.addEventListener("click", function () {
 <li><p>Cada fila se corresponde con un pingüino concreto de los <span class="math inline">\(344\)</span> seleccionados en el estudio.</p></li>
 <li><p>Cada celda contiene el valor de la característica del pingüino en la correspondiente fila.</p></li>
 </ul>
-<p>Por ejemplo, mirando la primera fila de la hoja de datos</p>
-<div id="51f3eb3f" class="cell" data-execution_count="7">
+<p>Por ejemplo, mirando la primera fila de la hoja de datos en la salida de la instrucción anterior <code>penguins.head(5)</code></p>
+<div id="ef0055f2" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 <div>
@@ -622,7 +621,7 @@ backToTopButton.addEventListener("click", function () {
 <section id="variables" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="variables"><span class="header-section-number">2.5</span> Variables</h2>
 <p>Ejecuta la siguiente instrucción:</p>
-<div id="710383e2" class="cell" data-execution_count="8">
+<div id="b0680ed3" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>penguins.info()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -698,7 +697,7 @@ Figura&nbsp;2.1: Ilustración de las variables <code>bill_length_mm</code> y <co
 </figure>
 </div>
 <p>Volviendo a mirar la primera fila de nuestra hoja de datos</p>
-<div id="7deb6dc0" class="cell" data-execution_count="9">
+<div id="a9e620fd" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 <div>
@@ -737,7 +736,7 @@ Figura&nbsp;2.1: Ilustración de las variables <code>bill_length_mm</code> y <co
 </div>
 <p>ahora sabes que el primer pingüino es de la especie Adelie, vive en la isla Torgensen, las dimensiones de su pico son <span class="math inline">\(39.1 \times 18.7\)</span> milímetros, sus alas miden <span class="math inline">\(181\)</span> milímetros, pesa <span class="math inline">\(3\)</span> kilos y <span class="math inline">\(750\)</span> gramos, y es un macho.</p>
 <div id="exr-data" class="theorem exercise">
-<p><span class="theorem-title"><strong>Ejercicio 2.1</strong></span> Describe las características del tercer pingüino del estudio (índice 2).</p>
+<p><span class="theorem-title"><strong>Ejercicio 2.1</strong></span> Describe las características del tercer pingüino del estudio (índice 2) mirando la salida de la instrucción anterior <code>penguins.head(5)</code>.</p>
 <!-- :::{.solution}
 Solución del ejercicio dentro
 ::: -->
@@ -746,7 +745,7 @@ Solución del ejercicio dentro
 <section id="valores-nulos" class="level3" data-number="2.5.2">
 <h3 data-number="2.5.2" class="anchored" data-anchor-id="valores-nulos"><span class="header-section-number">2.5.2</span> Valores nulos</h3>
 <p>Fíjate ahora en la columna <code>Non-Null Count</code> de la salida del método <code>info()</code>:</p>
-<div id="1a2c855e" class="cell" data-execution_count="10">
+<div id="864ca6e7" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 RangeIndex: 344 entries, 0 to 343
@@ -766,7 +765,7 @@ memory usage: 18.9+ KB</code></pre>
 </div>
 <p>Los valores nulos o perdidos son valores no disponibles, que no han podido registrarse, se representan con el símbolo <code>NaN</code> (iniciales de <em>Not A Number</em>).</p>
 <p>Si vuelves a mirar las cinco primeras filas de la hoja de datos verás que para el cuarto pingüino sólo sabemos que es de la especie Adelie y vive el la isla Torgersen, y se desconocen las otras cinco variables.</p>
-<div id="93ead028" class="cell" data-execution_count="11">
+<div id="947bb5b2" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 <div>
@@ -813,7 +812,7 @@ memory usage: 18.9+ KB</code></pre>
 <li><p>Las cuatro restantes, <code>bill_length_mm</code>, <code>bill_depth_mm</code>, <code>flipper_length_mm</code> y <code>body_mass_g</code> son <strong>variables numéricas</strong>, que representan características cuantitativas que se describen con valores numéricos (números enteros o reales).</p></li>
 </ol>
 <p><code>pandas</code> asigna un tipo a cada variable de una hoja de datos en función de los valores que presenta, como puede verse en la columna <code>Dtype</code> de la salida del método <code>info()</code>:</p>
-<div id="f0e5b68a" class="cell" data-execution_count="12">
+<div id="5a8f4e3f" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 RangeIndex: 344 entries, 0 to 343
@@ -840,20 +839,35 @@ Para variables categóricas podremos calcular el recuento de observaciones en ca
 - Dos variables categóricas. Podemos estudiar por ejemplo si hay más hembras en alguna especie.
 - Dos variables numéricas. Podemos plantearnos por ejemplo si hay una asociación entre el peso y la longitud de las alas.    
  -->
-</section>
-</section>
-<section id="índice" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="índice"><span class="header-section-number">2.6</span> Índice</h2>
-<p>Igual que cada columna (variable) en una hoja de datos tiene un nombre, cada fila (observación) también tiene una etiqueta identificativa. En nuestra hoja de datos cada uno de los <span class="math inline">\(344\)</span> pingüinos se identifica con un número entero de la secuencia 0, 1, …, 333.</p>
-<div id="26e26e5b" class="cell" data-execution_count="13">
-<div class="cell-output cell-output-display" data-execution_count="13">
 <div>
-<div>
+<!-- ## Índice 
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+Igual que cada columna (variable) en una hoja de datos tiene un nombre, cada fila (observación) también tiene una etiqueta identificativa. En nuestra hoja de datos cada uno de los $344$ pingüinos se identifica con un número entero de la secuencia 0, 1, ..., 333.
+
+::: {#0d936a3d .cell execution_count=13}
+
+::: {.cell-output .cell-output-display execution_count=13}
+
+```{=html}
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe" data-quarto-postprocess="true" data-border="1">
 <thead>
-<tr class="header">
+<tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">species</th>
 <th data-quarto-table-cell-role="th">island</th>
@@ -897,20 +911,25 @@ Para variables categóricas podremos calcular el recuento de observaciones en ca
 </tr>
 </tbody>
 </table>
-
 </div>
-</div>
-</div>
-</div>
-<div id="c1620bb9" class="cell" data-execution_count="14">
-<div class="cell-output cell-output-display" data-execution_count="14">
+``` ::: ::: ::: {#7259a370 .cell execution_count=14} ::: {.cell-output .cell-output-display execution_count=14} ```{=html}
 <div>
-<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table class="dataframe" data-quarto-postprocess="true" data-border="1">
 <thead>
-<tr class="header">
+<tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">species</th>
 <th data-quarto-table-cell-role="th">island</th>
@@ -954,19 +973,32 @@ Para variables categóricas podremos calcular el recuento de observaciones en ca
 </tr>
 </tbody>
 </table>
+</div>
 
 </div>
+```
+
+:::
+:::
+
+
+Las etiquetas identificativas de las filas de una hoja de datos forman su __índice__. El índice de una hoja de datos de `pandas` se registra en su propiedad `index`.
+
+::: {#c3118d56 .cell execution_count=15}
+``` {.python .cell-code}
+penguins.index
+```
+
+::: {.cell-output .cell-output-display execution_count=15}
+```
+RangeIndex(start=0, stop=344, step=1)
+```
+:::
+:::
+
+
+Si cada pingüino estuviera identificado por un código, podríamos haber indicado esa variable como índice en el momento de la importación de los datos. Cuando no se indica el índice de una hoja de datos de forma explícita, `pandas` asigna una secuencia de números enteros comenzando en 0, como ha ocurrido en nuestro caso. -->
 </div>
-</div>
-</div>
-<p>Las etiquetas identificativas de las filas de una hoja de datos forman su <strong>índice</strong>. El índice de una hoja de datos de <code>pandas</code> se registra en su propiedad <code>index</code>.</p>
-<div id="8ae7a510" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>penguins.index</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
-<pre><code>RangeIndex(start=0, stop=344, step=1)</code></pre>
-</div>
-</div>
-<p>Si cada pingüino estuviera identificado por un código, podríamos haber indicado esa variable como índice en el momento de la importación de los datos. Cuando no se indica el índice de una hoja de datos de forma explícita, <code>pandas</code> asigna una secuencia de números enteros comenzando en 0, como ha ocurrido en nuestro caso.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -980,6 +1012,7 @@ The pandas development team. 2020. <span>«pandas-dev/pandas: Pandas»</span>. Z
 Waskom, Michael L. 2021. <span>«seaborn: statistical data visualization»</span>. <em>Journal of Open Source Software</em> 6 (60): 3021. <a href="https://doi.org/10.21105/joss.03021">https://doi.org/10.21105/joss.03021</a>.
 </div>
 </div>
+</section>
 </section>
 
 </main> <!-- /main -->
