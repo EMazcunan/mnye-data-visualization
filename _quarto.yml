@@ -8,7 +8,7 @@ book:
   title: "Exploración y visualización de datos con Python"
   output-file: "visualization" # nombre PDF
   author: "Eva María Mazcuñán Navarro"
-  # date: "last-modified"
+  # date: "last-modified"po
   chapters:
     - index.qmd
     - chapters/intro.qmd
@@ -23,7 +23,7 @@ book:
     # - chapters/tbc.qmd    
     # - chapters/2categorical.qmd
     - chapters/references.qmd
-  repo-url: https://github.com/EMazcunan/mnye2223-data-visualization
+  repo-url: https://github.com/EMazcunan/mnye-data-visualization
   # issue-url:  
   downloads: [pdf]
   cover-image: img/cover/cover.png
