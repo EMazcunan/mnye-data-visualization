@@ -183,7 +183,7 @@ window.Quarto = {
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Exploración y visualización de datos con Python</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/EMazcunan/mnye2223-data-visualization" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/EMazcunan/mnye-data-visualization" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
     <a href="../visualization.pdf" title="Descargar PDF" class="quarto-navigation-tool px-1" aria-label="Descargar PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
@@ -280,7 +280,7 @@ window.Quarto = {
   <li><a href="#orden-de-los-niveles" id="toc-orden-de-los-niveles" class="nav-link" data-scroll-target="#orden-de-los-niveles"><span class="header-section-number">4.4.3</span> Orden de los niveles</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/EMazcunan/mnye2223-data-visualization/blob/master/chapters/1categorical.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/EMazcunan/mnye-data-visualization/blob/master/chapters/1categorical.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -372,13 +372,13 @@ backToTopButton.addEventListener("click", function () {
 <p>En este apartado se describen los métodos básicos para explorar y analizar una variable categórica.</p>
 <p>Analizaremos en concreto la variable <code>species</code> de nuestra hoja de datos, para conocer la distribución de los pingüinos por especies.</p>
 <p>Comenzamos seleccionando la variable de interés en nuestra hoja de datos. Almacenamos el resultado en un nuevo objeto de nombre <code>species</code>.</p>
-<div id="931ada45" class="cell" data-execution_count="2">
+<div id="ca4b116b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>species <span class="op">=</span> penguins[<span class="st">"species"</span>]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="sec-1categorical-describe" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="sec-1categorical-describe"><span class="header-section-number">4.1</span> El método <code>describe()</code></h2>
 <p>Para obtener la información más relevante sobre la distribución de las especies de pingüinos aplicamos a <code>species</code> el método <code>describe()</code>:</p>
-<div id="12dc514f" class="cell" data-execution_count="3">
+<div id="b73d4578" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>species.describe()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>count        344
@@ -426,7 +426,7 @@ Name: species, dtype: object</code></pre>
 <section id="sec-value-counts" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="sec-value-counts"><span class="header-section-number">4.2</span> Tabla de recuentos</h2>
 <p>Ya sabemos que la especie más numerosa es Adelie, con <span class="math inline">\(152\)</span> pingüinos, pero aún no sabemos cuántos pingüinos hay de las otras dos especies, Chinstrap y Gentoo. Para obtener una tabla con el número de pingüinos de cada especie usamos la función <code>value_counts()</code>:</p>
-<div id="5efa99b9" class="cell" data-execution_count="4">
+<div id="a7e320f6" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>species.value_counts()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>species
@@ -445,7 +445,7 @@ Name: count, dtype: int64</code></pre>
 <h2 data-number="4.3" class="anchored" data-anchor-id="diagrama-de-recuentos"><span class="header-section-number">4.3</span> Diagrama de recuentos</h2>
 <p>Un <strong>diagrama de recuentos</strong> asocia a cada categoría una barra de longitud igual al número de observaciones en esa categoría.</p>
 <p>Para realizar un diagrama del recuento de pingüinos por especie usamos la función <code>countplot()</code> del paquete <code>seaborn</code></p>
-<div id="c330e13e" class="cell" data-execution_count="5">
+<div id="903e6e4d" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">"species"</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -470,7 +470,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 <p>Nota que las alturas de las barras en el gráfico anterior coindicen con los recuentos que hemos calculado en el apartado anterior con <code>value_counts()</code>.</p>
 <p>A veces es preferible usar barras horizontales, porque se tiene más espacio para las etiquetas de las categorías.</p>
-<div id="bac4b296" class="cell" data-execution_count="6">
+<div id="8c5d0f27" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(data<span class="op">=</span>penguins, y<span class="op">=</span><span class="st">"species"</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -509,7 +509,7 @@ Name: count, dtype: int64</code></pre>
 <section id="colores" class="level3" data-number="4.4.1">
 <h3 data-number="4.4.1" class="anchored" data-anchor-id="colores"><span class="header-section-number">4.4.1</span> Colores</h3>
 <p>Si quieres cambiar el color de las barras usa el argumento <code>color</code>:</p>
-<div id="dd5e9a05" class="cell" data-execution_count="7">
+<div id="2990667b" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">"species"</span>, color<span class="op">=</span><span class="st">"coral"</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -521,7 +521,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 <p>Puedes ver los colores disponibles <a href="https://matplotlib.org/stable/tutorials/colors/colors.html">aquí</a>.</p>
 <p>Para utilizar un color diferente para la barra de cada categoría usa el argumento <code>hue</code>:</p>
-<div id="63dad942" class="cell" data-execution_count="8">
+<div id="bf3bdbdd" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">"species"</span>, hue<span class="op">=</span><span class="st">"species"</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -532,7 +532,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>También se puede indicar una secuencia de colores personalizada usando el argumento <code>palette</code>:</p>
-<div id="31e15b5d" class="cell" data-execution_count="9">
+<div id="74ef5f18" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">"species"</span>, hue<span class="op">=</span><span class="st">"species"</span>, palette<span class="op">=</span>[<span class="st">"steelblue"</span>, <span class="st">"coral"</span>, <span class="st">"gold"</span>])<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -543,14 +543,14 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>Como valor para <code>palette</code> se puede indicar una lista de colores, como en el ejemplo anterior, o el nombre de una de las paletes predefinidas (<code>deep</code>, <code>muted</code>, <code>pastel</code>, <code>bright</code>, <code>dark</code> y <code>colorblind</code>), como en el siguiente ejemplo:</p>
-<div id="1156492f" class="cell" data-execution_count="10">
+<div id="4d47c294" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">"species"</span>, hue<span class="op">=</span><span class="st">"species"</span>, palette<span class="op">=</span><span class="st">"colorblind"</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="rótulos" class="level3" data-number="4.4.2">
 <h3 data-number="4.4.2" class="anchored" data-anchor-id="rótulos"><span class="header-section-number">4.4.2</span> Rótulos</h3>
 <p>Con el siguiente código personalizamos los títulos de los ejes y damos un título global al gráfico</p>
-<div id="8c0411de" class="cell" data-execution_count="11">
+<div id="fa563af8" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.countplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">"species"</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Número de pingüinos de cada especie"</span>,</span>
@@ -570,7 +570,7 @@ Name: count, dtype: int64</code></pre>
 <h3 data-number="4.4.3" class="anchored" data-anchor-id="orden-de-los-niveles"><span class="header-section-number">4.4.3</span> Orden de los niveles</h3>
 <p>Si te fijas en los gráficos que has hecho hasta ahora, apreciarás que las categorías aparecen en los gráficos en el mismo orden en el que aparecen en las filas de la hoja de datos.</p>
 <p>Si quieres un orden personalizado para las categorías puedes usar el argumento <code>order</code>, como en el siguiente ejemplo:</p>
-<div id="4517233d" class="cell" data-execution_count="12">
+<div id="cc98bf16" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">"species"</span>, order <span class="op">=</span> [<span class="st">'Chinstrap'</span>, <span class="st">'Adelie'</span>, <span class="st">'Gentoo'</span>])<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -581,7 +581,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>Con el siguiente código ordenamos las categorías de mayor a menor frecuencia.</p>
-<div id="32542d05" class="cell" data-execution_count="13">
+<div id="ca0802ac" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">"species"</span>, order <span class="op">=</span> species.value_counts().index)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1183,4 +1183,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EMazcunan/mnye2223-data-visualization/blob/master/chapters/1categorical.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EMazcunan/mnye-data-visualization/blob/master/chapters/1categorical.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li></ul></div></div></div></footer></body></html>

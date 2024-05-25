@@ -183,7 +183,7 @@ window.Quarto = {
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Exploración y visualización de datos con Python</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/EMazcunan/mnye2223-data-visualization" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/EMazcunan/mnye-data-visualization" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
     <a href="../visualization.pdf" title="Descargar PDF" class="quarto-navigation-tool px-1" aria-label="Descargar PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
@@ -273,7 +273,7 @@ window.Quarto = {
   <li><a href="#sec-subset-one-variable" id="toc-sec-subset-one-variable" class="nav-link active" data-scroll-target="#sec-subset-one-variable"><span class="header-section-number">3.1</span> Seleccionar una variable</a></li>
   <li><a href="#sec-subset-several-variables" id="toc-sec-subset-several-variables" class="nav-link" data-scroll-target="#sec-subset-several-variables"><span class="header-section-number">3.2</span> Seleccionar una lista de variables</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/EMazcunan/mnye2223-data-visualization/blob/master/chapters/subset-variables.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/EMazcunan/mnye-data-visualization/blob/master/chapters/subset-variables.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -368,7 +368,7 @@ backToTopButton.addEventListener("click", function () {
 <section id="sec-subset-one-variable" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="sec-subset-one-variable"><span class="header-section-number">3.1</span> Seleccionar una variable</h2>
 <p>Utiliza la siguiente instrucción para seleccionar la variable <code>body_mass_g</code>:</p>
-<div id="edf6c1d1" class="cell" data-execution_count="3">
+<div id="9eb405ef" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> penguins[<span class="st">"body_mass_g"</span>]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-simple callout-note">
@@ -382,7 +382,7 @@ backToTopButton.addEventListener("click", function () {
 </div>
 </div>
 <p>Ahora podemos aplicar la función <code>max()</code> para obtener el peso máximo:</p>
-<div id="2b0fc13e" class="cell" data-execution_count="4">
+<div id="20f31fea" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mass.<span class="bu">max</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>6300.0</code></pre>
@@ -394,7 +394,7 @@ index = mass.argmax()
 penguins.loc[index]
 ``` -->
 <p>Podemos realizar las dos operaciones anteriores, seleccionar la variable <code>body_mass_g</code>, y calcular su máximo con una sola instrucción:</p>
-<div id="44882ecb" class="cell" data-execution_count="5">
+<div id="412d0a8d" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>penguins[<span class="st">"body_mass_g"</span>].<span class="bu">max</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>6300.0</code></pre>
@@ -411,7 +411,7 @@ penguins.loc[index]
 <section id="sec-subset-several-variables" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="sec-subset-several-variables"><span class="header-section-number">3.2</span> Seleccionar una lista de variables</h2>
 <p>Para seleccionar las dos variables relativas a las dimensiones del pico, <code>bill_length_mm</code> y <code>bill_depth_mm</code>, ejecuta la siguiente instrucción:</p>
-<div id="b6ca4db3" class="cell" data-execution_count="6">
+<div id="9b712177" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>bill <span class="op">=</span> penguins[[<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>]]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-simple callout-note">
@@ -425,7 +425,7 @@ penguins.loc[index]
 </div>
 </div>
 <p>Ahora podemos calcular la media para ambas variables con</p>
-<div id="bb046086" class="cell" data-execution_count="7">
+<div id="410bd609" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>bill.mean()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>bill_length_mm    43.92193
@@ -442,7 +442,7 @@ dtype: float64</code></pre>
 
 Ejecutando 
 
-::: {#e6f723b3 .cell execution_count=8}
+::: {#f39cb76f .cell execution_count=8}
 ``` {.python .cell-code}
 type(bill)
 ```
@@ -460,7 +460,7 @@ vemos que el objeto `bill` que hemos creado antes al extraer las dos variables s
 
 Pero ejecutando 
 
-::: {#773b6dee .cell execution_count=9}
+::: {#b6705f4b .cell execution_count=9}
 ``` {.python .cell-code}
 type(mass)
 ```
@@ -479,7 +479,7 @@ vemos que el objeto `mass` que hemos creado antes al extraer la variable `body_m
 
 Podemos usar el método `head()` para ver los cinco primeros valores de la variable:
 
-::: {#81cf48b3 .cell execution_count=10}
+::: {#651610a1 .cell execution_count=10}
 ``` {.python .cell-code}
 mass.head(5)
 ```
@@ -499,7 +499,7 @@ Name: body_mass_g, dtype: float64
 
 Aprecia que `mass` tiene el mismo índice que la hoja de datos `penguins`:
 
-::: {#d0eec181 .cell execution_count=11}
+::: {#3f6e805c .cell execution_count=11}
 ``` {.python .cell-code}
 mass.index
 ```
@@ -527,7 +527,7 @@ Generalmente al aplicar un método propio de la clase `Series` a un objeto de cl
 
 Pero hay métodos propios de `Series` que no pueden aplicarse a `DataFrame`, métodos propios de `DataFrame` que no pueden aplicarse a `Series`, y métodos comunes a `Series` y `DataFrame` pero que requieren diferentes argumentos en cada caso. Por ejemplo, el método `Series.sort_values()` ordena los valores de una variable de mayor a menor. Puedes comprobarlo con
 
-::: {#9f4e795e .cell execution_count=12}
+::: {#e2067c38 .cell execution_count=12}
 ``` {.python .cell-code}
 mass.sort_values().head(5)
 ```
@@ -1144,4 +1144,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EMazcunan/mnye2223-data-visualization/blob/master/chapters/subset-variables.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EMazcunan/mnye-data-visualization/blob/master/chapters/subset-variables.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li></ul></div></div></div></footer></body></html>

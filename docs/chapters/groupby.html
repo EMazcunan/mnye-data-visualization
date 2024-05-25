@@ -186,7 +186,7 @@ window.Quarto = {
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Exploración y visualización de datos con Python</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/EMazcunan/mnye2223-data-visualization" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/EMazcunan/mnye-data-visualization" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
     <a href="../visualization.pdf" title="Descargar PDF" class="quarto-navigation-tool px-1" aria-label="Descargar PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
@@ -277,7 +277,7 @@ window.Quarto = {
   <li><a href="#ejemplo-2-peso-máximo-de-cada-especie" id="toc-ejemplo-2-peso-máximo-de-cada-especie" class="nav-link" data-scroll-target="#ejemplo-2-peso-máximo-de-cada-especie">Ejemplo 2: Peso máximo de cada especie</a></li>
   <li><a href="#ejemplo-3-recuento-del-número-de-pingüinos-de-cada-especie" id="toc-ejemplo-3-recuento-del-número-de-pingüinos-de-cada-especie" class="nav-link" data-scroll-target="#ejemplo-3-recuento-del-número-de-pingüinos-de-cada-especie">Ejemplo 3: Recuento del número de pingüinos de cada especie</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/EMazcunan/mnye2223-data-visualization/blob/master/chapters/groupby.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/EMazcunan/mnye-data-visualization/blob/master/chapters/groupby.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -386,7 +386,7 @@ backToTopButton.addEventListener("click", function () {
 <section id="ejemplo-1-primeras-filas-de-cada-especie" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="ejemplo-1-primeras-filas-de-cada-especie">Ejemplo 1: Primeras filas de cada especie</h2>
 <p>Para ver los datos de los tres primeros pingüinos de cada especie, ejecuta la instrucción siguiente:</p>
-<div id="fc3ba073" class="cell" data-execution_count="2">
+<div id="1dc65431" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>penguins.groupby(<span class="st">"species"</span>).head(<span class="dv">3</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
@@ -513,7 +513,7 @@ backToTopButton.addEventListener("click", function () {
 <p>Analicemos, paso por paso, lo que ocurre al ejecutar la instrucción <code>penguins.groupby("species").head(3)</code>:</p>
 <ol type="1">
 <li><p><code>penguins.groupby("species")</code> parte la hoja de datos <code>penguins</code> en tres grupos correspondientes a las tres especies. Esta operación devuelve un objeto de un nuevo tipo llamado <code>DataFrameGroupBy</code>:</p>
-<div id="14ebf6eb" class="cell" data-execution_count="3">
+<div id="97b88516" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(penguins.groupby(<span class="st">"species"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>pandas.core.groupby.generic.DataFrameGroupBy</code></pre>
@@ -532,7 +532,7 @@ backToTopButton.addEventListener("click", function () {
 <section id="ejemplo-2-peso-máximo-de-cada-especie" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="ejemplo-2-peso-máximo-de-cada-especie">Ejemplo 2: Peso máximo de cada especie</h2>
 <p>Para obtener el peso máximo de cada especie ejecuta</p>
-<div id="c49112ab" class="cell" data-execution_count="4">
+<div id="96ef3199" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>penguins[[<span class="st">"species"</span>, <span class="st">"body_mass_g"</span>]].groupby(<span class="st">"species"</span>).<span class="bu">max</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
@@ -585,7 +585,7 @@ backToTopButton.addEventListener("click", function () {
 </ol>
 <hr>
 <p>En las hojas de datos agrupadas por categorías (objetos de tipo <code>DataFrameGroupBy</code>) también funcionan los mecanismos de selección de variables usando corchetes <code>[]</code>. Así, una forma equivalente de calcular el peso máximo de cada especie sería:</p>
-<div id="7c10d310" class="cell" data-execution_count="5">
+<div id="63a14417" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>penguins.groupby(<span class="st">"species"</span>)[<span class="st">"body_mass_g"</span>].<span class="bu">max</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>species
@@ -605,7 +605,7 @@ Name: body_mass_g, dtype: float64</code></pre>
 <section id="ejemplo-3-recuento-del-número-de-pingüinos-de-cada-especie" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="ejemplo-3-recuento-del-número-de-pingüinos-de-cada-especie">Ejemplo 3: Recuento del número de pingüinos de cada especie</h2>
 <p>El método <code>value_counts()</code> que usamos en la <a href="1categorical.html#sec-value-counts" class="quarto-xref"><span>Sección 4.2</span></a> para obtener una tabla de recuentos del número de pingüinos de cada especie es en el fondo la combinación de una operación de agrupación y la aplicación del método <code>count()</code>. De hecho es equivalente a</p>
-<div id="992420d4" class="cell" data-execution_count="6">
+<div id="d7bf8efb" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>penguins.groupby(<span class="st">"species"</span>)[<span class="st">"species"</span>].count()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>species
@@ -1221,4 +1221,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EMazcunan/mnye2223-data-visualization/blob/master/chapters/groupby.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EMazcunan/mnye-data-visualization/blob/master/chapters/groupby.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li></ul></div></div></div></footer></body></html>
