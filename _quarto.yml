@@ -50,7 +50,7 @@ book:
 # # shift-heading-level-by: -1
 mnye-book:
   # pretitle: TEMA 6
-  term: 2023-2024
+  term: 2024-2025
   degree: "Grado en Ingeniería Informática / Mecánica"
 nocite: |
   @reback2020pandas, @mckinney-proc-scipy-2010, @Waskom2021
