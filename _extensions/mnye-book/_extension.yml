@@ -19,8 +19,7 @@ contributes:
     book:
       reader-mode: true
       back-to-top-navigation: true
-      # downloads: [pdf] # Aquí no tiene efecto. Tiene que ir en _quarto.yml
-      repo-actions: [source]  
+      # repo-actions: [source]  
       repo-branch: master
       search:
         location: navbar
@@ -61,12 +60,19 @@ contributes:
 
   format:
     html:
-      theme: 
-        light: [flatly, html/theme/mnye.scss]
-        dark: [darkly, html/theme/mnye.scss]
-      filters:
-        - html/filters/solutions.lua
+      lightbox: 
+        match: auto
+      respect-user-color-scheme: true
+      theme:
+        dark:
+          - darkly
+          - html/theme/mnye.scss
+        light:
+          - flatly
+          - html/theme/mnye.scss
       toc-title: En esta página
+      include-after-body:
+        - html/images-light-dark.html
       include-before-body: 
         - html/progressbar.html  
         - html/back-to-top.html
@@ -77,40 +83,40 @@ contributes:
       #   exr-prefix: Problema
       link-external-newwindow: true
       default-image-extension: svg
-    pdf:
-      documentclass: mnye
-      papersize: a4
-      classoption: 
-        - noprof
-        - 12pt
-        - notoc
-        - nosols
-        - nobib
-      template-partials:
-        - pdf/partials/title.tex
-        - pdf/partials/toc.tex  
-        - pdf/partials/before-bib.tex
-        - pdf/partials/biblio.tex
-      toc-title: Contenidos
-      toc-depth: 2
-      cite-method: biblatex
-      biblatexoptions: 
-        - backend=biber
-      include-in-header: 
-        - pdf/in-header/theorems.tex  
-        - pdf/in-header/graphicspath.tex
-        - pdf/in-header/code-overflow-wrap.tex
-      linkcolor: elinkcolor
-      toccolor: elinkcolor
-      citecolor: ecitecolor
-      urlcolor:  eurlcolor
-      pdf-engine: pdflatex
-      pdf-engine-opt: -shell-escape # -halt-on-error -file-line-error -interaction=nonstopmode
-      latex-max-runs: 2
-      keep-tex: true
-      # shift-heading-level-by: 1
-      top-level-division: section
-      fig-pos: "tbph"     
-      crossref: 
-        chapters: false
-      default-image-extension: png
+    # pdf:
+    #   documentclass: mnye
+    #   papersize: a4
+    #   classoption: 
+    #     - noprof
+    #     - 12pt
+    #     - notoc
+    #     - nosols
+    #     - nobib
+    #   template-partials:
+    #     - pdf/partials/title.tex
+    #     - pdf/partials/toc.tex  
+    #     - pdf/partials/before-bib.tex
+    #     - pdf/partials/biblio.tex
+    #   toc-title: Contenidos
+    #   toc-depth: 2
+    #   cite-method: biblatex
+    #   biblatexoptions: 
+    #     - backend=biber
+    #   include-in-header: 
+    #     - pdf/in-header/theorems.tex  
+    #     - pdf/in-header/graphicspath.tex
+    #     - pdf/in-header/code-overflow-wrap.tex
+    #   linkcolor: elinkcolor
+    #   toccolor: elinkcolor
+    #   citecolor: ecitecolor
+    #   urlcolor:  eurlcolor
+    #   pdf-engine: pdflatex
+    #   pdf-engine-opt: -shell-escape # -halt-on-error -file-line-error -interaction=nonstopmode
+    #   latex-max-runs: 2
+    #   keep-tex: true
+    #   # shift-heading-level-by: 1
+    #   top-level-division: section
+    #   fig-pos: "tbph"     
+    #   crossref: 
+    #     chapters: false
+    #   default-image-extension: png

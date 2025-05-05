@@ -1,73 +1,67 @@
 /*-- scss:defaults --*/
 
-
 /*-- scss:rules --*/
+
 section#sec-preface h1, section#sec-preface h2 {
     display: none;
 }
+
 .sidebar-menu-container .sidebar-item:nth-of-type(1) {
-    display:none;
+    display: none;
 } 
 
-#title-block-header .author-title, #title-block-header .date-title, #title-block-header .subject-info-title{
+#title-block-header .author-title, 
+#title-block-header .date-title, 
+#title-block-header .subject-info .subject-info-title {
     font-size: small;
     text-transform: uppercase;
     margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.quarto-light #title-block-header .author-title, 
+.quarto-light #title-block-header .date-title, 
+.quarto-light #title-block-header .subject-info .subject-info-title {
+    color: hsl(0, 0%, 35%); // div.sidebar-item-container
+}
+
+.quarto-dark #title-block-header .author-title, 
+.quarto-dark #title-block-header .date-title, 
+.quarto-dark #title-block-header .subject-info .subject-info-title{
+    color: hsl(0, 0%, 67.9333333333%); // div.sidebar-item-container
+}
+
+#title-block-header  p:not(.subject-info-title):not(.author-title) {
     margin-bottom: 0.2rem;
-}
-
-.quarto-light #title-block-header .author-title, .quarto-light #title-block-header .date-title, .quarto-light #title-block-header .subject-info-title{
-    color: var(--quarto-text-muted);
-}
-.quarto-dark #title-block-header .author-title, .quarto-dark #title-block-header .date-title, .quarto-dark #title-block-header .subject-info-title{
-    color: #ADADAD;
-}
-
-#title-block-header div.subject-info {
-    margin-block-start: 1rem
-}
-#title-block-header .author, #title-block-header .date, #title-block-header .subject, #title-block-header .degree, #title-block-header .term{
     margin-left: 0.5rem;
 }
-#title-block-header div.subject-info p {
-    margin-bottom: 0.2rem
-}
+
 .quarto-cover-image {
-    max-width: 100%;
+    max-width: 640px;
+    width: 80%;
     float: none;
+    margin-top: 2rem;
     margin-left: auto;
     margin-right: auto;
 }
+    
 
-.quarto-dark code {
-    color: gold;
+h1 code:not(.sourceCode),
+h2 code:not(.sourceCode),
+h3 code:not(.sourceCode),
+p code:not(.sourceCode), 
+li code:not(.sourceCode), 
+td code:not(.sourceCode),
+.quarto-float-caption code:not(.sourceCode) {
+    background-color: rgba(0, 0, 0, 0);
 }
 
-// // Sidebar (chapters)
-// #quarto-sidebar > div:nth-of-type(1) {
-//     margin: 0;
-//     padding: 0;
-// } 
-// #quarto-sidebar > div:nth-of-type(1)::after {
-//     content: "Contenidos \a";
-//     white-space: pre;
-//     color: var(--quarto-text-muted);
-// } 
-
-// // Chapter TOC
-// .sidebar nav[role=doc-toc] > ul:nth-of-type(1) {
-//     padding-top: 17px;
-// } 
-// .sidebar nav[role=doc-toc] #toc-title {
-//     color: var(--quarto-text-muted);    
-// }
-
-.sidebar-title .sidebar-tools-main {
-    display: flex;
-    margin-top: 6px;
-}
-
-#quarto-sidebar .mt-2.flex-shrink-0.align-items-center {
-    margin-top: 0;
-    padding-top: 0;
+.quarto-dark h1 code:not(.sourceCode),
+.quarto-dark h2 code:not(.sourceCode),
+.quarto-dark h3 code:not(.sourceCode),
+.quarto-dark p code:not(.sourceCode), 
+.quarto-dark li code:not(.sourceCode), 
+.quarto-dark td code:not(.sourceCode),
+.quarto-dark .quarto-float-caption code:not(.sourceCode) {
+    color: #C080D8;
 }

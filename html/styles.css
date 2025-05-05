@@ -1,17 +1,24 @@
 .theorem.exercise{
     padding: 0.8rem 1rem;
     margin-bottom: 1rem;
+    border-radius: .25rem;
 }
 .theorem.exercise .theorem-title {
     display: block;
+    padding-bottom: 0.8rem;
 }
 .quarto-light .theorem.exercise{
-    background-color:bisque;
+    background-color: rgb(236, 240, 241);
+    border-left: 6px solid  rgb(128, 128, 128);
 }
 .quarto-dark .theorem.exercise{
-    background-color:darkslategray;
+    border-left: 6px solid rgb(210, 210, 210);
+    background-color: rgb(48, 48, 48);
 }
 
+.cell-output-display {
+    margin-bottom: 1rem;
+}
 
 
 

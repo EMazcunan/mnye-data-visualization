@@ -30,7 +30,7 @@ En esta sección aprenderás los métodos para seleccionar variables de una hoja
 
 ## Seleccionar una variable {#sec-subset-one-variable}
 
-Utiliza la siguiente instrucción para seleccionar la variable `body_mass_g`:
+Utiliza la siguiente instrucción para seleccionar la variable `body_mass_g` y guardar el resultado en una variable de nombre `mass`. De nuevo puedes elegir otro nombre para la variable `mass` que crees para almacenar el resultado. Pero no puedes alterar el nombre de la variable en la hoja de datos `"body_mass_g"`
 ```{python}
 mass = penguins["body_mass_g"]
 ```
@@ -47,6 +47,14 @@ mass.max()
 ```
 Vemos que el pingüino más pesado del estudio pesa $6$ kilos y $300$ gramos.
 
+
+::: {.callout-tip}
+Dependiendo de la versión de `pandas` que estés usando, puede que veas el resultado anterior como `6300.0`{style="color:white"} o como 
+```
+np.float64(6300.0)
+```
+En el segundo caso `np.float64`{style="color:white"}  solo informa del formato de representación del resultado (punto flotante de doble precisión), y puedes ignorarlo. 
+:::
 
 <!-- ```{python}
 index = mass.argmax()
@@ -79,7 +87,7 @@ bill = penguins[["bill_length_mm", "bill_depth_mm"]]
 ```
 
 ::: {.callout-note}
-Para seleccionar una lista de variables, usa corchetes `[]` adicionales para crear la lista con los nombres de las columnas de interés (los corchetes exteriores indican que se van a seleccionar datos y los interiores crean la lista).
+Para seleccionar una lista de variables, usa corchetes `[]` adicionales para crear la lista con los nombres de las columnas de interés (los corchetes exteriores indican que se va a realizar una selección y los interiores crean la lista).
 :::
 
 Ahora podemos calcular la media para ambas variables con 

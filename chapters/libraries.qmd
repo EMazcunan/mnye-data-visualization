@@ -1,6 +1,9 @@
 ---
+resources:
+  - ../img/pandas.dark.svg
+  - ../img/seaborn-logo-wide.dark.svg
 editor:
-    render-on-save: true
+  render-on-save: true
 ---
 
 ```{python}
@@ -25,7 +28,7 @@ import seaborn as sns
 
 ## `pandas`
 
-![](../img/pandas){height="4em" fig-align="center"}
+![](../img/pandas.light.svg){height="4em" fig-align="center"}
 
 `pandas` es una librería que permite leer datos almacenados en estructuras similares a una tabla, como las hojas de cálculo o los archivos CSV, y proporciona métodos para explorar y describir esos datos. 
 
@@ -39,7 +42,7 @@ Puedes consultar la documentación oficial de `pandas` [aquí](https://pandas.py
 
 ## `seaborn`
 
-![](../img/seaborn){height="3em" fig-align="center"}
+![](../img/seaborn-logo-wide.light.svg){height="3em" fig-align="center"}
 
 `seaborn` es una librería para visualización de datos. Permite crear gráficos estadísticos muy informativos y visualmente atractivos con pocas líneas de código. Y está diseñado para trabajar con las estructuras de datos creadas con `pandas`.
 

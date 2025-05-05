@@ -25,7 +25,7 @@ book:
     - chapters/references.qmd
   repo-url: https://github.com/EMazcunan/mnye-data-visualization
   # issue-url:  
-  downloads: [pdf]
+  # downloads: [pdf]
   cover-image: img/cover/cover.png
   sidebar: 
     logo: img/sidebar-logo.png

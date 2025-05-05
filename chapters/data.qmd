@@ -18,12 +18,13 @@ En esta sección importarás los datos sobre los pingüinos del archipiélago Pa
 
 Como se indicó en la introducción, los datos con los que vamos a trabajar están disponibles en la web en un fichero de formato `CSV`. 
 
-Ejecuta las instrucciones a continuación para importar el archivo usando la función `read_csv()` y guardar el resultado en una variable de nombre `penguins`:
+Ejecuta las instrucciones a continuación para importar el archivo usando la función `read_csv()` y guardar el resultado en una variable de nombre `penguins`. Puedes utilizar cualquier otro nombre diferente de `penguins` para tu variable, pero en ese caso deberás reemplazar `penguins` por el nombre que hayas elegido en el resto de la práctica.
 
 ```{python}
 url = "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv"
 penguins = pd.read_csv(url)
 ```
+
 
 
 El objeto `penguins` que acabas de crear es una __hoja de datos__, representada en `pandas` con la clase `DataFrame`. 
@@ -47,13 +48,17 @@ penguins.shape
 ```
 Vemos que nuestra hoja de datos tiene `344` filas y `7` columnas.
 
-## Primeras y últimas filas {#sec-head-tail}
+## Un primer vistazo a los datos {#sec-head-tail}
 
-Con las siguientes instrucciones puedes visualizar las cinco primeras y últimas filas de la hoja de datos `penguins` que acabas de crear.
+Con los métodos `head()` y `tail()` podemos ver las primeras y últimas filas de una hoja de datos. 
+
+Con la siguiente instrucción puedes visualizar las cinco primeras filas de la hoja de datos `penguins` que acabas de crear.
 
 ```{python}
 penguins.head(5)
 ```
+
+Y con la siguiente instrucción puedes visualizar las cinco últimas filas .
 
 ```{python}
 penguins.tail(5)
@@ -70,12 +75,8 @@ En nuestra hoja de datos `penguins`:
 - Cada celda contiene el valor de la característica del pingüino en la correspondiente fila. 
 
 
-Por ejemplo, mirando la primera fila de la hoja de datos en la salida de la instrucción anterior `penguins.head(5)`
-```{python}
-#| echo: false
-penguins.head(1)
-```
-vemos en la primera celda que el primer pingüino del listado es de la especie Adelie.
+Por ejemplo, mirando las salidas de las instrucciones anteriores `penguins.head(5)` y `penguins.tail(5)`
+vemos que los cinco primeros pingüinos del listado son de la especie Adelie y los cinco últimos de la especie Gentoo.
 
 
 Unos mismos datos pueden organizarse o presentarse de diferentes maneras en diferentes hojas de datos. Para que sea sencillo trabajar con una hoja de datos es conveniente que haya una relación clara entre su significado y su estructura. Se considera que la hoja de datos está _ordenada_ o _limpia_ (en inglés se habla de _tidy data_) si está organizada de acuerdo con los siguientes principios: 
@@ -100,7 +101,7 @@ La salida del método `info()` nos da  una tabla con información sobre las siet
 
 
 ### Descripción
-En la columna de la tabla de nombre `Column` se lista el nombre de las siete variables en `penguins`. El significado de las variables es el siguiente:
+En la columna de la tabla de nombre `Column`{style="color:white"}  se lista el nombre de las siete variables en `penguins`. El significado de las variables es el siguiente:
 
 Nombre | Descripción
 -----|----
@@ -113,23 +114,23 @@ Nombre | Descripción
 `sex` | Sexo (MALE o FEMALE)
 : {tbl-colwidths="[25,75]"}
 
-![Ilustración de las variables `bill_length_mm` y `bill_depth_mm` (Artista \@allison_horst)](../img/culmen_depth.png){#fig-bill width="400px"}
+![Ilustración de las variables `bill_length_mm` y `bill_depth_mm` (Artista \@allison_horst)](../img/culmen_depth.png){#fig-bill width="400px" .lightbox}
 
 
-Volviendo a mirar la primera fila de nuestra hoja de datos
+A lo largo de la práctica tendrás que volver a la tabla anterior para saber el nombre de la variable de la hoja de datos correspondiente a cada característica. Por ejemplo, cuando más adelante tengas que calcular el valor mínimo para la longitud de las alas de todos los pingüinos, necesitarás saber que el nombre de la variable que registra la longitud de las alas es `flipper_length_mm`. 
+
+Leyendo la primera fila de nuestra hoja de datos en la salida de la instrucción `penguins.head(5)` 
 ```{python}
 #| echo: false
 penguins.head(1)
 ```
+
 ahora sabes que el primer pingüino es de la especie Adelie, vive en la isla Torgensen, las dimensiones de su pico son $39.1 \times 18.7$ milímetros, sus alas miden $181$ milímetros, pesa $3$ kilos y $750$ gramos, y es un macho. 
 
 :::: {#exr-data}
-Describe las características del tercer pingüino del estudio (índice 2) mirando la salida de la instrucción anterior `penguins.head(5)`.
-
-<!-- :::{.solution}
-Solución del ejercicio dentro
-::: -->
+Mirando de nuevo la salida de la instrucción `penguins.head(5)`, describe las características del tercer pingüino del estudio (índice 2).
 ::::
+
 
 ### Valores nulos
 

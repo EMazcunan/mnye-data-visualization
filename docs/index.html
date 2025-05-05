@@ -58,13 +58,12 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-7271f29f9498218151f3120baddb7363.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-226bd0f977fa82dfae4534cac220d79a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-7271f29f9498218151f3120baddb7363.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-0350d6c0724c68c3ab5f1c5ea3576d36.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-d5a8df53fad1e4ddb2271305853203be.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-0350d6c0724c68c3ab5f1c5ea3576d36.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1720e5ce98a786cb6a7acba1513c0459.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-2c55265046543de45cb1f91ccf2f98f8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -96,7 +95,7 @@ div.csl-indent {
 <link rel="stylesheet" href="html/styles.css">
 </head>
 
-<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar floating quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -238,8 +237,8 @@ div.csl-indent {
         changeGiscusTheme();
       }
     };
-    const darkModeDefault = false;
-    document.querySelector('link.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
     // Dark / light mode switch
     window.quartoToggleColorScheme = () => {
@@ -249,6 +248,14 @@ div.csl-indent {
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
     };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
     // Switch to dark mode if need be
     if (window.hasAlternateSentinel()) {
       toggleColorMode(true);
@@ -282,7 +289,6 @@ div.csl-indent {
       <a href="./">Exploración y visualización de datos con Python</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/EMazcunan/mnye-data-visualization" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
-    <a href="./visualization.pdf" title="Descargar PDF" class="quarto-navigation-tool px-1" aria-label="Descargar PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
   <div class="quarto-reader-toggle-btn">
@@ -491,6 +497,43 @@ Waskom, Michael L. 2021. <span>«seaborn: statistical data visualization»</span
 </section>
 
 </main> <!-- /main -->
+<!-- https://mickael.canouil.fr/posts/2023-05-30-quarto-light-dark/ -->
+
+
+<script id="imageslightdark" type="application/javascript">
+function updateImageSrc() {
+  var bodyClass = window.document.body.classList;
+  var images = window.document.getElementsByTagName('img');
+  for (var i = 0; i < images.length; i++) {
+    var image = images[i];
+    var src = image.src;
+    var newSrc = src;
+    if (bodyClass.contains('quarto-light') && src.includes('.dark')) {
+      newSrc = src.replace('.dark', '.light');
+    } else if (bodyClass.contains('quarto-dark') && src.includes('.light')) {
+      newSrc = src.replace('.light', '.dark');
+    }
+    if (newSrc !== src) {
+      image.src = newSrc;
+    }
+  }
+}
+
+var observer = new MutationObserver(function(mutations) {
+  mutations.forEach(function(mutation) {
+    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+      updateImageSrc();
+    }
+  });
+});
+
+observer.observe(window.document.body, {
+  attributes: true
+});
+
+updateImageSrc();
+
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -922,4 +965,4 @@ Waskom, Michael L. 2021. <span>«seaborn: statistical data visualization»</span
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/EMazcunan/mnye-data-visualization/blob/master/index.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li></ul></div></div></div></footer></body></html>
+</body></html>
