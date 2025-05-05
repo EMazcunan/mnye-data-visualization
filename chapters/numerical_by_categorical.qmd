@@ -44,7 +44,7 @@ Fragmento de la salida | Significado
 ::: {#exr-numerical_by_categorical-describe}
 Usa los métodos `groupby()` y `describe()` para responder a las siguientes preguntas:
 
-a.  Indica el peso medio de hembras y machos y compáralos con el peso medio global.
+a.  Indica el peso medio de hembras y machos y compáralos con el peso medio global de $4$ kilos y $201$ gramos (que conocíamos de la @sec-1numerical-describe).
 a.  ¿Cuál es el peso máximo de las hembras?
 a.  ¿Cuál es la mediana del peso de los machos?
 a.  El pingüino de mayor peso ¿es macho o hembra?
@@ -155,7 +155,10 @@ Fíjate en las dos etapas que se han seguido en el ejemplo anterior para la cons
 
 1. La primera instrucción 
 
-   `grid = sns.FacetGrid(data = penguins, col="species")`{.python}
+   ```python
+   grid = sns.FacetGrid(data = penguins, col="species")
+   ```
+   
 
    crea el mosaico con las tres columnas para las tres especies, y lo almacena en un nuevo objeto de nombre `grid` (puedes usar cualquier otro nombre). 
 
@@ -170,7 +173,9 @@ Fíjate en las dos etapas que se han seguido en el ejemplo anterior para la cons
 
 2. La segunda instrucción 
 
-   `grid.map(sns.histplot, "body_mass_g")`{.python}  
+   ```python
+   grid.map(sns.histplot, "body_mass_g")
+   ```
 
    aplica el método `map()` al mosaico creado en el paso anterior, especificando qué tipo de gráfico queremos en cada celda del mosaico, y a qué variable queremos aplicar ese gráfico:
 
@@ -215,7 +220,7 @@ grid.map(sns.histplot, "body_mass_g");
 ```
 
 
-De hecho, se pueden usar los argumentos `row` y `col` al mismo tiempo para crear un mosaico bidimensional. Las siguientes instrucciones crean un mosaico de histogramas del peso de los pingüinos, distinguiendo la especie por filas y el sexo por columnas, de dimensiones $3 \times 2$:
+De hecho, se pueden usar los argumentos `row` y `col` al mismo tiempo para crear un mosaico bidimensional. Las siguientes instrucciones crean un mosaico de histogramas del peso de los pingüinos, distinguiendo el sexo  por filas y  la especie por columnas, de dimensiones $2 \times 3$:
 
 
 ```{python}
@@ -258,12 +263,19 @@ Para diferenciar por especie no tenemos más que añadir el argumento `x="specie
 sns.boxplot(data=penguins, x="species", y="body_mass_g");
 ```
 
+Los dos puntos que aparecen resaltados con un círculo fuera de los bigotes en el diagrama de la especie Chinstrap (en naranja) son  __outliers__. El outlier por debajo del bigote inferior representa un pingüino de la especie Chinstrap con peso excesivamente bajo, y el outlier por encima del bigote superior se corresponde con un pingüino de la especie Chinstrap con peso excesivamente alto (excesivamente bajo/alto respecto a la distribución del peso en los pingüinos de la especie Chinstrap).
+
 Para asignar un color diferente a cada especie añadimos `hue="species"`:
 ```{python}
 sns.boxplot(data=penguins, x="species", y="body_mass_g", hue="species");
 ```
 
-Los dos puntos que aparecen resaltados con un círculo fuera de los bigotes en el diagrama de la especie Chinstrap (en naranja) son  __outliers__. El outlier por debajo del bigote inferior representa un pingüino de la especie Chinstrap con peso excesivamente bajo, y el outlier por encima del bigote superior se corresponde con un pingüino de la especie Chinstrap con peso excesivamente alto (excesivamente bajo/alto respecto a la distribución del peso en los pingüinos de la especie Chinstrap).
+Omitiendo el parámetro `x` y usando solo `hue` obtenemos un gráfico similar pero con los nombres de las especies en una leyenda en lugar de en el eje x. 
+
+```{python}
+sns.boxplot(data=penguins, y="body_mass_g", hue="species", gap=0.1);
+```
+El argumento `gap=0.1` reduce el tamaño de las cajas un $10\%$ para dar un poco de separación entre las tres cajas (por defecto `gap=0` y las cajas quedan pegadas).
 
 
 ::: {#exr-boxplots}

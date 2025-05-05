@@ -110,7 +110,7 @@ sns.boxplot(data=penguins, y="body_mass_g");
 
 La caja se construye usando los cuartiles de la variable. 
 
-Y los bigotes se extienden desde los extremos de la caja hasta los valores mínimo y máximo, exceptuando los valores que se clasifican como __outliers__. 
+Y los bigotes se extienden desde los extremos de la caja hasta los valores mínimo y máximo, exceptuando los valores excesivamente bajos o excesivamente altos que se clasifican como __outliers__. 
 
 
 ::::: {.content-visible when-format="html" style="background-color:transparent;padding:10px"}

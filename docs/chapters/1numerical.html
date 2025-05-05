@@ -97,8 +97,8 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-7271f29f9498218151f3120baddb7363.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-872785692c9d8b54c439367a3933a62b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-21c00819365b36ba0492ef80d2a3d74d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-85cb747f944922ca53f52c7dae4a6a7c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-83e4ed0a072ef52d2388af022bd53728.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -445,7 +445,7 @@ window.Quarto = {
   <li><a href="#sec-1numerical-histogram" id="toc-sec-1numerical-histogram" class="nav-link" data-scroll-target="#sec-1numerical-histogram"><span class="header-section-number">5.2</span> Histograma</a></li>
   <li><a href="#sec-1numerical-boxplot" id="toc-sec-1numerical-boxplot" class="nav-link" data-scroll-target="#sec-1numerical-boxplot"><span class="header-section-number">5.3</span> Diagrama de caja y bigotes</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/EMazcunan/mnye-data-visualization/blob/master/chapters/1numerical.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li></ul></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7"><span id="sec-1numerical" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Una variable numérica</span></span></h1></header>
@@ -538,16 +538,16 @@ backToTopButton.addEventListener("click", function () {
 <p>Igual que en el apartado anterior estudiamos una variable categórica, en este apartado se describen los métodos básicos para explorar y analizar una variable numérica.</p>
 <p>Analizaremos en concreto la variable <code>body_mass_g</code> de nuestra hoja de datos, para conocer la distribución de los pesos de los pingüinos.</p>
 <p>Empezamos seleccionando la variable de interés y almacenando el resultado en un nuevo objeto de nombre <code>mass</code>.</p>
-<div id="a61cfdc5" class="cell" data-execution_count="2">
+<div id="c6460f4b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> penguins[<span class="st">"body_mass_g"</span>]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="sec-1numerical-describe" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="sec-1numerical-describe"><span class="header-section-number">5.1</span> El método <code>describe()</code></h2>
 <p>El método <code>describe()</code> que usamos en la sección anterior para una variable categórica, también puede aplicarse a variables numéricas.</p>
 <p>Si lo aplicamos a <code>mass</code> obtenemos el siguiente resultado:</p>
-<div id="cd0a519d" class="cell" data-execution_count="3">
+<div id="e1bbf670" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mass.describe()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>count     342.000000
 mean     4201.754386
 std       801.954536
@@ -629,7 +629,7 @@ mass_sorted[255:265]
 <!-- - [ ] En `pandas` están `Dataframe.plot.hist()` y `Dataframe.hist()` -->
 <p>Los <strong>histogramas</strong> son uno de los gráficos más comunes e informativos para describir la distribución de una variable continua. Para crear un histograma se representa en el eje x el rango de valores de la variable, se divide ese rango en intervalos de la misma longitud, y se dibuja para cada intervalo una barra de altura igual al número de valores que caen en ese intervalo.</p>
 <p>El siguiente código crea un histograma para el peso de los pingüinos:</p>
-<div id="e252685a" class="cell" data-execution_count="4">
+<div id="78c66206" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -662,7 +662,7 @@ mass_sorted[255:265]
 <!-- - [ ] En `pandas` están `Dataframe.plot.box()` y `Dataframe.boxplot()` -->
 <p>Otro tipo de gráficos para variables numéricas son los llamados <strong>diagramas de caja</strong> o <strong>de caja y bigotes</strong>.</p>
 <p>Ejecuta el siguiente código para crear un diagrama de caja y bigotes para el peso de los pingüinos.</p>
-<div id="34e432df" class="cell" data-execution_count="5">
+<div id="69cba673" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>penguins, y<span class="op">=</span><span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -673,7 +673,7 @@ mass_sorted[255:265]
 </div>
 </div>
 <p>La caja se construye usando los cuartiles de la variable.</p>
-<p>Y los bigotes se extienden desde los extremos de la caja hasta los valores mínimo y máximo, exceptuando los valores que se clasifican como <strong>outliers</strong>.</p>
+<p>Y los bigotes se extienden desde los extremos de la caja hasta los valores mínimo y máximo, exceptuando los valores excesivamente bajos o excesivamente altos que se clasifican como <strong>outliers</strong>.</p>
 <div class="columns">
 <div class="column" style="width:15%;">
 <p><a href="../img/easter-egg.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="../img/easter-egg.png" class="img-fluid" style="width:100.0%"></a></p>
@@ -1184,7 +1184,7 @@ updateImageSrc();
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EMazcunan/mnye-data-visualization/blob/master/chapters/1numerical.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

@@ -52,7 +52,7 @@ h3 code:not(.sourceCode),
 p code:not(.sourceCode), 
 li code:not(.sourceCode), 
 td code:not(.sourceCode),
-.quarto-float-caption code:not(.sourceCode) {
+figcaption code:not(.sourceCode) {
     background-color: rgba(0, 0, 0, 0);
 }
 
@@ -62,6 +62,6 @@ td code:not(.sourceCode),
 .quarto-dark p code:not(.sourceCode), 
 .quarto-dark li code:not(.sourceCode), 
 .quarto-dark td code:not(.sourceCode),
-.quarto-dark .quarto-float-caption code:not(.sourceCode) {
+.quarto-dark figcaption code:not(.sourceCode) {
     color: #C080D8;
 }
