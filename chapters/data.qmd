@@ -101,7 +101,7 @@ La salida del método `info()` nos da  una tabla con información sobre las siet
 
 
 ### Descripción
-En la columna de la tabla de nombre `Column`{style="color:white"}  se lista el nombre de las siete variables en `penguins`. El significado de las variables es el siguiente:
+En la columna de la tabla de nombre `Column` se lista el nombre de las siete variables en `penguins`. El significado de las variables es el siguiente:
 
 Nombre | Descripción
 -----|----
