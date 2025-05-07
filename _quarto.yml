@@ -24,6 +24,7 @@ book:
     # - chapters/2categorical.qmd
     - chapters/references.qmd
   repo-url: https://github.com/EMazcunan/mnye-data-visualization
+  back-to-top-navigation: true
   # issue-url:  
   # downloads: [pdf]
   cover-image: img/cover/cover.png
@@ -49,6 +50,8 @@ book:
 # shift-heading-level-by: 1
 # # shift-heading-level-by: -1
 mnye-book:
+
+  back-to-top-navigation: true
   # pretitle: TEMA 6
   term: 2024-2025
   degree: "Grado en Ingeniería Informática / Mecánica"

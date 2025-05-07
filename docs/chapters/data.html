@@ -550,14 +550,14 @@ backToTopButton.addEventListener("click", function () {
 <h2 data-number="2.1" class="anchored" data-anchor-id="sec-read_csv"><span class="header-section-number">2.1</span> Importar los datos</h2>
 <p>Como se indicó en la introducción, los datos con los que vamos a trabajar están disponibles en la web en un fichero de formato <code>CSV</code>.</p>
 <p>Ejecuta las instrucciones a continuación para importar el archivo usando la función <code>read_csv()</code> y guardar el resultado en una variable de nombre <code>penguins</code>. Puedes utilizar cualquier otro nombre diferente de <code>penguins</code> para tu variable, pero en ese caso deberás reemplazar <code>penguins</code> por el nombre que hayas elegido en el resto de la práctica.</p>
-<div id="da74a030" class="cell" data-execution_count="2">
+<div id="74343ab2" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> pd.read_csv(url)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>El objeto <code>penguins</code> que acabas de crear es una <strong>hoja de datos</strong>, representada en <code>pandas</code> con la clase <code>DataFrame</code>.</p>
-<div id="5344584f" class="cell" data-execution_count="3">
+<div id="d8eb6cd1" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(penguins)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>pandas.core.frame.DataFrame</code></pre>
 </div>
 </div>
@@ -567,9 +567,9 @@ backToTopButton.addEventListener("click", function () {
 <h2 data-number="2.2" class="anchored" data-anchor-id="dimensiones"><span class="header-section-number">2.2</span> Dimensiones</h2>
 <p>Una hoja de datos es una estructura matricial o tabular que contiene datos organizados por filas y columnas.</p>
 <p>Para saber las dimensiones de nuestra hoja de datos <code>penguins</code> consulta su propiedad <code>shape</code>:</p>
-<div id="fc77531b" class="cell" data-execution_count="4">
+<div id="7f92007f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>penguins.shape</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>(344, 7)</code></pre>
 </div>
 </div>
@@ -579,9 +579,9 @@ backToTopButton.addEventListener("click", function () {
 <h2 data-number="2.3" class="anchored" data-anchor-id="sec-head-tail"><span class="header-section-number">2.3</span> Un primer vistazo a los datos</h2>
 <p>Con los métodos <code>head()</code> y <code>tail()</code> podemos ver las primeras y últimas filas de una hoja de datos.</p>
 <p>Con la siguiente instrucción puedes visualizar las cinco primeras filas de la hoja de datos <code>penguins</code> que acabas de crear.</p>
-<div id="9c01d6d8" class="cell" data-execution_count="5">
+<div id="df5df526" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>penguins.head(<span class="dv">5</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="19">
 <div>
 
 
@@ -656,9 +656,9 @@ backToTopButton.addEventListener("click", function () {
 </div>
 </div>
 <p>Y con la siguiente instrucción puedes visualizar las cinco últimas filas .</p>
-<div id="ff0272b8" class="cell" data-execution_count="6">
+<div id="4786f57b" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>penguins.tail(<span class="dv">5</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="20">
 <div>
 
 
@@ -753,7 +753,7 @@ backToTopButton.addEventListener("click", function () {
 <section id="variables" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="variables"><span class="header-section-number">2.5</span> Variables</h2>
 <p>Ejecuta la siguiente instrucción:</p>
-<div id="1e4e5a81" class="cell" data-execution_count="7">
+<div id="9383c800" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>penguins.info()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -806,7 +806,7 @@ memory usage: 18.9+ KB</code></pre>
 </tr>
 <tr class="odd">
 <td><code>flipper_length_mm</code></td>
-<td>Longitud de las alas</td>
+<td>Longitud de las alas, en milímetros</td>
 </tr>
 <tr class="even">
 <td><code>body_mass_g</code></td>
@@ -830,8 +830,8 @@ Figura&nbsp;2.1: Ilustración de las variables <code>bill_length_mm</code> y <co
 </div>
 <p>A lo largo de la práctica tendrás que volver a la tabla anterior para saber el nombre de la variable de la hoja de datos correspondiente a cada característica. Por ejemplo, cuando más adelante tengas que calcular el valor mínimo para la longitud de las alas de todos los pingüinos, necesitarás saber que el nombre de la variable que registra la longitud de las alas es <code>flipper_length_mm</code>.</p>
 <p>Leyendo la primera fila de nuestra hoja de datos en la salida de la instrucción <code>penguins.head(5)</code></p>
-<div id="49414ef2" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div id="501f625c" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="22">
 <div>
 
 
@@ -873,7 +873,7 @@ Figura&nbsp;2.1: Ilustración de las variables <code>bill_length_mm</code> y <co
 <section id="valores-nulos" class="level3" data-number="2.5.2">
 <h3 data-number="2.5.2" class="anchored" data-anchor-id="valores-nulos"><span class="header-section-number">2.5.2</span> Valores nulos</h3>
 <p>Fíjate ahora en la columna <code>Non-Null Count</code> de la salida del método <code>info()</code>:</p>
-<div id="f6b8638f" class="cell" data-execution_count="9">
+<div id="c214a983" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 RangeIndex: 344 entries, 0 to 343
@@ -893,8 +893,8 @@ memory usage: 18.9+ KB</code></pre>
 </div>
 <p>Los valores nulos o perdidos son valores no disponibles, que no han podido registrarse, se representan con el símbolo <code>NaN</code> (iniciales de <em>Not A Number</em>).</p>
 <p>Si vuelves a mirar las cinco primeras filas de la hoja de datos verás que para el cuarto pingüino sólo sabemos que es de la especie Adelie y vive el la isla Torgersen, y se desconocen las otras cinco variables.</p>
-<div id="e04a8345" class="cell" data-execution_count="10">
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div id="0effb518" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="24">
 <div>
 
 
@@ -938,7 +938,7 @@ memory usage: 18.9+ KB</code></pre>
 <li><p>Las cuatro restantes, <code>bill_length_mm</code>, <code>bill_depth_mm</code>, <code>flipper_length_mm</code> y <code>body_mass_g</code> son <strong>variables numéricas</strong>, que representan características cuantitativas que se describen con valores numéricos (números enteros o reales).</p></li>
 </ol>
 <p><code>pandas</code> asigna un tipo a cada variable de una hoja de datos en función de los valores que presenta, como puede verse en la columna <code>Dtype</code> de la salida del método <code>info()</code>:</p>
-<div id="ebb27918" class="cell" data-execution_count="11">
+<div id="fabc2991" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 RangeIndex: 344 entries, 0 to 343
@@ -970,9 +970,9 @@ Para variables categóricas podremos calcular el recuento de observaciones en ca
 
 Igual que cada columna (variable) en una hoja de datos tiene un nombre, cada fila (observación) también tiene una etiqueta identificativa. En nuestra hoja de datos cada uno de los $344$ pingüinos se identifica con un número entero de la secuencia 0, 1, ..., 333.
 
-::: {#30853143 .cell execution_count=12}
+::: {#4a5cb8a0 .cell execution_count=12}
 
-::: {.cell-output .cell-output-display execution_count=12}
+::: {.cell-output .cell-output-display execution_count=26}
 ```{=html}
 <div>
 <style scoped>
@@ -1042,9 +1042,9 @@ Igual que cada columna (variable) en una hoja de datos tiene un nombre, cada fil
 :::
 
 
-::: {#093b751a .cell execution_count=13}
+::: {#3ac4b964 .cell execution_count=13}
 
-::: {.cell-output .cell-output-display execution_count=13}
+::: {.cell-output .cell-output-display execution_count=27}
 ```{=html}
 <div>
 <style scoped>
@@ -1116,12 +1116,12 @@ Igual que cada columna (variable) en una hoja de datos tiene un nombre, cada fil
 
 Las etiquetas identificativas de las filas de una hoja de datos forman su __índice__. El índice de una hoja de datos de `pandas` se registra en su propiedad `index`.
 
-::: {#56fa4179 .cell execution_count=14}
+::: {#ac7ca9ea .cell execution_count=14}
 ``` {.python .cell-code}
 penguins.index
 ```
 
-::: {.cell-output .cell-output-display execution_count=14}
+::: {.cell-output .cell-output-display execution_count=28}
 ```
 RangeIndex(start=0, stop=344, step=1)
 ```

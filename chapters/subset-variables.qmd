@@ -53,7 +53,7 @@ Dependiendo de la versión de `pandas` que estés usando, puede que veas el resu
 ```
 np.float64(6300.0)
 ```
-En el segundo caso `np.float64`{style="color:white"}  solo informa del formato de representación del resultado (punto flotante de doble precisión), y puedes ignorarlo. 
+En el segundo caso `np.float64` solo informa del formato de representación del resultado (punto flotante de doble precisión), y puedes ignorarlo. 
 :::
 
 <!-- ```{python}

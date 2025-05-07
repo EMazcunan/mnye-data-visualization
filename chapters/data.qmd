@@ -109,7 +109,7 @@ Nombre | Descripción
 `island` | Nombre de la isla del archipíelago Palmer (Dream, Torgersen o Biscoe) 
 `bill_length_mm` | Longitud del pico, en milímetros (ver @fig-bill)
 `bill_depth_mm` | Anchura del pico, en milímetros (ver @fig-bill)
-`flipper_length_mm` |  Longitud de las alas
+`flipper_length_mm` |  Longitud de las alas, en milímetros
 `body_mass_g` | Peso en gramos
 `sex` | Sexo (MALE o FEMALE)
 : {tbl-colwidths="[25,75]"}

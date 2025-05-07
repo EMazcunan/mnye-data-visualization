@@ -97,8 +97,8 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-7271f29f9498218151f3120baddb7363.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-706b78745490e6c64de93999652eaf7b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-73e5ac55e269d8fc04da0823b6246006.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-85cb747f944922ca53f52c7dae4a6a7c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-83e4ed0a072ef52d2388af022bd53728.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -537,7 +537,7 @@ backToTopButton.addEventListener("click", function () {
 <section id="sec-subset-one-variable" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="sec-subset-one-variable"><span class="header-section-number">3.1</span> Seleccionar una variable</h2>
 <p>Utiliza la siguiente instrucción para seleccionar la variable <code>body_mass_g</code> y guardar el resultado en una variable de nombre <code>mass</code>. De nuevo puedes elegir otro nombre para la variable <code>mass</code> que crees para almacenar el resultado. Pero no puedes alterar el nombre de la variable en la hoja de datos <code>"body_mass_g"</code></p>
-<div id="83e638a0" class="cell" data-execution_count="3">
+<div id="e4853a97" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> penguins[<span class="st">"body_mass_g"</span>]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-simple callout-note">
@@ -551,7 +551,7 @@ backToTopButton.addEventListener("click", function () {
 </div>
 </div>
 <p>Ahora podemos aplicar la función <code>max()</code> para obtener el peso máximo:</p>
-<div id="77c8684a" class="cell" data-execution_count="4">
+<div id="308f9808" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mass.<span class="bu">max</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>np.float64(6300.0)</code></pre>
@@ -566,7 +566,7 @@ backToTopButton.addEventListener("click", function () {
 <div class="callout-body-container">
 <p>Dependiendo de la versión de <code>pandas</code> que estés usando, puede que veas el resultado anterior como <code style="color:white">6300.0</code> o como</p>
 <pre><code>np.float64(6300.0)</code></pre>
-<p>En el segundo caso <code style="color:white">np.float64</code> solo informa del formato de representación del resultado (punto flotante de doble precisión), y puedes ignorarlo.</p>
+<p>En el segundo caso <code>np.float64</code> solo informa del formato de representación del resultado (punto flotante de doble precisión), y puedes ignorarlo.</p>
 </div>
 </div>
 </div>
@@ -575,7 +575,7 @@ index = mass.argmax()
 penguins.loc[index]
 ``` -->
 <p>Podemos realizar las dos operaciones anteriores, seleccionar la variable <code>body_mass_g</code>, y calcular su máximo con una sola instrucción:</p>
-<div id="fb36f5a8" class="cell" data-execution_count="5">
+<div id="44fdf3fa" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>penguins[<span class="st">"body_mass_g"</span>].<span class="bu">max</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>np.float64(6300.0)</code></pre>
@@ -592,7 +592,7 @@ penguins.loc[index]
 <section id="sec-subset-several-variables" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="sec-subset-several-variables"><span class="header-section-number">3.2</span> Seleccionar una lista de variables</h2>
 <p>Para seleccionar las dos variables relativas a las dimensiones del pico, <code>bill_length_mm</code> y <code>bill_depth_mm</code>, ejecuta la siguiente instrucción:</p>
-<div id="261d35e4" class="cell" data-execution_count="6">
+<div id="0f575a6c" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>bill <span class="op">=</span> penguins[[<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>]]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-simple callout-note">
@@ -606,7 +606,7 @@ penguins.loc[index]
 </div>
 </div>
 <p>Ahora podemos calcular la media para ambas variables con</p>
-<div id="e06d1f7b" class="cell" data-execution_count="7">
+<div id="8507dc9f" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>bill.mean()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>bill_length_mm    43.92193
@@ -623,7 +623,7 @@ dtype: float64</code></pre>
 
 Ejecutando 
 
-::: {#04693a52 .cell execution_count=8}
+::: {#930419c8 .cell execution_count=8}
 ``` {.python .cell-code}
 type(bill)
 ```
@@ -641,7 +641,7 @@ vemos que el objeto `bill` que hemos creado antes al extraer las dos variables s
 
 Pero ejecutando 
 
-::: {#64e33d58 .cell execution_count=9}
+::: {#af2ec1e3 .cell execution_count=9}
 ``` {.python .cell-code}
 type(mass)
 ```
@@ -660,7 +660,7 @@ vemos que el objeto `mass` que hemos creado antes al extraer la variable `body_m
 
 Podemos usar el método `head()` para ver los cinco primeros valores de la variable:
 
-::: {#ac75a927 .cell execution_count=10}
+::: {#eea41494 .cell execution_count=10}
 ``` {.python .cell-code}
 mass.head(5)
 ```
@@ -680,7 +680,7 @@ Name: body_mass_g, dtype: float64
 
 Aprecia que `mass` tiene el mismo índice que la hoja de datos `penguins`:
 
-::: {#5d5d6854 .cell execution_count=11}
+::: {#56512050 .cell execution_count=11}
 ``` {.python .cell-code}
 mass.index
 ```
@@ -708,7 +708,7 @@ Generalmente al aplicar un método propio de la clase `Series` a un objeto de cl
 
 Pero hay métodos propios de `Series` que no pueden aplicarse a `DataFrame`, métodos propios de `DataFrame` que no pueden aplicarse a `Series`, y métodos comunes a `Series` y `DataFrame` pero que requieren diferentes argumentos en cada caso. Por ejemplo, el método `Series.sort_values()` ordena los valores de una variable de mayor a menor. Puedes comprobarlo con
 
-::: {#65880dd2 .cell execution_count=12}
+::: {#8108fcf6 .cell execution_count=12}
 ``` {.python .cell-code}
 mass.sort_values().head(5)
 ```
