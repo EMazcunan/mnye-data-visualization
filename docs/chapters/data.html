@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.23">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>2&nbsp; Datos – Exploración y visualización de datos con Python</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -59,7 +62,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -78,7 +80,7 @@ div.csl-indent {
 }</style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -93,12 +95,12 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-226bd0f977fa82dfae4534cac220d79a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-7271f29f9498218151f3120baddb7363.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-85cb747f944922ca53f52c7dae4a6a7c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-83e4ed0a072ef52d2388af022bd53728.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-e03077b22a853496f3b4f709a9619755.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-ca78a07f71a44e10dda2a5fbfd7c80e0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -115,7 +117,7 @@ div.csl-indent {
     "s"
   ],
   "language": {
-    "search-no-results-text": "Sin resultados",
+    "search-no-results-text": "No se han encontrado resultados",
     "search-matching-documents-text": "documentos encontrados",
     "search-copy-link-title": "Copiar el enlace en la búsqueda",
     "search-hide-matches-text": "Ocultar resultados adicionales",
@@ -128,12 +130,12 @@ div.csl-indent {
     "search-label": "Buscar"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -146,7 +148,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -183,7 +185,7 @@ window.Quarto = {
         toggleBodyColorMode(bsSheetEl);
       }
     }
-    window.setColorSchemeToggle = (alternate) => {
+    const setColorSchemeToggle = (alternate) => {
       const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
@@ -216,7 +218,7 @@ window.Quarto = {
       }
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
-      window.setColorSchemeToggle(alternate)
+      setColorSchemeToggle(alternate)
       // Hack to workaround the fact that safari doesn't
       // properly recolor the scrollbar when toggling (#1455)
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
@@ -256,7 +258,7 @@ window.Quarto = {
     const isFileUrl = () => {
       return window.location.protocol === 'file:';
     }
-    window.hasAlternateSentinel = () => {
+    const hasAlternateSentinel = () => {
       let styleSentinel = getColorSchemeSentinel();
       if (styleSentinel !== null) {
         return styleSentinel === "alternate";
@@ -284,7 +286,7 @@ window.Quarto = {
       const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
       const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
       let newTheme = '';
-      if(darkModeDefault) {
+      if(authorPrefersDark) {
         newTheme = isAlternate ? baseTheme : alternateTheme;
       } else {
         newTheme = isAlternate ? alternateTheme : baseTheme;
@@ -307,16 +309,18 @@ window.Quarto = {
         changeGiscusTheme();
       }
     };
+    const authorPrefersDark = true;
     const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
     const darkModeDefault = queryPrefersDark.matches;
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
     // Dark / light mode switch
     window.quartoToggleColorScheme = () => {
       // Read the current dark / light value
-      let toAlternate = !window.hasAlternateSentinel();
+      let toAlternate = !hasAlternateSentinel();
       toggleColorMode(toAlternate);
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
     };
     queryPrefersDark.addEventListener("change", e => {
       if(window.localStorage.getItem("quarto-color-scheme") !== null)
@@ -327,7 +331,7 @@ window.Quarto = {
       toggleGiscusIfUsed(alternate, darkModeDefault);
     });
     // Switch to dark mode if need be
-    if (window.hasAlternateSentinel()) {
+    if (hasAlternateSentinel()) {
       toggleColorMode(true);
     } else {
       toggleColorMode(false);
@@ -353,7 +357,8 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../img/sidebar-logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../img/sidebar-logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../img/sidebar-logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Exploración y visualización de datos con Python</a> 
@@ -445,14 +450,13 @@ window.Quarto = {
    
   <ul>
   <li><a href="#sec-read_csv" id="toc-sec-read_csv" class="nav-link active" data-scroll-target="#sec-read_csv"><span class="header-section-number">2.1</span> Importar los datos</a></li>
-  <li><a href="#dimensiones" id="toc-dimensiones" class="nav-link" data-scroll-target="#dimensiones"><span class="header-section-number">2.2</span> Dimensiones</a></li>
-  <li><a href="#sec-head-tail" id="toc-sec-head-tail" class="nav-link" data-scroll-target="#sec-head-tail"><span class="header-section-number">2.3</span> Un primer vistazo a los datos</a></li>
-  <li><a href="#estructura" id="toc-estructura" class="nav-link" data-scroll-target="#estructura"><span class="header-section-number">2.4</span> Estructura</a></li>
-  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables"><span class="header-section-number">2.5</span> Variables</a>
+  <li><a href="#sec-head-tail" id="toc-sec-head-tail" class="nav-link" data-scroll-target="#sec-head-tail"><span class="header-section-number">2.2</span> Un primer vistazo a los datos</a></li>
+  <li><a href="#estructura" id="toc-estructura" class="nav-link" data-scroll-target="#estructura"><span class="header-section-number">2.3</span> Estructura</a></li>
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables"><span class="header-section-number">2.4</span> Variables</a>
   <ul class="collapse">
-  <li><a href="#descripción" id="toc-descripción" class="nav-link" data-scroll-target="#descripción"><span class="header-section-number">2.5.1</span> Descripción</a></li>
-  <li><a href="#valores-nulos" id="toc-valores-nulos" class="nav-link" data-scroll-target="#valores-nulos"><span class="header-section-number">2.5.2</span> Valores nulos</a></li>
-  <li><a href="#tipos-de-variables" id="toc-tipos-de-variables" class="nav-link" data-scroll-target="#tipos-de-variables"><span class="header-section-number">2.5.3</span> Tipos de variables</a></li>
+  <li><a href="#descripción" id="toc-descripción" class="nav-link" data-scroll-target="#descripción"><span class="header-section-number">2.4.1</span> Descripción</a></li>
+  <li><a href="#valores-nulos" id="toc-valores-nulos" class="nav-link" data-scroll-target="#valores-nulos"><span class="header-section-number">2.4.2</span> Valores nulos</a></li>
+  <li><a href="#tipos-de-variables" id="toc-tipos-de-variables" class="nav-link" data-scroll-target="#tipos-de-variables"><span class="header-section-number">2.4.3</span> Tipos de variables</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -549,43 +553,75 @@ backToTopButton.addEventListener("click", function () {
 <section id="sec-read_csv" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="sec-read_csv"><span class="header-section-number">2.1</span> Importar los datos</h2>
 <p>Como se indicó en la introducción, los datos con los que vamos a trabajar están disponibles en la web en un fichero de formato <code>CSV</code>.</p>
-<p>Ejecuta las instrucciones a continuación para importar el archivo usando la función <code>read_csv()</code> y guardar el resultado en una variable de nombre <code>penguins</code>. Puedes utilizar cualquier otro nombre diferente de <code>penguins</code> para tu variable, pero en ese caso deberás reemplazar <code>penguins</code> por el nombre que hayas elegido en el resto de la práctica.</p>
-<div id="74343ab2" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv"</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> pd.read_csv(url)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ejecuta las instrucciones a continuación para importar los datos.</p>
+<div id="76f36d1f" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv"</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-2" class="code-annotation-target"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> pd.read_csv(url)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="1" data-code-annotation="1">Definimos la URL del archivo.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="2" data-code-annotation="2">Importamos el archivo usando la función <code>read_csv()</code> y guardamos el resultado en una variable de nombre <code>penguins</code>.</span>
+</dd>
+</dl>
 </div>
-<p>El objeto <code>penguins</code> que acabas de crear es una <strong>hoja de datos</strong>, representada en <code>pandas</code> con la clase <code>DataFrame</code>.</p>
-<div id="d8eb6cd1" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(penguins)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="17">
-<pre><code>pandas.core.frame.DataFrame</code></pre>
 </div>
-</div>
+<p>Puedes utilizar cualquier otro nombre diferente de <code>penguins</code> para tu variable, pero en ese caso deberás reemplazar <code>penguins</code> por el nombre que hayas elegido en el resto de la práctica.</p>
+<!-- 
+El objeto `penguins` que acabas de crear es una __hoja de datos__, representada en `pandas` con la clase `DataFrame`. 
+
+::: {#3091ea4e .cell execution_count=3}
+``` {.python .cell-code}
+type(penguins)
+```
+
+::: {.cell-output .cell-output-display execution_count=18}
+```
+pandas.DataFrame
+```
+:::
+:::
+
+
+-->
 <p>En los siguientes apartados aprenderás a realizar una exploración inicial de la hoja de datos <code>penguins</code> que acabas de crear para conocer su estructura y la información que contiene.</p>
+<!-- ## Dimensiones
+
+Una hoja de datos es una estructura matricial o tabular que contiene datos organizados por filas y columnas. 
+
+Para saber las dimensiones de nuestra hoja de datos `penguins` consulta su propiedad `shape`:
+
+::: {#58fbc70e .cell execution_count=4}
+``` {.python .cell-code}
+penguins.shape
+```
+
+::: {.cell-output .cell-output-display execution_count=19}
+```
+(344, 7)
+```
+:::
+:::
+
+
+Vemos que nuestra hoja de datos tiene `344` filas y `7` columnas. 
+-->
 </section>
-<section id="dimensiones" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="dimensiones"><span class="header-section-number">2.2</span> Dimensiones</h2>
-<p>Una hoja de datos es una estructura matricial o tabular que contiene datos organizados por filas y columnas.</p>
-<p>Para saber las dimensiones de nuestra hoja de datos <code>penguins</code> consulta su propiedad <code>shape</code>:</p>
-<div id="7f92007f" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>penguins.shape</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="18">
-<pre><code>(344, 7)</code></pre>
-</div>
-</div>
-<p>Vemos que nuestra hoja de datos tiene <code>344</code> filas y <code>7</code> columnas.</p>
-</section>
-<section id="sec-head-tail" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="sec-head-tail"><span class="header-section-number">2.3</span> Un primer vistazo a los datos</h2>
-<p>Con los métodos <code>head()</code> y <code>tail()</code> podemos ver las primeras y últimas filas de una hoja de datos.</p>
-<p>Con la siguiente instrucción puedes visualizar las cinco primeras filas de la hoja de datos <code>penguins</code> que acabas de crear.</p>
-<div id="df5df526" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>penguins.head(<span class="dv">5</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="19">
+<section id="sec-head-tail" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="sec-head-tail"><span class="header-section-number">2.2</span> Un primer vistazo a los datos</h2>
+<!-- Con los métodos `head()` y `tail()` podemos ver las primeras y últimas filas de una hoja de datos.  -->
+<p>Con el método <code>head()</code> puedes visualizar las cinco primeras filas de la hoja de datos <code>penguins</code> que acabas de crear.</p>
+<div id="349d0df9" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>penguins.head(<span class="dv">5</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -600,7 +636,7 @@ backToTopButton.addEventListener("click", function () {
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
+<th data-quarto-table-cell-role="th">0</th>
 <td>Adelie</td>
 <td>Torgersen</td>
 <td>39.1</td>
@@ -610,7 +646,7 @@ backToTopButton.addEventListener("click", function () {
 <td>MALE</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
+<th data-quarto-table-cell-role="th">1</th>
 <td>Adelie</td>
 <td>Torgersen</td>
 <td>39.5</td>
@@ -620,7 +656,7 @@ backToTopButton.addEventListener("click", function () {
 <td>FEMALE</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
+<th data-quarto-table-cell-role="th">2</th>
 <td>Adelie</td>
 <td>Torgersen</td>
 <td>40.3</td>
@@ -630,7 +666,7 @@ backToTopButton.addEventListener("click", function () {
 <td>FEMALE</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
+<th data-quarto-table-cell-role="th">3</th>
 <td>Adelie</td>
 <td>Torgersen</td>
 <td>NaN</td>
@@ -640,7 +676,7 @@ backToTopButton.addEventListener("click", function () {
 <td>NaN</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
+<th data-quarto-table-cell-role="th">4</th>
 <td>Adelie</td>
 <td>Torgersen</td>
 <td>36.7</td>
@@ -655,14 +691,14 @@ backToTopButton.addEventListener("click", function () {
 </div>
 </div>
 </div>
-<p>Y con la siguiente instrucción puedes visualizar las cinco últimas filas .</p>
-<div id="4786f57b" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>penguins.tail(<span class="dv">5</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="20">
+<p>Y con <code>tail()</code> puedes ver las cinco últimas.</p>
+<div id="2a66203c" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>penguins.tail(<span class="dv">5</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -677,7 +713,7 @@ backToTopButton.addEventListener("click", function () {
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">339</td>
+<th data-quarto-table-cell-role="th">339</th>
 <td>Gentoo</td>
 <td>Biscoe</td>
 <td>NaN</td>
@@ -687,7 +723,7 @@ backToTopButton.addEventListener("click", function () {
 <td>NaN</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">340</td>
+<th data-quarto-table-cell-role="th">340</th>
 <td>Gentoo</td>
 <td>Biscoe</td>
 <td>46.8</td>
@@ -697,7 +733,7 @@ backToTopButton.addEventListener("click", function () {
 <td>FEMALE</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">341</td>
+<th data-quarto-table-cell-role="th">341</th>
 <td>Gentoo</td>
 <td>Biscoe</td>
 <td>50.4</td>
@@ -707,7 +743,7 @@ backToTopButton.addEventListener("click", function () {
 <td>MALE</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">342</td>
+<th data-quarto-table-cell-role="th">342</th>
 <td>Gentoo</td>
 <td>Biscoe</td>
 <td>45.2</td>
@@ -717,7 +753,7 @@ backToTopButton.addEventListener("click", function () {
 <td>FEMALE</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">343</td>
+<th data-quarto-table-cell-role="th">343</th>
 <td>Gentoo</td>
 <td>Biscoe</td>
 <td>49.9</td>
@@ -733,48 +769,49 @@ backToTopButton.addEventListener("click", function () {
 </div>
 </div>
 </section>
-<section id="estructura" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="estructura"><span class="header-section-number">2.4</span> Estructura</h2>
+<section id="estructura" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="estructura"><span class="header-section-number">2.3</span> Estructura</h2>
 <p>En nuestra hoja de datos <code>penguins</code>:</p>
 <ul>
-<li><p>Cada columna representa una variable asociada a una propiedad o característica de los pingüinos. Por ejemplo, la primera columna, de nombre <code>species</code> indica la especie (Chinstrap, Adélie o Gentoo) de pingüino. En el siguiente apartado se describen las otras seis variables.</p></li>
-<li><p>Cada fila se corresponde con un pingüino concreto de los <span class="math inline">\(344\)</span> seleccionados en el estudio.</p></li>
-<li><p>Cada celda contiene el valor de la característica del pingüino en la correspondiente fila.</p></li>
+<li><p>Cada fila se corresponde con un pingüino concreto del estudio. A la izquierda de cada fila vemos unos números que indican el índice de la fila. Van de 0 a 343, así que tenemos un total de <span class="math inline">\(344\)</span> pingüinos.</p></li>
+<li><p>Cada columna representa una variable asociada a una propiedad o característica de los pingüinos. Encima de cada columna vemos su nombre. Por ejemplo, la primera columna, de nombre <code>species</code>, indica la especie (Chinstrap, Adélie o Gentoo) de pingüino. Hay otras seis variables, que se describen en el siguiente apartado.</p></li>
+<li><p>Cada celda contiene el valor de la característica en la correspondiente columna del pingüino en la correspondiente fila.</p></li>
 </ul>
 <p>Por ejemplo, mirando las salidas de las instrucciones anteriores <code>penguins.head(5)</code> y <code>penguins.tail(5)</code> vemos que los cinco primeros pingüinos del listado son de la especie Adelie y los cinco últimos de la especie Gentoo.</p>
-<p>Unos mismos datos pueden organizarse o presentarse de diferentes maneras en diferentes hojas de datos. Para que sea sencillo trabajar con una hoja de datos es conveniente que haya una relación clara entre su significado y su estructura. Se considera que la hoja de datos está <em>ordenada</em> o <em>limpia</em> (en inglés se habla de <em>tidy data</em>) si está organizada de acuerdo con los siguientes principios:</p>
-<ul>
-<li>Cada <strong>columna</strong> representa una <strong>variable</strong> o característica de interés.</li>
-<li>Cada <strong>fila</strong> representa una <strong>observación</strong>, caso o unidad experimental.</li>
-<li>Cada <strong>celda</strong> contiene un <strong>valor</strong>, el de la variable en la correspondiente columna para la observación en la correspondiente fila.</li>
-</ul>
-<p>De acuerdo con la descripción inicial, nuestra hoja de datos cumple con los principios anteriores.</p>
+<!-- Unos mismos datos pueden organizarse o presentarse de diferentes maneras en diferentes hojas de datos. Para que sea sencillo trabajar con una hoja de datos es conveniente que haya una relación clara entre su significado y su estructura. Se considera que la hoja de datos está _ordenada_ o _limpia_ (en inglés se habla de _tidy data_) si está organizada de acuerdo con los siguientes principios: 
+
+- Cada __columna__ representa una __variable__ o característica de interés.
+- Cada __fila__ representa una __observación__, caso o  unidad experimental.
+- Cada __celda__ contiene un __valor__, el de la variable en la correspondiente columna para la observación en la correspondiente fila.
+
+
+De acuerdo con la descripción inicial, nuestra hoja de datos cumple con los principios anteriores. -->
 </section>
-<section id="variables" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="variables"><span class="header-section-number">2.5</span> Variables</h2>
+<section id="variables" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="variables"><span class="header-section-number">2.4</span> Variables</h2>
 <p>Ejecuta la siguiente instrucción:</p>
-<div id="9383c800" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>penguins.info()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a4528bb2" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>penguins.info()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+<pre><code>&lt;class 'pandas.DataFrame'&gt;
 RangeIndex: 344 entries, 0 to 343
 Data columns (total 7 columns):
  #   Column             Non-Null Count  Dtype  
 ---  ------             --------------  -----  
- 0   species            344 non-null    object 
- 1   island             344 non-null    object 
+ 0   species            344 non-null    str    
+ 1   island             344 non-null    str    
  2   bill_length_mm     342 non-null    float64
  3   bill_depth_mm      342 non-null    float64
  4   flipper_length_mm  342 non-null    float64
  5   body_mass_g        342 non-null    float64
- 6   sex                333 non-null    object 
-dtypes: float64(4), object(3)
-memory usage: 18.9+ KB</code></pre>
+ 6   sex                333 non-null    str    
+dtypes: float64(4), str(3)
+memory usage: 18.9 KB</code></pre>
 </div>
 </div>
-<p>La salida del método <code>info()</code> nos da una tabla con información sobre las siete variables de nuestra hoja de datos.</p>
-<section id="descripción" class="level3" data-number="2.5.1">
-<h3 data-number="2.5.1" class="anchored" data-anchor-id="descripción"><span class="header-section-number">2.5.1</span> Descripción</h3>
+<p>La salida del método <code>info()</code> nos da una tabla con información sobre las dimensiones y variables de nuestra hoja de datos.</p>
+<section id="descripción" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="descripción"><span class="header-section-number">2.4.1</span> Descripción</h3>
 <p>En la columna de la tabla de nombre <code>Column</code> se lista el nombre de las siete variables en <code>penguins</code>. El significado de las variables es el siguiente:</p>
 <table class="caption-top table">
 <colgroup>
@@ -828,14 +865,14 @@ Figura&nbsp;2.1: Ilustración de las variables <code>bill_length_mm</code> y <co
 </figcaption>
 </figure>
 </div>
-<p>A lo largo de la práctica tendrás que volver a la tabla anterior para saber el nombre de la variable de la hoja de datos correspondiente a cada característica. Por ejemplo, cuando más adelante tengas que calcular el valor mínimo para la longitud de las alas de todos los pingüinos, necesitarás saber que el nombre de la variable que registra la longitud de las alas es <code>flipper_length_mm</code>.</p>
-<p>Leyendo la primera fila de nuestra hoja de datos en la salida de la instrucción <code>penguins.head(5)</code></p>
-<div id="501f625c" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-display" data-execution_count="22">
+<p>A lo largo de la práctica tendrás que volver a la tabla anterior para saber el nombre de la variable correspondiente a cada característica. Por ejemplo, cuando más adelante tengas que calcular el valor mínimo para la longitud de las alas de todos los pingüinos, necesitarás saber que el nombre de la variable que registra la longitud de las alas es <code>flipper_length_mm</code>.</p>
+<p>Leyendo la primera fila de nuestra hoja de datos</p>
+<div id="9a77df11" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -850,7 +887,7 @@ Figura&nbsp;2.1: Ilustración de las variables <code>bill_length_mm</code> y <co
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
+<th data-quarto-table-cell-role="th">0</th>
 <td>Adelie</td>
 <td>Torgersen</td>
 <td>39.1</td>
@@ -866,39 +903,101 @@ Figura&nbsp;2.1: Ilustración de las variables <code>bill_length_mm</code> y <co
 </div>
 </div>
 <p>ahora sabes que el primer pingüino es de la especie Adelie, vive en la isla Torgensen, las dimensiones de su pico son <span class="math inline">\(39.1 \times 18.7\)</span> milímetros, sus alas miden <span class="math inline">\(181\)</span> milímetros, pesa <span class="math inline">\(3\)</span> kilos y <span class="math inline">\(750\)</span> gramos, y es un macho.</p>
-<div id="exr-data" class="theorem exercise">
-<p><span class="theorem-title"><strong>Ejercicio 2.1</strong></span> Mirando de nuevo la salida de la instrucción <code>penguins.head(5)</code>, describe las características del tercer pingüino del estudio (índice 2).</p>
+<!-- 
+:::: {#exr-data}
+Describe las características del tercer pingüino del estudio (índice 2) mirando la tercera fila de la hoja de datos a continuación:
+
+::: {#acbf66c5 .cell execution_count=9}
+
+::: {.cell-output .cell-output-display execution_count=24}
+```{=html}
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">species</th>
+<th data-quarto-table-cell-role="th">island</th>
+<th data-quarto-table-cell-role="th">bill_length_mm</th>
+<th data-quarto-table-cell-role="th">bill_depth_mm</th>
+<th data-quarto-table-cell-role="th">flipper_length_mm</th>
+<th data-quarto-table-cell-role="th">body_mass_g</th>
+<th data-quarto-table-cell-role="th">sex</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>40.3</td>
+<td>18.0</td>
+<td>195.0</td>
+<td>3250.0</td>
+<td>FEMALE</td>
+</tr>
+</tbody>
+</table>
+
 </div>
+```
+:::
+:::
+
+
+:::: 
+-->
 </section>
-<section id="valores-nulos" class="level3" data-number="2.5.2">
-<h3 data-number="2.5.2" class="anchored" data-anchor-id="valores-nulos"><span class="header-section-number">2.5.2</span> Valores nulos</h3>
+<section id="valores-nulos" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="valores-nulos"><span class="header-section-number">2.4.2</span> Valores nulos</h3>
 <p>Fíjate ahora en la columna <code>Non-Null Count</code> de la salida del método <code>info()</code>:</p>
-<div id="c214a983" class="cell" data-execution_count="9">
+<div id="975d6ee6" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+<pre><code>&lt;class 'pandas.DataFrame'&gt;
 RangeIndex: 344 entries, 0 to 343
 Data columns (total 7 columns):
  #   Column             Non-Null Count  Dtype  
 ---  ------             --------------  -----  
- 0   species            344 non-null    object 
- 1   island             344 non-null    object 
+ 0   species            344 non-null    str    
+ 1   island             344 non-null    str    
  2   bill_length_mm     342 non-null    float64
  3   bill_depth_mm      342 non-null    float64
  4   flipper_length_mm  342 non-null    float64
  5   body_mass_g        342 non-null    float64
- 6   sex                333 non-null    object 
-dtypes: float64(4), object(3)
-memory usage: 18.9+ KB</code></pre>
+ 6   sex                333 non-null    str    
+dtypes: float64(4), str(3)
+memory usage: 18.9 KB</code></pre>
 </div>
 </div>
-<p>Los valores nulos o perdidos son valores no disponibles, que no han podido registrarse, se representan con el símbolo <code>NaN</code> (iniciales de <em>Not A Number</em>).</p>
-<p>Si vuelves a mirar las cinco primeras filas de la hoja de datos verás que para el cuarto pingüino sólo sabemos que es de la especie Adelie y vive el la isla Torgersen, y se desconocen las otras cinco variables.</p>
-<div id="0effb518" class="cell" data-execution_count="10">
-<div class="cell-output cell-output-display" data-execution_count="24">
+<p>Indica cuántos valores no nulos tenemos para cada variable. Los valores nulos o perdidos son valores no disponibles, que no han podido registrarse.</p>
+<p>En la tabla anterior leemos:</p>
+<ul>
+<li><p>que conocemos la especie y la isla para los <span class="math inline">\(344\)</span> pingüinos del estudio,</p></li>
+<li><p>que faltan <span class="math inline">\(344-342 = 2\)</span> datos para las dimensiones del pico, la longitud de las alas y el peso,</p></li>
+<li><p>que se desconoce el sexo de <span class="math inline">\(344-333 = 11\)</span> pingüinos.</p></li>
+</ul>
+<p>Se representan con el símbolo <code>NaN</code> (iniciales de <em>Not A Number</em>).</p>
+<p>Si miras la cuarta fila de la hoja de datos</p>
+<div id="6ba0dc74" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="26">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -913,7 +1012,7 @@ memory usage: 18.9+ KB</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">3</td>
+<th data-quarto-table-cell-role="th">3</th>
 <td>Adelie</td>
 <td>Torgersen</td>
 <td>NaN</td>
@@ -928,34 +1027,43 @@ memory usage: 18.9+ KB</code></pre>
 </div>
 </div>
 </div>
+<p>verás que para el cuarto pingüino sólo sabemos que es de la especie Adelie y vive el la isla Torgersen, y se desconocen las otras cinco variables.</p>
 <p>Los diferentes métodos de la librería <code>pandas</code> contemplan la posibilidad de que las hojas de datos tengan valores nulos y los tratan de un forma predeterminada (por ejemplo, la media los ignora por defecto).</p>
 </section>
-<section id="tipos-de-variables" class="level3" data-number="2.5.3">
-<h3 data-number="2.5.3" class="anchored" data-anchor-id="tipos-de-variables"><span class="header-section-number">2.5.3</span> Tipos de variables</h3>
+<section id="tipos-de-variables" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="tipos-de-variables"><span class="header-section-number">2.4.3</span> Tipos de variables</h3>
 <p>Las siete variables de nuestra hoja de datos se dividen en dos clases:</p>
 <ol type="1">
 <li><p><code>species</code>, <code>island</code> y <code>sex</code> son <strong>variables categóricas</strong>. Este tipo de variables representan una característica cualitativa que puede tomar un número finito y fijo de valores, denominados categorías o niveles.</p></li>
 <li><p>Las cuatro restantes, <code>bill_length_mm</code>, <code>bill_depth_mm</code>, <code>flipper_length_mm</code> y <code>body_mass_g</code> son <strong>variables numéricas</strong>, que representan características cuantitativas que se describen con valores numéricos (números enteros o reales).</p></li>
 </ol>
-<p><code>pandas</code> asigna un tipo a cada variable de una hoja de datos en función de los valores que presenta, como puede verse en la columna <code>Dtype</code> de la salida del método <code>info()</code>:</p>
-<div id="fabc2991" class="cell" data-execution_count="11">
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+<!-- 
+`pandas` asigna un tipo a cada variable de una hoja de datos en función de los valores que presenta, como puede verse en la columna `Dtype` de la salida del método `info()`:
+
+::: {#c32b086c .cell execution_count=12}
+
+::: {.cell-output .cell-output-stdout}
+```
+<class 'pandas.DataFrame'>
 RangeIndex: 344 entries, 0 to 343
 Data columns (total 7 columns):
  #   Column             Non-Null Count  Dtype  
 ---  ------             --------------  -----  
- 0   species            344 non-null    object 
- 1   island             344 non-null    object 
+ 0   species            344 non-null    str    
+ 1   island             344 non-null    str    
  2   bill_length_mm     342 non-null    float64
  3   bill_depth_mm      342 non-null    float64
  4   flipper_length_mm  342 non-null    float64
  5   body_mass_g        342 non-null    float64
- 6   sex                333 non-null    object 
-dtypes: float64(4), object(3)
-memory usage: 18.9+ KB</code></pre>
-</div>
-</div>
+ 6   sex                333 non-null    str    
+dtypes: float64(4), str(3)
+memory usage: 18.9 KB
+```
+:::
+:::
+
+
+-->
 <!-- Para variables numéricas podremos calcular diferentes medidas descriptivas, como el máximo, la media, etc. 
 
 Para variables categóricas podremos calcular el recuento de observaciones en cada categoría, pero no podremos realizar cálculos con sus valores.  -->
@@ -970,9 +1078,9 @@ Para variables categóricas podremos calcular el recuento de observaciones en ca
 
 Igual que cada columna (variable) en una hoja de datos tiene un nombre, cada fila (observación) también tiene una etiqueta identificativa. En nuestra hoja de datos cada uno de los $344$ pingüinos se identifica con un número entero de la secuencia 0, 1, ..., 333.
 
-::: {#4a5cb8a0 .cell execution_count=12}
+::: {#314e8fa0 .cell execution_count=13}
 
-::: {.cell-output .cell-output-display execution_count=26}
+::: {.cell-output .cell-output-display execution_count=28}
 ```{=html}
 <div>
 <style scoped>
@@ -1042,9 +1150,9 @@ Igual que cada columna (variable) en una hoja de datos tiene un nombre, cada fil
 :::
 
 
-::: {#3ac4b964 .cell execution_count=13}
+::: {#71899c83 .cell execution_count=14}
 
-::: {.cell-output .cell-output-display execution_count=27}
+::: {.cell-output .cell-output-display execution_count=29}
 ```{=html}
 <div>
 <style scoped>
@@ -1116,12 +1224,12 @@ Igual que cada columna (variable) en una hoja de datos tiene un nombre, cada fil
 
 Las etiquetas identificativas de las filas de una hoja de datos forman su __índice__. El índice de una hoja de datos de `pandas` se registra en su propiedad `index`.
 
-::: {#ac7ca9ea .cell execution_count=14}
+::: {#c311ea67 .cell execution_count=15}
 ``` {.python .cell-code}
 penguins.index
 ```
 
-::: {.cell-output .cell-output-display execution_count=28}
+::: {.cell-output .cell-output-display execution_count=30}
 ```
 RangeIndex(start=0, stop=344, step=1)
 ```
@@ -1132,12 +1240,12 @@ RangeIndex(start=0, stop=344, step=1)
 Si cada pingüino estuviera identificado por un código, podríamos haber indicado esa variable como índice en el momento de la importación de los datos. Cuando no se indica el índice de una hoja de datos de forma explícita, `pandas` asigna una secuencia de números enteros comenzando en 0, como ha ocurrido en nuestro caso. -->
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-mckinney-proc-scipy-2010" class="csl-entry" role="listitem">
-McKinney, Wes. 2010. <span>«<span>D</span>ata <span>S</span>tructures for <span>S</span>tatistical <span>C</span>omputing in <span>P</span>ython»</span>. En <em><span>P</span>roceedings of the 9th <span>P</span>ython in <span>S</span>cience <span>C</span>onference</em>, editado por Stéfan van der Walt y Jarrod Millman, 56-61. <a href="https://doi.org/ 10.25080/Majora-92bf1922-00a ">https://doi.org/ 10.25080/Majora-92bf1922-00a </a>.
+McKinney, Wes. 2010. <span>«<span>D</span>ata <span>S</span>tructures for <span>S</span>tatistical <span>C</span>omputing in <span>P</span>ython»</span>. En <em><span>P</span>roceedings of the 9th <span>P</span>ython in <span>S</span>cience <span>C</span>onference</em>, editado por Stéfan van der Walt y Jarrod Millman. <a href="https://doi.org/ 10.25080/Majora-92bf1922-00a ">https://doi.org/ 10.25080/Majora-92bf1922-00a </a>.
 </div>
 <div id="ref-reback2020pandas" class="csl-entry" role="listitem">
-The pandas development team. 2020. <span>«pandas-dev/pandas: Pandas»</span>. Zenodo. <a href="https://doi.org/10.5281/zenodo.3509134">https://doi.org/10.5281/zenodo.3509134</a>.
+The pandas development team. 2020. <em>pandas-dev/pandas: Pandas</em>. Versión latest. Zenodo, released febrero. <a href="https://doi.org/10.5281/zenodo.3509134">https://doi.org/10.5281/zenodo.3509134</a>.
 </div>
 <div id="ref-Waskom2021" class="csl-entry" role="listitem">
 Waskom, Michael L. 2021. <span>«seaborn: statistical data visualization»</span>. <em>Journal of Open Source Software</em> 6 (60): 3021. <a href="https://doi.org/10.21105/joss.03021">https://doi.org/10.21105/joss.03021</a>.
@@ -1198,7 +1306,7 @@ updateImageSrc();
       a.appendChild(i);
       window.document.body.appendChild(a);
     }
-    window.setColorSchemeToggle(window.hasAlternateSentinel())
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -1248,13 +1356,14 @@ updateImageSrc();
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

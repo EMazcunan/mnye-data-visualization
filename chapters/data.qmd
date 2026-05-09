@@ -18,26 +18,33 @@ En esta sección importarás los datos sobre los pingüinos del archipiélago Pa
 
 Como se indicó en la introducción, los datos con los que vamos a trabajar están disponibles en la web en un fichero de formato `CSV`. 
 
-Ejecuta las instrucciones a continuación para importar el archivo usando la función `read_csv()` y guardar el resultado en una variable de nombre `penguins`. Puedes utilizar cualquier otro nombre diferente de `penguins` para tu variable, pero en ese caso deberás reemplazar `penguins` por el nombre que hayas elegido en el resto de la práctica.
+Ejecuta las instrucciones a continuación para importar los datos.
 
 ```{python}
-url = "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv"
-penguins = pd.read_csv(url)
+url = "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv" # <1>
+penguins = pd.read_csv(url) # <2>
 ```
 
+1. Definimos la URL del archivo.
+
+2. Importamos el archivo usando la función `read_csv()` y guardamos el resultado en una variable de nombre `penguins`. 
 
 
+Puedes utilizar cualquier otro nombre diferente de `penguins` para tu variable, pero en ese caso deberás reemplazar `penguins` por el nombre que hayas elegido en el resto de la práctica.
+
+<!-- 
 El objeto `penguins` que acabas de crear es una __hoja de datos__, representada en `pandas` con la clase `DataFrame`. 
 
 
 ```{python}
 type(penguins)
-```
+``` 
+-->
 
 En los siguientes apartados aprenderás a realizar una exploración inicial de la hoja de datos `penguins` que acabas de crear para conocer su estructura y la información que contiene. 
 
 
-## Dimensiones
+<!-- ## Dimensiones
 
 Una hoja de datos es una estructura matricial o tabular que contiene datos organizados por filas y columnas. 
 
@@ -46,47 +53,52 @@ Para saber las dimensiones de nuestra hoja de datos `penguins` consulta su propi
 ```{python}
 penguins.shape
 ```
-Vemos que nuestra hoja de datos tiene `344` filas y `7` columnas.
+Vemos que nuestra hoja de datos tiene `344` filas y `7` columnas. 
+-->
 
 ## Un primer vistazo a los datos {#sec-head-tail}
 
-Con los métodos `head()` y `tail()` podemos ver las primeras y últimas filas de una hoja de datos. 
+<!-- Con los métodos `head()` y `tail()` podemos ver las primeras y últimas filas de una hoja de datos.  -->
 
-Con la siguiente instrucción puedes visualizar las cinco primeras filas de la hoja de datos `penguins` que acabas de crear.
+Con el método `head()` puedes visualizar las cinco primeras filas de la hoja de datos `penguins` que acabas de crear.
 
 ```{python}
 penguins.head(5)
 ```
 
-Y con la siguiente instrucción puedes visualizar las cinco últimas filas .
+Y con `tail()` puedes ver las cinco últimas.
 
 ```{python}
 penguins.tail(5)
-```
+``` 
+
+
 
 ## Estructura
 
 En nuestra hoja de datos `penguins`: 
 
-- Cada columna representa una variable asociada a una propiedad o característica de los pingüinos. Por ejemplo, la primera columna, de nombre `species` indica la especie (Chinstrap, Adélie o Gentoo) de pingüino. En el siguiente apartado se describen las otras seis variables.
+- Cada fila se corresponde con un pingüino concreto del estudio. A la izquierda de cada fila vemos unos números que indican el índice de la fila. Van de 0 a 343, así que tenemos un total de $344$ pingüinos. 
 
-- Cada fila se corresponde con un pingüino concreto de los $344$ seleccionados en el estudio.
 
-- Cada celda contiene el valor de la característica del pingüino en la correspondiente fila. 
+- Cada columna representa una variable asociada a una propiedad o característica de los pingüinos. Encima de cada columna vemos su nombre. Por ejemplo, la primera columna, de nombre `species`, indica la especie (Chinstrap, Adélie o Gentoo) de pingüino. Hay otras seis variables, que se describen en el siguiente apartado.
+
+
+- Cada celda contiene el valor de la característica en la correspondiente columna del pingüino en la correspondiente fila. 
 
 
 Por ejemplo, mirando las salidas de las instrucciones anteriores `penguins.head(5)` y `penguins.tail(5)`
 vemos que los cinco primeros pingüinos del listado son de la especie Adelie y los cinco últimos de la especie Gentoo.
 
 
-Unos mismos datos pueden organizarse o presentarse de diferentes maneras en diferentes hojas de datos. Para que sea sencillo trabajar con una hoja de datos es conveniente que haya una relación clara entre su significado y su estructura. Se considera que la hoja de datos está _ordenada_ o _limpia_ (en inglés se habla de _tidy data_) si está organizada de acuerdo con los siguientes principios: 
+<!-- Unos mismos datos pueden organizarse o presentarse de diferentes maneras en diferentes hojas de datos. Para que sea sencillo trabajar con una hoja de datos es conveniente que haya una relación clara entre su significado y su estructura. Se considera que la hoja de datos está _ordenada_ o _limpia_ (en inglés se habla de _tidy data_) si está organizada de acuerdo con los siguientes principios: 
 
 - Cada __columna__ representa una __variable__ o característica de interés.
 - Cada __fila__ representa una __observación__, caso o  unidad experimental.
 - Cada __celda__ contiene un __valor__, el de la variable en la correspondiente columna para la observación en la correspondiente fila.
 
 
-De acuerdo con la descripción inicial, nuestra hoja de datos cumple con los principios anteriores.
+De acuerdo con la descripción inicial, nuestra hoja de datos cumple con los principios anteriores. -->
 
 
 ## Variables
@@ -97,7 +109,7 @@ Ejecuta la siguiente instrucción:
 penguins.info()
 ```
 
-La salida del método `info()` nos da  una tabla con información sobre las siete variables de nuestra hoja de datos.  
+La salida del método `info()` nos da  una tabla con información sobre las dimensiones y variables de nuestra hoja de datos.
 
 
 ### Descripción
@@ -117,9 +129,9 @@ Nombre | Descripción
 ![Ilustración de las variables `bill_length_mm` y `bill_depth_mm` (Artista \@allison_horst)](../img/culmen_depth.png){#fig-bill width="400px" .lightbox}
 
 
-A lo largo de la práctica tendrás que volver a la tabla anterior para saber el nombre de la variable de la hoja de datos correspondiente a cada característica. Por ejemplo, cuando más adelante tengas que calcular el valor mínimo para la longitud de las alas de todos los pingüinos, necesitarás saber que el nombre de la variable que registra la longitud de las alas es `flipper_length_mm`. 
+A lo largo de la práctica tendrás que volver a la tabla anterior para saber el nombre de la variable correspondiente a cada característica. Por ejemplo, cuando más adelante tengas que calcular el valor mínimo para la longitud de las alas de todos los pingüinos, necesitarás saber que el nombre de la variable que registra la longitud de las alas es `flipper_length_mm`. 
 
-Leyendo la primera fila de nuestra hoja de datos en la salida de la instrucción `penguins.head(5)` 
+Leyendo la primera fila de nuestra hoja de datos 
 ```{python}
 #| echo: false
 penguins.head(1)
@@ -127,9 +139,20 @@ penguins.head(1)
 
 ahora sabes que el primer pingüino es de la especie Adelie, vive en la isla Torgensen, las dimensiones de su pico son $39.1 \times 18.7$ milímetros, sus alas miden $181$ milímetros, pesa $3$ kilos y $750$ gramos, y es un macho. 
 
+
+
+
+<!-- 
 :::: {#exr-data}
-Mirando de nuevo la salida de la instrucción `penguins.head(5)`, describe las características del tercer pingüino del estudio (índice 2).
-::::
+Describe las características del tercer pingüino del estudio (índice 2) mirando la tercera fila de la hoja de datos a continuación:
+
+```{python}
+#| echo: false
+
+penguins.loc[2:2]
+```
+:::: 
+-->
 
 
 ### Valores nulos
@@ -140,14 +163,26 @@ Fíjate ahora en la columna `Non-Null Count` de la salida del método `info()`:
 penguins.info()
 ```
 
-Los valores nulos o perdidos son valores no disponibles, que no han podido registrarse, se representan con el símbolo `NaN` (iniciales de _Not A Number_).
+Indica cuántos valores no nulos tenemos para cada variable. Los valores nulos o perdidos son valores no disponibles, que no han podido registrarse. 
 
-Si vuelves a mirar las cinco primeras filas de la hoja de datos verás que para el cuarto pingüino sólo sabemos que es de la especie Adelie y vive el la isla Torgersen, y se desconocen las otras cinco variables. 
+En la tabla anterior leemos: 
 
+- que conocemos la especie y la isla para los $344$ pingüinos del estudio,
+
+- que faltan $344-342 = 2$ datos para las dimensiones del pico, la longitud de las alas y el peso,
+
+- que se desconoce el sexo de $344-333 = 11$ pingüinos.
+
+Se representan con el símbolo `NaN` (iniciales de _Not A Number_).
+
+Si miras la cuarta fila de la hoja de datos 
 ```{python}
 #| echo: false
 penguins.loc[3:3]
 ```
+verás que para el cuarto pingüino sólo sabemos que es de la especie Adelie y vive el la isla Torgersen, y se desconocen las otras cinco variables. 
+
+
 
 Los diferentes métodos de la librería `pandas` contemplan la posibilidad de que las hojas de datos tengan valores nulos y los tratan de un forma predeterminada (por ejemplo, la media los ignora por defecto).
 
@@ -159,11 +194,13 @@ Las siete variables de nuestra hoja de datos se dividen en dos clases:
 
 2. Las cuatro restantes, `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm` y `body_mass_g` son __variables numéricas__, que representan características cuantitativas que se describen con valores numéricos (números enteros o reales). 
 
+<!-- 
 `pandas` asigna un tipo a cada variable de una hoja de datos en función de los valores que presenta, como puede verse en la columna `Dtype` de la salida del método `info()`:
 ```{python}
 #| echo: false
 penguins.info()
-```
+``` 
+-->
 
 <!-- Para variables numéricas podremos calcular diferentes medidas descriptivas, como el máximo, la media, etc. 
 
