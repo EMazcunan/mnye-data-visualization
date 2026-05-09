@@ -1,3 +1,4 @@
 /.quarto/
 /exsol-output/
 /tikz/
+**/*.quarto_ipynb
