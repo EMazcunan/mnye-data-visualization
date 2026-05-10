@@ -124,9 +124,55 @@ sns.histplot(data=penguins, x="body_mass_g", hue="species",
 ``` -->
 
 
-### Mosaico de histogramas
 
-En los dos apartados anteriores aprendiste a crear dos tipos de histogramas para visualizar la distribución de una variable numérica distinguiendo varias categorías con colores diferentes en un mismo gráfico. Pero a veces puede resultar más útil realizar histogramas independientes para cada categoría. En este apartado aprenderás a crear, de forma simultánea, tres histogramas con la distribución del peso de los pingüinos de cada especie.  
+
+
+## Diagramas de caja y bigotes
+
+Para acabar la práctica realizaremos el gráfico de la portada de este documento
+![](../img/cover/cover.png)
+
+en el que se representa un diagrama de caja y bigotes para el peso de los pingüinos de cada especie. 
+
+En la @sec-1numerical-boxplot hicimos un diagrama de caja y bigotes para el peso de todos los pingüinos (sin distinguir la especie) con la instrucción
+
+```{.python}
+sns.boxplot(data=penguins, y="body_mass_g");
+```
+
+Para diferenciar por especie no tenemos más que añadir el argumento `x="species"`:
+
+```{python}
+sns.boxplot(data=penguins, x="species", y="body_mass_g");
+```
+
+Los dos puntos que aparecen resaltados con un círculo fuera de los bigotes en el diagrama de la especie Chinstrap (en naranja) son  __outliers__. El outlier por debajo del bigote inferior representa un pingüino de la especie Chinstrap con peso excesivamente bajo, y el outlier por encima del bigote superior se corresponde con un pingüino de la especie Chinstrap con peso excesivamente alto (excesivamente bajo/alto respecto a la distribución del peso en los pingüinos de la especie Chinstrap).
+
+Para asignar un color diferente a cada especie añadimos `hue="species"`:
+```{python}
+sns.boxplot(data=penguins, x="species", y="body_mass_g", hue="species");
+```
+
+Omitiendo el parámetro `x` y usando solo `hue` obtenemos un gráfico similar pero con los nombres de las especies en una leyenda en lugar de en el eje x. 
+
+```{python}
+sns.boxplot(data=penguins, y="body_mass_g", hue="species", gap=0.1);
+```
+El argumento `gap=0.1` reduce el tamaño de las cajas un $10\%$ para dar un poco de separación entre las tres cajas (por defecto `gap=0` y las cajas quedan pegadas).
+
+
+::: {#exr-boxplots}
+Realiza un gráfico que muestre los diagramas de caja y bigotes para el peso de las hembras y de los machos.
+
+¿Aparecen outliers en alguno de los dos grupos?
+:::
+
+## Mosaico de gráficos
+
+En los apartados anteriores aprendiste a crear gráficos para visualizar la distribución de una variable numérica distinguiendo varias categorías con colores diferentes en un mismo gráfico. Por ejemplo, un histograma para el peso de los pingüinos distinguiendo la especie con colores. 
+
+
+Pero a veces puede resultar más útil realizar gráficos independientes para cada categoría. Nos puede interesar por ejemplo, realizar tres histogramas con la distribución del peso de los pingüinos de cada una de las tres especies.  
 
 
 Con este fin el paquete `seaborn` proporciona la clase `FacetGrid`, que permite crear un mosaico o una malla en la que ubicar los diferentes gráficos para los datos de cada categoría. 
@@ -143,9 +189,12 @@ De momento hemos inicializado el mosaico pero aún no hemos dibujado nada en cad
 
 
 ```{python}
-grid = sns.FacetGrid(data = penguins, col="species")
-grid.map(sns.histplot, "body_mass_g");
+grid = sns.FacetGrid(data = penguins, col="species") # <1>
+grid.map(sns.histplot, "body_mass_g"); # <2>
 ```
+
+1. Crea las celdas del mosaico.
+2. Indica qué gráfico y para qué variable crear en cada celda.
 
 ::: {.callout-important}
 Para que puedas visualizar el gráfico anterior en tu cuaderno de _Colab_ tienes que escribir las dos instrucciones anteriores en la misma celda. 
@@ -242,44 +291,3 @@ grid.map(sns.histplot, "flipper_length_mm");
 ```
 :::
 ::::
-
-
-## Diagramas de caja y bigotes
-
-Para acabar la práctica realizaremos el gráfico de la portada de este documento
-![](../img/cover/cover.png)
-
-en el que se representa un diagrama de caja y bigotes para el peso de los pingüinos de cada especie. 
-
-En la @sec-1numerical-boxplot hicimos un diagrama de caja y bigotes para el peso de todos los pingüinos (sin distinguir la especie) con la instrucción
-
-```{.python}
-sns.boxplot(data=penguins, y="body_mass_g");
-```
-
-Para diferenciar por especie no tenemos más que añadir el argumento `x="species"`:
-
-```{python}
-sns.boxplot(data=penguins, x="species", y="body_mass_g");
-```
-
-Los dos puntos que aparecen resaltados con un círculo fuera de los bigotes en el diagrama de la especie Chinstrap (en naranja) son  __outliers__. El outlier por debajo del bigote inferior representa un pingüino de la especie Chinstrap con peso excesivamente bajo, y el outlier por encima del bigote superior se corresponde con un pingüino de la especie Chinstrap con peso excesivamente alto (excesivamente bajo/alto respecto a la distribución del peso en los pingüinos de la especie Chinstrap).
-
-Para asignar un color diferente a cada especie añadimos `hue="species"`:
-```{python}
-sns.boxplot(data=penguins, x="species", y="body_mass_g", hue="species");
-```
-
-Omitiendo el parámetro `x` y usando solo `hue` obtenemos un gráfico similar pero con los nombres de las especies en una leyenda en lugar de en el eje x. 
-
-```{python}
-sns.boxplot(data=penguins, y="body_mass_g", hue="species", gap=0.1);
-```
-El argumento `gap=0.1` reduce el tamaño de las cajas un $10\%$ para dar un poco de separación entre las tres cajas (por defecto `gap=0` y las cajas quedan pegadas).
-
-
-::: {#exr-boxplots}
-Realiza un gráfico que muestre los diagramas de caja y bigotes para el peso de las hembras y de los machos.
-
-¿Aparecen outliers en alguno de los dos grupos?
-:::

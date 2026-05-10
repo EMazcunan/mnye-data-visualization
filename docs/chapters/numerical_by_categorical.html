@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.23">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>7&nbsp; Una variable numérica por categorías – Exploración y visualización de datos con Python</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -59,7 +62,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -78,7 +80,7 @@ div.csl-indent {
 }</style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -93,12 +95,12 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-226bd0f977fa82dfae4534cac220d79a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-7271f29f9498218151f3120baddb7363.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-85cb747f944922ca53f52c7dae4a6a7c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-83e4ed0a072ef52d2388af022bd53728.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-e03077b22a853496f3b4f709a9619755.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-ca78a07f71a44e10dda2a5fbfd7c80e0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -115,7 +117,7 @@ div.csl-indent {
     "s"
   ],
   "language": {
-    "search-no-results-text": "Sin resultados",
+    "search-no-results-text": "No se han encontrado resultados",
     "search-matching-documents-text": "documentos encontrados",
     "search-copy-link-title": "Copiar el enlace en la búsqueda",
     "search-hide-matches-text": "Ocultar resultados adicionales",
@@ -128,12 +130,12 @@ div.csl-indent {
     "search-label": "Buscar"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -146,7 +148,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -183,7 +185,7 @@ window.Quarto = {
         toggleBodyColorMode(bsSheetEl);
       }
     }
-    window.setColorSchemeToggle = (alternate) => {
+    const setColorSchemeToggle = (alternate) => {
       const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
@@ -216,7 +218,7 @@ window.Quarto = {
       }
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
-      window.setColorSchemeToggle(alternate)
+      setColorSchemeToggle(alternate)
       // Hack to workaround the fact that safari doesn't
       // properly recolor the scrollbar when toggling (#1455)
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
@@ -256,7 +258,7 @@ window.Quarto = {
     const isFileUrl = () => {
       return window.location.protocol === 'file:';
     }
-    window.hasAlternateSentinel = () => {
+    const hasAlternateSentinel = () => {
       let styleSentinel = getColorSchemeSentinel();
       if (styleSentinel !== null) {
         return styleSentinel === "alternate";
@@ -284,7 +286,7 @@ window.Quarto = {
       const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
       const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
       let newTheme = '';
-      if(darkModeDefault) {
+      if(authorPrefersDark) {
         newTheme = isAlternate ? baseTheme : alternateTheme;
       } else {
         newTheme = isAlternate ? alternateTheme : baseTheme;
@@ -307,16 +309,18 @@ window.Quarto = {
         changeGiscusTheme();
       }
     };
+    const authorPrefersDark = true;
     const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
     const darkModeDefault = queryPrefersDark.matches;
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
     // Dark / light mode switch
     window.quartoToggleColorScheme = () => {
       // Read the current dark / light value
-      let toAlternate = !window.hasAlternateSentinel();
+      let toAlternate = !hasAlternateSentinel();
       toggleColorMode(toAlternate);
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
     };
     queryPrefersDark.addEventListener("change", e => {
       if(window.localStorage.getItem("quarto-color-scheme") !== null)
@@ -327,7 +331,7 @@ window.Quarto = {
       toggleGiscusIfUsed(alternate, darkModeDefault);
     });
     // Switch to dark mode if need be
-    if (window.hasAlternateSentinel()) {
+    if (hasAlternateSentinel()) {
       toggleColorMode(true);
     } else {
       toggleColorMode(false);
@@ -353,7 +357,8 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../img/sidebar-logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../img/sidebar-logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../img/sidebar-logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Exploración y visualización de datos con Python</a> 
@@ -449,9 +454,9 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#histograma-de-barras-apiladas" id="toc-histograma-de-barras-apiladas" class="nav-link" data-scroll-target="#histograma-de-barras-apiladas"><span class="header-section-number">7.2.1</span> Histograma de barras apiladas</a></li>
   <li><a href="#histograma-de-barras-separadas" id="toc-histograma-de-barras-separadas" class="nav-link" data-scroll-target="#histograma-de-barras-separadas"><span class="header-section-number">7.2.2</span> Histograma de barras separadas</a></li>
-  <li><a href="#mosaico-de-histogramas" id="toc-mosaico-de-histogramas" class="nav-link" data-scroll-target="#mosaico-de-histogramas"><span class="header-section-number">7.2.3</span> Mosaico de histogramas</a></li>
   </ul></li>
   <li><a href="#diagramas-de-caja-y-bigotes" id="toc-diagramas-de-caja-y-bigotes" class="nav-link" data-scroll-target="#diagramas-de-caja-y-bigotes"><span class="header-section-number">7.3</span> Diagramas de caja y bigotes</a></li>
+  <li><a href="#mosaico-de-gráficos" id="toc-mosaico-de-gráficos" class="nav-link" data-scroll-target="#mosaico-de-gráficos"><span class="header-section-number">7.4</span> Mosaico de gráficos</a></li>
   </ul>
 </nav>
     </div>
@@ -504,6 +509,37 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>
+<!-- https://github.com/quarto-dev/quarto-cli/discussions/3842 -->
+<button type="button" class="btn btn-sm bi bi-arrow-up" id="btn-back-to-top"></button>
+
+<style>
+#btn-back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--quarto-text-muted);
+}
+</style>
+
+<script id="backtotop" type="application/javascript">
+let backToTopButton = document.getElementById("btn-back-to-top");
+
+window.addEventListener('scroll', () => {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            backToTopButton.style.display = "block";
+        } else {
+            backToTopButton.style.display = "none";
+        }
+    });
+
+backToTopButton.addEventListener("click", function () {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+});
+</script>
 
 <header id="title-block-header">
 
@@ -516,13 +552,13 @@ document.addEventListener("DOMContentLoaded", function() {
 <section id="el-método-describe" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="el-método-describe"><span class="header-section-number">7.1</span> El método <code>describe()</code></h2>
 <p>El método <code>describe()</code> que usamos en la <a href="1numerical.html#sec-1numerical-describe" class="quarto-xref"><span>Sección 5.1</span></a> para obtener un resumen de la distribución del peso de todos los pingüinos, también puede aplicarse al peso agrupado por especies:</p>
-<div id="59affddb" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>penguins.groupby(<span class="st">"species"</span>)[<span class="st">"body_mass_g"</span>].describe()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div id="16be2884" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>penguins.groupby(<span class="st">"species"</span>)[<span class="st">"body_mass_g"</span>].describe()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -549,7 +585,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Adelie</td>
+<th data-quarto-table-cell-role="th">Adelie</th>
 <td>151.0</td>
 <td>3700.662252</td>
 <td>458.566126</td>
@@ -560,7 +596,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <td>4775.0</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Chinstrap</td>
+<th data-quarto-table-cell-role="th">Chinstrap</th>
 <td>68.0</td>
 <td>3733.088235</td>
 <td>384.335081</td>
@@ -571,7 +607,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <td>4800.0</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Gentoo</td>
+<th data-quarto-table-cell-role="th">Gentoo</th>
 <td>123.0</td>
 <td>5076.016260</td>
 <td>504.116237</td>
@@ -635,13 +671,13 @@ document.addEventListener("DOMContentLoaded", function() {
 <section id="histograma-de-barras-apiladas" class="level3" data-number="7.2.1">
 <h3 data-number="7.2.1" class="anchored" data-anchor-id="histograma-de-barras-apiladas"><span class="header-section-number">7.2.1</span> Histograma de barras apiladas</h3>
 <p>Para crear un histograma del peso distinguiendo la especie mediante barras apiladas ejecuta la siguiente instrucción:</p>
-<div id="50dbaaf9" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(</span>
+<div id="74af2108" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>penguins, </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"body_mass_g"</span>, </span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">"species"</span>,</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    multiple<span class="op">=</span><span class="st">"stack"</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -674,13 +710,13 @@ document.addEventListener("DOMContentLoaded", function() {
 <section id="histograma-de-barras-separadas" class="level3" data-number="7.2.2">
 <h3 data-number="7.2.2" class="anchored" data-anchor-id="histograma-de-barras-separadas"><span class="header-section-number">7.2.2</span> Histograma de barras separadas</h3>
 <p>Para crear un histograma del peso con barras separadas para cada especie ejecuta la siguiente instrucción:</p>
-<div id="9788c8a2" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(</span>
+<div id="cfd03cf1" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>penguins,  </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"body_mass_g"</span>, </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">"species"</span>,</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    multiple<span class="op">=</span><span class="st">"dodge"</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -716,30 +752,90 @@ sns.histplot(data=penguins, x="body_mass_g", hue="species",
 );
 ``` -->
 </section>
-<section id="mosaico-de-histogramas" class="level3" data-number="7.2.3">
-<h3 data-number="7.2.3" class="anchored" data-anchor-id="mosaico-de-histogramas"><span class="header-section-number">7.2.3</span> Mosaico de histogramas</h3>
-<p>En los dos apartados anteriores aprendiste a crear dos tipos de histogramas para visualizar la distribución de una variable numérica distinguiendo varias categorías con colores diferentes en un mismo gráfico. Pero a veces puede resultar más útil realizar histogramas independientes para cada categoría. En este apartado aprenderás a crear, de forma simultánea, tres histogramas con la distribución del peso de los pingüinos de cada especie.</p>
-<p>Con este fin el paquete <code>seaborn</code> proporciona la clase <code>FacetGrid</code>, que permite crear un mosaico o una malla en la que ubicar los diferentes gráficos para los datos de cada categoría.</p>
-<p>Para entender cómo se usa la clase <code>FacetGrid</code> empieza ejecutando la siguiente instrucción:</p>
-<div id="5f04b69c" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sns.FacetGrid(data<span class="op">=</span>penguins, col<span class="op">=</span><span class="st">"species"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="diagramas-de-caja-y-bigotes" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="diagramas-de-caja-y-bigotes"><span class="header-section-number">7.3</span> Diagramas de caja y bigotes</h2>
+<p>Para acabar la práctica realizaremos el gráfico de la portada de este documento <img src="../img/cover/cover.png" class="img-fluid"></p>
+<p>en el que se representa un diagrama de caja y bigotes para el peso de los pingüinos de cada especie.</p>
+<p>En la <a href="1numerical.html#sec-1numerical-boxplot" class="quarto-xref"><span>Sección 5.3</span></a> hicimos un diagrama de caja y bigotes para el peso de todos los pingüinos (sin distinguir la especie) con la instrucción</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>penguins, y<span class="op">=</span><span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Para diferenciar por especie no tenemos más que añadir el argumento <code>x="species"</code>:</p>
+<div id="d5f07af4" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">"species"</span>, y<span class="op">=</span><span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="numerical_by_categorical_files/figure-html/cell-6-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="numerical_by_categorical_files/figure-html/cell-6-output-1.png" width="850" height="278" class="figure-img"></a></p>
+<p><a href="numerical_by_categorical_files/figure-html/cell-6-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="numerical_by_categorical_files/figure-html/cell-6-output-1.png" width="602" height="429" class="figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Los dos puntos que aparecen resaltados con un círculo fuera de los bigotes en el diagrama de la especie Chinstrap (en naranja) son <strong>outliers</strong>. El outlier por debajo del bigote inferior representa un pingüino de la especie Chinstrap con peso excesivamente bajo, y el outlier por encima del bigote superior se corresponde con un pingüino de la especie Chinstrap con peso excesivamente alto (excesivamente bajo/alto respecto a la distribución del peso en los pingüinos de la especie Chinstrap).</p>
+<p>Para asignar un color diferente a cada especie añadimos <code>hue="species"</code>:</p>
+<div id="c3d76c9c" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">"species"</span>, y<span class="op">=</span><span class="st">"body_mass_g"</span>, hue<span class="op">=</span><span class="st">"species"</span>)<span class="op">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="numerical_by_categorical_files/figure-html/cell-7-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="numerical_by_categorical_files/figure-html/cell-7-output-1.png" width="602" height="429" class="figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Omitiendo el parámetro <code>x</code> y usando solo <code>hue</code> obtenemos un gráfico similar pero con los nombres de las especies en una leyenda en lugar de en el eje x.</p>
+<div id="ffe66d84" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>penguins, y<span class="op">=</span><span class="st">"body_mass_g"</span>, hue<span class="op">=</span><span class="st">"species"</span>, gap<span class="op">=</span><span class="fl">0.1</span>)<span class="op">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="numerical_by_categorical_files/figure-html/cell-8-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="numerical_by_categorical_files/figure-html/cell-8-output-1.png" width="602" height="393" class="figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>El argumento <code>gap=0.1</code> reduce el tamaño de las cajas un <span class="math inline">\(10\%\)</span> para dar un poco de separación entre las tres cajas (por defecto <code>gap=0</code> y las cajas quedan pegadas).</p>
+<div id="exr-boxplots" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 7.4</strong></span> Realiza un gráfico que muestre los diagramas de caja y bigotes para el peso de las hembras y de los machos.</p>
+<p>¿Aparecen outliers en alguno de los dos grupos?</p>
+</div>
+</section>
+<section id="mosaico-de-gráficos" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="mosaico-de-gráficos"><span class="header-section-number">7.4</span> Mosaico de gráficos</h2>
+<p>En los apartados anteriores aprendiste a crear gráficos para visualizar la distribución de una variable numérica distinguiendo varias categorías con colores diferentes en un mismo gráfico. Por ejemplo, un histograma para el peso de los pingüinos distinguiendo la especie con colores.</p>
+<p>Pero a veces puede resultar más útil realizar gráficos independientes para cada categoría. Nos puede interesar por ejemplo, realizar tres histogramas con la distribución del peso de los pingüinos de cada una de las tres especies.</p>
+<p>Con este fin el paquete <code>seaborn</code> proporciona la clase <code>FacetGrid</code>, que permite crear un mosaico o una malla en la que ubicar los diferentes gráficos para los datos de cada categoría.</p>
+<p>Para entender cómo se usa la clase <code>FacetGrid</code> empieza ejecutando la siguiente instrucción:</p>
+<div id="6d198a47" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sns.FacetGrid(data<span class="op">=</span>penguins, col<span class="op">=</span><span class="st">"species"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="numerical_by_categorical_files/figure-html/cell-9-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="numerical_by_categorical_files/figure-html/cell-9-output-1.png" width="850" height="278" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Observa el resultado y aprecia que se han creado tres ejes de coordenadas, uno para cada especie. El efecto del argumento <code>col="species"</code> es que se ha creado una columna (<code>col</code>=<em>column</em>) para cada categoría de la variable <code>species</code>.</p>
 <p>De momento hemos inicializado el mosaico pero aún no hemos dibujado nada en cada una de las celdas del mosaico. Para hacerlo tenemos que aplicar al mosaico el método <code>map()</code>, como en el siguiente ejemplo:</p>
-<div id="44a1b299" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> sns.FacetGrid(data <span class="op">=</span> penguins, col<span class="op">=</span><span class="st">"species"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>grid.<span class="bu">map</span>(sns.histplot, <span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ef297f14" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-9"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-9-1" class="code-annotation-target"><a href="#annotated-cell-9-1" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> sns.FacetGrid(data <span class="op">=</span> penguins, col<span class="op">=</span><span class="st">"species"</span>)</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-9-2" class="code-annotation-target"><a href="#annotated-cell-9-2" aria-hidden="true" tabindex="-1"></a>grid.<span class="bu">map</span>(sns.histplot, <span class="st">"body_mass_g"</span>)<span class="op">;</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-9" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-9" data-code-lines="1" data-code-annotation="1">Crea las celdas del mosaico.</span>
+</dd>
+<dt data-target-cell="annotated-cell-9" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-9" data-code-lines="2" data-code-annotation="2">Indica qué gráfico y para qué variable crear en cada celda.</span>
+</dd>
+</dl>
+</div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="numerical_by_categorical_files/figure-html/cell-7-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="numerical_by_categorical_files/figure-html/cell-7-output-1.png" width="854" height="278" class="figure-img"></a></p>
+<p><a href="numerical_by_categorical_files/figure-html/cell-10-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="numerical_by_categorical_files/figure-html/cell-10-output-1.png" width="854" height="278" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -757,7 +853,7 @@ sns.histplot(data=penguins, x="body_mass_g", hue="species",
 <p>Fíjate en las dos etapas que se han seguido en el ejemplo anterior para la construcción de los tres histogramas:</p>
 <ol type="1">
 <li><p>La primera instrucción</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> sns.FacetGrid(data <span class="op">=</span> penguins, col<span class="op">=</span><span class="st">"species"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> sns.FacetGrid(data <span class="op">=</span> penguins, col<span class="op">=</span><span class="st">"species"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>crea el mosaico con las tres columnas para las tres especies, y lo almacena en un nuevo objeto de nombre <code>grid</code> (puedes usar cualquier otro nombre).</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
@@ -775,7 +871,7 @@ sns.histplot(data=penguins, x="body_mass_g", hue="species",
 </div>
 <p>En este punto tenemos preparadas tres celdas para crear en cada celda un gráfico de los datos de la especie correspondiente a esa celda. La creación efectiva de los gráficos se realiza en el siguiente paso.</p></li>
 <li><p>La segunda instrucción</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>grid.<span class="bu">map</span>(sns.histplot, <span class="st">"body_mass_g"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>grid.<span class="bu">map</span>(sns.histplot, <span class="st">"body_mass_g"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>aplica el método <code>map()</code> al mosaico creado en el paso anterior, especificando qué tipo de gráfico queremos en cada celda del mosaico, y a qué variable queremos aplicar ese gráfico:</p>
 <ul>
 <li>El primer argumento <code>sns.histplot</code> indica que en cada celda queremos realizar un histograma (para el grupo de datos de la especie correspondiente a la celda).</li>
@@ -797,13 +893,13 @@ sns.histplot(data=penguins, x="body_mass_g", hue="species",
 </div></li>
 </ol>
 <div id="exr-facetgrid" class="theorem exercise">
-<p><span class="theorem-title"><strong>Ejercicio 7.4</strong></span> Usa la clase <code>FacetGrid</code> para realizar sendos histogramas de la distribución del peso para hembras y machos.</p>
+<p><span class="theorem-title"><strong>Ejercicio 7.5</strong></span> Usa la clase <code>FacetGrid</code> para realizar sendos histogramas de la distribución del peso para hembras y machos.</p>
 <p>Tienes que obtener la siguiente salida:</p>
-<div id="f90e8ee4" class="cell" data-execution_count="7">
+<div id="f3abd4da" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="numerical_by_categorical_files/figure-html/cell-8-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="numerical_by_categorical_files/figure-html/cell-8-output-1.png" data-fig-env="center" width="566" height="278" class="figure-img"></a></p>
+<p><a href="numerical_by_categorical_files/figure-html/cell-11-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="numerical_by_categorical_files/figure-html/cell-11-output-1.png" data-fig-env="center" width="566" height="278" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -811,97 +907,50 @@ sns.histplot(data=penguins, x="body_mass_g", hue="species",
 </div>
 <hr>
 <p>Si al inicializar la clase <code>FacetGrid</code> se usa el parámetro <code>row</code> en lugar de <code>col</code> los diferentes gráficos aparecerán dispuestos por filas en lugar de por columnas. Por ejemplo:</p>
-<div id="0426e9bd" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> sns.FacetGrid(data <span class="op">=</span> penguins, row<span class="op">=</span><span class="st">"species"</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>grid.<span class="bu">map</span>(sns.histplot, <span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="317f70bb" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> sns.FacetGrid(data <span class="op">=</span> penguins, row<span class="op">=</span><span class="st">"species"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>grid.<span class="bu">map</span>(sns.histplot, <span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="numerical_by_categorical_files/figure-html/cell-9-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="numerical_by_categorical_files/figure-html/cell-9-output-1.png" width="278" height="854" class="figure-img"></a></p>
+<p><a href="numerical_by_categorical_files/figure-html/cell-12-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="numerical_by_categorical_files/figure-html/cell-12-output-1.png" width="278" height="854" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>De hecho, se pueden usar los argumentos <code>row</code> y <code>col</code> al mismo tiempo para crear un mosaico bidimensional. Las siguientes instrucciones crean un mosaico de histogramas del peso de los pingüinos, distinguiendo el sexo por filas y la especie por columnas, de dimensiones <span class="math inline">\(2 \times 3\)</span>:</p>
-<div id="31602a5a" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> sns.FacetGrid(data <span class="op">=</span> penguins, row<span class="op">=</span><span class="st">"sex"</span>, col<span class="op">=</span><span class="st">"species"</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>grid.<span class="bu">map</span>(sns.histplot, <span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4c028584" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> sns.FacetGrid(data <span class="op">=</span> penguins, row<span class="op">=</span><span class="st">"sex"</span>, col<span class="op">=</span><span class="st">"species"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>grid.<span class="bu">map</span>(sns.histplot, <span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="numerical_by_categorical_files/figure-html/cell-10-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="numerical_by_categorical_files/figure-html/cell-10-output-1.png" width="854" height="566" class="figure-img"></a></p>
+<p><a href="numerical_by_categorical_files/figure-html/cell-13-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="numerical_by_categorical_files/figure-html/cell-13-output-1.png" width="854" height="566" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <div id="exr-FacetGrid-3x2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Ejercicio 7.5</strong></span> Usa <code>FacetGrid</code> para crear un mosaico de histogramas para la longitud de las alas de los pingüinos distingüiendo la isla en la que viven y su sexo.</p>
+<p><span class="theorem-title"><strong>Ejercicio 7.6</strong></span> Usa <code>FacetGrid</code> para crear un mosaico de histogramas para la longitud de las alas de los pingüinos distingüiendo la isla en la que viven y su sexo.</p>
 <p>El resultado debe ser el siguiente:</p>
-<div id="c42c3bad" class="cell" data-execution_count="10">
+<div id="7cc8be9a" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="numerical_by_categorical_files/figure-html/cell-11-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="numerical_by_categorical_files/figure-html/cell-11-output-1.png" data-fig-env="center" width="566" height="854" class="figure-img"></a></p>
+<p><a href="numerical_by_categorical_files/figure-html/cell-14-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="numerical_by_categorical_files/figure-html/cell-14-output-1.png" data-fig-env="center" width="566" height="854" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-</div>
-</section>
-</section>
-<section id="diagramas-de-caja-y-bigotes" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="diagramas-de-caja-y-bigotes"><span class="header-section-number">7.3</span> Diagramas de caja y bigotes</h2>
-<p>Para acabar la práctica realizaremos el gráfico de la portada de este documento <img src="../img/cover/cover.png" class="img-fluid"></p>
-<p>en el que se representa un diagrama de caja y bigotes para el peso de los pingüinos de cada especie.</p>
-<p>En la <a href="1numerical.html#sec-1numerical-boxplot" class="quarto-xref"><span>Sección 5.3</span></a> hicimos un diagrama de caja y bigotes para el peso de todos los pingüinos (sin distinguir la especie) con la instrucción</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>penguins, y<span class="op">=</span><span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Para diferenciar por especie no tenemos más que añadir el argumento <code>x="species"</code>:</p>
-<div id="a50aa7b3" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">"species"</span>, y<span class="op">=</span><span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><a href="numerical_by_categorical_files/figure-html/cell-12-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="numerical_by_categorical_files/figure-html/cell-12-output-1.png" width="602" height="429" class="figure-img"></a></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Los dos puntos que aparecen resaltados con un círculo fuera de los bigotes en el diagrama de la especie Chinstrap (en naranja) son <strong>outliers</strong>. El outlier por debajo del bigote inferior representa un pingüino de la especie Chinstrap con peso excesivamente bajo, y el outlier por encima del bigote superior se corresponde con un pingüino de la especie Chinstrap con peso excesivamente alto (excesivamente bajo/alto respecto a la distribución del peso en los pingüinos de la especie Chinstrap).</p>
-<p>Para asignar un color diferente a cada especie añadimos <code>hue="species"</code>:</p>
-<div id="271b012b" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">"species"</span>, y<span class="op">=</span><span class="st">"body_mass_g"</span>, hue<span class="op">=</span><span class="st">"species"</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><a href="numerical_by_categorical_files/figure-html/cell-13-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="numerical_by_categorical_files/figure-html/cell-13-output-1.png" width="602" height="429" class="figure-img"></a></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Omitiendo el parámetro <code>x</code> y usando solo <code>hue</code> obtenemos un gráfico similar pero con los nombres de las especies en una leyenda en lugar de en el eje x.</p>
-<div id="1578e378" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>penguins, y<span class="op">=</span><span class="st">"body_mass_g"</span>, hue<span class="op">=</span><span class="st">"species"</span>, gap<span class="op">=</span><span class="fl">0.1</span>)<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><a href="numerical_by_categorical_files/figure-html/cell-14-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="numerical_by_categorical_files/figure-html/cell-14-output-1.png" width="602" height="393" class="figure-img"></a></p>
-</figure>
-</div>
-</div>
-</div>
-<p>El argumento <code>gap=0.1</code> reduce el tamaño de las cajas un <span class="math inline">\(10\%\)</span> para dar un poco de separación entre las tres cajas (por defecto <code>gap=0</code> y las cajas quedan pegadas).</p>
-<div id="exr-boxplots" class="theorem exercise">
-<p><span class="theorem-title"><strong>Ejercicio 7.6</strong></span> Realiza un gráfico que muestre los diagramas de caja y bigotes para el peso de las hembras y de los machos.</p>
-<p>¿Aparecen outliers en alguno de los dos grupos?</p>
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-mckinney-proc-scipy-2010" class="csl-entry" role="listitem">
-McKinney, Wes. 2010. <span>«<span>D</span>ata <span>S</span>tructures for <span>S</span>tatistical <span>C</span>omputing in <span>P</span>ython»</span>. En <em><span>P</span>roceedings of the 9th <span>P</span>ython in <span>S</span>cience <span>C</span>onference</em>, editado por Stéfan van der Walt y Jarrod Millman, 56-61. <a href="https://doi.org/ 10.25080/Majora-92bf1922-00a ">https://doi.org/ 10.25080/Majora-92bf1922-00a </a>.
+McKinney, Wes. 2010. <span>«<span>D</span>ata <span>S</span>tructures for <span>S</span>tatistical <span>C</span>omputing in <span>P</span>ython»</span>. En <em><span>P</span>roceedings of the 9th <span>P</span>ython in <span>S</span>cience <span>C</span>onference</em>, editado por Stéfan van der Walt y Jarrod Millman. <a href="https://doi.org/ 10.25080/Majora-92bf1922-00a ">https://doi.org/ 10.25080/Majora-92bf1922-00a </a>.
 </div>
 <div id="ref-reback2020pandas" class="csl-entry" role="listitem">
-The pandas development team. 2020. <span>«pandas-dev/pandas: Pandas»</span>. Zenodo. <a href="https://doi.org/10.5281/zenodo.3509134">https://doi.org/10.5281/zenodo.3509134</a>.
+The pandas development team. 2020. <em>pandas-dev/pandas: Pandas</em>. Versión latest. Zenodo, released febrero. <a href="https://doi.org/10.5281/zenodo.3509134">https://doi.org/10.5281/zenodo.3509134</a>.
 </div>
 <div id="ref-Waskom2021" class="csl-entry" role="listitem">
 Waskom, Michael L. 2021. <span>«seaborn: statistical data visualization»</span>. <em>Journal of Open Source Software</em> 6 (60): 3021. <a href="https://doi.org/10.21105/joss.03021">https://doi.org/10.21105/joss.03021</a>.
@@ -961,7 +1010,7 @@ updateImageSrc();
       a.appendChild(i);
       window.document.body.appendChild(a);
     }
-    window.setColorSchemeToggle(window.hasAlternateSentinel())
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -1011,13 +1060,14 @@ updateImageSrc();
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
