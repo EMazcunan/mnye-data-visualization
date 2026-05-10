@@ -554,7 +554,7 @@ backToTopButton.addEventListener("click", function () {
 <h2 data-number="2.1" class="anchored" data-anchor-id="sec-read_csv"><span class="header-section-number">2.1</span> Importar los datos</h2>
 <p>Como se indicó en la introducción, los datos con los que vamos a trabajar están disponibles en la web en un fichero de formato <code>CSV</code>.</p>
 <p>Ejecuta las instrucciones a continuación para importar los datos.</p>
-<div id="f315bf24" class="cell" data-execution_count="2">
+<div id="ea2e7a36" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv"</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-2" class="code-annotation-target"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> pd.read_csv(url)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-annotation">
@@ -574,12 +574,12 @@ backToTopButton.addEventListener("click", function () {
 <!-- 
 El objeto `penguins` que acabas de crear es una __hoja de datos__, representada en `pandas` con la clase `DataFrame`. 
 
-::: {#7eef4085 .cell execution_count=3}
+::: {#b127c138 .cell execution_count=3}
 ``` {.python .cell-code}
 type(penguins)
 ```
 
-::: {.cell-output .cell-output-display execution_count=3}
+::: {.cell-output .cell-output-display execution_count=195}
 ```
 pandas.DataFrame
 ```
@@ -588,19 +588,19 @@ pandas.DataFrame
 
 
 -->
-<p>En los siguientes apartados aprenderás a realizar una exploración inicial de la hoja de datos <code>penguins</code> que acabas de crear para conocer su estructura y la información que contiene.</p>
+<p>En los siguientes apartados aprenderás a realizar una exploración inicial de la variable <code>penguins</code> que acabas de crear para conocer su estructura y la información que contiene.</p>
 <!-- ## Dimensiones
 
 Una hoja de datos es una estructura matricial o tabular que contiene datos organizados por filas y columnas. 
 
 Para saber las dimensiones de nuestra hoja de datos `penguins` consulta su propiedad `shape`:
 
-::: {#3df79550 .cell execution_count=4}
+::: {#9948d122 .cell execution_count=4}
 ``` {.python .cell-code}
 penguins.shape
 ```
 
-::: {.cell-output .cell-output-display execution_count=4}
+::: {.cell-output .cell-output-display execution_count=196}
 ```
 (344, 7)
 ```
@@ -613,11 +613,10 @@ Vemos que nuestra hoja de datos tiene `344` filas y `7` columnas.
 </section>
 <section id="sec-head-tail" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="sec-head-tail"><span class="header-section-number">2.2</span> Un primer vistazo a los datos</h2>
-<!-- Con los métodos `head()` y `tail()` podemos ver las primeras y últimas filas de una hoja de datos.  -->
-<p>Con el método <code>head()</code> puedes visualizar las cinco primeras filas de la hoja de datos <code>penguins</code> que acabas de crear.</p>
-<div id="42de0407" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>penguins.head(<span class="dv">5</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<p>Puedes consultar el valor de la variable <code>penguins</code> escribiendo su nombre:</p>
+<div id="41feb018" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>penguins</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="197">
 <div>
 
 
@@ -685,16 +684,194 @@ Vemos que nuestra hoja de datos tiene `344` filas y `7` columnas.
 <td>3450.0</td>
 <td>FEMALE</td>
 </tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">339</th>
+<td>Gentoo</td>
+<td>Biscoe</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">340</th>
+<td>Gentoo</td>
+<td>Biscoe</td>
+<td>46.8</td>
+<td>14.3</td>
+<td>215.0</td>
+<td>4850.0</td>
+<td>FEMALE</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">341</th>
+<td>Gentoo</td>
+<td>Biscoe</td>
+<td>50.4</td>
+<td>15.7</td>
+<td>222.0</td>
+<td>5750.0</td>
+<td>MALE</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">342</th>
+<td>Gentoo</td>
+<td>Biscoe</td>
+<td>45.2</td>
+<td>14.8</td>
+<td>212.0</td>
+<td>5200.0</td>
+<td>FEMALE</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">343</th>
+<td>Gentoo</td>
+<td>Biscoe</td>
+<td>49.9</td>
+<td>16.1</td>
+<td>213.0</td>
+<td>5400.0</td>
+<td>MALE</td>
+</tr>
+</tbody>
+</table>
+
+<p>344 rows × 7 columns</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>En un cuaderno de <em>Collab</em> no hace falta usar funciones como <code>print()</code> o <code>display()</code> para ver el valor de una variable (se aplica <code>display()</code> automáticamente).</p>
+</div>
+</div>
+</div>
+<p>Al final de la salida anterior leemos que la variable <code>penguins</code> almacena una estructura con <span class="math inline">\(344\)</span> filas y <span class="math inline">\(7\)</span> columnas. Este tipo de estructuras matriciales o tabulares que crea la librería <code>pandas</code>, al leer un archivo con datos organizados en filas y columnas, se denominan <strong>hojas de datos</strong>.</p>
+<p>Dado el elevado número de filas, la salida anterior aparece truncada (puntos suspensivos intermedios), y solo se muestran las cinco primeras y las cinco últimas filas.</p>
+<p>Con el método <code>head()</code> puedes visualizar sólo las primeras filas de nuestra hoja de datos:</p>
+<div id="ff20c22a" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>penguins.head(<span class="dv">7</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="1" data-code-annotation="1">El argumento <code>7</code> indica que queremos las siete primeras filas.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="198">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">species</th>
+<th data-quarto-table-cell-role="th">island</th>
+<th data-quarto-table-cell-role="th">bill_length_mm</th>
+<th data-quarto-table-cell-role="th">bill_depth_mm</th>
+<th data-quarto-table-cell-role="th">flipper_length_mm</th>
+<th data-quarto-table-cell-role="th">body_mass_g</th>
+<th data-quarto-table-cell-role="th">sex</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>39.1</td>
+<td>18.7</td>
+<td>181.0</td>
+<td>3750.0</td>
+<td>MALE</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>39.5</td>
+<td>17.4</td>
+<td>186.0</td>
+<td>3800.0</td>
+<td>FEMALE</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>40.3</td>
+<td>18.0</td>
+<td>195.0</td>
+<td>3250.0</td>
+<td>FEMALE</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>36.7</td>
+<td>19.3</td>
+<td>193.0</td>
+<td>3450.0</td>
+<td>FEMALE</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>39.3</td>
+<td>20.6</td>
+<td>190.0</td>
+<td>3650.0</td>
+<td>MALE</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>38.9</td>
+<td>17.8</td>
+<td>181.0</td>
+<td>3625.0</td>
+<td>FEMALE</td>
+</tr>
 </tbody>
 </table>
 
 </div>
 </div>
 </div>
-<p>Y con <code>tail()</code> puedes ver las cinco últimas.</p>
-<div id="5a1f2431" class="cell" data-execution_count="6">
+<p>Y con <code>tail()</code> puedes ver las últimas filas.</p>
+<div id="de69a952" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>penguins.tail(<span class="dv">5</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="199">
 <div>
 
 
@@ -777,7 +954,7 @@ Vemos que nuestra hoja de datos tiene `344` filas y `7` columnas.
 <li><p>Cada columna representa una variable asociada a una propiedad o característica de los pingüinos. Encima de cada columna vemos su nombre. Por ejemplo, la primera columna, de nombre <code>species</code>, indica la especie (Chinstrap, Adélie o Gentoo) de pingüino. Hay otras seis variables, que se describen en el siguiente apartado.</p></li>
 <li><p>Cada celda contiene el valor de la característica en la correspondiente columna del pingüino en la correspondiente fila.</p></li>
 </ul>
-<p>Por ejemplo, mirando las salidas de las instrucciones anteriores <code>penguins.head(5)</code> y <code>penguins.tail(5)</code> vemos que los cinco primeros pingüinos del listado son de la especie Adelie y los cinco últimos de la especie Gentoo.</p>
+<p>Por ejemplo, mirando las salidas de las instrucciones anteriores vemos que los siete primeros pingüinos del listado son de la especie Adelie y los cinco últimos de la especie Gentoo.</p>
 <!-- Unos mismos datos pueden organizarse o presentarse de diferentes maneras en diferentes hojas de datos. Para que sea sencillo trabajar con una hoja de datos es conveniente que haya una relación clara entre su significado y su estructura. Se considera que la hoja de datos está _ordenada_ o _limpia_ (en inglés se habla de _tidy data_) si está organizada de acuerdo con los siguientes principios: 
 
 - Cada __columna__ representa una __variable__ o característica de interés.
@@ -790,7 +967,7 @@ De acuerdo con la descripción inicial, nuestra hoja de datos cumple con los pri
 <section id="variables" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="variables"><span class="header-section-number">2.4</span> Variables</h2>
 <p>Ejecuta la siguiente instrucción:</p>
-<div id="0a4f4ace" class="cell" data-execution_count="7">
+<div id="6a77939d" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>penguins.info()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.DataFrame'&gt;
@@ -812,7 +989,8 @@ memory usage: 18.9 KB</code></pre>
 <p>La salida del método <code>info()</code> nos da una tabla con información sobre las dimensiones y variables de nuestra hoja de datos.</p>
 <section id="descripción" class="level3" data-number="2.4.1">
 <h3 data-number="2.4.1" class="anchored" data-anchor-id="descripción"><span class="header-section-number">2.4.1</span> Descripción</h3>
-<p>En la columna de la tabla de nombre <code>Column</code> se lista el nombre de las siete variables en <code>penguins</code>. El significado de las variables es el siguiente:</p>
+<p>En la columna de la tabla de nombre <code>Column</code> se lista el nombre de las siete variables en <code>penguins</code>.</p>
+<p>El significado de las variables es el siguiente:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -867,8 +1045,8 @@ Figura&nbsp;2.1: Ilustración de las variables <code>bill_length_mm</code> y <co
 </div>
 <p>A lo largo de la práctica tendrás que volver a la tabla anterior para saber el nombre de la variable correspondiente a cada característica. Por ejemplo, cuando más adelante tengas que calcular el valor mínimo para la longitud de las alas de todos los pingüinos, necesitarás saber que el nombre de la variable que registra la longitud de las alas es <code>flipper_length_mm</code>.</p>
 <p>Leyendo la primera fila de nuestra hoja de datos</p>
-<div id="3ba31657" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div id="ad03ccfa" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="201">
 <div>
 
 
@@ -907,9 +1085,9 @@ Figura&nbsp;2.1: Ilustración de las variables <code>bill_length_mm</code> y <co
 :::: {#exr-data}
 Describe las características del tercer pingüino del estudio (índice 2) mirando la tercera fila de la hoja de datos a continuación:
 
-::: {#d9fe2f96 .cell execution_count=9}
+::: {#9b39c7c5 .cell execution_count=10}
 
-::: {.cell-output .cell-output-display execution_count=9}
+::: {.cell-output .cell-output-display execution_count=202}
 ```{=html}
 <div>
 <style scoped>
@@ -965,7 +1143,7 @@ Describe las características del tercer pingüino del estudio (índice 2) miran
 <section id="valores-nulos" class="level3" data-number="2.4.2">
 <h3 data-number="2.4.2" class="anchored" data-anchor-id="valores-nulos"><span class="header-section-number">2.4.2</span> Valores nulos</h3>
 <p>Fíjate ahora en la columna <code>Non-Null Count</code> de la salida del método <code>info()</code>:</p>
-<div id="caed9ed5" class="cell" data-execution_count="10">
+<div id="e63925f2" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.DataFrame'&gt;
 RangeIndex: 344 entries, 0 to 343
@@ -983,17 +1161,16 @@ dtypes: float64(4), str(3)
 memory usage: 18.9 KB</code></pre>
 </div>
 </div>
-<p>Indica cuántos valores no nulos tenemos para cada variable. Los valores nulos o perdidos son valores no disponibles, que no han podido registrarse.</p>
+<p>Indica cuántos valores no nulos tenemos para cada variable. Los <strong>valores nulos</strong> o perdidos son valores no disponibles, que no han podido registrarse. Se representan con el símbolo <code>NaN</code> (iniciales de <em>Not A Number</em>).</p>
 <p>En la tabla anterior leemos:</p>
 <ul>
 <li><p>que conocemos la especie y la isla para los <span class="math inline">\(344\)</span> pingüinos del estudio,</p></li>
 <li><p>que faltan <span class="math inline">\(344-342 = 2\)</span> datos para las dimensiones del pico, la longitud de las alas y el peso,</p></li>
 <li><p>que se desconoce el sexo de <span class="math inline">\(344-333 = 11\)</span> pingüinos.</p></li>
 </ul>
-<p>Se representan con el símbolo <code>NaN</code> (iniciales de <em>Not A Number</em>).</p>
 <p>Si miras la cuarta fila de la hoja de datos</p>
-<div id="c2775ccf" class="cell" data-execution_count="11">
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div id="ec9809a9" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="204">
 <div>
 
 
@@ -1040,7 +1217,7 @@ memory usage: 18.9 KB</code></pre>
 <!-- 
 `pandas` asigna un tipo a cada variable de una hoja de datos en función de los valores que presenta, como puede verse en la columna `Dtype` de la salida del método `info()`:
 
-::: {#c787a5a0 .cell execution_count=12}
+::: {#c7d755c0 .cell execution_count=13}
 
 ::: {.cell-output .cell-output-stdout}
 ```
@@ -1078,9 +1255,9 @@ Para variables categóricas podremos calcular el recuento de observaciones en ca
 
 Igual que cada columna (variable) en una hoja de datos tiene un nombre, cada fila (observación) también tiene una etiqueta identificativa. En nuestra hoja de datos cada uno de los $344$ pingüinos se identifica con un número entero de la secuencia 0, 1, ..., 333.
 
-::: {#78c3d73a .cell execution_count=13}
+::: {#0f77addc .cell execution_count=14}
 
-::: {.cell-output .cell-output-display execution_count=13}
+::: {.cell-output .cell-output-display execution_count=206}
 ```{=html}
 <div>
 <style scoped>
@@ -1150,9 +1327,9 @@ Igual que cada columna (variable) en una hoja de datos tiene un nombre, cada fil
 :::
 
 
-::: {#f77f1a42 .cell execution_count=14}
+::: {#bb40e715 .cell execution_count=15}
 
-::: {.cell-output .cell-output-display execution_count=14}
+::: {.cell-output .cell-output-display execution_count=207}
 ```{=html}
 <div>
 <style scoped>
@@ -1224,12 +1401,12 @@ Igual que cada columna (variable) en una hoja de datos tiene un nombre, cada fil
 
 Las etiquetas identificativas de las filas de una hoja de datos forman su __índice__. El índice de una hoja de datos de `pandas` se registra en su propiedad `index`.
 
-::: {#9a4889ce .cell execution_count=15}
+::: {#5045dd00 .cell execution_count=16}
 ``` {.python .cell-code}
 penguins.index
 ```
 
-::: {.cell-output .cell-output-display execution_count=15}
+::: {.cell-output .cell-output-display execution_count=208}
 ```
 RangeIndex(start=0, stop=344, step=1)
 ```

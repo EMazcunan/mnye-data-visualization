@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.23">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>3&nbsp; Seleccionar variables – Exploración y visualización de datos con Python</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -59,7 +62,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -78,7 +80,7 @@ div.csl-indent {
 }</style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -93,12 +95,12 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-226bd0f977fa82dfae4534cac220d79a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-7271f29f9498218151f3120baddb7363.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-85cb747f944922ca53f52c7dae4a6a7c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-83e4ed0a072ef52d2388af022bd53728.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-e03077b22a853496f3b4f709a9619755.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-ca78a07f71a44e10dda2a5fbfd7c80e0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -112,7 +114,7 @@ div.csl-indent {
     "s"
   ],
   "language": {
-    "search-no-results-text": "Sin resultados",
+    "search-no-results-text": "No se han encontrado resultados",
     "search-matching-documents-text": "documentos encontrados",
     "search-copy-link-title": "Copiar el enlace en la búsqueda",
     "search-hide-matches-text": "Ocultar resultados adicionales",
@@ -125,9 +127,12 @@ div.csl-indent {
     "search-label": "Buscar"
   }
 }</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -140,7 +145,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -177,7 +182,7 @@ window.Quarto = {
         toggleBodyColorMode(bsSheetEl);
       }
     }
-    window.setColorSchemeToggle = (alternate) => {
+    const setColorSchemeToggle = (alternate) => {
       const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
@@ -210,7 +215,7 @@ window.Quarto = {
       }
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
-      window.setColorSchemeToggle(alternate)
+      setColorSchemeToggle(alternate)
       // Hack to workaround the fact that safari doesn't
       // properly recolor the scrollbar when toggling (#1455)
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
@@ -250,7 +255,7 @@ window.Quarto = {
     const isFileUrl = () => {
       return window.location.protocol === 'file:';
     }
-    window.hasAlternateSentinel = () => {
+    const hasAlternateSentinel = () => {
       let styleSentinel = getColorSchemeSentinel();
       if (styleSentinel !== null) {
         return styleSentinel === "alternate";
@@ -278,7 +283,7 @@ window.Quarto = {
       const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
       const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
       let newTheme = '';
-      if(darkModeDefault) {
+      if(authorPrefersDark) {
         newTheme = isAlternate ? baseTheme : alternateTheme;
       } else {
         newTheme = isAlternate ? alternateTheme : baseTheme;
@@ -301,16 +306,18 @@ window.Quarto = {
         changeGiscusTheme();
       }
     };
+    const authorPrefersDark = true;
     const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
     const darkModeDefault = queryPrefersDark.matches;
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
     // Dark / light mode switch
     window.quartoToggleColorScheme = () => {
       // Read the current dark / light value
-      let toAlternate = !window.hasAlternateSentinel();
+      let toAlternate = !hasAlternateSentinel();
       toggleColorMode(toAlternate);
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
     };
     queryPrefersDark.addEventListener("change", e => {
       if(window.localStorage.getItem("quarto-color-scheme") !== null)
@@ -321,7 +328,7 @@ window.Quarto = {
       toggleGiscusIfUsed(alternate, darkModeDefault);
     });
     // Switch to dark mode if need be
-    if (window.hasAlternateSentinel()) {
+    if (hasAlternateSentinel()) {
       toggleColorMode(true);
     } else {
       toggleColorMode(false);
@@ -347,7 +354,8 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../img/sidebar-logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../img/sidebar-logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../img/sidebar-logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Exploración y visualización de datos con Python</a> 
@@ -536,10 +544,11 @@ backToTopButton.addEventListener("click", function () {
 <p>En esta sección aprenderás los métodos para seleccionar variables de una hoja de datos.</p>
 <section id="sec-subset-one-variable" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="sec-subset-one-variable"><span class="header-section-number">3.1</span> Seleccionar una variable</h2>
-<p>Utiliza la siguiente instrucción para seleccionar la variable <code>body_mass_g</code> y guardar el resultado en una variable de nombre <code>mass</code>. De nuevo puedes elegir otro nombre para la variable <code>mass</code> que crees para almacenar el resultado. Pero no puedes alterar el nombre de la variable en la hoja de datos <code>"body_mass_g"</code></p>
-<div id="e4853a97" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> penguins[<span class="st">"body_mass_g"</span>]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Utiliza la siguiente instrucción para seleccionar la variable <code>body_mass_g</code> y guardar el resultado en una variable de nombre <code>mass</code>.</p>
+<div id="f7898ce4" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> penguins[<span class="st">"body_mass_g"</span>]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>De nuevo puedes elegir otro nombre diferente de <code>mass</code> para la variable que almacena el resultado. Pero no puedes alterar <code>"body_mass_g"</code>, que es el nombre de la variable en la hoja de datos.</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -550,10 +559,29 @@ backToTopButton.addEventListener("click", function () {
 </div>
 </div>
 </div>
+<p>Puedes consultar el valor de la variable <code>mass</code> escribiendo su nombre:</p>
+<div id="810a3407" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mass</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="56">
+<pre><code>0      3750.0
+1      3800.0
+2      3250.0
+3         NaN
+4      3450.0
+        ...  
+339       NaN
+340    4850.0
+341    5750.0
+342    5200.0
+343    5400.0
+Name: body_mass_g, Length: 344, dtype: float64</code></pre>
+</div>
+</div>
+<p>La salida de arriba confirma que se ha hecho la selección que queríamos: Tenemos un vector con los pesos de los <span class="math inline">\(344\)</span> pingüinos (de nuevo la salida está truncada y muestra solo los cinco primeros y los cinco últimos valores).</p>
 <p>Ahora podemos aplicar la función <code>max()</code> para obtener el peso máximo:</p>
-<div id="308f9808" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mass.<span class="bu">max</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div id="4c502433" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mass.<span class="bu">max</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="57">
 <pre><code>np.float64(6300.0)</code></pre>
 </div>
 </div>
@@ -564,7 +592,7 @@ backToTopButton.addEventListener("click", function () {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Dependiendo de la versión de <code>pandas</code> que estés usando, puede que veas el resultado anterior como <code style="color:white">6300.0</code> o como</p>
+<p>Dependiendo de la versión de <code>pandas</code> que estés usando, puede que veas el resultado anterior como 6300.0 o como</p>
 <pre><code>np.float64(6300.0)</code></pre>
 <p>En el segundo caso <code>np.float64</code> solo informa del formato de representación del resultado (punto flotante de doble precisión), y puedes ignorarlo.</p>
 </div>
@@ -575,25 +603,27 @@ index = mass.argmax()
 penguins.loc[index]
 ``` -->
 <p>Podemos realizar las dos operaciones anteriores, seleccionar la variable <code>body_mass_g</code>, y calcular su máximo con una sola instrucción:</p>
-<div id="44fdf3fa" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>penguins[<span class="st">"body_mass_g"</span>].<span class="bu">max</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div id="8642e491" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>penguins[<span class="st">"body_mass_g"</span>].<span class="bu">max</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="58">
 <pre><code>np.float64(6300.0)</code></pre>
 </div>
 </div>
 <p>Obtenemos el mismo resultado de antes.</p>
 <div id="exr-subset-variable-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Ejercicio 3.1</strong></span> Calcula el peso medio de todos los pingüinos (función <code>mean()</code>).</p>
+<p><em>Nota:</em> Puedes aprovechar la variable <code>mass</code> creada antes.</p>
 </div>
 <div id="exr-subset-variable-2" class="theorem exercise">
 <p><span class="theorem-title"><strong>Ejercicio 3.2</strong></span> Calcula el valor mínimo para la longitud de las alas de todos los pingüinos (función <code>min()</code>).</p>
+<p><em>Nota:</em> Puedes hacerlo en una sola línea (no es necesario que definas una variable intermedia para la longitud de las alas).</p>
 </div>
 </section>
 <section id="sec-subset-several-variables" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="sec-subset-several-variables"><span class="header-section-number">3.2</span> Seleccionar una lista de variables</h2>
 <p>Para seleccionar las dos variables relativas a las dimensiones del pico, <code>bill_length_mm</code> y <code>bill_depth_mm</code>, ejecuta la siguiente instrucción:</p>
-<div id="0f575a6c" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>bill <span class="op">=</span> penguins[[<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>]]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4777c813" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>bill <span class="op">=</span> penguins[[<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>]]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
@@ -605,10 +635,88 @@ penguins.loc[index]
 </div>
 </div>
 </div>
+<p>Comprueba que hemos extraído las dos variables de interés impriendo el valor de <code>bill</code>:</p>
+<div id="da061ab1" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>bill</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="60">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">bill_length_mm</th>
+<th data-quarto-table-cell-role="th">bill_depth_mm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>39.1</td>
+<td>18.7</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>39.5</td>
+<td>17.4</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>40.3</td>
+<td>18.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>36.7</td>
+<td>19.3</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">...</th>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">339</th>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">340</th>
+<td>46.8</td>
+<td>14.3</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">341</th>
+<td>50.4</td>
+<td>15.7</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">342</th>
+<td>45.2</td>
+<td>14.8</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">343</th>
+<td>49.9</td>
+<td>16.1</td>
+</tr>
+</tbody>
+</table>
+
+<p>344 rows × 2 columns</p>
+</div>
+</div>
+</div>
 <p>Ahora podemos calcular la media para ambas variables con</p>
-<div id="8507dc9f" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>bill.mean()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div id="92a7107a" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>bill.mean()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="61">
 <pre><code>bill_length_mm    43.92193
 bill_depth_mm     17.15117
 dtype: float64</code></pre>
@@ -623,14 +731,14 @@ dtype: float64</code></pre>
 
 Ejecutando 
 
-::: {#930419c8 .cell execution_count=8}
+::: {#aa22d26e .cell execution_count=10}
 ``` {.python .cell-code}
 type(bill)
 ```
 
-::: {.cell-output .cell-output-display execution_count=8}
+::: {.cell-output .cell-output-display execution_count=62}
 ```
-pandas.core.frame.DataFrame
+pandas.DataFrame
 ```
 :::
 :::
@@ -641,14 +749,14 @@ vemos que el objeto `bill` que hemos creado antes al extraer las dos variables s
 
 Pero ejecutando 
 
-::: {#af2ec1e3 .cell execution_count=9}
+::: {#f4b5c97a .cell execution_count=11}
 ``` {.python .cell-code}
 type(mass)
 ```
 
-::: {.cell-output .cell-output-display execution_count=9}
+::: {.cell-output .cell-output-display execution_count=63}
 ```
-pandas.core.series.Series
+pandas.Series
 ```
 :::
 :::
@@ -660,12 +768,12 @@ vemos que el objeto `mass` que hemos creado antes al extraer la variable `body_m
 
 Podemos usar el método `head()` para ver los cinco primeros valores de la variable:
 
-::: {#eea41494 .cell execution_count=10}
+::: {#e4f25d23 .cell execution_count=12}
 ``` {.python .cell-code}
 mass.head(5)
 ```
 
-::: {.cell-output .cell-output-display execution_count=10}
+::: {.cell-output .cell-output-display execution_count=64}
 ```
 0    3750.0
 1    3800.0
@@ -680,12 +788,12 @@ Name: body_mass_g, dtype: float64
 
 Aprecia que `mass` tiene el mismo índice que la hoja de datos `penguins`:
 
-::: {#56512050 .cell execution_count=11}
+::: {#5a07ddc2 .cell execution_count=13}
 ``` {.python .cell-code}
 mass.index
 ```
 
-::: {.cell-output .cell-output-display execution_count=11}
+::: {.cell-output .cell-output-display execution_count=65}
 ```
 RangeIndex(start=0, stop=344, step=1)
 ```
@@ -708,12 +816,12 @@ Generalmente al aplicar un método propio de la clase `Series` a un objeto de cl
 
 Pero hay métodos propios de `Series` que no pueden aplicarse a `DataFrame`, métodos propios de `DataFrame` que no pueden aplicarse a `Series`, y métodos comunes a `Series` y `DataFrame` pero que requieren diferentes argumentos en cada caso. Por ejemplo, el método `Series.sort_values()` ordena los valores de una variable de mayor a menor. Puedes comprobarlo con
 
-::: {#8108fcf6 .cell execution_count=12}
+::: {#d6b1721b .cell execution_count=14}
 ``` {.python .cell-code}
 mass.sort_values().head(5)
 ```
 
-::: {.cell-output .cell-output-display execution_count=12}
+::: {.cell-output .cell-output-display execution_count=66}
 ```
 190    2700.0
 64     2850.0
@@ -736,12 +844,12 @@ Verifica que al ejecutar `bill.sort_values()` se obtiene un error e intenta inte
  -->
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-mckinney-proc-scipy-2010" class="csl-entry" role="listitem">
-McKinney, Wes. 2010. <span>«<span>D</span>ata <span>S</span>tructures for <span>S</span>tatistical <span>C</span>omputing in <span>P</span>ython»</span>. En <em><span>P</span>roceedings of the 9th <span>P</span>ython in <span>S</span>cience <span>C</span>onference</em>, editado por Stéfan van der Walt y Jarrod Millman, 56-61. <a href="https://doi.org/ 10.25080/Majora-92bf1922-00a ">https://doi.org/ 10.25080/Majora-92bf1922-00a </a>.
+McKinney, Wes. 2010. <span>«<span>D</span>ata <span>S</span>tructures for <span>S</span>tatistical <span>C</span>omputing in <span>P</span>ython»</span>. En <em><span>P</span>roceedings of the 9th <span>P</span>ython in <span>S</span>cience <span>C</span>onference</em>, editado por Stéfan van der Walt y Jarrod Millman. <a href="https://doi.org/ 10.25080/Majora-92bf1922-00a ">https://doi.org/ 10.25080/Majora-92bf1922-00a </a>.
 </div>
 <div id="ref-reback2020pandas" class="csl-entry" role="listitem">
-The pandas development team. 2020. <span>«pandas-dev/pandas: Pandas»</span>. Zenodo. <a href="https://doi.org/10.5281/zenodo.3509134">https://doi.org/10.5281/zenodo.3509134</a>.
+The pandas development team. 2020. <em>pandas-dev/pandas: Pandas</em>. Versión latest. Zenodo, released febrero. <a href="https://doi.org/10.5281/zenodo.3509134">https://doi.org/10.5281/zenodo.3509134</a>.
 </div>
 <div id="ref-Waskom2021" class="csl-entry" role="listitem">
 Waskom, Michael L. 2021. <span>«seaborn: statistical data visualization»</span>. <em>Journal of Open Source Software</em> 6 (60): 3021. <a href="https://doi.org/10.21105/joss.03021">https://doi.org/10.21105/joss.03021</a>.
@@ -801,7 +909,7 @@ updateImageSrc();
       a.appendChild(i);
       window.document.body.appendChild(a);
     }
-    window.setColorSchemeToggle(window.hasAlternateSentinel())
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -851,13 +959,14 @@ updateImageSrc();
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

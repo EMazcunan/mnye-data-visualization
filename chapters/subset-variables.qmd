@@ -1,6 +1,6 @@
 ---
-# editor:
-#     render-on-save: true
+editor:
+    render-on-save: true
 ---
 
 ```{python}
@@ -30,15 +30,27 @@ En esta sección aprenderás los métodos para seleccionar variables de una hoja
 
 ## Seleccionar una variable {#sec-subset-one-variable}
 
-Utiliza la siguiente instrucción para seleccionar la variable `body_mass_g` y guardar el resultado en una variable de nombre `mass`. De nuevo puedes elegir otro nombre para la variable `mass` que crees para almacenar el resultado. Pero no puedes alterar el nombre de la variable en la hoja de datos `"body_mass_g"`
+Utiliza la siguiente instrucción para seleccionar la variable `body_mass_g` y guardar el resultado en una variable de nombre `mass`. 
 ```{python}
 mass = penguins["body_mass_g"]
 ```
+
+De nuevo puedes elegir otro nombre diferente de  `mass`  para la variable que almacena el resultado. Pero no puedes alterar `"body_mass_g"`, que es el nombre de la variable  en la hoja de datos.
+
 
 ::: {.callout-note}
 Para seleccionar una sola variable, usa corchetes `[]` e indica el nombre de la columna de interés.
 :::
  
+
+Puedes consultar el valor de la variable `mass` escribiendo su nombre: 
+
+```{python}
+mass
+```
+
+
+La salida de arriba confirma que se ha hecho la selección que queríamos: Tenemos un vector con los pesos de los $344$ pingüinos (de nuevo la salida está truncada y muestra solo los cinco primeros y los cinco últimos valores).
 
 Ahora podemos aplicar la función `max()` para obtener el peso máximo:
 
@@ -49,7 +61,7 @@ Vemos que el pingüino más pesado del estudio pesa $6$ kilos y $300$ gramos.
 
 
 ::: {.callout-tip}
-Dependiendo de la versión de `pandas` que estés usando, puede que veas el resultado anterior como `6300.0`{style="color:white"} o como 
+Dependiendo de la versión de `pandas` que estés usando, puede que veas el resultado anterior como `{python} 6300.0`  o como 
 ```
 np.float64(6300.0)
 ```
@@ -69,12 +81,17 @@ penguins["body_mass_g"].max()
 Obtenemos el mismo resultado de antes.
 
 
+
 ::: {#exr-subset-variable-1}
-Calcula  el peso medio  de todos los pingüinos (función `mean()`).
+Calcula  el peso medio  de todos los pingüinos (función `mean()`). 
+
+_Nota:_ Puedes aprovechar la variable `mass` creada antes. 
 :::
 
 ::: {#exr-subset-variable-2}
 Calcula el valor mínimo para la longitud de las alas de todos los pingüinos (función `min()`).
+
+_Nota:_ Puedes hacerlo en una sola línea (no es necesario que definas una variable intermedia para la longitud de las alas).
 :::
 
 
@@ -90,6 +107,12 @@ bill = penguins[["bill_length_mm", "bill_depth_mm"]]
 Para seleccionar una lista de variables, usa corchetes `[]` adicionales para crear la lista con los nombres de las columnas de interés (los corchetes exteriores indican que se va a realizar una selección y los interiores crean la lista).
 :::
 
+Comprueba que hemos extraído las dos variables de interés impriendo el valor de `bill`:
+
+```{python}
+bill
+```
+
 Ahora podemos calcular la media para ambas variables con 
 
 ```{python}
@@ -100,6 +123,8 @@ Vemos que los picos de los pingüinos tienen una longitud media de  $43.92$ mil�
 
 ::: {#exr-subset-variables-3}
 Calcula el número de observaciones no nulas (función `count()`) para las variables `species` y `body_mass_g` con una sola línea de código.
+
+¿Para cuántos pingüinos se desconoce el peso?
 :::
 
 <!-- 

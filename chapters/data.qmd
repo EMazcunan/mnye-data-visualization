@@ -41,7 +41,7 @@ type(penguins)
 ``` 
 -->
 
-En los siguientes apartados aprenderás a realizar una exploración inicial de la hoja de datos `penguins` que acabas de crear para conocer su estructura y la información que contiene. 
+En los siguientes apartados aprenderás a realizar una exploración inicial de la variable `penguins` que acabas de crear para conocer su estructura y la información que contiene. 
 
 
 <!-- ## Dimensiones
@@ -58,15 +58,32 @@ Vemos que nuestra hoja de datos tiene `344` filas y `7` columnas.
 
 ## Un primer vistazo a los datos {#sec-head-tail}
 
-<!-- Con los métodos `head()` y `tail()` podemos ver las primeras y últimas filas de una hoja de datos.  -->
-
-Con el método `head()` puedes visualizar las cinco primeras filas de la hoja de datos `penguins` que acabas de crear.
+Puedes consultar el valor de la variable `penguins` escribiendo su nombre: 
 
 ```{python}
-penguins.head(5)
+penguins
 ```
 
-Y con `tail()` puedes ver las cinco últimas.
+
+::: {.callout-tip}
+En un cuaderno de _Collab_ no hace falta usar funciones como `print()` o `display()` para ver el valor de una variable (se aplica `display()` automáticamente).
+:::
+
+Al final de la salida anterior leemos que la variable `penguins` almacena una estructura con $344$ filas y $7$ columnas. Este tipo de estructuras matriciales o tabulares que crea la librería `pandas`, al leer un archivo con datos organizados en filas y columnas,  se denominan  __hojas de datos__. 
+
+
+Dado el elevado número de filas, la salida anterior aparece truncada (puntos suspensivos intermedios), y solo se muestran las cinco primeras y las cinco últimas filas.   
+
+
+Con el método `head()` puedes visualizar sólo las primeras filas de nuestra hoja de datos:
+
+```{python}
+penguins.head(7) # <1>
+```
+
+1. El argumento `7` indica que queremos las siete primeras filas.
+
+Y con `tail()` puedes ver las últimas filas.
 
 ```{python}
 penguins.tail(5)
@@ -87,8 +104,8 @@ En nuestra hoja de datos `penguins`:
 - Cada celda contiene el valor de la característica en la correspondiente columna del pingüino en la correspondiente fila. 
 
 
-Por ejemplo, mirando las salidas de las instrucciones anteriores `penguins.head(5)` y `penguins.tail(5)`
-vemos que los cinco primeros pingüinos del listado son de la especie Adelie y los cinco últimos de la especie Gentoo.
+Por ejemplo, mirando las salidas de las instrucciones anteriores 
+vemos que los siete primeros pingüinos del listado son de la especie Adelie y los cinco últimos de la especie Gentoo.
 
 
 <!-- Unos mismos datos pueden organizarse o presentarse de diferentes maneras en diferentes hojas de datos. Para que sea sencillo trabajar con una hoja de datos es conveniente que haya una relación clara entre su significado y su estructura. Se considera que la hoja de datos está _ordenada_ o _limpia_ (en inglés se habla de _tidy data_) si está organizada de acuerdo con los siguientes principios: 
@@ -113,7 +130,9 @@ La salida del método `info()` nos da  una tabla con información sobre las dime
 
 
 ### Descripción
-En la columna de la tabla de nombre `Column` se lista el nombre de las siete variables en `penguins`. El significado de las variables es el siguiente:
+En la columna de la tabla de nombre `Column` se lista el nombre de las siete variables en `penguins`. 
+
+El significado de las variables es el siguiente:
 
 Nombre | Descripción
 -----|----
@@ -163,7 +182,7 @@ Fíjate ahora en la columna `Non-Null Count` de la salida del método `info()`:
 penguins.info()
 ```
 
-Indica cuántos valores no nulos tenemos para cada variable. Los valores nulos o perdidos son valores no disponibles, que no han podido registrarse. 
+Indica cuántos valores no nulos tenemos para cada variable. Los __valores nulos__ o perdidos son valores no disponibles, que no han podido registrarse. Se representan con el símbolo `NaN` (iniciales de _Not A Number_).
 
 En la tabla anterior leemos: 
 
@@ -173,7 +192,7 @@ En la tabla anterior leemos:
 
 - que se desconoce el sexo de $344-333 = 11$ pingüinos.
 
-Se representan con el símbolo `NaN` (iniciales de _Not A Number_).
+
 
 Si miras la cuarta fila de la hoja de datos 
 ```{python}
