@@ -105,6 +105,11 @@ Otro tipo de gráficos para variables numéricas son los llamados __diagramas de
 
 Ejecuta el siguiente código para crear un diagrama de caja y bigotes para el peso de los pingüinos.
 ```{python}
+sns.boxplot(data=penguins, x="body_mass_g");
+```
+
+Especificando la variable como valor de `y` en lugar de `x` obtenemos el mismo gráfico con otra orientación:
+```{python}
 sns.boxplot(data=penguins, y="body_mass_g");
 ```
 

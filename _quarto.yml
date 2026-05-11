@@ -21,7 +21,7 @@ book:
     - chapters/groupby.qmd
     - chapters/categorical_by_categorical.qmd
     - chapters/numerical_by_categorical.qmd
-    # - chapters/tbc.qmd    
+    - chapters/tbc.qmd    
     # - chapters/2categorical.qmd
     - chapters/references.qmd
   repo-url: https://github.com/EMazcunan/mnye-data-visualization

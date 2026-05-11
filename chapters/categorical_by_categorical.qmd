@@ -65,7 +65,7 @@ Analiza el resultado para responder a las siguientes preguntas:
 :::
 
 
-## Diagrama de recuentos
+## Diagrama de recuentos {#sec-1categorical-by-countplot}
 
 Para crear un diagrama de barras del recuento de pingüinos en cada especie distinguiendo el sexo, usamos la opción `hue` de `countplot()`:
 
@@ -78,7 +78,7 @@ sns.countplot(
 );
 ```
 
-1. Esta opción indica dividir en los dos grupos determinados por la variable sexo, asignando un color diferente a cada uno.
+1. Esta opción indica dividir en los dos grupos determinados por la variable sexo, asignando un color diferente a cada uno, que se indica en la leyenda añadida al gráfico.
 
 Aprecia que las alturas de las barras en el gráfico anterior coindicen con los recuentos que hemos calculado en el apartado anterior con `value_counts()`.
 

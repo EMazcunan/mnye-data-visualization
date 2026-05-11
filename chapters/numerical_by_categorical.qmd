@@ -55,6 +55,26 @@ a.  El pingüino de mayor peso ¿es macho o hembra?
 
 En este apartado aprenderemos a construir diferentes histogramas para comparar la distribución del peso de las tres especies de pingüinos.
 
+Para ello haremos uso de la opción `hue` de `histplot()`, que tiene el mismo efecto que vimos en la @sec-1categorical-by-countplot.
+
+
+```{python}
+sns.histplot(
+    data=penguins, 
+    x="body_mass_g", 
+    hue="species" # <1>
+);
+```
+
+1. Esta opción indica dividir en los tres grupos determinados por la variable especie, asignando un color diferente a cada uno, que se indica en la leyenda añadida al gráfico.
+
+
+Vemos que los tres histogramas de las tres especies aparecen en capas superpuestas, lo que puede dificultar la distinción de los tres grupos. 
+
+
+Para modificar esta disposición podemos hacer uso de la opción `multiple`.
+
+
 ### Histograma de barras apiladas
 
 Para crear un histograma del peso distinguiendo la especie mediante barras apiladas ejecuta la siguiente instrucción:
@@ -64,15 +84,15 @@ sns.histplot(
     data=penguins, 
     x="body_mass_g", 
     hue="species",
-    multiple="stack"
+    multiple="stack" # <1>
 );
 ```
 
-Observa que la forma del diagrama es la misma que la del histograma que se realizó en la @sec-1numerical-histogram. La novedad es que cada una de las barras que representa el número de pingüinos en cada uno de los intervalos de peso se ha fragmentado en tres barras indicando la contribución de cada especie. Aprecia que conforme va aumentando el peso, va disminuyendo la contribución de las especies Adelie (azul) y Chinstrap (naranja), y aumentando la contribución de la especie Gentoo (verde).
+1. Esta opción indica que queremos apilar las barras para cada grupo definido por la opción `hue` (en lugar de superponerlas como en el histograma anterior).
 
-Con el argumento `hue="species"` conseguimos que los datos se dividan según las categorías de la variable `species` y se asigne un color diferente a cada categoría, que se indica en la leyenda de la esquina superior derecha del gráfico.  
+Observa que la forma del diagrama es la misma que la del histograma que se realizó en la @sec-1numerical-histogram. La novedad es que cada una de las barras que representa el número de pingüinos en cada uno de los intervalos de peso se ha fragmentado en tres barras indicando la contribución de cada especie. 
 
-Y con el argumento `multiple="stack"` indicamos que las barras de cada especie se dibujen apiladas en cada intervalo.
+Ahora apreciamos mejor que conforme va aumentando el peso, va disminuyendo la contribución de las especies Adelie (azul) y Chinstrap (naranja), y aumentando la contribución de la especie Gentoo (verde).
 
 ::: {.callout-note}
 Para crear un histograma de barras apiladas de una variable numérica por categorías, usa la función `histplot()` del paquete `seaborn` conforme aprendiste en la sección @sec-1numerical-histogram y además:
@@ -95,11 +115,14 @@ sns.histplot(
     data=penguins,  
     x="body_mass_g", 
     hue="species",
-    multiple="dodge"
+    multiple="dodge" # <1>
 );
 ```
 
-En este tipo de histograma fijándonos en las barras de un solo color vemos el histograma de la especie correspondiente. 
+1. Esta opción indica que queremos barras separadas para cada grupo definido por la opción `hue`.
+
+
+En este tipo de histograma fijándonos en las barras de un solo color vemos el histograma individual de la especie correspondiente. 
 
 ::: {.callout-note}
 Para crear un histograma de barras separadas procede de la misma forma que para crear un histograma de barras apiladas pero cambia el valor del parámetro `multiple` a `"dodge"`.
@@ -129,10 +152,10 @@ sns.histplot(data=penguins, x="body_mass_g", hue="species",
 
 ## Diagramas de caja y bigotes
 
-Para acabar la práctica realizaremos el gráfico de la portada de este documento
+<!-- Para acabar esta sección realizaremos el gráfico de la portada de este documento
 ![](../img/cover/cover.png)
 
-en el que se representa un diagrama de caja y bigotes para el peso de los pingüinos de cada especie. 
+en el que se representa un diagrama de caja y bigotes para el peso de los pingüinos de cada especie.  -->
 
 En la @sec-1numerical-boxplot hicimos un diagrama de caja y bigotes para el peso de todos los pingüinos (sin distinguir la especie) con la instrucción
 
@@ -140,154 +163,56 @@ En la @sec-1numerical-boxplot hicimos un diagrama de caja y bigotes para el peso
 sns.boxplot(data=penguins, y="body_mass_g");
 ```
 
-Para diferenciar por especie no tenemos más que añadir el argumento `x="species"`:
+
+Para diferenciar por especie usamos la opción `hue` de `boxplot()`, que tiene el mismo efecto que para `countplot()` e `histplot()`:
 
 ```{python}
-sns.boxplot(data=penguins, x="species", y="body_mass_g");
+sns.boxplot(
+    data=penguins, 
+    y="body_mass_g",
+    hue="species" # <1>
+);
 ```
+
+1. Dividir en los tres grupos determinados por la variable especie, asignando un color diferente a cada uno, según la leyenda.
 
 Los dos puntos que aparecen resaltados con un círculo fuera de los bigotes en el diagrama de la especie Chinstrap (en naranja) son  __outliers__. El outlier por debajo del bigote inferior representa un pingüino de la especie Chinstrap con peso excesivamente bajo, y el outlier por encima del bigote superior se corresponde con un pingüino de la especie Chinstrap con peso excesivamente alto (excesivamente bajo/alto respecto a la distribución del peso en los pingüinos de la especie Chinstrap).
 
+***
+
+En los diagramas de barras creados con `countplot()` y en los histogramas creados con `histplot()`, indicamos la variable de interés en uno de los ejes, `x` o `y`; y  el otro eje se utiliza para el recuento de casos. Sin embargo en los diagramas de caja y bigotes, solo se utiliza el eje de la variable. Esto permite que podamos usar el eje sobrante para indicar una variable categórica, como en el siguiente ejemplo.
+
+<!-- 
+Así, una alternativa a `hue` para diferenciar por especie es añadir el argumento `x="species"` al gráfico de la @sec-1numerical-boxplot: -->
+
+```{python}
+sns.boxplot(
+    data=penguins, 
+    x="species", # <1>
+    y="body_mass_g"
+);
+```
+
+1. Distinguir las tres especies en el eje X.
+
+Indicando la variable categórica como valor del parámetro `x` del eje libre,  obtenemos un gráfico similar al que obtuvimos usando `hue`,  pero con los nombres de las especies en el eje X en lugar de identificados por la leyenda de color. 
+
+<!-- 
 Para asignar un color diferente a cada especie añadimos `hue="species"`:
 ```{python}
 sns.boxplot(data=penguins, x="species", y="body_mass_g", hue="species");
 ```
 
-Omitiendo el parámetro `x` y usando solo `hue` obtenemos un gráfico similar pero con los nombres de las especies en una leyenda en lugar de en el eje x. 
+
 
 ```{python}
 sns.boxplot(data=penguins, y="body_mass_g", hue="species", gap=0.1);
 ```
 El argumento `gap=0.1` reduce el tamaño de las cajas un $10\%$ para dar un poco de separación entre las tres cajas (por defecto `gap=0` y las cajas quedan pegadas).
-
+ -->
 
 ::: {#exr-boxplots}
 Realiza un gráfico que muestre los diagramas de caja y bigotes para el peso de las hembras y de los machos.
 
 ¿Aparecen outliers en alguno de los dos grupos?
 :::
-
-## Mosaico de gráficos
-
-En los apartados anteriores aprendiste a crear gráficos para visualizar la distribución de una variable numérica distinguiendo varias categorías con colores diferentes en un mismo gráfico. Por ejemplo, un histograma para el peso de los pingüinos distinguiendo la especie con colores. 
-
-
-Pero a veces puede resultar más útil realizar gráficos independientes para cada categoría. Nos puede interesar por ejemplo, realizar tres histogramas con la distribución del peso de los pingüinos de cada una de las tres especies.  
-
-
-Con este fin el paquete `seaborn` proporciona la clase `FacetGrid`, que permite crear un mosaico o una malla en la que ubicar los diferentes gráficos para los datos de cada categoría. 
-
-
-Para entender cómo se usa la clase `FacetGrid` empieza ejecutando la siguiente instrucción:
-
-```{python}
-sns.FacetGrid(data=penguins, col="species")
-```
-Observa el resultado y aprecia que se han creado tres ejes de coordenadas, uno para cada especie. El efecto del argumento `col="species"` es que se ha creado una columna (`col`=_column_) para cada categoría de la variable `species`. 
-
-De momento hemos inicializado el mosaico pero aún no hemos dibujado nada en cada una de las celdas del mosaico. Para hacerlo tenemos que aplicar al mosaico el método `map()`, como en el siguiente ejemplo:
-
-
-```{python}
-grid = sns.FacetGrid(data = penguins, col="species") # <1>
-grid.map(sns.histplot, "body_mass_g"); # <2>
-```
-
-1. Crea las celdas del mosaico.
-2. Indica qué gráfico y para qué variable crear en cada celda.
-
-::: {.callout-important}
-Para que puedas visualizar el gráfico anterior en tu cuaderno de _Colab_ tienes que escribir las dos instrucciones anteriores en la misma celda. 
-:::
-
-Fíjate en las dos etapas que se han seguido en el ejemplo anterior para la construcción de los tres histogramas:
-
-1. La primera instrucción 
-
-   ```python
-   grid = sns.FacetGrid(data = penguins, col="species")
-   ```
-   
-
-   crea el mosaico con las tres columnas para las tres especies, y lo almacena en un nuevo objeto de nombre `grid` (puedes usar cualquier otro nombre). 
-
-   ::: {.callout-note}
-   Para inicializar un mosaico de gráficos con una columna para cada valor de una variable    categórica, inicializa la clase `FacetGrid` indicando:
-   
-   - La hoja de datos como valor del parámetro `data`
-   - El nombre de la variable categórica para crear los grupos como valor del parámetro `col`
-   :::
-
-   En este punto tenemos preparadas tres celdas para crear en cada celda un gráfico de los datos de la especie correspondiente a esa celda. La creación efectiva de los gráficos se realiza en el siguiente paso. 
-
-2. La segunda instrucción 
-
-   ```python
-   grid.map(sns.histplot, "body_mass_g")
-   ```
-
-   aplica el método `map()` al mosaico creado en el paso anterior, especificando qué tipo de gráfico queremos en cada celda del mosaico, y a qué variable queremos aplicar ese gráfico:
-
-   - El primer argumento `sns.histplot` indica que en cada celda queremos realizar un histograma (para el grupo de datos de la especie correspondiente a la celda).
-   - El segundo argumento `"body_mass_g"` indica la variable de la que queremos hacer los histogramas.
-
-   ::: {.callout-note}
-   Para crear sendos gráficos de los datos asociados a cada celda de un mosaico creado con `FacetGrid` usa el método `map()` con los siguientes argumentos:
-
-   - La función para construir los gráficos
-   - El nombre de la variable a la que aplicar esa función gráfica
-   :::
-
-
-
-:::: {#exr-facetgrid}
-Usa la clase `FacetGrid` para realizar sendos histogramas de la distribución del peso para hembras y machos.
-
-::: {.content-visible when-format="html"}
-
-Tienes que obtener la siguiente salida:
-
-```{python}
-#| echo: false
-#| fig-env: "center"
-grid = sns.FacetGrid(data = penguins, col="sex")
-grid.map(sns.histplot, "body_mass_g");
-```
-:::
-
-::::
-
-
-***
-
-Si al inicializar la clase `FacetGrid` se usa el parámetro `row` en lugar de `col` los diferentes gráficos aparecerán dispuestos por filas en lugar de por columnas. Por ejemplo:
-
-
-```{python}
-grid = sns.FacetGrid(data = penguins, row="species")
-grid.map(sns.histplot, "body_mass_g");
-```
-
-
-De hecho, se pueden usar los argumentos `row` y `col` al mismo tiempo para crear un mosaico bidimensional. Las siguientes instrucciones crean un mosaico de histogramas del peso de los pingüinos, distinguiendo el sexo  por filas y  la especie por columnas, de dimensiones $2 \times 3$:
-
-
-```{python}
-grid = sns.FacetGrid(data = penguins, row="sex", col="species")
-grid.map(sns.histplot, "body_mass_g");
-```
-
-:::: {#exr-FacetGrid-3x2}
-Usa `FacetGrid` para crear un mosaico de histogramas para la longitud de las alas de los pingüinos distingüiendo la isla en la que viven y su sexo.
-
-::: {.content-visible when-format="html"}
-El resultado debe ser el siguiente:
-
-```{python}
-#| echo: false
-#| fig-env: "center"
-grid = sns.FacetGrid(data = penguins,  row="island", col="sex")
-grid.map(sns.histplot, "flipper_length_mm");
-```
-:::
-::::

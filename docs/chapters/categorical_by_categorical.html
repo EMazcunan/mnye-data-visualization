@@ -457,7 +457,7 @@ window.Quarto = {
   <ul>
   <li><a href="#sec-1categorical-by-describe" id="toc-sec-1categorical-by-describe" class="nav-link active" data-scroll-target="#sec-1categorical-by-describe"><span class="header-section-number">7.1</span> El método <code>describe()</code></a></li>
   <li><a href="#sec-value-counts-by" id="toc-sec-value-counts-by" class="nav-link" data-scroll-target="#sec-value-counts-by"><span class="header-section-number">7.2</span> Tabla de recuentos</a></li>
-  <li><a href="#diagrama-de-recuentos" id="toc-diagrama-de-recuentos" class="nav-link" data-scroll-target="#diagrama-de-recuentos"><span class="header-section-number">7.3</span> Diagrama de recuentos</a></li>
+  <li><a href="#sec-1categorical-by-countplot" id="toc-sec-1categorical-by-countplot" class="nav-link" data-scroll-target="#sec-1categorical-by-countplot"><span class="header-section-number">7.3</span> Diagrama de recuentos</a></li>
   </ul>
 </nav>
     </div>
@@ -553,7 +553,7 @@ backToTopButton.addEventListener("click", function () {
 <section id="sec-1categorical-by-describe" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="sec-1categorical-by-describe"><span class="header-section-number">7.1</span> El método <code>describe()</code></h2>
 <p>Empezamos aplicando el método <code>describe()</code> para conocer el sexo predominante en cada especie.</p>
-<div id="7a2541d2" class="cell" data-execution_count="2">
+<div id="5194d709" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>penguins.groupby(<span class="st">"species"</span>)[<span class="st">"sex"</span>].describe()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
@@ -612,7 +612,7 @@ backToTopButton.addEventListener("click", function () {
 <section id="sec-value-counts-by" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="sec-value-counts-by"><span class="header-section-number">7.2</span> Tabla de recuentos</h2>
 <p>Combinando los métodos <code>groupby()</code> y <code>value_counts()</code> podemos calcular cuántos pingüinos de cada sexo hay en cada especie.</p>
-<div id="bd36e53b" class="cell" data-execution_count="3">
+<div id="dd154df8" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>penguins.groupby(<span class="st">"species"</span>)[<span class="st">"sex"</span>].value_counts()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>species    sex   
@@ -641,10 +641,10 @@ Name: count, dtype: int64</code></pre>
 </ul>
 </div>
 </section>
-<section id="diagrama-de-recuentos" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="diagrama-de-recuentos"><span class="header-section-number">7.3</span> Diagrama de recuentos</h2>
+<section id="sec-1categorical-by-countplot" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="sec-1categorical-by-countplot"><span class="header-section-number">7.3</span> Diagrama de recuentos</h2>
 <p>Para crear un diagrama de barras del recuento de pingüinos en cada especie distinguiendo el sexo, usamos la opción <code>hue</code> de <code>countplot()</code>:</p>
-<div id="25a64d21" class="cell" data-execution_count="4">
+<div id="0cd734d8" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(</span>
 <span id="annotated-cell-3-2"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>penguins,</span>
 <span id="annotated-cell-3-3"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"species"</span>,</span>
@@ -654,7 +654,7 @@ Name: count, dtype: int64</code></pre>
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="4" data-code-annotation="1">Esta opción indica dividir en los dos grupos determinados por la variable sexo, asignando un color diferente a cada uno.</span>
+<span data-code-cell="annotated-cell-3" data-code-lines="4" data-code-annotation="1">Esta opción indica dividir en los dos grupos determinados por la variable sexo, asignando un color diferente a cada uno, que se indica en la leyenda añadida al gráfico.</span>
 </dd>
 </dl>
 </div>
