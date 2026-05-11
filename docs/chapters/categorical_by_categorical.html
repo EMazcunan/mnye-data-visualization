@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Datos – Exploración y visualización de datos con Python</title>
+<title>7&nbsp; Una variable categórica por grupos – Exploración y visualización de datos con Python</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -87,8 +87,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/subset-variables.html" rel="next">
-<link href="../chapters/libraries.html" rel="prev">
+<link href="../chapters/numerical_by_categorical.html" rel="next">
+<link href="../chapters/groupby.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -345,7 +345,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/data.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Datos</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/categorical_by_categorical.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Una variable categórica por grupos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -395,7 +395,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/data.html" class="sidebar-item-text sidebar-link active">
+  <a href="../chapters/data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Datos</span></span></a>
   </div>
 </li>
@@ -425,7 +425,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/categorical_by_categorical.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/categorical_by_categorical.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Una variable categórica por grupos</span></span></a>
   </div>
 </li>
@@ -455,20 +455,14 @@ window.Quarto = {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#sec-read_csv" id="toc-sec-read_csv" class="nav-link active" data-scroll-target="#sec-read_csv"><span class="header-section-number">2.1</span> Importar los datos</a></li>
-  <li><a href="#sec-head-tail" id="toc-sec-head-tail" class="nav-link" data-scroll-target="#sec-head-tail"><span class="header-section-number">2.2</span> Un primer vistazo a los datos</a></li>
-  <li><a href="#estructura" id="toc-estructura" class="nav-link" data-scroll-target="#estructura"><span class="header-section-number">2.3</span> Estructura</a></li>
-  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables"><span class="header-section-number">2.4</span> Variables</a>
-  <ul class="collapse">
-  <li><a href="#descripción" id="toc-descripción" class="nav-link" data-scroll-target="#descripción"><span class="header-section-number">2.4.1</span> Descripción</a></li>
-  <li><a href="#valores-nulos" id="toc-valores-nulos" class="nav-link" data-scroll-target="#valores-nulos"><span class="header-section-number">2.4.2</span> Valores nulos</a></li>
-  <li><a href="#tipos-de-variables" id="toc-tipos-de-variables" class="nav-link" data-scroll-target="#tipos-de-variables"><span class="header-section-number">2.4.3</span> Tipos de variables</a></li>
-  </ul></li>
+  <li><a href="#sec-1categorical-by-describe" id="toc-sec-1categorical-by-describe" class="nav-link active" data-scroll-target="#sec-1categorical-by-describe"><span class="header-section-number">7.1</span> El método <code>describe()</code></a></li>
+  <li><a href="#sec-value-counts-by" id="toc-sec-value-counts-by" class="nav-link" data-scroll-target="#sec-value-counts-by"><span class="header-section-number">7.2</span> Tabla de recuentos</a></li>
+  <li><a href="#diagrama-de-recuentos" id="toc-diagrama-de-recuentos" class="nav-link" data-scroll-target="#diagrama-de-recuentos"><span class="header-section-number">7.3</span> Diagrama de recuentos</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Datos</span></h1></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Una variable categórica por grupos</span></h1></header>
 
 <!-- https://github.com/quarto-dev/quarto-cli/discussions/3842 -->
 <!-- Ver nota de obsidian Quarto - Layout de book para los literales 1.5em y 3em -->
@@ -555,74 +549,13 @@ backToTopButton.addEventListener("click", function () {
 </header>
 
 
-<p>En esta sección importarás los datos sobre los pingüinos del archipiélago Palmer presentados en la introducción y conocerás la información que contienen.</p>
-<section id="sec-read_csv" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="sec-read_csv"><span class="header-section-number">2.1</span> Importar los datos</h2>
-<p>Como se indicó en la introducción, los datos con los que vamos a trabajar están disponibles en la web en un fichero de formato <code>CSV</code>.</p>
-<p>Ejecuta las instrucciones a continuación para importar los datos.</p>
-<div id="ea2e7a36" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv"</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-2" class="code-annotation-target"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> pd.read_csv(url)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-annotation">
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="1" data-code-annotation="1">Definimos la URL del archivo.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="2" data-code-annotation="2">Importamos el archivo usando la función <code>read_csv()</code> y guardamos el resultado en una variable de nombre <code>penguins</code>.</span>
-</dd>
-</dl>
-</div>
-</div>
-<p>Puedes utilizar cualquier otro nombre diferente de <code>penguins</code> para tu variable, pero en ese caso deberás reemplazar <code>penguins</code> por el nombre que hayas elegido en el resto de la práctica.</p>
-<!-- 
-El objeto `penguins` que acabas de crear es una __hoja de datos__, representada en `pandas` con la clase `DataFrame`. 
-
-::: {#b127c138 .cell execution_count=3}
-``` {.python .cell-code}
-type(penguins)
-```
-
-::: {.cell-output .cell-output-display execution_count=195}
-```
-pandas.DataFrame
-```
-:::
-:::
-
-
--->
-<p>En los siguientes apartados aprenderás a realizar una exploración inicial de la variable <code>penguins</code> que acabas de crear para conocer su estructura y la información que contiene.</p>
-<!-- ## Dimensiones
-
-Una hoja de datos es una estructura matricial o tabular que contiene datos organizados por filas y columnas. 
-
-Para saber las dimensiones de nuestra hoja de datos `penguins` consulta su propiedad `shape`:
-
-::: {#9948d122 .cell execution_count=4}
-``` {.python .cell-code}
-penguins.shape
-```
-
-::: {.cell-output .cell-output-display execution_count=196}
-```
-(344, 7)
-```
-:::
-:::
-
-
-Vemos que nuestra hoja de datos tiene `344` filas y `7` columnas. 
--->
-</section>
-<section id="sec-head-tail" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="sec-head-tail"><span class="header-section-number">2.2</span> Un primer vistazo a los datos</h2>
-<p>Puedes consultar el valor de la variable <code>penguins</code> escribiendo su nombre:</p>
-<div id="41feb018" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>penguins</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="197">
+<p>En este apartado se vuelven a utilizar los métodos de la sección <a href="1categorical.html" class="quarto-xref"><span>Sección 4</span></a> para analizar una variable categórica, pero considerando ahora los grupos definidos por otra variable categórica.</p>
+<section id="sec-1categorical-by-describe" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="sec-1categorical-by-describe"><span class="header-section-number">7.1</span> El método <code>describe()</code></h2>
+<p>Empezamos aplicando el método <code>describe()</code> para conocer el sexo predominante en cada especie.</p>
+<div id="7a2541d2" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>penguins.groupby(<span class="st">"species"</span>)[<span class="st">"sex"</span>].describe()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
@@ -630,797 +563,113 @@ Vemos que nuestra hoja de datos tiene `344` filas y `7` columnas.
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">count</th>
+<th data-quarto-table-cell-role="th">unique</th>
+<th data-quarto-table-cell-role="th">top</th>
+<th data-quarto-table-cell-role="th">freq</th>
+</tr>
+<tr class="even">
 <th data-quarto-table-cell-role="th">species</th>
-<th data-quarto-table-cell-role="th">island</th>
-<th data-quarto-table-cell-role="th">bill_length_mm</th>
-<th data-quarto-table-cell-role="th">bill_depth_mm</th>
-<th data-quarto-table-cell-role="th">flipper_length_mm</th>
-<th data-quarto-table-cell-role="th">body_mass_g</th>
-<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
-<td>Adelie</td>
-<td>Torgersen</td>
-<td>39.1</td>
-<td>18.7</td>
-<td>181.0</td>
-<td>3750.0</td>
+<th data-quarto-table-cell-role="th">Adelie</th>
+<td>146</td>
+<td>2</td>
 <td>MALE</td>
+<td>73</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
-<td>Adelie</td>
-<td>Torgersen</td>
-<td>39.5</td>
-<td>17.4</td>
-<td>186.0</td>
-<td>3800.0</td>
+<th data-quarto-table-cell-role="th">Chinstrap</th>
+<td>68</td>
+<td>2</td>
 <td>FEMALE</td>
+<td>34</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
-<td>Adelie</td>
-<td>Torgersen</td>
-<td>40.3</td>
-<td>18.0</td>
-<td>195.0</td>
-<td>3250.0</td>
-<td>FEMALE</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">3</th>
-<td>Adelie</td>
-<td>Torgersen</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">4</th>
-<td>Adelie</td>
-<td>Torgersen</td>
-<td>36.7</td>
-<td>19.3</td>
-<td>193.0</td>
-<td>3450.0</td>
-<td>FEMALE</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">...</th>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">339</th>
-<td>Gentoo</td>
-<td>Biscoe</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">340</th>
-<td>Gentoo</td>
-<td>Biscoe</td>
-<td>46.8</td>
-<td>14.3</td>
-<td>215.0</td>
-<td>4850.0</td>
-<td>FEMALE</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">341</th>
-<td>Gentoo</td>
-<td>Biscoe</td>
-<td>50.4</td>
-<td>15.7</td>
-<td>222.0</td>
-<td>5750.0</td>
+<th data-quarto-table-cell-role="th">Gentoo</th>
+<td>119</td>
+<td>2</td>
 <td>MALE</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">342</th>
-<td>Gentoo</td>
-<td>Biscoe</td>
-<td>45.2</td>
-<td>14.8</td>
-<td>212.0</td>
-<td>5200.0</td>
-<td>FEMALE</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">343</th>
-<td>Gentoo</td>
-<td>Biscoe</td>
-<td>49.9</td>
-<td>16.1</td>
-<td>213.0</td>
-<td>5400.0</td>
-<td>MALE</td>
+<td>61</td>
 </tr>
 </tbody>
 </table>
 
-<p>344 rows × 7 columns</p>
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>Vemos que en las especies Adelie y Gentoo predominan los machos, y en la especie Chinstrap las hembras.</p>
+<div id="exr-1categorical-by-describe" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 7.1</strong></span> ¿Cuál es el sexo predominante en cada isla?</p>
 </div>
-<div class="callout-body-container">
-<p>En un cuaderno de <em>Collab</em> no hace falta usar funciones como <code>print()</code> o <code>display()</code> para ver el valor de una variable (se aplica <code>display()</code> automáticamente).</p>
+</section>
+<section id="sec-value-counts-by" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="sec-value-counts-by"><span class="header-section-number">7.2</span> Tabla de recuentos</h2>
+<p>Combinando los métodos <code>groupby()</code> y <code>value_counts()</code> podemos calcular cuántos pingüinos de cada sexo hay en cada especie.</p>
+<div id="bd36e53b" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>penguins.groupby(<span class="st">"species"</span>)[<span class="st">"sex"</span>].value_counts()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>species    sex   
+Adelie     MALE      73
+           FEMALE    73
+Chinstrap  FEMALE    34
+           MALE      34
+Gentoo     MALE      61
+           FEMALE    58
+Name: count, dtype: int64</code></pre>
 </div>
 </div>
+<p>Ahora nos damos cuenta de que en realidad en las species Adelie y Chinstrap hay el mismo número de machos y hembras:</p>
+<ul>
+<li><span class="math inline">\(73\)</span> de cada para Adelie</li>
+<li><span class="math inline">\(34\)</span> de cada para Chinstrap</li>
+</ul>
+<p>Como la variable del sexo solo tiene dos categorías lo podríamos haber visto también en la salida del método <code>describe()</code>. Por ejemplo: En la especie Adelie hay <span class="math inline">\(73\)</span> machos y por tanto <span class="math inline">\(146-73=73\)</span> hembras.</p>
+<div id="exr-groupby-value_counts" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 7.2</strong></span> Combina los métodos <code>groupby()</code> y <code>value_counts()</code> para calcular cuántos pingüinos de cada especie viven en cada isla.</p>
+<p>Analiza el resultado para responder a las siguientes preguntas:</p>
+<ul>
+<li>¿cuál es la única especie de pingüinos presente en las tres islas?</li>
+<li>¿en qué islas viven los pingüinos de la especie Chinstrap?</li>
+<li>¿qué especies de pingüinos hay en la isla Biscoe?</li>
+</ul>
 </div>
-<p>Al final de la salida anterior leemos que la variable <code>penguins</code> almacena una estructura con <span class="math inline">\(344\)</span> filas y <span class="math inline">\(7\)</span> columnas. Este tipo de estructuras matriciales o tabulares que crea la librería <code>pandas</code>, al leer un archivo con datos organizados en filas y columnas, se denominan <strong>hojas de datos</strong>.</p>
-<p>Dado el elevado número de filas, la salida anterior aparece truncada (puntos suspensivos intermedios), y solo se muestran las cinco primeras y las cinco últimas filas.</p>
-<p>Con el método <code>head()</code> puedes visualizar sólo las primeras filas de nuestra hoja de datos:</p>
-<div id="ff20c22a" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>penguins.head(<span class="dv">7</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="diagrama-de-recuentos" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="diagrama-de-recuentos"><span class="header-section-number">7.3</span> Diagrama de recuentos</h2>
+<p>Para crear un diagrama de barras del recuento de pingüinos en cada especie distinguiendo el sexo, usamos la opción <code>hue</code> de <code>countplot()</code>:</p>
+<div id="25a64d21" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(</span>
+<span id="annotated-cell-3-2"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>penguins,</span>
+<span id="annotated-cell-3-3"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"species"</span>,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-4" class="code-annotation-target"><a href="#annotated-cell-3-4" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">"sex"</span></span>
+<span id="annotated-cell-3-5"><a href="#annotated-cell-3-5" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="1" data-code-annotation="1">El argumento <code>7</code> indica que queremos las siete primeras filas.</span>
+<span data-code-cell="annotated-cell-3" data-code-lines="4" data-code-annotation="1">Esta opción indica dividir en los dos grupos determinados por la variable sexo, asignando un color diferente a cada uno.</span>
 </dd>
 </dl>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="198">
+<div class="cell-output cell-output-display">
 <div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">species</th>
-<th data-quarto-table-cell-role="th">island</th>
-<th data-quarto-table-cell-role="th">bill_length_mm</th>
-<th data-quarto-table-cell-role="th">bill_depth_mm</th>
-<th data-quarto-table-cell-role="th">flipper_length_mm</th>
-<th data-quarto-table-cell-role="th">body_mass_g</th>
-<th data-quarto-table-cell-role="th">sex</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
-<td>Adelie</td>
-<td>Torgersen</td>
-<td>39.1</td>
-<td>18.7</td>
-<td>181.0</td>
-<td>3750.0</td>
-<td>MALE</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
-<td>Adelie</td>
-<td>Torgersen</td>
-<td>39.5</td>
-<td>17.4</td>
-<td>186.0</td>
-<td>3800.0</td>
-<td>FEMALE</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
-<td>Adelie</td>
-<td>Torgersen</td>
-<td>40.3</td>
-<td>18.0</td>
-<td>195.0</td>
-<td>3250.0</td>
-<td>FEMALE</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">3</th>
-<td>Adelie</td>
-<td>Torgersen</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">4</th>
-<td>Adelie</td>
-<td>Torgersen</td>
-<td>36.7</td>
-<td>19.3</td>
-<td>193.0</td>
-<td>3450.0</td>
-<td>FEMALE</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">5</th>
-<td>Adelie</td>
-<td>Torgersen</td>
-<td>39.3</td>
-<td>20.6</td>
-<td>190.0</td>
-<td>3650.0</td>
-<td>MALE</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">6</th>
-<td>Adelie</td>
-<td>Torgersen</td>
-<td>38.9</td>
-<td>17.8</td>
-<td>181.0</td>
-<td>3625.0</td>
-<td>FEMALE</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p>Y con <code>tail()</code> puedes ver las últimas filas.</p>
-<div id="de69a952" class="cell" data-execution_count="7">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>penguins.tail(<span class="dv">5</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="199">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">species</th>
-<th data-quarto-table-cell-role="th">island</th>
-<th data-quarto-table-cell-role="th">bill_length_mm</th>
-<th data-quarto-table-cell-role="th">bill_depth_mm</th>
-<th data-quarto-table-cell-role="th">flipper_length_mm</th>
-<th data-quarto-table-cell-role="th">body_mass_g</th>
-<th data-quarto-table-cell-role="th">sex</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">339</th>
-<td>Gentoo</td>
-<td>Biscoe</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">340</th>
-<td>Gentoo</td>
-<td>Biscoe</td>
-<td>46.8</td>
-<td>14.3</td>
-<td>215.0</td>
-<td>4850.0</td>
-<td>FEMALE</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">341</th>
-<td>Gentoo</td>
-<td>Biscoe</td>
-<td>50.4</td>
-<td>15.7</td>
-<td>222.0</td>
-<td>5750.0</td>
-<td>MALE</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">342</th>
-<td>Gentoo</td>
-<td>Biscoe</td>
-<td>45.2</td>
-<td>14.8</td>
-<td>212.0</td>
-<td>5200.0</td>
-<td>FEMALE</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">343</th>
-<td>Gentoo</td>
-<td>Biscoe</td>
-<td>49.9</td>
-<td>16.1</td>
-<td>213.0</td>
-<td>5400.0</td>
-<td>MALE</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</section>
-<section id="estructura" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="estructura"><span class="header-section-number">2.3</span> Estructura</h2>
-<p>En nuestra hoja de datos <code>penguins</code>:</p>
-<ul>
-<li><p>Cada fila se corresponde con un pingüino concreto del estudio. A la izquierda de cada fila vemos unos números que indican el índice de la fila. Van de 0 a 343, así que tenemos un total de <span class="math inline">\(344\)</span> pingüinos.</p></li>
-<li><p>Cada columna representa una variable asociada a una propiedad o característica de los pingüinos. Encima de cada columna vemos su nombre. Por ejemplo, la primera columna, de nombre <code>species</code>, indica la especie (Chinstrap, Adélie o Gentoo) de pingüino. Hay otras seis variables, que se describen en el siguiente apartado.</p></li>
-<li><p>Cada celda contiene el valor de la característica en la correspondiente columna del pingüino en la correspondiente fila.</p></li>
-</ul>
-<p>Por ejemplo, mirando las salidas de las instrucciones anteriores vemos que los siete primeros pingüinos del listado son de la especie Adelie y los cinco últimos de la especie Gentoo.</p>
-<!-- Unos mismos datos pueden organizarse o presentarse de diferentes maneras en diferentes hojas de datos. Para que sea sencillo trabajar con una hoja de datos es conveniente que haya una relación clara entre su significado y su estructura. Se considera que la hoja de datos está _ordenada_ o _limpia_ (en inglés se habla de _tidy data_) si está organizada de acuerdo con los siguientes principios: 
-
-- Cada __columna__ representa una __variable__ o característica de interés.
-- Cada __fila__ representa una __observación__, caso o  unidad experimental.
-- Cada __celda__ contiene un __valor__, el de la variable en la correspondiente columna para la observación en la correspondiente fila.
-
-
-De acuerdo con la descripción inicial, nuestra hoja de datos cumple con los principios anteriores. -->
-</section>
-<section id="variables" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="variables"><span class="header-section-number">2.4</span> Variables</h2>
-<p>Ejecuta la siguiente instrucción:</p>
-<div id="6a77939d" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>penguins.info()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;class 'pandas.DataFrame'&gt;
-RangeIndex: 344 entries, 0 to 343
-Data columns (total 7 columns):
- #   Column             Non-Null Count  Dtype  
----  ------             --------------  -----  
- 0   species            344 non-null    str    
- 1   island             344 non-null    str    
- 2   bill_length_mm     342 non-null    float64
- 3   bill_depth_mm      342 non-null    float64
- 4   flipper_length_mm  342 non-null    float64
- 5   body_mass_g        342 non-null    float64
- 6   sex                333 non-null    str    
-dtypes: float64(4), str(3)
-memory usage: 18.9 KB</code></pre>
-</div>
-</div>
-<p>La salida del método <code>info()</code> nos da una tabla con información sobre las dimensiones y variables de nuestra hoja de datos.</p>
-<section id="descripción" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="descripción"><span class="header-section-number">2.4.1</span> Descripción</h3>
-<p>En la columna de la tabla de nombre <code>Column</code> se lista el nombre de las siete variables en <code>penguins</code>.</p>
-<p>El significado de las variables es el siguiente:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 75%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Nombre</th>
-<th>Descripción</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>species</code></td>
-<td>Especie de pingüinos (Chinstrap, Adélie o Gentoo)</td>
-</tr>
-<tr class="even">
-<td><code>island</code></td>
-<td>Nombre de la isla del archipíelago Palmer (Dream, Torgersen o Biscoe)</td>
-</tr>
-<tr class="odd">
-<td><code>bill_length_mm</code></td>
-<td>Longitud del pico, en milímetros (ver <a href="#fig-bill" class="quarto-xref">Figura&nbsp;<span>2.1</span></a>)</td>
-</tr>
-<tr class="even">
-<td><code>bill_depth_mm</code></td>
-<td>Anchura del pico, en milímetros (ver <a href="#fig-bill" class="quarto-xref">Figura&nbsp;<span>2.1</span></a>)</td>
-</tr>
-<tr class="odd">
-<td><code>flipper_length_mm</code></td>
-<td>Longitud de las alas, en milímetros</td>
-</tr>
-<tr class="even">
-<td><code>body_mass_g</code></td>
-<td>Peso en gramos</td>
-</tr>
-<tr class="odd">
-<td><code>sex</code></td>
-<td>Sexo (MALE o FEMALE)</td>
-</tr>
-</tbody>
-</table>
-<div id="fig-bill" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-bill-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../img/culmen_depth.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;2.1: Ilustración de las variables bill_length_mm y bill_depth_mm (Artista @allison_horst)"><img src="../img/culmen_depth.png" class="img-fluid figure-img" width="400"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bill-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;2.1: Ilustración de las variables <code>bill_length_mm</code> y <code>bill_depth_mm</code> (Artista @allison_horst)
-</figcaption>
+<figure class="figure">
+<p><a href="categorical_by_categorical_files/figure-html/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="categorical_by_categorical_files/figure-html/cell-5-output-1.png" width="585" height="429" class="figure-img"></a></p>
 </figure>
 </div>
-<p>A lo largo de la práctica tendrás que volver a la tabla anterior para saber el nombre de la variable correspondiente a cada característica. Por ejemplo, cuando más adelante tengas que calcular el valor mínimo para la longitud de las alas de todos los pingüinos, necesitarás saber que el nombre de la variable que registra la longitud de las alas es <code>flipper_length_mm</code>.</p>
-<p>Leyendo la primera fila de nuestra hoja de datos</p>
-<div id="ad03ccfa" class="cell" data-execution_count="9">
-<div class="cell-output cell-output-display" data-execution_count="201">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">species</th>
-<th data-quarto-table-cell-role="th">island</th>
-<th data-quarto-table-cell-role="th">bill_length_mm</th>
-<th data-quarto-table-cell-role="th">bill_depth_mm</th>
-<th data-quarto-table-cell-role="th">flipper_length_mm</th>
-<th data-quarto-table-cell-role="th">body_mass_g</th>
-<th data-quarto-table-cell-role="th">sex</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
-<td>Adelie</td>
-<td>Torgersen</td>
-<td>39.1</td>
-<td>18.7</td>
-<td>181.0</td>
-<td>3750.0</td>
-<td>MALE</td>
-</tr>
-</tbody>
-</table>
-
 </div>
 </div>
+<p>Aprecia que las alturas de las barras en el gráfico anterior coindicen con los recuentos que hemos calculado en el apartado anterior con <code>value_counts()</code>.</p>
+<div id="exr-1categorial-by-countplot" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 7.3</strong></span> Crea un diagrama de barras para visualizar los pingüinos que viven en cada isla, distinguiendo su especie con colores.</p>
 </div>
-<p>ahora sabes que el primer pingüino es de la especie Adelie, vive en la isla Torgensen, las dimensiones de su pico son <span class="math inline">\(39.1 \times 18.7\)</span> milímetros, sus alas miden <span class="math inline">\(181\)</span> milímetros, pesa <span class="math inline">\(3\)</span> kilos y <span class="math inline">\(750\)</span> gramos, y es un macho.</p>
-<!-- 
-:::: {#exr-data}
-Describe las características del tercer pingüino del estudio (índice 2) mirando la tercera fila de la hoja de datos a continuación:
-
-::: {#9b39c7c5 .cell execution_count=10}
-
-::: {.cell-output .cell-output-display execution_count=202}
-```{=html}
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-
-<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header" style="text-align: right;">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">species</th>
-<th data-quarto-table-cell-role="th">island</th>
-<th data-quarto-table-cell-role="th">bill_length_mm</th>
-<th data-quarto-table-cell-role="th">bill_depth_mm</th>
-<th data-quarto-table-cell-role="th">flipper_length_mm</th>
-<th data-quarto-table-cell-role="th">body_mass_g</th>
-<th data-quarto-table-cell-role="th">sex</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Adelie</td>
-<td>Torgersen</td>
-<td>40.3</td>
-<td>18.0</td>
-<td>195.0</td>
-<td>3250.0</td>
-<td>FEMALE</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-```
-:::
-:::
-
-
-:::: 
--->
-</section>
-<section id="valores-nulos" class="level3" data-number="2.4.2">
-<h3 data-number="2.4.2" class="anchored" data-anchor-id="valores-nulos"><span class="header-section-number">2.4.2</span> Valores nulos</h3>
-<p>Fíjate ahora en la columna <code>Non-Null Count</code> de la salida del método <code>info()</code>:</p>
-<div id="e63925f2" class="cell" data-execution_count="11">
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;class 'pandas.DataFrame'&gt;
-RangeIndex: 344 entries, 0 to 343
-Data columns (total 7 columns):
- #   Column             Non-Null Count  Dtype  
----  ------             --------------  -----  
- 0   species            344 non-null    str    
- 1   island             344 non-null    str    
- 2   bill_length_mm     342 non-null    float64
- 3   bill_depth_mm      342 non-null    float64
- 4   flipper_length_mm  342 non-null    float64
- 5   body_mass_g        342 non-null    float64
- 6   sex                333 non-null    str    
-dtypes: float64(4), str(3)
-memory usage: 18.9 KB</code></pre>
-</div>
-</div>
-<p>Indica cuántos valores no nulos tenemos para cada variable. Los <strong>valores nulos</strong> o perdidos son valores no disponibles, que no han podido registrarse. Se representan con el símbolo <code>NaN</code> (iniciales de <em>Not A Number</em>).</p>
-<p>En la tabla anterior leemos:</p>
-<ul>
-<li><p>que conocemos la especie y la isla para los <span class="math inline">\(344\)</span> pingüinos del estudio,</p></li>
-<li><p>que faltan <span class="math inline">\(344-342 = 2\)</span> datos para las dimensiones del pico, la longitud de las alas y el peso,</p></li>
-<li><p>que se desconoce el sexo de <span class="math inline">\(344-333 = 11\)</span> pingüinos.</p></li>
-</ul>
-<p>Si miras la cuarta fila de la hoja de datos</p>
-<div id="ec9809a9" class="cell" data-execution_count="12">
-<div class="cell-output cell-output-display" data-execution_count="204">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">species</th>
-<th data-quarto-table-cell-role="th">island</th>
-<th data-quarto-table-cell-role="th">bill_length_mm</th>
-<th data-quarto-table-cell-role="th">bill_depth_mm</th>
-<th data-quarto-table-cell-role="th">flipper_length_mm</th>
-<th data-quarto-table-cell-role="th">body_mass_g</th>
-<th data-quarto-table-cell-role="th">sex</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">3</th>
-<td>Adelie</td>
-<td>Torgersen</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p>verás que para el cuarto pingüino sólo sabemos que es de la especie Adelie y vive el la isla Torgersen, y se desconocen las otras cinco variables.</p>
-<p>Los diferentes métodos de la librería <code>pandas</code> contemplan la posibilidad de que las hojas de datos tengan valores nulos y los tratan de un forma predeterminada (por ejemplo, la media los ignora por defecto).</p>
-</section>
-<section id="tipos-de-variables" class="level3" data-number="2.4.3">
-<h3 data-number="2.4.3" class="anchored" data-anchor-id="tipos-de-variables"><span class="header-section-number">2.4.3</span> Tipos de variables</h3>
-<p>Las siete variables de nuestra hoja de datos se dividen en dos clases:</p>
-<ol type="1">
-<li><p><code>species</code>, <code>island</code> y <code>sex</code> son <strong>variables categóricas</strong>. Este tipo de variables representan una característica cualitativa que puede tomar un número finito y fijo de valores, denominados categorías o niveles.</p></li>
-<li><p>Las cuatro restantes, <code>bill_length_mm</code>, <code>bill_depth_mm</code>, <code>flipper_length_mm</code> y <code>body_mass_g</code> son <strong>variables numéricas</strong>, que representan características cuantitativas que se describen con valores numéricos (números enteros o reales).</p></li>
-</ol>
-<!-- 
-`pandas` asigna un tipo a cada variable de una hoja de datos en función de los valores que presenta, como puede verse en la columna `Dtype` de la salida del método `info()`:
-
-::: {#c7d755c0 .cell execution_count=13}
-
-::: {.cell-output .cell-output-stdout}
-```
-<class 'pandas.DataFrame'>
-RangeIndex: 344 entries, 0 to 343
-Data columns (total 7 columns):
- #   Column             Non-Null Count  Dtype  
----  ------             --------------  -----  
- 0   species            344 non-null    str    
- 1   island             344 non-null    str    
- 2   bill_length_mm     342 non-null    float64
- 3   bill_depth_mm      342 non-null    float64
- 4   flipper_length_mm  342 non-null    float64
- 5   body_mass_g        342 non-null    float64
- 6   sex                333 non-null    str    
-dtypes: float64(4), str(3)
-memory usage: 18.9 KB
-```
-:::
-:::
-
-
--->
-<!-- Para variables numéricas podremos calcular diferentes medidas descriptivas, como el máximo, la media, etc. 
-
-Para variables categóricas podremos calcular el recuento de observaciones en cada categoría, pero no podremos realizar cálculos con sus valores.  -->
-<!-- Casi todo análisis estadístico incluye el estudio de la relación o asociación entre las diferentes variabes consideradas. Podemos estaremos interesados en analizar la relación entre:
-
-- Una variable numérica y una categórica. Podemos plantearnos por ejemplo si la especie influye en el peso. 
-- Dos variables categóricas. Podemos estudiar por ejemplo si hay más hembras en alguna especie.
-- Dos variables numéricas. Podemos plantearnos por ejemplo si hay una asociación entre el peso y la longitud de las alas.    
- -->
-<!-- ## Índice 
-
-
-Igual que cada columna (variable) en una hoja de datos tiene un nombre, cada fila (observación) también tiene una etiqueta identificativa. En nuestra hoja de datos cada uno de los $344$ pingüinos se identifica con un número entero de la secuencia 0, 1, ..., 333.
-
-::: {#0f77addc .cell execution_count=14}
-
-::: {.cell-output .cell-output-display execution_count=206}
-```{=html}
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-
-<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header" style="text-align: right;">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">species</th>
-<th data-quarto-table-cell-role="th">island</th>
-<th data-quarto-table-cell-role="th">bill_length_mm</th>
-<th data-quarto-table-cell-role="th">bill_depth_mm</th>
-<th data-quarto-table-cell-role="th">flipper_length_mm</th>
-<th data-quarto-table-cell-role="th">body_mass_g</th>
-<th data-quarto-table-cell-role="th">sex</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Adelie</td>
-<td>Torgersen</td>
-<td>39.1</td>
-<td>18.7</td>
-<td>181.0</td>
-<td>3750.0</td>
-<td>MALE</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Adelie</td>
-<td>Torgersen</td>
-<td>39.5</td>
-<td>17.4</td>
-<td>186.0</td>
-<td>3800.0</td>
-<td>FEMALE</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Adelie</td>
-<td>Torgersen</td>
-<td>40.3</td>
-<td>18.0</td>
-<td>195.0</td>
-<td>3250.0</td>
-<td>FEMALE</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-```
-:::
-:::
-
-
-::: {#bb40e715 .cell execution_count=15}
-
-::: {.cell-output .cell-output-display execution_count=207}
-```{=html}
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-
-<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header" style="text-align: right;">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">species</th>
-<th data-quarto-table-cell-role="th">island</th>
-<th data-quarto-table-cell-role="th">bill_length_mm</th>
-<th data-quarto-table-cell-role="th">bill_depth_mm</th>
-<th data-quarto-table-cell-role="th">flipper_length_mm</th>
-<th data-quarto-table-cell-role="th">body_mass_g</th>
-<th data-quarto-table-cell-role="th">sex</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">341</td>
-<td>Gentoo</td>
-<td>Biscoe</td>
-<td>50.4</td>
-<td>15.7</td>
-<td>222.0</td>
-<td>5750.0</td>
-<td>MALE</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">342</td>
-<td>Gentoo</td>
-<td>Biscoe</td>
-<td>45.2</td>
-<td>14.8</td>
-<td>212.0</td>
-<td>5200.0</td>
-<td>FEMALE</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">343</td>
-<td>Gentoo</td>
-<td>Biscoe</td>
-<td>49.9</td>
-<td>16.1</td>
-<td>213.0</td>
-<td>5400.0</td>
-<td>MALE</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-```
-:::
-:::
-
-
-Las etiquetas identificativas de las filas de una hoja de datos forman su __índice__. El índice de una hoja de datos de `pandas` se registra en su propiedad `index`.
-
-::: {#5045dd00 .cell execution_count=16}
-``` {.python .cell-code}
-penguins.index
-```
-
-::: {.cell-output .cell-output-display execution_count=208}
-```
-RangeIndex(start=0, stop=344, step=1)
-```
-:::
-:::
-
-
-Si cada pingüino estuviera identificado por un código, podríamos haber indicado esa variable como índice en el momento de la importación de los datos. Cuando no se indica el índice de una hoja de datos de forma explícita, `pandas` asigna una secuencia de números enteros comenzando en 0, como ha ocurrido en nuestro caso. -->
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
@@ -1434,7 +683,6 @@ The pandas development team. 2020. <em>pandas-dev/pandas: Pandas</em>. Versión 
 Waskom, Michael L. 2021. <span>«seaborn: statistical data visualization»</span>. <em>Journal of Open Source Software</em> 6 (60): 3021. <a href="https://doi.org/10.21105/joss.03021">https://doi.org/10.21105/joss.03021</a>.
 </div>
 </div>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1895,13 +1143,13 @@ updateImageSrc();
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/libraries.html" class="pagination-link" aria-label="Librerías">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Librerías</span></span>
+      <a href="../chapters/groupby.html" class="pagination-link" aria-label="Agrupar por categorías">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Agrupar por categorías</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/subset-variables.html" class="pagination-link" aria-label="Seleccionar variables">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Seleccionar variables</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/numerical_by_categorical.html" class="pagination-link" aria-label="Una variable numérica por grupos">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Una variable numérica por grupos</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

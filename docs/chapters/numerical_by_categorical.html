@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; Una variable numérica por categorías – Exploración y visualización de datos con Python</title>
+<title>8&nbsp; Una variable numérica por categorías – Exploración y visualización de datos con Python</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -88,7 +88,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../chapters/references.html" rel="next">
-<link href="../chapters/groupby.html" rel="prev">
+<link href="../chapters/categorical_by_categorical.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -345,7 +345,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/numerical_by_categorical.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Una variable numérica por categorías</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/numerical_by_categorical.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Una variable numérica por grupos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -425,8 +425,14 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../chapters/categorical_by_categorical.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Una variable categórica por grupos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../chapters/numerical_by_categorical.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Una variable numérica por categorías</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Una variable numérica por grupos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -449,19 +455,19 @@ window.Quarto = {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#el-método-describe" id="toc-el-método-describe" class="nav-link active" data-scroll-target="#el-método-describe"><span class="header-section-number">7.1</span> El método <code>describe()</code></a></li>
-  <li><a href="#histogramas" id="toc-histogramas" class="nav-link" data-scroll-target="#histogramas"><span class="header-section-number">7.2</span> Histogramas</a>
+  <li><a href="#el-método-describe" id="toc-el-método-describe" class="nav-link active" data-scroll-target="#el-método-describe"><span class="header-section-number">8.1</span> El método <code>describe()</code></a></li>
+  <li><a href="#histogramas" id="toc-histogramas" class="nav-link" data-scroll-target="#histogramas"><span class="header-section-number">8.2</span> Histogramas</a>
   <ul class="collapse">
-  <li><a href="#histograma-de-barras-apiladas" id="toc-histograma-de-barras-apiladas" class="nav-link" data-scroll-target="#histograma-de-barras-apiladas"><span class="header-section-number">7.2.1</span> Histograma de barras apiladas</a></li>
-  <li><a href="#histograma-de-barras-separadas" id="toc-histograma-de-barras-separadas" class="nav-link" data-scroll-target="#histograma-de-barras-separadas"><span class="header-section-number">7.2.2</span> Histograma de barras separadas</a></li>
+  <li><a href="#histograma-de-barras-apiladas" id="toc-histograma-de-barras-apiladas" class="nav-link" data-scroll-target="#histograma-de-barras-apiladas"><span class="header-section-number">8.2.1</span> Histograma de barras apiladas</a></li>
+  <li><a href="#histograma-de-barras-separadas" id="toc-histograma-de-barras-separadas" class="nav-link" data-scroll-target="#histograma-de-barras-separadas"><span class="header-section-number">8.2.2</span> Histograma de barras separadas</a></li>
   </ul></li>
-  <li><a href="#diagramas-de-caja-y-bigotes" id="toc-diagramas-de-caja-y-bigotes" class="nav-link" data-scroll-target="#diagramas-de-caja-y-bigotes"><span class="header-section-number">7.3</span> Diagramas de caja y bigotes</a></li>
-  <li><a href="#mosaico-de-gráficos" id="toc-mosaico-de-gráficos" class="nav-link" data-scroll-target="#mosaico-de-gráficos"><span class="header-section-number">7.4</span> Mosaico de gráficos</a></li>
+  <li><a href="#diagramas-de-caja-y-bigotes" id="toc-diagramas-de-caja-y-bigotes" class="nav-link" data-scroll-target="#diagramas-de-caja-y-bigotes"><span class="header-section-number">8.3</span> Diagramas de caja y bigotes</a></li>
+  <li><a href="#mosaico-de-gráficos" id="toc-mosaico-de-gráficos" class="nav-link" data-scroll-target="#mosaico-de-gráficos"><span class="header-section-number">8.4</span> Mosaico de gráficos</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Una variable numérica por categorías</span></h1></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Una variable numérica por categorías</span></h1></header>
 
 <!-- https://github.com/quarto-dev/quarto-cli/discussions/3842 -->
 <!-- Ver nota de obsidian Quarto - Layout de book para los literales 1.5em y 3em -->
@@ -549,12 +555,12 @@ backToTopButton.addEventListener("click", function () {
 
 
 <p>En la <a href="1numerical.html" class="quarto-xref"><span>Sección 5</span></a> estudiamos la distribución del peso de todos los pingüinos del estudio. Ahora estudiaremos si hay diferencias en la distribución del peso dependiendo de la especie.</p>
-<section id="el-método-describe" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="el-método-describe"><span class="header-section-number">7.1</span> El método <code>describe()</code></h2>
+<section id="el-método-describe" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="el-método-describe"><span class="header-section-number">8.1</span> El método <code>describe()</code></h2>
 <p>El método <code>describe()</code> que usamos en la <a href="1numerical.html#sec-1numerical-describe" class="quarto-xref"><span>Sección 5.1</span></a> para obtener un resumen de la distribución del peso de todos los pingüinos, también puede aplicarse al peso agrupado por especies:</p>
-<div id="16be2884" class="cell" data-execution_count="2">
+<div id="dba0fb2e" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>penguins.groupby(<span class="st">"species"</span>)[<span class="st">"body_mass_g"</span>].describe()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="28">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
@@ -656,7 +662,7 @@ backToTopButton.addEventListener("click", function () {
 </tbody>
 </table>
 <div id="exr-numerical_by_categorical-describe" class="theorem exercise">
-<p><span class="theorem-title"><strong>Ejercicio 7.1</strong></span> Usa los métodos <code>groupby()</code> y <code>describe()</code> para responder a las siguientes preguntas:</p>
+<p><span class="theorem-title"><strong>Ejercicio 8.1</strong></span> Usa los métodos <code>groupby()</code> y <code>describe()</code> para responder a las siguientes preguntas:</p>
 <ol type="a">
 <li>Indica el peso medio de hembras y machos y compáralos con el peso medio global de <span class="math inline">\(4\)</span> kilos y <span class="math inline">\(201\)</span> gramos (que conocíamos de la <a href="1numerical.html#sec-1numerical-describe" class="quarto-xref"><span>Sección 5.1</span></a>).</li>
 <li>¿Cuál es el peso máximo de las hembras?</li>
@@ -665,13 +671,13 @@ backToTopButton.addEventListener("click", function () {
 </ol>
 </div>
 </section>
-<section id="histogramas" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="histogramas"><span class="header-section-number">7.2</span> Histogramas</h2>
+<section id="histogramas" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="histogramas"><span class="header-section-number">8.2</span> Histogramas</h2>
 <p>En este apartado aprenderemos a construir diferentes histogramas para comparar la distribución del peso de las tres especies de pingüinos.</p>
-<section id="histograma-de-barras-apiladas" class="level3" data-number="7.2.1">
-<h3 data-number="7.2.1" class="anchored" data-anchor-id="histograma-de-barras-apiladas"><span class="header-section-number">7.2.1</span> Histograma de barras apiladas</h3>
+<section id="histograma-de-barras-apiladas" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="histograma-de-barras-apiladas"><span class="header-section-number">8.2.1</span> Histograma de barras apiladas</h3>
 <p>Para crear un histograma del peso distinguiendo la especie mediante barras apiladas ejecuta la siguiente instrucción:</p>
-<div id="74af2108" class="cell" data-execution_count="3">
+<div id="496370e8" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>penguins, </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"body_mass_g"</span>, </span>
@@ -704,13 +710,13 @@ backToTopButton.addEventListener("click", function () {
 </div>
 </div>
 <div id="exr-histogram-stack" class="theorem exercise">
-<p><span class="theorem-title"><strong>Ejercicio 7.2</strong></span> Crea un histograma de barras apiladas para el peso de los pingüinos por sexo.</p>
+<p><span class="theorem-title"><strong>Ejercicio 8.2</strong></span> Crea un histograma de barras apiladas para el peso de los pingüinos por sexo.</p>
 </div>
 </section>
-<section id="histograma-de-barras-separadas" class="level3" data-number="7.2.2">
-<h3 data-number="7.2.2" class="anchored" data-anchor-id="histograma-de-barras-separadas"><span class="header-section-number">7.2.2</span> Histograma de barras separadas</h3>
+<section id="histograma-de-barras-separadas" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="histograma-de-barras-separadas"><span class="header-section-number">8.2.2</span> Histograma de barras separadas</h3>
 <p>Para crear un histograma del peso con barras separadas para cada especie ejecuta la siguiente instrucción:</p>
-<div id="cfd03cf1" class="cell" data-execution_count="4">
+<div id="4f6e49e1" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>penguins,  </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"body_mass_g"</span>, </span>
@@ -737,7 +743,7 @@ backToTopButton.addEventListener("click", function () {
 </div>
 </div>
 <div id="exr-histogram-stack" class="theorem exercise">
-<p><span class="theorem-title"><strong>Ejercicio 7.3</strong></span> Crea un histograma de barras separadas para la longitud del pico de los pingüinos por sexo.</p>
+<p><span class="theorem-title"><strong>Ejercicio 8.3</strong></span> Crea un histograma de barras separadas para la longitud del pico de los pingüinos por sexo.</p>
 </div>
 <!-- ```{python}
 sns.histplot(data=penguins,  x="body_mass_g", hue="species",
@@ -753,14 +759,14 @@ sns.histplot(data=penguins, x="body_mass_g", hue="species",
 ``` -->
 </section>
 </section>
-<section id="diagramas-de-caja-y-bigotes" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="diagramas-de-caja-y-bigotes"><span class="header-section-number">7.3</span> Diagramas de caja y bigotes</h2>
+<section id="diagramas-de-caja-y-bigotes" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="diagramas-de-caja-y-bigotes"><span class="header-section-number">8.3</span> Diagramas de caja y bigotes</h2>
 <p>Para acabar la práctica realizaremos el gráfico de la portada de este documento <img src="../img/cover/cover.png" class="img-fluid"></p>
 <p>en el que se representa un diagrama de caja y bigotes para el peso de los pingüinos de cada especie.</p>
 <p>En la <a href="1numerical.html#sec-1numerical-boxplot" class="quarto-xref"><span>Sección 5.3</span></a> hicimos un diagrama de caja y bigotes para el peso de todos los pingüinos (sin distinguir la especie) con la instrucción</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>penguins, y<span class="op">=</span><span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Para diferenciar por especie no tenemos más que añadir el argumento <code>x="species"</code>:</p>
-<div id="d5f07af4" class="cell" data-execution_count="5">
+<div id="6264e0e0" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">"species"</span>, y<span class="op">=</span><span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -772,7 +778,7 @@ sns.histplot(data=penguins, x="body_mass_g", hue="species",
 </div>
 <p>Los dos puntos que aparecen resaltados con un círculo fuera de los bigotes en el diagrama de la especie Chinstrap (en naranja) son <strong>outliers</strong>. El outlier por debajo del bigote inferior representa un pingüino de la especie Chinstrap con peso excesivamente bajo, y el outlier por encima del bigote superior se corresponde con un pingüino de la especie Chinstrap con peso excesivamente alto (excesivamente bajo/alto respecto a la distribución del peso en los pingüinos de la especie Chinstrap).</p>
 <p>Para asignar un color diferente a cada especie añadimos <code>hue="species"</code>:</p>
-<div id="c3d76c9c" class="cell" data-execution_count="6">
+<div id="80e40399" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">"species"</span>, y<span class="op">=</span><span class="st">"body_mass_g"</span>, hue<span class="op">=</span><span class="st">"species"</span>)<span class="op">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -783,7 +789,7 @@ sns.histplot(data=penguins, x="body_mass_g", hue="species",
 </div>
 </div>
 <p>Omitiendo el parámetro <code>x</code> y usando solo <code>hue</code> obtenemos un gráfico similar pero con los nombres de las especies en una leyenda en lugar de en el eje x.</p>
-<div id="ffe66d84" class="cell" data-execution_count="7">
+<div id="9e94a30c" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>penguins, y<span class="op">=</span><span class="st">"body_mass_g"</span>, hue<span class="op">=</span><span class="st">"species"</span>, gap<span class="op">=</span><span class="fl">0.1</span>)<span class="op">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -795,17 +801,17 @@ sns.histplot(data=penguins, x="body_mass_g", hue="species",
 </div>
 <p>El argumento <code>gap=0.1</code> reduce el tamaño de las cajas un <span class="math inline">\(10\%\)</span> para dar un poco de separación entre las tres cajas (por defecto <code>gap=0</code> y las cajas quedan pegadas).</p>
 <div id="exr-boxplots" class="theorem exercise">
-<p><span class="theorem-title"><strong>Ejercicio 7.4</strong></span> Realiza un gráfico que muestre los diagramas de caja y bigotes para el peso de las hembras y de los machos.</p>
+<p><span class="theorem-title"><strong>Ejercicio 8.4</strong></span> Realiza un gráfico que muestre los diagramas de caja y bigotes para el peso de las hembras y de los machos.</p>
 <p>¿Aparecen outliers en alguno de los dos grupos?</p>
 </div>
 </section>
-<section id="mosaico-de-gráficos" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="mosaico-de-gráficos"><span class="header-section-number">7.4</span> Mosaico de gráficos</h2>
+<section id="mosaico-de-gráficos" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="mosaico-de-gráficos"><span class="header-section-number">8.4</span> Mosaico de gráficos</h2>
 <p>En los apartados anteriores aprendiste a crear gráficos para visualizar la distribución de una variable numérica distinguiendo varias categorías con colores diferentes en un mismo gráfico. Por ejemplo, un histograma para el peso de los pingüinos distinguiendo la especie con colores.</p>
 <p>Pero a veces puede resultar más útil realizar gráficos independientes para cada categoría. Nos puede interesar por ejemplo, realizar tres histogramas con la distribución del peso de los pingüinos de cada una de las tres especies.</p>
 <p>Con este fin el paquete <code>seaborn</code> proporciona la clase <code>FacetGrid</code>, que permite crear un mosaico o una malla en la que ubicar los diferentes gráficos para los datos de cada categoría.</p>
 <p>Para entender cómo se usa la clase <code>FacetGrid</code> empieza ejecutando la siguiente instrucción:</p>
-<div id="6d198a47" class="cell" data-execution_count="8">
+<div id="afa6e715" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sns.FacetGrid(data<span class="op">=</span>penguins, col<span class="op">=</span><span class="st">"species"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -817,7 +823,7 @@ sns.histplot(data=penguins, x="body_mass_g", hue="species",
 </div>
 <p>Observa el resultado y aprecia que se han creado tres ejes de coordenadas, uno para cada especie. El efecto del argumento <code>col="species"</code> es que se ha creado una columna (<code>col</code>=<em>column</em>) para cada categoría de la variable <code>species</code>.</p>
 <p>De momento hemos inicializado el mosaico pero aún no hemos dibujado nada en cada una de las celdas del mosaico. Para hacerlo tenemos que aplicar al mosaico el método <code>map()</code>, como en el siguiente ejemplo:</p>
-<div id="ef297f14" class="cell" data-execution_count="9">
+<div id="db8189c7" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-9"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-9-1" class="code-annotation-target"><a href="#annotated-cell-9-1" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> sns.FacetGrid(data <span class="op">=</span> penguins, col<span class="op">=</span><span class="st">"species"</span>)</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-9-2" class="code-annotation-target"><a href="#annotated-cell-9-2" aria-hidden="true" tabindex="-1"></a>grid.<span class="bu">map</span>(sns.histplot, <span class="st">"body_mass_g"</span>)<span class="op">;</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-annotation">
@@ -893,9 +899,9 @@ sns.histplot(data=penguins, x="body_mass_g", hue="species",
 </div></li>
 </ol>
 <div id="exr-facetgrid" class="theorem exercise">
-<p><span class="theorem-title"><strong>Ejercicio 7.5</strong></span> Usa la clase <code>FacetGrid</code> para realizar sendos histogramas de la distribución del peso para hembras y machos.</p>
+<p><span class="theorem-title"><strong>Ejercicio 8.5</strong></span> Usa la clase <code>FacetGrid</code> para realizar sendos histogramas de la distribución del peso para hembras y machos.</p>
 <p>Tienes que obtener la siguiente salida:</p>
-<div id="f3abd4da" class="cell" data-execution_count="10">
+<div id="a8fc1c21" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -907,7 +913,7 @@ sns.histplot(data=penguins, x="body_mass_g", hue="species",
 </div>
 <hr>
 <p>Si al inicializar la clase <code>FacetGrid</code> se usa el parámetro <code>row</code> en lugar de <code>col</code> los diferentes gráficos aparecerán dispuestos por filas en lugar de por columnas. Por ejemplo:</p>
-<div id="317f70bb" class="cell" data-execution_count="11">
+<div id="7329a0c4" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> sns.FacetGrid(data <span class="op">=</span> penguins, row<span class="op">=</span><span class="st">"species"</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>grid.<span class="bu">map</span>(sns.histplot, <span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -919,7 +925,7 @@ sns.histplot(data=penguins, x="body_mass_g", hue="species",
 </div>
 </div>
 <p>De hecho, se pueden usar los argumentos <code>row</code> y <code>col</code> al mismo tiempo para crear un mosaico bidimensional. Las siguientes instrucciones crean un mosaico de histogramas del peso de los pingüinos, distinguiendo el sexo por filas y la especie por columnas, de dimensiones <span class="math inline">\(2 \times 3\)</span>:</p>
-<div id="4c028584" class="cell" data-execution_count="12">
+<div id="f877556e" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> sns.FacetGrid(data <span class="op">=</span> penguins, row<span class="op">=</span><span class="st">"sex"</span>, col<span class="op">=</span><span class="st">"species"</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>grid.<span class="bu">map</span>(sns.histplot, <span class="st">"body_mass_g"</span>)<span class="op">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -931,9 +937,9 @@ sns.histplot(data=penguins, x="body_mass_g", hue="species",
 </div>
 </div>
 <div id="exr-FacetGrid-3x2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Ejercicio 7.6</strong></span> Usa <code>FacetGrid</code> para crear un mosaico de histogramas para la longitud de las alas de los pingüinos distingüiendo la isla en la que viven y su sexo.</p>
+<p><span class="theorem-title"><strong>Ejercicio 8.6</strong></span> Usa <code>FacetGrid</code> para crear un mosaico de histogramas para la longitud de las alas de los pingüinos distingüiendo la isla en la que viven y su sexo.</p>
 <p>El resultado debe ser el siguiente:</p>
-<div id="7cc8be9a" class="cell" data-execution_count="13">
+<div id="a66fc4da" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1416,8 +1422,8 @@ updateImageSrc();
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/groupby.html" class="pagination-link" aria-label="Agrupar por categorías">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Agrupar por categorías</span></span>
+      <a href="../chapters/categorical_by_categorical.html" class="pagination-link" aria-label="Una variable categórica por grupos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Una variable categórica por grupos</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

@@ -1,0 +1,87 @@
+---
+editor:
+    render-on-save: true
+---
+
+# Una variable categórica por grupos
+
+```{python}
+#| include: false
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+import pandas as pd
+import seaborn as sns
+# import matplotlib.pyplot as plt
+
+url = "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv"
+penguins = pd.read_csv(url)
+```
+
+En este apartado se vuelven a utilizar los métodos de la sección @sec-1categorical para analizar una variable categórica, pero considerando ahora los grupos definidos por otra variable categórica.  
+
+## El método `describe()` {#sec-1categorical-by-describe}
+
+Empezamos aplicando el método `describe()` para conocer el sexo predominante en cada especie.
+
+
+```{python}
+penguins.groupby("species")["sex"].describe()
+```
+
+Vemos que en las especies Adelie y Gentoo predominan los machos, y en la especie Chinstrap las hembras. 
+
+
+::: {#exr-1categorical-by-describe}
+¿Cuál es el sexo predominante en cada isla?
+:::
+
+
+
+## Tabla de recuentos {#sec-value-counts-by} 
+
+
+Combinando los métodos `groupby()` y `value_counts()` podemos calcular cuántos pingüinos de cada sexo hay en cada especie.
+
+```{python}
+penguins.groupby("species")["sex"].value_counts()
+```
+
+Ahora nos damos cuenta de que en realidad en las species Adelie y Chinstrap hay el mismo número de machos y hembras:
+
+- $73$ de cada para Adelie
+- $34$ de cada para Chinstrap
+
+Como la variable del sexo solo tiene dos categorías lo podríamos haber visto también en la salida del método `describe()`. Por ejemplo: En la especie Adelie hay $73$ machos y por tanto $146-73=73$ hembras.
+
+
+::: {#exr-groupby-value_counts}
+Combina los métodos `groupby()` y `value_counts()` para calcular cuántos pingüinos de cada especie viven en cada isla.
+
+Analiza el resultado para responder a las siguientes preguntas:
+
+- ¿cuál es la única especie de pingüinos presente en las tres islas?
+- ¿en qué islas viven los pingüinos de la especie Chinstrap?
+- ¿qué especies de pingüinos hay en la isla Biscoe?
+:::
+
+
+## Diagrama de recuentos
+
+Para crear un diagrama de barras del recuento de pingüinos en cada especie distinguiendo el sexo, usamos la opción `hue` de `countplot()`:
+
+
+```{python}
+sns.countplot(
+    data=penguins,
+    x="species",
+    hue="sex" # <1>
+);
+```
+
+1. Esta opción indica dividir en los dos grupos determinados por la variable sexo, asignando un color diferente a cada uno.
+
+Aprecia que las alturas de las barras en el gráfico anterior coindicen con los recuentos que hemos calculado en el apartado anterior con `value_counts()`.
+
+::: {#exr-1categorial-by-countplot}
+Crea un diagrama de barras para visualizar los pingüinos que viven en cada isla, distinguiendo su especie con colores.
+:::

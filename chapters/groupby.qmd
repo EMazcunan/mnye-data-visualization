@@ -11,35 +11,43 @@ url = "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.cs
 penguins = pd.read_csv(url)
 ```
 
-En la @sec-head-tail visualizamos los datos de los cinco primeros pingüinos con la instrucción
 
-```{.python}
-penguins.head(5)
-```
-
-Y en la @sec-subset-one-variable calculamos el peso máximo de todos los pingüinos con la orden
+En la @sec-subset-one-variable calculamos el peso máximo de todos los pingüinos con la orden
 
 ```{.python}
 penguins["body_mass_g"].max()
 ```
 
-Ahora nos planteamos realizar las operaciones anteriores, pero para cada especie de pingüinos (Adelie, Chinstrap y Gentoo), es decir, queremos:
-
-- Ver los datos de los primeros pingüinos de cada una de las tres especies.
-- Calcular el peso máximo en cada una de las tres especies de pingüinos.
+Ahora nos planteamos calcular el peso máximo, pero en cada una de las tres especies de pingüinos.
 
 `pandas` proporciona el método `groupby()` para resolver este tipo de problemas.
 
-El método `groupby()` divide una hoja de datos en los grupos o categorías definidos por una variable categórica (en nuestro caso las tres especies dadas por la variable `species`), de forma que al realizar una operación (como `head()` o `máx()`)  en la hoja de  datos por grupos, obtendremos el resultado de la operación en cada uno de los grupos (en nuestro caso en cada especie). 
+El método `groupby()` divide una hoja de datos en los grupos o categorías definidos por una variable categórica (en nuestro caso las tres especies dadas por la variable `species`), de forma que al realizar una operación  en la hoja de  datos por grupos, obtendremos el resultado de la operación en cada uno de los grupos (en nuestro caso en cada especie). 
 
 ![Ilustración del método `groupby()` en el manual de `pandas`](../img/06_groupby.svg)
 
 
-## Ejemplo 1: Primeras filas de cada especie {.unnumbered}
+Ejecuta la instrucción 
 
-Para ver los datos de los tres primeros pingüinos de cada especie, ejecuta la instrucción siguiente:
 ```{python}
-penguins.groupby("species").head(3)
+penguins_by_species = penguins.groupby("species")
+```
+
+
+
+La operación `penguins.groupby("species")` parte la hoja de datos `penguins` en tres grupos correspondientes a las tres especies. Puedes pensar que después de aplicar `group_by()` tenemos la hoja de datos `penguins` virtualmente dividida en tres hojas de datos: 
+- una hoja de datos con las $152$ filas de los pingüinos de la especie Adelie
+- otra con las $68$ filas de los pingüinos de la especie Chinstrap 
+- y una tercera con las $124$ filas de los pingüinos de la especie Gentoo. 
+
+
+Hemos asignado el resultado en la variable `penguins_by_species`, que podemos ver como una __hoja de datos agrupada__ o __por grupos__, compuesta virtualmente por las tres hojas de datos de cada especie en que se ha divido `penguins` al aplicar `group_by()`. 
+
+Para entender el efecto de la agrupación, ejecuta la instrucción 
+
+
+```{python}
+penguins_by_species.head(3)
 ```
 
 Observa que en la salida anterior se muestran:
@@ -48,86 +56,60 @@ Observa que en la salida anterior se muestran:
 - las filas de índices $152$, $153$ y $154$ correspondientes a los tres primeros pingüinos de la especie Chinstrap
 - y las filas de índices $220$, $221$ y $222$ correspondientes a los tres primeros pingüinos de la especie Gentoo.
 
-Analicemos, paso por paso, lo que ocurre al ejecutar la instrucción `penguins.groupby("species").head(3)`:
+Al aplicar `head(3)` sobre la hoja de datos agrupada `penguins_by_species`, el efecto es que se aplica `head(3)` en cada uno de los tres grupos (como si se aplicara en cada una de las tres hojas de datos virtuales que la componen). 
 
-1. `penguins.groupby("species")` parte la hoja de datos `penguins` en tres grupos correspondientes a las tres especies. Esta operación devuelve un objeto de un nuevo tipo llamado `DataFrameGroupBy`:
-   ```{python}
-   type(penguins.groupby("species"))
-   ```
+La salida que hemos obtenenido es la combinación de los tres resultados en los tres grupos. 
 
-   Puedes pensar que después de aplicar `groupby()` tenemos los datos virtualmente divididos en tres hojas de datos: 
-   - una hoja de datos con las $152$ filas de los pingüinos de la especie Adelie
-   - otra con las $68$ filas de los pingüinos de la especie Chinstrap 
-   - y una tercera con las $124$ filas de los pingüinos de la especie Gentoo. 
+***
 
-2. Al aplicar `head(3)` sobre la hoja de datos agrupada creada con `penguins.groupby("species")`, el efecto es que se aplica `head(3)` en cada uno de los tres grupos (como si se aplicara en cada una de las tres hojas de datos virtuales que ha creado `groupby()` a partir de `penguins`). 
+Para conseguir nuestro objetivo inicial, obtener el peso máximo en cada especie, ejecutamos:
 
-   La salida que hemos obtenenido es la combinación de los tres resultados en los tres grupos. 
-
-
-## Ejemplo 2: Peso máximo de cada especie {.unnumbered}
-
-Para obtener el peso máximo de cada especie ejecuta
 
 ```{python}
-penguins[["species", "body_mass_g"]].groupby("species").max()
+penguins_by_species["body_mass_g"].max()
 ```
 
-Vemos que:
+La salida anterior nos informa de que:
 
 - el peso máximo entre los pingüinos de la especie Adelie es de $4$ kg y $775$ gramos.
 - el peso máximo entre los pingüinos de la especie Chinstrap es de $4$ kg y $800$ gramos.
 - el peso máximo entre los pingüinos de la especie Gentoo (y entre todos los pingüinos) es de $6$ kg y $300$ gramos.
 
 
-Analicemos la instrucción anterior paso por paso:
+Analicemos paso por paso la última instrucción.
 
-1. Como nos interesa el peso máximo por especie, primero hemos escrito `penguins[["species", "body_mass_g"]]`, para seleccionar las dos variables asociadas a las características de interés, `species` y `body_mass_g`, conforme aprendimos en la @sec-subset-several-variables.
+- En las hojas de datos agrupadas también funcionan los mecanismos de selección de variables usando corchetes `[]`. Al escribir `penguins_by_species["body_mass_g"]` hemos seleccionado la variable que da el peso de los pingüinos en la hoja de datos agrupada. Como ocurrió al aplicar la función `head()`, la selección se realiza en cada grupo, así que obtenemos una __variable agrupada__, que imaginamos como tres variables del peso en cada grupo. 
 
-2. Después `groupby("species")` divide la selección de la hoja de datos del paso anterior en tres grupos para cada especie.
+- Después hemos aplicado la función `max()` sobre la variable agrupada `penguins_by_species["body_mass_g"]`, que hace el efecto de calcular el máximo en cada una de las tres variables virtuales que la componen.  La salida que hemos obtenenido es la combinación de los tres resultados en los tres grupos, una tabla con los tres pesos máximos. 
 
-3. `max()` aplicada a la hoja de datos por grupos (de tipo `DataFrameGroupBy`) creada en el paso anterior, calcula el máximo en cada uno de los grupos para cada especie. 
-
-   La salida que hemos obtenido es una tabla con los tres pesos máximos. 
-
-***
-
-En las hojas de datos agrupadas por categorías (objetos de tipo `DataFrameGroupBy`) también funcionan los mecanismos de selección de variables usando corchetes `[]`. Así, una forma equivalente de calcular el peso máximo de cada especie sería:
+Como siempre, podemos encadenar la operación de agrupado y otros métodos en una sola línea:
 
 ```{python}
 penguins.groupby("species")["body_mass_g"].max()
 ```
 
-Los pasos seguidos en esta segunda variante serían:
- 
-1. `groupby("species")` crea los tres grupos o categorías definidos por la variable `species`.
+***
 
-2. `["body_mass_g"]` selecciona la variable con el peso de los pingüinos en cada grupo.
+Un último ejemplo para terminar esta sección. En la @sec-subset-several-variables calculamos la media de las dos variables que dan las dimensiones del pico con la instrucción 
 
-3. `max()` calcula el máximo en cada grupo.
+```python
+penguins[["bill_length_mm", "bill_depth_mm"]].mean()
+```
 
-## Ejemplo 3: Recuento del número de pingüinos de cada especie {.unnumbered}
-
-El método `value_counts()` que usamos en la @sec-value-counts para obtener una tabla de recuentos del número de pingüinos de cada especie es en el fondo la combinación de una operación de agrupación y la aplicación del método `count()`. De hecho es equivalente a 
+Para obtener la misma información, pero para machos y hembras por separado ejecutaríamos:
 
 ```{python}
-penguins.groupby("species")["species"].count()
+penguins.groupby("sex")[["bill_length_mm", "bill_depth_mm"]].mean()
 ```
+
+***
+
 
 ::: {#exr-groupby-mean}
 Combina los métodos `groupby()` y `mean()` para calcular el peso medio de los pingüinos que viven en cada isla.
 :::
 
 ::: {#exr-groupby-max}
-Combina los métodos `groupby()` y `median()` para calcular la mediana de la longitud del pico de las hembras y de los machos.
+Combina los métodos `groupby()` y `median()` para calcular la mediana de la longitud de las alas de las hembras y de los machos.
 :::
 
-::: {#exr-groupby-value_counts}
-Combina los métodos `groupby()` y `value_counts()` para calcular cuántos pingüinos de cada especie viven en cada isla.
-
-Analiza el resultado para responder a las siguientes preguntas:
-
-- ¿cuál es la única especie de pingüinos presente en las tres islas?
-- ¿en qué islas viven los pingüinos de la especie Chinstrap?
-- ¿qué especies de pingüinos hay en la isla Biscoe?
-:::

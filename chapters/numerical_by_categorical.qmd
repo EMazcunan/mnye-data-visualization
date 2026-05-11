@@ -3,7 +3,7 @@ editor:
     render-on-save: true
 ---
 
-# Una variable numérica por categorías
+# Una variable numérica por grupos
 
 ```{python}
 #| include: false

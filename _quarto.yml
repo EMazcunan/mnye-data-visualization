@@ -19,6 +19,7 @@ book:
     - chapters/1categorical.qmd
     - chapters/1numerical.qmd
     - chapters/groupby.qmd
+    - chapters/categorical_by_categorical.qmd
     - chapters/numerical_by_categorical.qmd
     # - chapters/tbc.qmd    
     # - chapters/2categorical.qmd

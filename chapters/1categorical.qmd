@@ -1,5 +1,4 @@
 ---
-title: Una variable categórica
 editor:
     render-on-save: true
 ---
@@ -14,6 +13,8 @@ import seaborn as sns
 url = "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv"
 penguins = pd.read_csv(url)
 ```
+
+# Una variable categórica {#sec-1categorical}
 
 En este apartado se describen los métodos básicos para explorar y analizar una variable categórica. 
 
@@ -72,7 +73,7 @@ Determina el número total de hembras y de machos.
 ## Diagrama de recuentos
 
 
-Un __diagrama de recuentos__ asocia a cada categoría una barra de longitud igual al número de observaciones en esa categoría. 
+Un __diagrama de recuentos__ o __diagrama de barras__ asocia a cada categoría una barra de longitud igual al número de observaciones en esa categoría. 
 
 Para realizar un diagrama de barras del recuento de pingüinos por especie usamos la función `countplot()` del paquete `seaborn`
 

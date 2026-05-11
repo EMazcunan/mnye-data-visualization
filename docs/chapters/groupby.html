@@ -80,14 +80,14 @@ div.csl-indent {
 }</style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/numerical_by_categorical.html" rel="next">
+<link href="../chapters/categorical_by_categorical.html" rel="next">
 <link href="../chapters/1numerical.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -130,7 +130,7 @@ div.csl-indent {
     "search-label": "Buscar"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
@@ -425,8 +425,14 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../chapters/categorical_by_categorical.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Una variable categórica por grupos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../chapters/numerical_by_categorical.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Una variable numérica por categorías</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Una variable numérica por grupos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -444,16 +450,8 @@ window.Quarto = {
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">En esta página</h2>
-   
-  <ul>
-  <li><a href="#ejemplo-1-primeras-filas-de-cada-especie" id="toc-ejemplo-1-primeras-filas-de-cada-especie" class="nav-link active" data-scroll-target="#ejemplo-1-primeras-filas-de-cada-especie">Ejemplo 1: Primeras filas de cada especie</a></li>
-  <li><a href="#ejemplo-2-peso-máximo-de-cada-especie" id="toc-ejemplo-2-peso-máximo-de-cada-especie" class="nav-link" data-scroll-target="#ejemplo-2-peso-máximo-de-cada-especie">Ejemplo 2: Peso máximo de cada especie</a></li>
-  <li><a href="#ejemplo-3-recuento-del-número-de-pingüinos-de-cada-especie" id="toc-ejemplo-3-recuento-del-número-de-pingüinos-de-cada-especie" class="nav-link" data-scroll-target="#ejemplo-3-recuento-del-número-de-pingüinos-de-cada-especie">Ejemplo 3: Recuento del número de pingüinos de cada especie</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7"><span id="sec-groupby" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Agrupar por categorías</span></span></h1></header>
@@ -543,29 +541,27 @@ backToTopButton.addEventListener("click", function () {
 </header>
 
 
-<p>En la <a href="data.html#sec-head-tail" class="quarto-xref"><span>Sección 2.2</span></a> visualizamos los datos de los cinco primeros pingüinos con la instrucción</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>penguins.head(<span class="dv">5</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Y en la <a href="subset-variables.html#sec-subset-one-variable" class="quarto-xref"><span>Sección 3.1</span></a> calculamos el peso máximo de todos los pingüinos con la orden</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>penguins[<span class="st">"body_mass_g"</span>].<span class="bu">max</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Ahora nos planteamos realizar las operaciones anteriores, pero para cada especie de pingüinos (Adelie, Chinstrap y Gentoo), es decir, queremos:</p>
-<ul>
-<li>Ver los datos de los primeros pingüinos de cada una de las tres especies.</li>
-<li>Calcular el peso máximo en cada una de las tres especies de pingüinos.</li>
-</ul>
+<p>En la <a href="subset-variables.html#sec-subset-one-variable" class="quarto-xref"><span>Sección 3.1</span></a> calculamos el peso máximo de todos los pingüinos con la orden</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>penguins[<span class="st">"body_mass_g"</span>].<span class="bu">max</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ahora nos planteamos calcular el peso máximo, pero en cada una de las tres especies de pingüinos.</p>
 <p><code>pandas</code> proporciona el método <code>groupby()</code> para resolver este tipo de problemas.</p>
-<p>El método <code>groupby()</code> divide una hoja de datos en los grupos o categorías definidos por una variable categórica (en nuestro caso las tres especies dadas por la variable <code>species</code>), de forma que al realizar una operación (como <code>head()</code> o <code>máx()</code>) en la hoja de datos por grupos, obtendremos el resultado de la operación en cada uno de los grupos (en nuestro caso en cada especie).</p>
+<p>El método <code>groupby()</code> divide una hoja de datos en los grupos o categorías definidos por una variable categórica (en nuestro caso las tres especies dadas por la variable <code>species</code>), de forma que al realizar una operación en la hoja de datos por grupos, obtendremos el resultado de la operación en cada uno de los grupos (en nuestro caso en cada especie).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../img/06_groupby.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Ilustración del método groupby() en el manual de pandas"><img src="../img/06_groupby.svg" class="img-fluid figure-img" alt="Ilustración del método groupby() en el manual de pandas"></a></p>
 <figcaption>Ilustración del método <code>groupby()</code> en el manual de <code>pandas</code></figcaption>
 </figure>
 </div>
-<section id="ejemplo-1-primeras-filas-de-cada-especie" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="ejemplo-1-primeras-filas-de-cada-especie">Ejemplo 1: Primeras filas de cada especie</h2>
-<p>Para ver los datos de los tres primeros pingüinos de cada especie, ejecuta la instrucción siguiente:</p>
-<div id="34a9f01e" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>penguins.groupby(<span class="st">"species"</span>).head(<span class="dv">3</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<p>Ejecuta la instrucción</p>
+<div id="f254739c" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>penguins_by_species <span class="op">=</span> penguins.groupby(<span class="st">"species"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>La operación <code>penguins.groupby("species")</code> parte la hoja de datos <code>penguins</code> en tres grupos correspondientes a las tres especies. Puedes pensar que después de aplicar <code>group_by()</code> tenemos la hoja de datos <code>penguins</code> virtualmente dividida en tres hojas de datos: - una hoja de datos con las <span class="math inline">\(152\)</span> filas de los pingüinos de la especie Adelie - otra con las <span class="math inline">\(68\)</span> filas de los pingüinos de la especie Chinstrap - y una tercera con las <span class="math inline">\(124\)</span> filas de los pingüinos de la especie Gentoo.</p>
+<p>Hemos asignado el resultado en la variable <code>penguins_by_species</code>, que podemos ver como una <strong>hoja de datos agrupada</strong> o <strong>por grupos</strong>, compuesta virtualmente por las tres hojas de datos de cada especie en que se ha divido <code>penguins</code> al aplicar <code>group_by()</code>.</p>
+<p>Para entender el efecto de la agrupación, ejecuta la instrucción</p>
+<div id="3dea6a58" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>penguins_by_species.head(<span class="dv">3</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -685,81 +681,34 @@ backToTopButton.addEventListener("click", function () {
 <li>las filas de índices <span class="math inline">\(152\)</span>, <span class="math inline">\(153\)</span> y <span class="math inline">\(154\)</span> correspondientes a los tres primeros pingüinos de la especie Chinstrap</li>
 <li>y las filas de índices <span class="math inline">\(220\)</span>, <span class="math inline">\(221\)</span> y <span class="math inline">\(222\)</span> correspondientes a los tres primeros pingüinos de la especie Gentoo.</li>
 </ul>
-<p>Analicemos, paso por paso, lo que ocurre al ejecutar la instrucción <code>penguins.groupby("species").head(3)</code>:</p>
-<ol type="1">
-<li><p><code>penguins.groupby("species")</code> parte la hoja de datos <code>penguins</code> en tres grupos correspondientes a las tres especies. Esta operación devuelve un objeto de un nuevo tipo llamado <code>DataFrameGroupBy</code>:</p>
-<div id="83aeabac" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(penguins.groupby(<span class="st">"species"</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>pandas.core.groupby.generic.DataFrameGroupBy</code></pre>
-</div>
-</div>
-<p>Puedes pensar que después de aplicar <code>groupby()</code> tenemos los datos virtualmente divididos en tres hojas de datos:</p>
-<ul>
-<li>una hoja de datos con las <span class="math inline">\(152\)</span> filas de los pingüinos de la especie Adelie</li>
-<li>otra con las <span class="math inline">\(68\)</span> filas de los pingüinos de la especie Chinstrap</li>
-<li>y una tercera con las <span class="math inline">\(124\)</span> filas de los pingüinos de la especie Gentoo.</li>
-</ul></li>
-<li><p>Al aplicar <code>head(3)</code> sobre la hoja de datos agrupada creada con <code>penguins.groupby("species")</code>, el efecto es que se aplica <code>head(3)</code> en cada uno de los tres grupos (como si se aplicara en cada una de las tres hojas de datos virtuales que ha creado <code>groupby()</code> a partir de <code>penguins</code>).</p>
-<p>La salida que hemos obtenenido es la combinación de los tres resultados en los tres grupos.</p></li>
-</ol>
-</section>
-<section id="ejemplo-2-peso-máximo-de-cada-especie" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="ejemplo-2-peso-máximo-de-cada-especie">Ejemplo 2: Peso máximo de cada especie</h2>
-<p>Para obtener el peso máximo de cada especie ejecuta</p>
-<div id="4bd1ad7e" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>penguins[[<span class="st">"species"</span>, <span class="st">"body_mass_g"</span>]].groupby(<span class="st">"species"</span>).<span class="bu">max</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Al aplicar <code>head(3)</code> sobre la hoja de datos agrupada <code>penguins_by_species</code>, el efecto es que se aplica <code>head(3)</code> en cada uno de los tres grupos (como si se aplicara en cada una de las tres hojas de datos virtuales que la componen).</p>
+<p>La salida que hemos obtenenido es la combinación de los tres resultados en los tres grupos.</p>
+<hr>
+<p>Para conseguir nuestro objetivo inicial, obtener el peso máximo en cada especie, ejecutamos:</p>
+<div id="f8e64bcb" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>penguins_by_species[<span class="st">"body_mass_g"</span>].<span class="bu">max</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">body_mass_g</th>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">species</th>
-<th data-quarto-table-cell-role="th"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">Adelie</th>
-<td>4775.0</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">Chinstrap</th>
-<td>4800.0</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">Gentoo</th>
-<td>6300.0</td>
-</tr>
-</tbody>
-</table>
-
+<pre><code>species
+Adelie       4775.0
+Chinstrap    4800.0
+Gentoo       6300.0
+Name: body_mass_g, dtype: float64</code></pre>
 </div>
 </div>
-</div>
-<p>Vemos que:</p>
+<p>La salida anterior nos informa de que:</p>
 <ul>
 <li>el peso máximo entre los pingüinos de la especie Adelie es de <span class="math inline">\(4\)</span> kg y <span class="math inline">\(775\)</span> gramos.</li>
 <li>el peso máximo entre los pingüinos de la especie Chinstrap es de <span class="math inline">\(4\)</span> kg y <span class="math inline">\(800\)</span> gramos.</li>
 <li>el peso máximo entre los pingüinos de la especie Gentoo (y entre todos los pingüinos) es de <span class="math inline">\(6\)</span> kg y <span class="math inline">\(300\)</span> gramos.</li>
 </ul>
-<p>Analicemos la instrucción anterior paso por paso:</p>
-<ol type="1">
-<li><p>Como nos interesa el peso máximo por especie, primero hemos escrito <code>penguins[["species", "body_mass_g"]]</code>, para seleccionar las dos variables asociadas a las características de interés, <code>species</code> y <code>body_mass_g</code>, conforme aprendimos en la <a href="subset-variables.html#sec-subset-several-variables" class="quarto-xref"><span>Sección 3.2</span></a>.</p></li>
-<li><p>Después <code>groupby("species")</code> divide la selección de la hoja de datos del paso anterior en tres grupos para cada especie.</p></li>
-<li><p><code>max()</code> aplicada a la hoja de datos por grupos (de tipo <code>DataFrameGroupBy</code>) creada en el paso anterior, calcula el máximo en cada uno de los grupos para cada especie.</p>
-<p>La salida que hemos obtenido es una tabla con los tres pesos máximos.</p></li>
-</ol>
-<hr>
-<p>En las hojas de datos agrupadas por categorías (objetos de tipo <code>DataFrameGroupBy</code>) también funcionan los mecanismos de selección de variables usando corchetes <code>[]</code>. Así, una forma equivalente de calcular el peso máximo de cada especie sería:</p>
-<div id="76f811ec" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>penguins.groupby(<span class="st">"species"</span>)[<span class="st">"body_mass_g"</span>].<span class="bu">max</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Analicemos paso por paso la última instrucción.</p>
+<ul>
+<li><p>En las hojas de datos agrupadas también funcionan los mecanismos de selección de variables usando corchetes <code>[]</code>. Al escribir <code>penguins_by_species["body_mass_g"]</code> hemos seleccionado la variable que da el peso de los pingüinos en la hoja de datos agrupada. Como ocurrió al aplicar la función <code>head()</code>, la selección se realiza en cada grupo, así que obtenemos una <strong>variable agrupada</strong>, que imaginamos como tres variables del peso en cada grupo.</p></li>
+<li><p>Después hemos aplicado la función <code>max()</code> sobre la variable agrupada <code>penguins_by_species["body_mass_g"]</code>, que hace el efecto de calcular el máximo en cada una de las tres variables virtuales que la componen. La salida que hemos obtenenido es la combinación de los tres resultados en los tres grupos, una tabla con los tres pesos máximos.</p></li>
+</ul>
+<p>Como siempre, podemos encadenar la operación de agrupado y otros métodos en una sola línea:</p>
+<div id="0b356d5a" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>penguins.groupby(<span class="st">"species"</span>)[<span class="st">"body_mass_g"</span>].<span class="bu">max</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>species
 Adelie       4775.0
@@ -768,40 +717,52 @@ Gentoo       6300.0
 Name: body_mass_g, dtype: float64</code></pre>
 </div>
 </div>
-<p>Los pasos seguidos en esta segunda variante serían:</p>
-<ol type="1">
-<li><p><code>groupby("species")</code> crea los tres grupos o categorías definidos por la variable <code>species</code>.</p></li>
-<li><p><code>["body_mass_g"]</code> selecciona la variable con el peso de los pingüinos en cada grupo.</p></li>
-<li><p><code>max()</code> calcula el máximo en cada grupo.</p></li>
-</ol>
-</section>
-<section id="ejemplo-3-recuento-del-número-de-pingüinos-de-cada-especie" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="ejemplo-3-recuento-del-número-de-pingüinos-de-cada-especie">Ejemplo 3: Recuento del número de pingüinos de cada especie</h2>
-<p>El método <code>value_counts()</code> que usamos en la <a href="1categorical.html#sec-value-counts" class="quarto-xref"><span>Sección 4.2</span></a> para obtener una tabla de recuentos del número de pingüinos de cada especie es en el fondo la combinación de una operación de agrupación y la aplicación del método <code>count()</code>. De hecho es equivalente a</p>
-<div id="c68424a7" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>penguins.groupby(<span class="st">"species"</span>)[<span class="st">"species"</span>].count()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+<p>Un último ejemplo para terminar esta sección. En la <a href="subset-variables.html#sec-subset-several-variables" class="quarto-xref"><span>Sección 3.2</span></a> calculamos la media de las dos variables que dan las dimensiones del pico con la instrucción</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>penguins[[<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>]].mean()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Para obtener la misma información, pero para machos y hembras por separado ejecutaríamos:</p>
+<div id="43c5a2f3" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>penguins.groupby(<span class="st">"sex"</span>)[[<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>]].mean()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
-<pre><code>species
-Adelie       152
-Chinstrap     68
-Gentoo       124
-Name: species, dtype: int64</code></pre>
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">bill_length_mm</th>
+<th data-quarto-table-cell-role="th">bill_depth_mm</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">FEMALE</th>
+<td>42.096970</td>
+<td>16.425455</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">MALE</th>
+<td>45.854762</td>
+<td>17.891071</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
+</div>
+<hr>
 <div id="exr-groupby-mean" class="theorem exercise">
 <p><span class="theorem-title"><strong>Ejercicio 6.1</strong></span> Combina los métodos <code>groupby()</code> y <code>mean()</code> para calcular el peso medio de los pingüinos que viven en cada isla.</p>
 </div>
 <div id="exr-groupby-max" class="theorem exercise">
-<p><span class="theorem-title"><strong>Ejercicio 6.2</strong></span> Combina los métodos <code>groupby()</code> y <code>median()</code> para calcular la mediana de la longitud del pico de las hembras y de los machos.</p>
-</div>
-<div id="exr-groupby-value_counts" class="theorem exercise">
-<p><span class="theorem-title"><strong>Ejercicio 6.3</strong></span> Combina los métodos <code>groupby()</code> y <code>value_counts()</code> para calcular cuántos pingüinos de cada especie viven en cada isla.</p>
-<p>Analiza el resultado para responder a las siguientes preguntas:</p>
-<ul>
-<li>¿cuál es la única especie de pingüinos presente en las tres islas?</li>
-<li>¿en qué islas viven los pingüinos de la especie Chinstrap?</li>
-<li>¿qué especies de pingüinos hay en la isla Biscoe?</li>
-</ul>
+<p><span class="theorem-title"><strong>Ejercicio 6.2</strong></span> Combina los métodos <code>groupby()</code> y <code>median()</code> para calcular la mediana de la longitud de las alas de las hembras y de los machos.</p>
 </div>
 
 
@@ -816,7 +777,6 @@ The pandas development team. 2020. <em>pandas-dev/pandas: Pandas</em>. Versión 
 Waskom, Michael L. 2021. <span>«seaborn: statistical data visualization»</span>. <em>Journal of Open Source Software</em> 6 (60): 3021. <a href="https://doi.org/10.21105/joss.03021">https://doi.org/10.21105/joss.03021</a>.
 </div>
 </div>
-</section>
 
 </main> <!-- /main -->
 <!-- https://mickael.canouil.fr/posts/2023-05-30-quarto-light-dark/ -->
@@ -1281,8 +1241,8 @@ updateImageSrc();
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/numerical_by_categorical.html" class="pagination-link" aria-label="Una variable numérica por categorías">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Una variable numérica por categorías</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/categorical_by_categorical.html" class="pagination-link" aria-label="Una variable categórica por grupos">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Una variable categórica por grupos</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
