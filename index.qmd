@@ -1,6 +1,7 @@
 ---
 titlepage: true
 # back-to-top-navigation: false
+# keep-tex: true
 format:
     mnye-book-html:
         toc-depth: 0

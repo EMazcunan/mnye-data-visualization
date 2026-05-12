@@ -58,7 +58,13 @@ Observa que en la salida anterior se muestran:
 
 Al aplicar `head(3)` sobre la hoja de datos agrupada `penguins_by_species`, el efecto es que se aplica `head(3)` en cada uno de los tres grupos (como si se aplicara en cada una de las tres hojas de datos virtuales que la componen). 
 
-La salida que hemos obtenenido es la combinación de los tres resultados en los tres grupos. 
+La salida que hemos obtenido es la combinación de los tres resultados en los tres grupos. 
+
+Como siempre, podemos encadenar la operación de agrupado y otros métodos en una sola línea:
+
+```{python}
+penguins.groupby("species").head(3)
+```
 
 ***
 
@@ -80,13 +86,11 @@ Analicemos paso por paso la última instrucción.
 
 - En las hojas de datos agrupadas también funcionan los mecanismos de selección de variables usando corchetes `[]`. Al escribir `penguins_by_species["body_mass_g"]` hemos seleccionado la variable que da el peso de los pingüinos en la hoja de datos agrupada. Como ocurrió al aplicar la función `head()`, la selección se realiza en cada grupo, así que obtenemos una __variable agrupada__, que imaginamos como tres variables del peso en cada grupo. 
 
-- Después hemos aplicado la función `max()` sobre la variable agrupada `penguins_by_species["body_mass_g"]`, que hace el efecto de calcular el máximo en cada una de las tres variables virtuales que la componen.  La salida que hemos obtenenido es la combinación de los tres resultados en los tres grupos, una tabla con los tres pesos máximos. 
+- Después hemos aplicado la función `max()` sobre la variable agrupada `penguins_by_species["body_mass_g"]`, que hace el efecto de calcular el máximo en cada una de las tres variables virtuales que la componen.  
 
-Como siempre, podemos encadenar la operación de agrupado y otros métodos en una sola línea:
+La salida que hemos obtenido es la combinación de los tres resultados en los tres grupos, una tabla con los tres pesos máximos. 
 
-```{python}
-penguins.groupby("species")["body_mass_g"].max()
-```
+
 
 ***
 
